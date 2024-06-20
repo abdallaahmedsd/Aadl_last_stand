@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.gpAdvnacedSearch = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.gbExpert = new System.Windows.Forms.GroupBox();
             this.cbEnableExpertToDate = new System.Windows.Forms.CheckBox();
             this.cbEnableExpertFromDate = new System.Windows.Forms.CheckBox();
             this.cbEnableExpertIssueDate = new System.Windows.Forms.CheckBox();
@@ -50,7 +50,7 @@
             this.rbtnIsExpertActiveYes = new System.Windows.Forms.RadioButton();
             this.label34 = new System.Windows.Forms.Label();
             this.mtbExpertCreatedByUserName = new myControlLibrary.myCustomControlTextBox();
-            this.gbExperts = new System.Windows.Forms.GroupBox();
+            this.gpJudger = new System.Windows.Forms.GroupBox();
             this.cbEnableJudgerToDate = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
             this.cbEnableJudgerFromDate = new System.Windows.Forms.CheckBox();
@@ -71,7 +71,7 @@
             this.rbtnIsJudgerActiveYes = new System.Windows.Forms.RadioButton();
             this.label27 = new System.Windows.Forms.Label();
             this.mtbJudgerCreatedByUserName = new myControlLibrary.myCustomControlTextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gpSharia = new System.Windows.Forms.GroupBox();
             this.cbEnableShariaToDate = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.cbEnableShariaFromDate = new System.Windows.Forms.CheckBox();
@@ -94,7 +94,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.mtbShariaCreatedByUserName = new myControlLibrary.myCustomControlTextBox();
             this.mtbShariaLicenseNumber = new myControlLibrary.myCustomControlTextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gpRegulator = new System.Windows.Forms.GroupBox();
             this.cbEnableRegulatorToDate = new System.Windows.Forms.CheckBox();
             this.cbEnableRegulatorFromDate = new System.Windows.Forms.CheckBox();
             this.cbEnableRegulatorIssueDate = new System.Windows.Forms.CheckBox();
@@ -135,20 +135,20 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.gpAdvnacedSearch.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.gbExperts.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbExpert.SuspendLayout();
+            this.gpJudger.SuspendLayout();
+            this.gpSharia.SuspendLayout();
+            this.gpRegulator.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbPersonInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // gpAdvnacedSearch
             // 
-            this.gpAdvnacedSearch.Controls.Add(this.groupBox4);
-            this.gpAdvnacedSearch.Controls.Add(this.gbExperts);
-            this.gpAdvnacedSearch.Controls.Add(this.groupBox3);
-            this.gpAdvnacedSearch.Controls.Add(this.groupBox2);
+            this.gpAdvnacedSearch.Controls.Add(this.gbExpert);
+            this.gpAdvnacedSearch.Controls.Add(this.gpJudger);
+            this.gpAdvnacedSearch.Controls.Add(this.gpSharia);
+            this.gpAdvnacedSearch.Controls.Add(this.gpRegulator);
             this.gpAdvnacedSearch.Controls.Add(this.groupBox1);
             this.gpAdvnacedSearch.Controls.Add(this.gbPersonInfo);
             this.gpAdvnacedSearch.Controls.Add(this.button1);
@@ -159,34 +159,34 @@
             this.gpAdvnacedSearch.TabStop = false;
             this.gpAdvnacedSearch.Text = "البحث المتقدم";
             // 
-            // groupBox4
+            // gbExpert
             // 
-            this.groupBox4.Controls.Add(this.cbEnableExpertToDate);
-            this.groupBox4.Controls.Add(this.cbEnableExpertFromDate);
-            this.groupBox4.Controls.Add(this.cbEnableExpertIssueDate);
-            this.groupBox4.Controls.Add(this.label28);
-            this.groupBox4.Controls.Add(this.rbtnIsExpertClosedListNo);
-            this.groupBox4.Controls.Add(this.rbtnIsExpertClosedListYes);
-            this.groupBox4.Controls.Add(this.label29);
-            this.groupBox4.Controls.Add(this.rbtnIsExpertWhiteListNo);
-            this.groupBox4.Controls.Add(this.rbtnIsExpertWhiteListYes);
-            this.groupBox4.Controls.Add(this.dtpExpertIssueDateTo);
-            this.groupBox4.Controls.Add(this.dtpExpertIssueDateFrom);
-            this.groupBox4.Controls.Add(this.label30);
-            this.groupBox4.Controls.Add(this.dtpExpertIssueDate);
-            this.groupBox4.Controls.Add(this.label31);
-            this.groupBox4.Controls.Add(this.label32);
-            this.groupBox4.Controls.Add(this.label33);
-            this.groupBox4.Controls.Add(this.rbtnIsExpertActiveNo);
-            this.groupBox4.Controls.Add(this.rbtnIsExpertActiveYes);
-            this.groupBox4.Controls.Add(this.label34);
-            this.groupBox4.Controls.Add(this.mtbExpertCreatedByUserName);
-            this.groupBox4.Location = new System.Drawing.Point(11, 233);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(336, 458);
-            this.groupBox4.TabIndex = 172;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "محكم";
+            this.gbExpert.Controls.Add(this.cbEnableExpertToDate);
+            this.gbExpert.Controls.Add(this.cbEnableExpertFromDate);
+            this.gbExpert.Controls.Add(this.cbEnableExpertIssueDate);
+            this.gbExpert.Controls.Add(this.label28);
+            this.gbExpert.Controls.Add(this.rbtnIsExpertClosedListNo);
+            this.gbExpert.Controls.Add(this.rbtnIsExpertClosedListYes);
+            this.gbExpert.Controls.Add(this.label29);
+            this.gbExpert.Controls.Add(this.rbtnIsExpertWhiteListNo);
+            this.gbExpert.Controls.Add(this.rbtnIsExpertWhiteListYes);
+            this.gbExpert.Controls.Add(this.dtpExpertIssueDateTo);
+            this.gbExpert.Controls.Add(this.dtpExpertIssueDateFrom);
+            this.gbExpert.Controls.Add(this.label30);
+            this.gbExpert.Controls.Add(this.dtpExpertIssueDate);
+            this.gbExpert.Controls.Add(this.label31);
+            this.gbExpert.Controls.Add(this.label32);
+            this.gbExpert.Controls.Add(this.label33);
+            this.gbExpert.Controls.Add(this.rbtnIsExpertActiveNo);
+            this.gbExpert.Controls.Add(this.rbtnIsExpertActiveYes);
+            this.gbExpert.Controls.Add(this.label34);
+            this.gbExpert.Controls.Add(this.mtbExpertCreatedByUserName);
+            this.gbExpert.Location = new System.Drawing.Point(11, 233);
+            this.gbExpert.Name = "gbExpert";
+            this.gbExpert.Size = new System.Drawing.Size(336, 458);
+            this.gbExpert.TabIndex = 172;
+            this.gbExpert.TabStop = false;
+            this.gbExpert.Text = "خبير";
             // 
             // cbEnableExpertToDate
             // 
@@ -197,6 +197,7 @@
             this.cbEnableExpertToDate.TabIndex = 173;
             this.cbEnableExpertToDate.Tag = "12";
             this.cbEnableExpertToDate.UseVisualStyleBackColor = true;
+            this.cbEnableExpertToDate.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // cbEnableExpertFromDate
             // 
@@ -207,6 +208,7 @@
             this.cbEnableExpertFromDate.TabIndex = 172;
             this.cbEnableExpertFromDate.Tag = "11";
             this.cbEnableExpertFromDate.UseVisualStyleBackColor = true;
+            this.cbEnableExpertFromDate.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // cbEnableExpertIssueDate
             // 
@@ -217,6 +219,7 @@
             this.cbEnableExpertIssueDate.TabIndex = 171;
             this.cbEnableExpertIssueDate.Tag = "10";
             this.cbEnableExpertIssueDate.UseVisualStyleBackColor = true;
+            this.cbEnableExpertIssueDate.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // label28
             // 
@@ -387,34 +390,34 @@
             this.mtbExpertCreatedByUserName.Size = new System.Drawing.Size(178, 20);
             this.mtbExpertCreatedByUserName.TabIndex = 155;
             // 
-            // gbExperts
+            // gpJudger
             // 
-            this.gbExperts.Controls.Add(this.cbEnableJudgerToDate);
-            this.gbExperts.Controls.Add(this.label21);
-            this.gbExperts.Controls.Add(this.cbEnableJudgerFromDate);
-            this.gbExperts.Controls.Add(this.cbEnableJudgerIssueDate);
-            this.gbExperts.Controls.Add(this.rbtnIsJudgerClosedListNo);
-            this.gbExperts.Controls.Add(this.rbtnIsJudgerClosedListYes);
-            this.gbExperts.Controls.Add(this.label22);
-            this.gbExperts.Controls.Add(this.rbtnIsJudgerWhiteListNo);
-            this.gbExperts.Controls.Add(this.rbtnIsJudgerWhiteListYes);
-            this.gbExperts.Controls.Add(this.dtpJudgerIssueDateTo);
-            this.gbExperts.Controls.Add(this.dtpJudgerIssueDateFrom);
-            this.gbExperts.Controls.Add(this.label23);
-            this.gbExperts.Controls.Add(this.dtpJudgerIssueDate);
-            this.gbExperts.Controls.Add(this.label24);
-            this.gbExperts.Controls.Add(this.label25);
-            this.gbExperts.Controls.Add(this.label26);
-            this.gbExperts.Controls.Add(this.rbtnIsJudgerActiveNo);
-            this.gbExperts.Controls.Add(this.rbtnIsJudgerActiveYes);
-            this.gbExperts.Controls.Add(this.label27);
-            this.gbExperts.Controls.Add(this.mtbJudgerCreatedByUserName);
-            this.gbExperts.Location = new System.Drawing.Point(369, 233);
-            this.gbExperts.Name = "gbExperts";
-            this.gbExperts.Size = new System.Drawing.Size(336, 458);
-            this.gbExperts.TabIndex = 171;
-            this.gbExperts.TabStop = false;
-            this.gbExperts.Text = "خبير";
+            this.gpJudger.Controls.Add(this.cbEnableJudgerToDate);
+            this.gpJudger.Controls.Add(this.label21);
+            this.gpJudger.Controls.Add(this.cbEnableJudgerFromDate);
+            this.gpJudger.Controls.Add(this.cbEnableJudgerIssueDate);
+            this.gpJudger.Controls.Add(this.rbtnIsJudgerClosedListNo);
+            this.gpJudger.Controls.Add(this.rbtnIsJudgerClosedListYes);
+            this.gpJudger.Controls.Add(this.label22);
+            this.gpJudger.Controls.Add(this.rbtnIsJudgerWhiteListNo);
+            this.gpJudger.Controls.Add(this.rbtnIsJudgerWhiteListYes);
+            this.gpJudger.Controls.Add(this.dtpJudgerIssueDateTo);
+            this.gpJudger.Controls.Add(this.dtpJudgerIssueDateFrom);
+            this.gpJudger.Controls.Add(this.label23);
+            this.gpJudger.Controls.Add(this.dtpJudgerIssueDate);
+            this.gpJudger.Controls.Add(this.label24);
+            this.gpJudger.Controls.Add(this.label25);
+            this.gpJudger.Controls.Add(this.label26);
+            this.gpJudger.Controls.Add(this.rbtnIsJudgerActiveNo);
+            this.gpJudger.Controls.Add(this.rbtnIsJudgerActiveYes);
+            this.gpJudger.Controls.Add(this.label27);
+            this.gpJudger.Controls.Add(this.mtbJudgerCreatedByUserName);
+            this.gpJudger.Location = new System.Drawing.Point(369, 233);
+            this.gpJudger.Name = "gpJudger";
+            this.gpJudger.Size = new System.Drawing.Size(336, 458);
+            this.gpJudger.TabIndex = 171;
+            this.gpJudger.TabStop = false;
+            this.gpJudger.Text = "محكم";
             // 
             // cbEnableJudgerToDate
             // 
@@ -425,6 +428,7 @@
             this.cbEnableJudgerToDate.TabIndex = 173;
             this.cbEnableJudgerToDate.Tag = "9";
             this.cbEnableJudgerToDate.UseVisualStyleBackColor = true;
+            this.cbEnableJudgerToDate.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // label21
             // 
@@ -445,6 +449,7 @@
             this.cbEnableJudgerFromDate.TabIndex = 172;
             this.cbEnableJudgerFromDate.Tag = "8";
             this.cbEnableJudgerFromDate.UseVisualStyleBackColor = true;
+            this.cbEnableJudgerFromDate.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // cbEnableJudgerIssueDate
             // 
@@ -455,6 +460,7 @@
             this.cbEnableJudgerIssueDate.TabIndex = 171;
             this.cbEnableJudgerIssueDate.Tag = "7";
             this.cbEnableJudgerIssueDate.UseVisualStyleBackColor = true;
+            this.cbEnableJudgerIssueDate.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
             // rbtnIsJudgerClosedListNo
             // 
@@ -615,36 +621,36 @@
             this.mtbJudgerCreatedByUserName.Size = new System.Drawing.Size(178, 20);
             this.mtbJudgerCreatedByUserName.TabIndex = 155;
             // 
-            // groupBox3
+            // gpSharia
             // 
-            this.groupBox3.Controls.Add(this.cbEnableShariaToDate);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.cbEnableShariaFromDate);
-            this.groupBox3.Controls.Add(this.cbEnableShariaIssueDate);
-            this.groupBox3.Controls.Add(this.rbtnIsShariaClosedListNo);
-            this.groupBox3.Controls.Add(this.rbtnIsShariaClosedListYes);
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.rbtnIsShariaWhiteListNo);
-            this.groupBox3.Controls.Add(this.rbtnIsShariaWhiteListYes);
-            this.groupBox3.Controls.Add(this.dtpShariaIssueDateTo);
-            this.groupBox3.Controls.Add(this.dtpShariaIssueDateFrom);
-            this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.dtpShariaIssueDate);
-            this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.rbtnIsShariaActiveNo);
-            this.groupBox3.Controls.Add(this.rbtnIsShariaActiveYes);
-            this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.mtbShariaCreatedByUserName);
-            this.groupBox3.Controls.Add(this.mtbShariaLicenseNumber);
-            this.groupBox3.Location = new System.Drawing.Point(722, 233);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(336, 458);
-            this.groupBox3.TabIndex = 152;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "محامي شرعي";
+            this.gpSharia.Controls.Add(this.cbEnableShariaToDate);
+            this.gpSharia.Controls.Add(this.label13);
+            this.gpSharia.Controls.Add(this.cbEnableShariaFromDate);
+            this.gpSharia.Controls.Add(this.cbEnableShariaIssueDate);
+            this.gpSharia.Controls.Add(this.rbtnIsShariaClosedListNo);
+            this.gpSharia.Controls.Add(this.rbtnIsShariaClosedListYes);
+            this.gpSharia.Controls.Add(this.label14);
+            this.gpSharia.Controls.Add(this.rbtnIsShariaWhiteListNo);
+            this.gpSharia.Controls.Add(this.rbtnIsShariaWhiteListYes);
+            this.gpSharia.Controls.Add(this.dtpShariaIssueDateTo);
+            this.gpSharia.Controls.Add(this.dtpShariaIssueDateFrom);
+            this.gpSharia.Controls.Add(this.label15);
+            this.gpSharia.Controls.Add(this.dtpShariaIssueDate);
+            this.gpSharia.Controls.Add(this.label16);
+            this.gpSharia.Controls.Add(this.label17);
+            this.gpSharia.Controls.Add(this.label18);
+            this.gpSharia.Controls.Add(this.rbtnIsShariaActiveNo);
+            this.gpSharia.Controls.Add(this.rbtnIsShariaActiveYes);
+            this.gpSharia.Controls.Add(this.label19);
+            this.gpSharia.Controls.Add(this.label20);
+            this.gpSharia.Controls.Add(this.mtbShariaCreatedByUserName);
+            this.gpSharia.Controls.Add(this.mtbShariaLicenseNumber);
+            this.gpSharia.Location = new System.Drawing.Point(722, 233);
+            this.gpSharia.Name = "gpSharia";
+            this.gpSharia.Size = new System.Drawing.Size(336, 458);
+            this.gpSharia.TabIndex = 152;
+            this.gpSharia.TabStop = false;
+            this.gpSharia.Text = "محامي شرعي";
             // 
             // cbEnableShariaToDate
             // 
@@ -864,36 +870,37 @@
             this.mtbShariaLicenseNumber.Size = new System.Drawing.Size(178, 20);
             this.mtbShariaLicenseNumber.TabIndex = 154;
             // 
-            // groupBox2
+            // gpRegulator
             // 
-            this.groupBox2.Controls.Add(this.cbEnableRegulatorToDate);
-            this.groupBox2.Controls.Add(this.cbEnableRegulatorFromDate);
-            this.groupBox2.Controls.Add(this.cbEnableRegulatorIssueDate);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.rbtnIsRegulatorClosedListNo);
-            this.groupBox2.Controls.Add(this.rbtnIsRegulatorClosedListYes);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.rbtnIsRegulatorWhiteListNo);
-            this.groupBox2.Controls.Add(this.rbtnIsRegulatorWhiteListYes);
-            this.groupBox2.Controls.Add(this.dtpRegulatorIssueDateTo);
-            this.groupBox2.Controls.Add(this.dtpRegulatorIssueDateFrom);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.dtpRegulatorIssueDate);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.rbtnIsRegulatorActiveNo);
-            this.groupBox2.Controls.Add(this.rbtnIsRegulatorActiveYes);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.mtbRegulatorCreatedByUserName);
-            this.groupBox2.Controls.Add(this.mtbMemberShipNumber);
-            this.groupBox2.Location = new System.Drawing.Point(1075, 233);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(336, 458);
-            this.groupBox2.TabIndex = 138;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "محامي نظامي";
+            this.gpRegulator.Controls.Add(this.cbEnableRegulatorToDate);
+            this.gpRegulator.Controls.Add(this.cbEnableRegulatorFromDate);
+            this.gpRegulator.Controls.Add(this.cbEnableRegulatorIssueDate);
+            this.gpRegulator.Controls.Add(this.label12);
+            this.gpRegulator.Controls.Add(this.rbtnIsRegulatorClosedListNo);
+            this.gpRegulator.Controls.Add(this.rbtnIsRegulatorClosedListYes);
+            this.gpRegulator.Controls.Add(this.label11);
+            this.gpRegulator.Controls.Add(this.rbtnIsRegulatorWhiteListNo);
+            this.gpRegulator.Controls.Add(this.rbtnIsRegulatorWhiteListYes);
+            this.gpRegulator.Controls.Add(this.dtpRegulatorIssueDateTo);
+            this.gpRegulator.Controls.Add(this.dtpRegulatorIssueDateFrom);
+            this.gpRegulator.Controls.Add(this.label10);
+            this.gpRegulator.Controls.Add(this.dtpRegulatorIssueDate);
+            this.gpRegulator.Controls.Add(this.label9);
+            this.gpRegulator.Controls.Add(this.label8);
+            this.gpRegulator.Controls.Add(this.label5);
+            this.gpRegulator.Controls.Add(this.rbtnIsRegulatorActiveNo);
+            this.gpRegulator.Controls.Add(this.rbtnIsRegulatorActiveYes);
+            this.gpRegulator.Controls.Add(this.label3);
+            this.gpRegulator.Controls.Add(this.label4);
+            this.gpRegulator.Controls.Add(this.mtbRegulatorCreatedByUserName);
+            this.gpRegulator.Controls.Add(this.mtbMemberShipNumber);
+            this.gpRegulator.Location = new System.Drawing.Point(1075, 233);
+            this.gpRegulator.Name = "gpRegulator";
+            this.gpRegulator.Size = new System.Drawing.Size(336, 458);
+            this.gpRegulator.TabIndex = 138;
+            this.gpRegulator.TabStop = false;
+            this.gpRegulator.Text = "محامي نظامي";
+            this.gpRegulator.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // cbEnableRegulatorToDate
             // 
@@ -1310,14 +1317,14 @@
             this.Text = "البحث المتقدم";
             this.Load += new System.EventHandler(this.frmAdvancedSearch_Load);
             this.gpAdvnacedSearch.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.gbExperts.ResumeLayout(false);
-            this.gbExperts.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbExpert.ResumeLayout(false);
+            this.gbExpert.PerformLayout();
+            this.gpJudger.ResumeLayout(false);
+            this.gpJudger.PerformLayout();
+            this.gpSharia.ResumeLayout(false);
+            this.gpSharia.PerformLayout();
+            this.gpRegulator.ResumeLayout(false);
+            this.gpRegulator.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gbPersonInfo.ResumeLayout(false);
@@ -1339,7 +1346,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gpRegulator;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RadioButton rbtnIsRegulatorActiveNo;
         private System.Windows.Forms.RadioButton rbtnIsRegulatorActiveYes;
@@ -1355,14 +1362,14 @@
         private System.Windows.Forms.DateTimePicker dtpRegulatorIssueDate;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gpSharia;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.RadioButton rbtnIsRegulatorClosedListNo;
         private System.Windows.Forms.RadioButton rbtnIsRegulatorClosedListYes;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.RadioButton rbtnIsRegulatorWhiteListNo;
         private System.Windows.Forms.RadioButton rbtnIsRegulatorWhiteListYes;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox gbExpert;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.RadioButton rbtnIsExpertClosedListNo;
         private System.Windows.Forms.RadioButton rbtnIsExpertClosedListYes;
@@ -1380,7 +1387,7 @@
         private System.Windows.Forms.RadioButton rbtnIsExpertActiveYes;
         private System.Windows.Forms.Label label34;
         private myControlLibrary.myCustomControlTextBox mtbExpertCreatedByUserName;
-        private System.Windows.Forms.GroupBox gbExperts;
+        private System.Windows.Forms.GroupBox gpJudger;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.RadioButton rbtnIsJudgerClosedListNo;
         private System.Windows.Forms.RadioButton rbtnIsJudgerClosedListYes;

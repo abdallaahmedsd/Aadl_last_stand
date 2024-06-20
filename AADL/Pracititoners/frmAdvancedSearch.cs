@@ -23,8 +23,39 @@ namespace AADL.Pracititoners
         public delegate void MyDelegate(AdvancedSearchPractitionerProperties PractitionerProperties);
         public MyDelegate SelectedPractitionerProperties; // Declare a delegate variable
 
-        //public Func<clsHelperClasses.AdvancedSearchPractitionerProperties> SelectedPractitionerProperties;
 
+        private Dictionary<DateTimePicker, CheckBox> _dateTimePickerCheckBoxPairs;
+
+        private void InitializeDateTimePickerCheckBoxPairs()
+        {
+
+            _dateTimePickerCheckBoxPairs = new Dictionary<DateTimePicker, CheckBox>
+            {
+            { dtpRegulatorIssueDate, cbEnableRegulatorIssueDate },
+            { dtpRegulatorIssueDateFrom, cbEnableRegulatorFromDate },
+            { dtpRegulatorIssueDateTo, cbEnableRegulatorToDate },
+            { dtpShariaIssueDate, cbEnableShariaIssueDate },
+            { dtpShariaIssueDateFrom, cbEnableShariaFromDate },
+            { dtpShariaIssueDateTo, cbEnableShariaToDate },
+            { dtpJudgerIssueDate, cbEnableJudgerIssueDate },
+            { dtpJudgerIssueDateFrom, cbEnableJudgerFromDate },
+            { dtpJudgerIssueDateTo, cbEnableJudgerToDate },
+            { dtpExpertIssueDate, cbEnableExpertIssueDate },
+            { dtpExpertIssueDateFrom, cbEnableExpertFromDate },
+            { dtpExpertIssueDateTo, cbEnableExpertToDate }
+            };
+
+            foreach (KeyValuePair<DateTimePicker, CheckBox> dateTimePickerCheckBoxControlPair in _dateTimePickerCheckBoxPairs)
+            {
+                dateTimePickerCheckBoxControlPair.Key.Tag = 0;
+                dateTimePickerCheckBoxControlPair.Key.CustomFormat = " ";
+                dateTimePickerCheckBoxControlPair.Key.Format = DateTimePickerFormat.Custom;
+                dateTimePickerCheckBoxControlPair.Key.ValueChanged += dateTimePicker_ValueChanged;
+                dateTimePickerCheckBoxControlPair.Value.CheckedChanged += checkBox_CheckedChanged;
+
+            }
+
+        }
         public frmAdvancedSearch()
         {
             InitializeComponent();
@@ -41,7 +72,7 @@ namespace AADL.Pracititoners
         {
             if (sender is CheckBox checkBox)
             {
-
+                
                 switch (Convert.ToInt32(checkBox.Tag))
                 {
 
@@ -88,60 +119,172 @@ namespace AADL.Pracititoners
                             dtpShariaIssueDateTo.CustomFormat = " ";
                             break;
                         }
+                  
+                    case 7:
+                        {
+
+                            dtpJudgerIssueDate.Tag = 0;
+                            dtpJudgerIssueDate.CustomFormat = " ";
+                            break;
+                        }
+
+                    case 8:
+                        {
+                            dtpJudgerIssueDateFrom.Tag = 0;
+                            dtpJudgerIssueDateFrom.CustomFormat = " ";
+                            break;
+                        }
+
+                    case 9:
+                        {
+                            dtpJudgerIssueDateTo.Tag = 0;
+                            dtpJudgerIssueDateTo.CustomFormat = " ";
+                            break;
+                        }
+
+                    case 10:
+                        {
+
+                            dtpExpertIssueDate.Tag = 0;
+                            dtpExpertIssueDate.CustomFormat = " ";
+                            break;
+                        }
+
+                    case 11:
+                        {
+                            dtpExpertIssueDateFrom.Tag = 0;
+                            dtpExpertIssueDateFrom.CustomFormat = " ";
+                            break;
+                        }
+
+                    case 12:
+                        {
+                            dtpExpertIssueDateTo.Tag = 0;
+                            dtpExpertIssueDateTo.CustomFormat = " ";
+                            break;
+                        }
 
                 }
 
             }
         }
+
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            if (cbEnableRegulatorIssueDate.Checked == false && (DateTimePicker)sender == dtpRegulatorIssueDate)
+
+            DateTimePicker dateTimePickerControl= (DateTimePicker)sender;
+            if(_dateTimePickerCheckBoxPairs.TryGetValue(dateTimePickerControl, out CheckBox checkBoxControl) && !checkBoxControl.Checked)
             {
-                //you need to extend it to all controls.
-                dtpRegulatorIssueDate.Tag = 1;
+                dateTimePickerControl.Tag = 1;
+
                 dtpRegulatorIssueDate.CustomFormat = "dd/MM/yyyy";
 
-            }
-            else if (cbEnableRegulatorFromDate.Checked == false && (DateTimePicker)sender == dtpRegulatorIssueDateFrom)
-            {
-                //you need to extend it to all controls.
-                dtpRegulatorIssueDateFrom.Tag = 1;
-                dtpRegulatorIssueDateFrom.CustomFormat = "dd/MM/yyyy";
-
-            }
-            else if (cbEnableRegulatorToDate.Checked == false && (DateTimePicker)sender == dtpRegulatorIssueDateTo)
-            {
-                //you need to extend it to all controls.
-                dtpRegulatorIssueDateTo.Tag = 1;
-                dtpRegulatorIssueDateTo.CustomFormat = "dd/MM/yyyy";
 
             }
 
 
+
+
+            ////Regulatory
+            //if (cbEnableRegulatorIssueDate.Checked == false && (DateTimePicker)sender == dtpRegulatorIssueDate)
+            //{
+            //    //you need to extend it to all controls.
+            //    dtpRegulatorIssueDate.Tag = 1;
+            //    dtpRegulatorIssueDate.CustomFormat = "dd/MM/yyyy";
+
+            //}
+            //if (cbEnableRegulatorFromDate.Checked == false && (DateTimePicker)sender == dtpRegulatorIssueDateFrom)
+            //{
+            //    //you need to extend it to all controls.
+            //    dtpRegulatorIssueDateFrom.Tag = 1;
+            //    dtpRegulatorIssueDateFrom.CustomFormat = "dd/MM/yyyy";
+
+            //}
+            //if (cbEnableRegulatorToDate.Checked == false && (DateTimePicker)sender == dtpRegulatorIssueDateTo)
+            //{
+            //    //you need to extend it to all controls.
+            //    dtpRegulatorIssueDateTo.Tag = 1;
+            //    dtpRegulatorIssueDateTo.CustomFormat = "dd/MM/yyyy";
+
+            //}
+
+            ////Sharia
+
+            //if (cbEnableShariaIssueDate.Checked == false && (DateTimePicker)sender == dtpShariaIssueDate)
+            //{
+            //    //you need to extend it to all controls.
+            //    dtpShariaIssueDate.Tag = 1;
+            //    dtpShariaIssueDate.CustomFormat = "dd/MM/yyyy";
+
+            //}
+            //if (cbEnableShariaFromDate.Checked == false && (DateTimePicker)sender == dtpShariaIssueDateFrom)
+            //{
+            //    //you need to extend it to all controls.
+            //    dtpShariaIssueDateFrom.Tag = 1;
+            //    dtpShariaIssueDateFrom.CustomFormat = "dd/MM/yyyy";
+
+            //}
+            //if (cbEnableShariaToDate.Checked == false && (DateTimePicker)sender == dtpShariaIssueDateTo)
+            //{
+            //    //you need to extend it to all controls.
+            //    dtpShariaIssueDateTo.Tag = 1;
+            //    dtpShariaIssueDateTo.CustomFormat = "dd/MM/yyyy";
+
+            //}
+
+            ////Judger
+            //if (cbEnableJudgerIssueDate.Checked == false && (DateTimePicker)sender == dtpJudgerIssueDate)
+            //{
+            //    //you need to extend it to all controls.
+            //    dtpJudgerIssueDate.Tag = 1;
+            //    dtpJudgerIssueDate.CustomFormat = "dd/MM/yyyy";
+
+            //}  
+            //if (cbEnableJudgerFromDate.Checked == false && (DateTimePicker)sender == dtpJudgerIssueDateFrom)
+            //{
+            //    //you need to extend it to all controls.
+            //    dtpJudgerIssueDateFrom.Tag = 1;
+            //    dtpJudgerIssueDateFrom.CustomFormat = "dd/MM/yyyy";
+
+            //}   
+            //if (cbEnableJudgerToDate.Checked == false && (DateTimePicker)sender == dtpJudgerIssueDateTo)
+            //{
+            //    //you need to extend it to all controls.
+            //    dtpJudgerIssueDateTo.Tag = 1;
+            //    dtpJudgerIssueDateTo.CustomFormat = "dd/MM/yyyy";
+
+            //}
+
+            ////Expert
+            //if (cbEnableExpertIssueDate.Checked == false && (DateTimePicker)sender == dtpExpertIssueDate)
+            //{
+            //    //you need to extend it to all controls.
+            //    dtpExpertIssueDate.Tag = 1;
+            //    dtpExpertIssueDate.CustomFormat = "dd/MM/yyyy";
+
+            //}     
+            //if (cbEnableExpertFromDate.Checked == false && (DateTimePicker)sender == dtpExpertIssueDateFrom)
+            //{
+            //    //you need to extend it to all controls.
+            //    dtpExpertIssueDateFrom.Tag = 1;
+            //    dtpExpertIssueDateFrom.CustomFormat = "dd/MM/yyyy";
+
+            //}    
+            //if (cbEnableExpertToDate.Checked == false && (DateTimePicker)sender == dtpExpertIssueDateTo)
+            //{
+            //    //you need to extend it to all controls.
+            //    dtpExpertIssueDateTo.Tag = 1;
+            //    dtpExpertIssueDateTo.CustomFormat = "dd/MM/yyyy";
+
+            //}
+   
         }
         private void ResetValuesToDefault()
         {
 
             _loadSubscriptionTypes();
             _loadSubscriptionWays();
-
-            InitializeDateTimePicker(dtpRegulatorIssueDate, cbEnableRegulatorIssueDate);
-            InitializeDateTimePicker(dtpRegulatorIssueDateFrom, cbEnableRegulatorFromDate);
-            InitializeDateTimePicker(dtpRegulatorIssueDateTo, cbEnableRegulatorToDate);
-
-            InitializeDateTimePicker(dtpShariaIssueDate, cbEnableShariaIssueDate);
-            InitializeDateTimePicker(dtpShariaIssueDateFrom, cbEnableShariaFromDate);
-            InitializeDateTimePicker(dtpShariaIssueDateTo, cbEnableShariaToDate);
-
-            InitializeDateTimePicker(dtpJudgerIssueDateTo, cbEnableJudgerToDate);
-            InitializeDateTimePicker(dtpJudgerIssueDateFrom, cbEnableJudgerFromDate);
-            InitializeDateTimePicker(dtpJudgerIssueDate, cbEnableJudgerIssueDate);
-            InitializeDateTimePicker(dtpExpertIssueDateTo, cbEnableExpertToDate);
-            InitializeDateTimePicker(dtpExpertIssueDateFrom, cbEnableExpertFromDate);
-            InitializeDateTimePicker(dtpExpertIssueDate, cbEnableExpertIssueDate);
-
-
-
+            InitializeDateTimePickerCheckBoxPairs();
         }
         private void frmAdvancedSearch_Load(object sender, EventArgs e)
         {
@@ -212,6 +355,7 @@ namespace AADL.Pracititoners
 
                         break;
                     }
+         
                 case clsPractitioner.enPractitionerType.Judger:
                     {
 
@@ -466,18 +610,24 @@ namespace AADL.Pracititoners
         {
 
             _advancedSearchPractitionerProperties.IsJudgerActive = IsPractitionerActive(clsPractitioner.enPractitionerType.Judger);
-            _advancedSearchPractitionerProperties.JudgerIssueDate = (int)dtpShariaIssueDate.Tag == 0 ? (DateTime?)null : dtpJudgerIssueDate.Value.Date;
-            _advancedSearchPractitionerProperties.JudgerIssueDateFrom = (int)dtpShariaIssueDateFrom.Tag == 0 ? (DateTime?)null : dtpJudgerIssueDateFrom.Value.Date;
-            _advancedSearchPractitionerProperties.JudgerIssueDateTo = (int)dtpShariaIssueDateTo.Tag == 0 ? (DateTime?)null : dtpJudgerIssueDateTo.Value.Date;
-            _advancedSearchPractitionerProperties.JudgerCreatedByUserName = string.IsNullOrWhiteSpace(mtbJudgerCreatedByUserName.Text) ?
-                "" : mtbJudgerCreatedByUserName.Text;
-            _advancedSearchPractitionerProperties.IsJudgerInWhiteList = IsPractitionerInList(clsList.enListType.ShariaWhite);
-            _advancedSearchPractitionerProperties.IsJudgerInClosedList = IsPractitionerInList(clsList.enListType.ShariaClosed);
-
+            _advancedSearchPractitionerProperties.JudgerIssueDate = (int)dtpJudgerIssueDate.Tag == 0 ? (DateTime?)null : dtpJudgerIssueDate.Value.Date;
+            _advancedSearchPractitionerProperties.JudgerIssueDateFrom = (int)dtpJudgerIssueDateFrom.Tag == 0 ? (DateTime?)null : dtpJudgerIssueDateFrom.Value.Date;
+            _advancedSearchPractitionerProperties.JudgerIssueDateTo = (int)dtpJudgerIssueDateTo.Tag == 0 ? (DateTime?)null : dtpJudgerIssueDateTo.Value.Date;
+            _advancedSearchPractitionerProperties.JudgerCreatedByUserName = string.IsNullOrWhiteSpace(mtbJudgerCreatedByUserName.Text) ?"" : mtbJudgerCreatedByUserName.Text;
+            _advancedSearchPractitionerProperties.IsJudgerInWhiteList = IsPractitionerInList(clsList.enListType.JudgerWhite);
+            _advancedSearchPractitionerProperties.IsJudgerInClosedList = IsPractitionerInList(clsList.enListType.JudgerClosed);
         }
         private void AssignExpertInfo()
+
         {
 
+            _advancedSearchPractitionerProperties.IsExpertActive = IsPractitionerActive(clsPractitioner.enPractitionerType.Expert);
+            _advancedSearchPractitionerProperties.ExpertIssueDate = (int)dtpExpertIssueDate.Tag == 0 ? (DateTime?)null : dtpExpertIssueDate.Value.Date;
+            _advancedSearchPractitionerProperties.ExpertIssueDateFrom = (int)dtpExpertIssueDateFrom.Tag == 0 ? (DateTime?)null : dtpExpertIssueDateFrom.Value.Date;
+            _advancedSearchPractitionerProperties.ExpertIssueDateTo = (int)dtpExpertIssueDateTo.Tag == 0 ? (DateTime?)null : dtpExpertIssueDateTo.Value.Date;
+            _advancedSearchPractitionerProperties.ExpertCreatedByUserName = string.IsNullOrWhiteSpace(mtbExpertCreatedByUserName.Text) ? "" : mtbExpertCreatedByUserName.Text;
+            _advancedSearchPractitionerProperties.IsExpertInWhiteList = IsPractitionerInList(clsList.enListType.ExpertWhite);
+            _advancedSearchPractitionerProperties.IsExpertInClosedList = IsPractitionerInList(clsList.enListType.ExpertClosed);
         }
         private int? GetSubscriptionTypeID()
         {
@@ -502,22 +652,19 @@ namespace AADL.Pracititoners
 
         }
 
-        private AdvancedSearchPractitionerProperties GetQueryProperties()
+        private void MakeQueryProperties()
         {
             AssignPersonalInfo();
             AssignPractitionerInfo();
             AssignRegulatorInfo();
             AssignShariaInfo();
-            bool? IsExpertActive = IsPractitionerActive(clsPractitioner.enPractitionerType.Expert);
-            bool? IsJudgerActive = IsPractitionerActive(clsPractitioner.enPractitionerType.Judger);
 
-
-            return _advancedSearchPractitionerProperties;
 
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            AdvancedSearchPractitionerProperties practitionerProperties = GetQueryProperties();
+            MakeQueryProperties();
+            AdvancedSearchPractitionerProperties practitionerProperties = _advancedSearchPractitionerProperties;
             // Check if there's a delegate assigned
             if (SelectedPractitionerProperties != null)
             {
@@ -529,6 +676,11 @@ namespace AADL.Pracititoners
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

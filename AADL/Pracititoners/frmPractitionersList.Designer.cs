@@ -143,6 +143,7 @@
             this.dgvPractitioners.AllowUserToDeleteRows = false;
             this.dgvPractitioners.AllowUserToResizeRows = false;
             this.dgvPractitioners.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPractitioners.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvPractitioners.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -152,7 +153,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvPractitioners.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvPractitioners.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPractitioners.ColumnHeadersHeight = 40;
             this.dgvPractitioners.ContextMenuStrip = this.contextMenuStrip1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -162,10 +163,9 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPractitioners.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvPractitioners.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvPractitioners.GridColor = System.Drawing.Color.DarkGray;
             this.dgvPractitioners.Location = new System.Drawing.Point(49, 288);
             this.dgvPractitioners.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dgvPractitioners.MultiSelect = false;
             this.dgvPractitioners.Name = "dgvPractitioners";
             this.dgvPractitioners.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -178,8 +178,8 @@
             this.dgvPractitioners.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPractitioners.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPractitioners.Size = new System.Drawing.Size(1800, 700);
+            this.dgvPractitioners.StandardTab = true;
             this.dgvPractitioners.TabIndex = 114;
-            this.dgvPractitioners.TabStop = false;
             // 
             // contextMenuStrip1
             // 
@@ -351,7 +351,7 @@
             this.Controls.Add(this.dgvPractitioners);
             this.Controls.Add(this.pbPersonImage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPractitionersList";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;

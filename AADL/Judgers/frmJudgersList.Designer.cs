@@ -79,6 +79,7 @@
             this.dgvJudgers.Name = "dgvJudgers";
             this.dgvJudgers.ReadOnly = true;
             this.dgvJudgers.RowTemplate.Height = 25;
+            this.dgvJudgers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvJudgers.StandardTab = true;
             this.dgvJudgers.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvJudgers_CellContentDoubleClick);
             this.dgvJudgers.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvJudgers_CellMouseDown);

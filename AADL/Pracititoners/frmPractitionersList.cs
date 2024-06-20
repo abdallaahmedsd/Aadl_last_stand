@@ -32,25 +32,39 @@ namespace AADL.Regulators
         {
             if (dgvPractitioners.Rows.Count > 0)
             {
-                dgvPractitioners.Columns[0].Width = 110;
-                dgvPractitioners.Columns[1].Width = 200;
-                dgvPractitioners.Columns[2].Width = 130;
-                dgvPractitioners.Columns[3].Width = 160;
-                dgvPractitioners.Columns[4].Width = 150;
-                dgvPractitioners.Columns[5].Width = 120;
-                dgvPractitioners.Columns[6].Width = 130;
-                dgvPractitioners.Columns[7].Width = 130;
-                dgvPractitioners.Columns[8].Width = 130;
-                dgvPractitioners.Columns[9].Width = 130;
-                dgvPractitioners.Columns[10].Width = 170;
-                dgvPractitioners.Columns[11].Width = 220;
-                dgvPractitioners.Columns[12].Width = 220;
-                dgvPractitioners.Columns[13].Width = 220;
-                dgvPractitioners.Columns[14].Width = 170;
-                dgvPractitioners.Columns[15].Width = 170;
-                dgvPractitioners.Columns[16].Width = 170;
-                dgvPractitioners.Columns[17].Width = 170;
-                dgvPractitioners.Columns[18].Width = 170;
+                dgvPractitioners.Columns["الرقم التعريفي"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+                dgvPractitioners.Columns["الاسم الكامل"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["الهاتف"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["البريد الالكتروني"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["محامي"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["نوع الاشتراك"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["طريقة الاشتراك"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["رقم العضوية"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["الاجازة الشرعية"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["نظامي فعال"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["شرعي فعال"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["محكم فعال"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["خبير فعال"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["قام بأنشاء الملف النظامي"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["قام بأنشاء الملف الشرعي"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["قام بأنشاء ملف المحكم"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["قام بأنشاء ملف الخبير"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["تاريخ انشاء الملف للنظامي"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["تاريخ انشاء الملف للشرعي"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["تاريخ انشاء الملف للمحكم"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["تاريخ انشاء الملف للخبير"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["القائمة السوداء"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["القائمة البيضاء للنظامين"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["القائمة المغلقة للنظامين"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["القائمة البيضاء للشرعين"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["القائمة المغلقة للشرعين"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["القائمة البيضاء للمحكمين"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["القائمة المغلقة للمحكمين"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["القائمة البيضاء للخبراء"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvPractitioners.Columns["القائمة المغلقة للخبراء"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+
             }
         }
 

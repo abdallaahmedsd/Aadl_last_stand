@@ -13,6 +13,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using AADL.Judgers;
+using AADLBusiness.Judger;
+using AADL.Judgers.Controls;
 namespace AADL
 {
     public partial class frmLaunch : Form
@@ -90,107 +93,30 @@ namespace AADL
             regulatorsList.ShowDialog();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+
+        private void button6_Click_1(object sender, EventArgs e)
         {
-            int practitionerID = 12
-                , RegulatorID = 62, PersonID = 1082,
-                LawyerID = 1038;
-            string MemberShip = "84651377";
+            string input = Microsoft.VisualBasic.Interaction.InputBox("Enter an PractitionerID:", "Input", "");
 
-
-
-            if (clsRegulator.IsRegulatorExist(practitionerID, clsRegulator.enSearchBy.PractitionerID)){
-                MessageBox.Show("I found it by practitionerID ID");
+            if (!string.IsNullOrEmpty(input) && int.TryParse(input, out int intValue))
+            {
+                // Valid integer input
+                frmJudgerCard frmJudgerCard = new frmJudgerCard(intValue,ctrJudgerCard.enWhichID.JudgerID);
+                frmJudgerCard.ShowDialog();
             }
             else
             {
-                MessageBox.Show("I couldn't found it with practitionerID", "FAiled",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                // Display error if input is empty or not a valid integer
+                MessageBox.Show("Please enter a valid integer.");
             }
-
-            if (clsRegulator.IsRegulatorExist(RegulatorID, clsRegulator.enSearchBy.RegulatorID))
-            {
-                MessageBox.Show("I found it by regulator ID");
-            }
-            else
-            {
-                MessageBox.Show("I couldn't found it with regulatorID", "FAiled", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if (clsRegulator.IsRegulatorExist(PersonID, clsRegulator.enSearchBy.PersonID))
-            {
-                MessageBox.Show("I found it by PersonID ID");
-            }
-            else
-            {
-                MessageBox.Show("I couldn't found it with PersonID", "FAiled", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
-            if (clsRegulator.IsRegulatorExist(MemberShip, clsRegulator.enSearchBy.MemberShipNumber))
-            {
-                MessageBox.Show("I found it by MemberShip ID");
-            }
-            else
-            {
-                MessageBox.Show("I couldn't found it with MemberShip", "FAiled", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
+            
         }
 
         private void button7_Click(object sender, EventArgs e)
-
         {
-            int practitionerID = 15
-                , ShariaID = 61, PersonID = 1079,
-                LawyerID = 37;
-            string ShariaLicenseNumber = "1414";
+            frmJudgersList frmJudgersList = new frmJudgersList();
 
-
-
-            //if (clsSharia.IsShariaExist(practitionerID, clsSharia.enSearchBy.PractitionerID))
-            //{
-            //    MessageBox.Show("I found it by practitionerID ID");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("I couldn't found it with practitionerID", "FAiled", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-
-            //if (clsSharia.IsShariaExist(ShariaID, clsSharia.enSearchBy.ShariaID))
-            //{
-            //    MessageBox.Show("I found it by ShariaID ");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("I couldn't found it with ShariaID", "FAiled", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-            //if (clsSharia.IsShariaExist(PersonID, clsSharia.enSearchBy.PersonID))
-            //{
-            //    MessageBox.Show("I found it by PersonID ID");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("I couldn't found it with PersonID", "FAiled", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-
-            //if (clsSharia.IsShariaExist(LawyerID, clsSharia.enSearchBy.LawyerID))
-            //{
-            //    MessageBox.Show("I found it by LawyerID ID");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("I couldn't found it with LawyerID", "FAiled", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-
-
-            //if (clsSharia.IsShariaExist(ShariaLicenseNumber, clsSharia.enSearchBy.ShariaLicenseNumber))
-            //{
-            //    MessageBox.Show("I found it byShariaLicenseNumber");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("I couldn't found it with ShariaLicenseNumber", "FAiled", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-
+            frmJudgersList.ShowDialog();
         }
     }
 }

@@ -42,9 +42,11 @@
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.cmsJudgers = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activateJudgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deactivateJudgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteJudgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cbIsActive = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJudgers)).BeginInit();
             this.cmsJudgers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -143,9 +145,11 @@
             this.cmsJudgers.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsJudgers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showInfoToolStripMenuItem,
+            this.activateJudgerToolStripMenuItem,
             this.deactivateJudgerToolStripMenuItem,
             this.deleteJudgerToolStripMenuItem});
             this.cmsJudgers.Name = "cmsJudgers";
+            this.cmsJudgers.Opening += new System.ComponentModel.CancelEventHandler(this.cmsJudgers_Opening);
             // 
             // showInfoToolStripMenuItem
             // 
@@ -155,8 +159,16 @@
             this.showInfoToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
             this.showInfoToolStripMenuItem.Click += new System.EventHandler(this.showInfoToolStripMenuItem_Click);
             // 
+            // activateJudgerToolStripMenuItem
+            // 
+            this.activateJudgerToolStripMenuItem.Image = global::AADL.Properties.Resources.activate_32_abdalla;
+            resources.ApplyResources(this.activateJudgerToolStripMenuItem, "activateJudgerToolStripMenuItem");
+            this.activateJudgerToolStripMenuItem.Name = "activateJudgerToolStripMenuItem";
+            this.activateJudgerToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            // 
             // deactivateJudgerToolStripMenuItem
             // 
+            this.deactivateJudgerToolStripMenuItem.Image = global::AADL.Properties.Resources.deactivate_32_abdalla;
             resources.ApplyResources(this.deactivateJudgerToolStripMenuItem, "deactivateJudgerToolStripMenuItem");
             this.deactivateJudgerToolStripMenuItem.Name = "deactivateJudgerToolStripMenuItem";
             this.deactivateJudgerToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
@@ -164,6 +176,7 @@
             // 
             // deleteJudgerToolStripMenuItem
             // 
+            this.deleteJudgerToolStripMenuItem.Image = global::AADL.Properties.Resources.delete_32_abdalla;
             resources.ApplyResources(this.deleteJudgerToolStripMenuItem, "deleteJudgerToolStripMenuItem");
             this.deleteJudgerToolStripMenuItem.Name = "deleteJudgerToolStripMenuItem";
             this.deleteJudgerToolStripMenuItem.Click += new System.EventHandler(this.deleteJudgerToolStripMenuItem_Click);
@@ -175,11 +188,25 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
+            // cbIsActive
+            // 
+            this.cbIsActive.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbIsActive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cbIsActive, "cbIsActive");
+            this.cbIsActive.FormattingEnabled = true;
+            this.cbIsActive.Items.AddRange(new object[] {
+            resources.GetString("cbIsActive.Items"),
+            resources.GetString("cbIsActive.Items1"),
+            resources.GetString("cbIsActive.Items2")});
+            this.cbIsActive.Name = "cbIsActive";
+            this.cbIsActive.SelectedIndexChanged += new System.EventHandler(this.cbIsActive_SelectedIndexChanged);
+            // 
             // frmJudgersList
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.cbIsActive);
             this.Controls.Add(this.txtFilterValue);
             this.Controls.Add(this.cbPage);
             this.Controls.Add(this.cbFilterBy);
@@ -216,5 +243,7 @@
         private System.Windows.Forms.ToolStripMenuItem showInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deactivateJudgerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteJudgerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem activateJudgerToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cbIsActive;
     }
 }

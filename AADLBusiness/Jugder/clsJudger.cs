@@ -153,19 +153,34 @@ namespace AADLBusiness.Judger
             return clsJudgerData.IsJudgerExist(PractitionerID, clsJudgerData.enWhichID.PractitionerID);
         }
 
-        public static bool DeleteJudgerSoftlyByJudgerID(int JudgerID)
+        public static bool DeactivateByJudgerID(int JudgerID)
         {
-            return clsJudgerData.DeleteSoftly(JudgerID, clsJudgerData.enWhichID.JudgerID);
+            return clsJudgerData.Deactivate(JudgerID, clsJudgerData.enWhichID.JudgerID);
         }
 
-        public static bool DeleteJudgerSoftlyByPersonID(int PersonID)
+        public static bool DeactivateByPersonID(int PersonID)
         {
-            return clsJudgerData.DeleteSoftly(PersonID, clsJudgerData.enWhichID.PersonID);
+            return clsJudgerData.Deactivate(PersonID, clsJudgerData.enWhichID.PersonID);
         }
 
-        public static bool DeleteJudgerSoftlyByPractitionerID(int PractitionerID)
+        public static bool DeactivateByPractitionerID(int PractitionerID)
         {
-            return clsJudgerData.DeleteSoftly(PractitionerID, clsJudgerData.enWhichID.PractitionerID);
+            return clsJudgerData.Deactivate(PractitionerID, clsJudgerData.enWhichID.PractitionerID);
+        }
+
+        public static bool ActivateByJudgerID(int JudgerID)
+        {
+            return clsJudgerData.Activate(JudgerID, clsJudgerData.enWhichID.JudgerID);
+        }
+
+        public static bool ActivateByPersonID(int PersonID)
+        {
+            return clsJudgerData.Activate(PersonID, clsJudgerData.enWhichID.PersonID);
+        }
+
+        public static bool ActivateByPractitionerID(int PractitionerID)
+        {
+            return clsJudgerData.Activate(PractitionerID, clsJudgerData.enWhichID.PractitionerID);
         }
 
         public static bool DeleteJudgerPermanently(int JudgerID) => clsJudgerData.DeletePermanently(JudgerID);

@@ -73,6 +73,16 @@ namespace AADL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap activate_32_abdalla {
+            get {
+                object obj = ResourceManager.GetObject("activate_32_abdalla", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add {
             get {
                 object obj = ResourceManager.GetObject("add", resourceCulture);
@@ -393,6 +403,16 @@ namespace AADL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap deactivate_32_abdalla {
+            get {
+                object obj = ResourceManager.GetObject("deactivate_32_abdalla", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete {
             get {
                 object obj = ResourceManager.GetObject("delete", resourceCulture);
@@ -416,6 +436,16 @@ namespace AADL.Properties {
         internal static System.Drawing.Bitmap Delete_32_21 {
             get {
                 object obj = ResourceManager.GetObject("Delete_32_21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delete_32_abdalla {
+            get {
+                object obj = ResourceManager.GetObject("delete_32_abdalla", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -896,6 +926,16 @@ namespace AADL.Properties {
         internal static System.Drawing.Bitmap money_32___2 {
             get {
                 object obj = ResourceManager.GetObject("money_32___2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap name_512 {
+            get {
+                object obj = ResourceManager.GetObject("name_512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

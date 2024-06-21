@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Drawing;
@@ -87,7 +82,9 @@ namespace DVLD.Classes
 
         public static uint RowsPerPage => uint.TryParse(ConfigurationManager.AppSettings["RowsPerPage"] ?? "", out uint result) ? result : 15;
 
-        public static Color MainColor => Color.LimeGreen;
+        public static Color MainColor => Color.Black;
+
+        public static Color JudgersMainColor => Color.LimeGreen;
 
         public static void CustomizeDataGridView(DataGridView dgv)
         {
@@ -112,6 +109,11 @@ namespace DVLD.Classes
                 ForeColor = Color.White,
                 Alignment = DataGridViewContentAlignment.MiddleCenter // Center the text
             };
+
+            // Set the main color 
+            if(dgv.Name == "dgvJudgers") 
+                headerStyle.BackColor = JudgersMainColor;
+
             dgv.ColumnHeadersDefaultCellStyle = headerStyle;
 
 

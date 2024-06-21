@@ -331,16 +331,16 @@
     <value>لا شيء</value>
   </data>
   <data name="cbFilterBy.Items1" xml:space="preserve">
-    <value>الرقم التعريفي كمحكم</value>
+    <value>الرقم التعريفي</value>
   </data>
   <data name="cbFilterBy.Items2" xml:space="preserve">
-    <value>الرقم التعريفي كمزوال</value>
-  </data>
-  <data name="cbFilterBy.Items3" xml:space="preserve">
     <value>الاسم</value>
   </data>
-  <data name="cbFilterBy.Items4" xml:space="preserve">
+  <data name="cbFilterBy.Items3" xml:space="preserve">
     <value>رقم الهاتف</value>
+  </data>
+  <data name="cbFilterBy.Items4" xml:space="preserve">
+    <value>هل فعال ؟</value>
   </data>
   <data name="cbFilterBy.Location" type="System.Drawing.Point, System.Drawing">
     <value>179, 299</value>
@@ -550,7 +550,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbIsActive.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

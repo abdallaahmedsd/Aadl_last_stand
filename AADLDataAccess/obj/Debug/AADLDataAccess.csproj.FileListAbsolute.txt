@@ -972,5 +972,5 @@ P:\GitHub\Aadl_last_stand\AADLDataAccess\bin\Debug\arm64\vcruntime140_1.dll
 P:\GitHub\Aadl_last_stand\AADLDataAccess\bin\Debug\TraceReloggerLib.dll
 P:\GitHub\Aadl_last_stand\AADLDataAccess\bin\Debug\Dia2Lib.dll
 P:\GitHub\Aadl_last_stand\AADLDataAccess\obj\Debug\AADLDataAccess.GeneratedMSBuildEditorConfig.editorconfig
-P:\GitHub\Aadl_last_stand\AADLDataAccess\obj\Debug\AADLDataAccess.csproj.Fody.CopyLocal.cache
-P:\GitHub\Aadl_last_stand\AADLDataAccess\obj\Debug\AADLDataAccess.csproj.Fody.RuntimeCopyLocal.cache
+P:\GitHub\Aadl_last_stand\AADLDataAccess\bin\Debug\MethodTimer.dll
+P:\GitHub\Aadl_last_stand\AADLDataAccess\bin\Debug\MethodTimer.xml

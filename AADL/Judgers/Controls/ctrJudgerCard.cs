@@ -20,7 +20,7 @@ namespace AADL.Judgers.Controls
             lblSubscriptionType.Text = _judger.SubscriptionTypeInfo.SubscriptionName;
             lblSubscriptionWay.Text = _judger.SubscriptionWayInfo.SubscriptionName;
             lblCreatedByUserID.Text = _judger.UserInfo.UserName;
-            lblIssueDate.Text = _judger.IssueDate.ToString();
+            lblIssueDate.Text = _judger.IssueDate.ToShortDateString();
             lblLastEditDate.Text = _judger.LastEditByUserInfo?.UserName ?? "لم يتم تعديله بعد";
 
             // Handle Judger Casess

@@ -29,8 +29,7 @@ namespace AADL.Judgers
 
                 //Change the columns name
 
-                dgvJudgers.Columns["JudgerID"].HeaderText = "الرقم التعريفي كمحكم";
-                dgvJudgers.Columns["PractitionerID"].HeaderText = "الرقم التعريفي كمزوال";
+                dgvJudgers.Columns["JudgerID"].HeaderText = "الرقم التعريفي";
                 dgvJudgers.Columns["FullName"].HeaderText = "الاسم رباعي";
                 dgvJudgers.Columns["Phone"].HeaderText = "رقم الهاتف";
                 dgvJudgers.Columns["Gender"].HeaderText = "النوع";
@@ -38,6 +37,7 @@ namespace AADL.Judgers
                 dgvJudgers.Columns["CityName"].HeaderText = "المدينة";
                 dgvJudgers.Columns["Address"].HeaderText = "العنوان";
                 dgvJudgers.Columns["IsLawyer"].HeaderText = "هل محامي ؟";
+                dgvJudgers.Columns["IsActive"].HeaderText = "هل فعال ؟";
 
 
                 lblTotalRecordsCount.Text = dtJudgers.Rows.Count.ToString();
@@ -147,7 +147,12 @@ namespace AADL.Judgers
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtFilterValue.Visible = (cbFilterBy.Text != "لا شيء");
+            txtFilterValue.Visible = (cbFilterBy.Text != "لا شيء" && cbFilterBy.Text != "هل فعال ؟");
+
+            cbIsActive.Visible = cbFilterBy.Text == "هل فعال ؟";
+
+            if (cbIsActive.Visible)
+                cbIsActive.SelectedItem = "الكل";
 
             if (txtFilterValue.Visible)
             {
@@ -211,7 +216,7 @@ namespace AADL.Judgers
 
             if (MessageBox.Show($"هل انت متاكد انك تريد تريد الغاء تفعيل الحساب رقم {judgerID} ؟", "تاكيد الإلغاء", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                if (clsJudger.DeleteJudgerSoftlyByJudgerID(judgerID))
+                if (clsJudger.DeactivateByJudgerID(judgerID))
                 {
                     MessageBox.Show($"تم الإلغاء تفعيل الحساب بنجاح", "نجحت العملية", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -255,6 +260,58 @@ namespace AADL.Judgers
 
             frmJudgerCard frm = new frmJudgerCard(judgerID, Judgers.Controls.ctrJudgerCard.enWhichID.JudgerID);
             frm.ShowDialog();
+        }
+
+        private void activateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmsJudgers_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            bool isActive = (bool)dgvJudgers.CurrentRow.Cells["IsActive"].Value;
+
+            if (isActive)
+            {
+                activateJudgerToolStripMenuItem.Enabled = false;
+                deactivateJudgerToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                activateJudgerToolStripMenuItem.Enabled = true;
+                deactivateJudgerToolStripMenuItem.Enabled = false;
+            }
+        }
+
+        private void cbIsActive_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string filterColumn = "IsActive";
+            string filterValue = string.Empty;
+
+            // Map Selected Filter to real Column name 
+            switch (cbIsActive.Text)
+            {
+                case "الكل":
+                    filterValue = "الكل";
+                    break;
+                case "نعم":
+                    filterValue = "1";
+                    break;
+                case "لا":
+                    filterValue = "0";
+                    break;
+                default:
+                    filterValue = "الكل";
+                    break;
+            }
+
+            if (filterValue == "الكل")
+                _dtJudgers.DefaultView.RowFilter = string.Empty;
+            else
+                _dtJudgers.DefaultView.RowFilter = string.Format("[{0}] = {1}", filterColumn, filterValue);
+
+            // Updates the total records count label
+            lblTotalRecordsCount.Text = dgvJudgers.Rows.Count.ToString();
         }
     }
 }

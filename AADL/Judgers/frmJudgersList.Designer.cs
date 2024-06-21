@@ -81,9 +81,8 @@
             this.dgvJudgers.Name = "dgvJudgers";
             this.dgvJudgers.ReadOnly = true;
             this.dgvJudgers.RowTemplate.Height = 25;
-            this.dgvJudgers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvJudgers.StandardTab = true;
-            this.dgvJudgers.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvJudgers_CellContentDoubleClick);
+            this.dgvJudgers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvJudgers_CellDoubleClick);
             this.dgvJudgers.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvJudgers_CellMouseDown);
             // 
             // lblTotalRecordsCount
@@ -165,6 +164,7 @@
             resources.ApplyResources(this.activateJudgerToolStripMenuItem, "activateJudgerToolStripMenuItem");
             this.activateJudgerToolStripMenuItem.Name = "activateJudgerToolStripMenuItem";
             this.activateJudgerToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.activateJudgerToolStripMenuItem.Click += new System.EventHandler(this.activateJudgerToolStripMenuItem_Click);
             // 
             // deactivateJudgerToolStripMenuItem
             // 

@@ -51,7 +51,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.ctbFilterValue = new myControlLibrary.myCustomControlTextBox();
             this.gpAdvnacedSearch = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAdvancedSearch = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.pbPersonImage = new System.Windows.Forms.PictureBox();
@@ -277,7 +277,7 @@
             // 
             // gpAdvnacedSearch
             // 
-            this.gpAdvnacedSearch.Controls.Add(this.button1);
+            this.gpAdvnacedSearch.Controls.Add(this.btnAdvancedSearch);
             this.gpAdvnacedSearch.Location = new System.Drawing.Point(1234, 49);
             this.gpAdvnacedSearch.Name = "gpAdvnacedSearch";
             this.gpAdvnacedSearch.Size = new System.Drawing.Size(184, 100);
@@ -285,16 +285,16 @@
             this.gpAdvnacedSearch.TabStop = false;
             this.gpAdvnacedSearch.Text = "البحث المتقدم";
             // 
-            // button1
+            // btnAdvancedSearch
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::AADL.Properties.Resources.SearchPerson;
-            this.button1.Location = new System.Drawing.Point(19, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 58);
-            this.button1.TabIndex = 124;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAdvancedSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdvancedSearch.Image = global::AADL.Properties.Resources.SearchPerson;
+            this.btnAdvancedSearch.Location = new System.Drawing.Point(19, 19);
+            this.btnAdvancedSearch.Name = "btnAdvancedSearch";
+            this.btnAdvancedSearch.Size = new System.Drawing.Size(88, 58);
+            this.btnAdvancedSearch.TabIndex = 124;
+            this.btnAdvancedSearch.UseVisualStyleBackColor = true;
+            this.btnAdvancedSearch.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnRefresh
             // 
@@ -334,6 +334,7 @@
             // 
             // frmPractitionersList
             // 
+            this.AcceptButton = this.btnRefresh;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1520, 740);
@@ -390,7 +391,7 @@
         private System.Windows.Forms.ToolStripMenuItem خبيرToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem محكمToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem القائمةالسوداءToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAdvancedSearch;
         private System.Windows.Forms.GroupBox gpAdvnacedSearch;
         private System.Windows.Forms.Button btnRefresh;
     }

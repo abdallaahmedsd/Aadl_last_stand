@@ -31,8 +31,8 @@ namespace AADLBusiness
                 
                   practitionerProperties.IsRegulatorActive,
                   practitionerProperties.IsShariaActive,
-                  practitionerProperties.IsExpertActive, 
                   practitionerProperties.IsJudgerActive,
+                  practitionerProperties.IsExpertActive, 
                 
                   practitionerProperties.RegulatorCreatedByUserName,
                   practitionerProperties.ShariaCreatedByUserName,

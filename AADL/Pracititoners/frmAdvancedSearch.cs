@@ -171,114 +171,111 @@ namespace AADL.Pracititoners
 
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-
-            DateTimePicker dateTimePickerControl= (DateTimePicker)sender;
-            if(_dateTimePickerCheckBoxPairs.TryGetValue(dateTimePickerControl, out CheckBox checkBoxControl) && !checkBoxControl.Checked)
+            if (sender is DateTimePicker dateTimePickerControl && 
+                _dateTimePickerCheckBoxPairs.TryGetValue(dateTimePickerControl, out CheckBox checkBoxControl)
+                && !checkBoxControl.Checked)
             {
                 dateTimePickerControl.Tag = 1;
-
-                dtpRegulatorIssueDate.CustomFormat = "dd/MM/yyyy";
-
-
+                dateTimePickerControl.CustomFormat = "dd/MM/yyyy";
             }
 
 
 
 
-            ////Regulatory
-            //if (cbEnableRegulatorIssueDate.Checked == false && (DateTimePicker)sender == dtpRegulatorIssueDate)
-            //{
-            //    //you need to extend it to all controls.
-            //    dtpRegulatorIssueDate.Tag = 1;
-            //    dtpRegulatorIssueDate.CustomFormat = "dd/MM/yyyy";
+        ////Regulatory
+        //if (cbEnableRegulatorIssueDate.Checked == false && (DateTimePicker)sender == dtpRegulatorIssueDate)
+        //{
+        //    //you need to extend it to all controls.
+        //    dtpRegulatorIssueDate.Tag = 1;
+        //    dtpRegulatorIssueDate.CustomFormat = "dd/MM/yyyy";
 
-            //}
-            //if (cbEnableRegulatorFromDate.Checked == false && (DateTimePicker)sender == dtpRegulatorIssueDateFrom)
-            //{
-            //    //you need to extend it to all controls.
-            //    dtpRegulatorIssueDateFrom.Tag = 1;
-            //    dtpRegulatorIssueDateFrom.CustomFormat = "dd/MM/yyyy";
+        //}
+        //if (cbEnableRegulatorFromDate.Checked == false && (DateTimePicker)sender == dtpRegulatorIssueDateFrom)
+        //{
+        //    //you need to extend it to all controls.
+        //    dtpRegulatorIssueDateFrom.Tag = 1;
+        //    dtpRegulatorIssueDateFrom.CustomFormat = "dd/MM/yyyy";
 
-            //}
-            //if (cbEnableRegulatorToDate.Checked == false && (DateTimePicker)sender == dtpRegulatorIssueDateTo)
-            //{
-            //    //you need to extend it to all controls.
-            //    dtpRegulatorIssueDateTo.Tag = 1;
-            //    dtpRegulatorIssueDateTo.CustomFormat = "dd/MM/yyyy";
+        //}
+        //if (cbEnableRegulatorToDate.Checked == false && (DateTimePicker)sender == dtpRegulatorIssueDateTo)
+        //{
+        //    //you need to extend it to all controls.
+        //    dtpRegulatorIssueDateTo.Tag = 1;
+        //    dtpRegulatorIssueDateTo.CustomFormat = "dd/MM/yyyy";
 
-            //}
+        //}
 
-            ////Sharia
+        ////Sharia
 
-            //if (cbEnableShariaIssueDate.Checked == false && (DateTimePicker)sender == dtpShariaIssueDate)
-            //{
-            //    //you need to extend it to all controls.
-            //    dtpShariaIssueDate.Tag = 1;
-            //    dtpShariaIssueDate.CustomFormat = "dd/MM/yyyy";
+        //if (cbEnableShariaIssueDate.Checked == false && (DateTimePicker)sender == dtpShariaIssueDate)
+        //{
+        //    //you need to extend it to all controls.
+        //    dtpShariaIssueDate.Tag = 1;
+        //    dtpShariaIssueDate.CustomFormat = "dd/MM/yyyy";
 
-            //}
-            //if (cbEnableShariaFromDate.Checked == false && (DateTimePicker)sender == dtpShariaIssueDateFrom)
-            //{
-            //    //you need to extend it to all controls.
-            //    dtpShariaIssueDateFrom.Tag = 1;
-            //    dtpShariaIssueDateFrom.CustomFormat = "dd/MM/yyyy";
+        //}
+        //if (cbEnableShariaFromDate.Checked == false && (DateTimePicker)sender == dtpShariaIssueDateFrom)
+        //{
+        //    //you need to extend it to all controls.
+        //    dtpShariaIssueDateFrom.Tag = 1;
+        //    dtpShariaIssueDateFrom.CustomFormat = "dd/MM/yyyy";
 
-            //}
-            //if (cbEnableShariaToDate.Checked == false && (DateTimePicker)sender == dtpShariaIssueDateTo)
-            //{
-            //    //you need to extend it to all controls.
-            //    dtpShariaIssueDateTo.Tag = 1;
-            //    dtpShariaIssueDateTo.CustomFormat = "dd/MM/yyyy";
+        //}
+        //if (cbEnableShariaToDate.Checked == false && (DateTimePicker)sender == dtpShariaIssueDateTo)
+        //{
+        //    //you need to extend it to all controls.
+        //    dtpShariaIssueDateTo.Tag = 1;
+        //    dtpShariaIssueDateTo.CustomFormat = "dd/MM/yyyy";
 
-            //}
+        //}
 
-            ////Judger
-            //if (cbEnableJudgerIssueDate.Checked == false && (DateTimePicker)sender == dtpJudgerIssueDate)
-            //{
-            //    //you need to extend it to all controls.
-            //    dtpJudgerIssueDate.Tag = 1;
-            //    dtpJudgerIssueDate.CustomFormat = "dd/MM/yyyy";
+        ////Judger
+        //if (cbEnableJudgerIssueDate.Checked == false && (DateTimePicker)sender == dtpJudgerIssueDate)
+        //{
+        //    //you need to extend it to all controls.
+        //    dtpJudgerIssueDate.Tag = 1;
+        //    dtpJudgerIssueDate.CustomFormat = "dd/MM/yyyy";
 
-            //}  
-            //if (cbEnableJudgerFromDate.Checked == false && (DateTimePicker)sender == dtpJudgerIssueDateFrom)
-            //{
-            //    //you need to extend it to all controls.
-            //    dtpJudgerIssueDateFrom.Tag = 1;
-            //    dtpJudgerIssueDateFrom.CustomFormat = "dd/MM/yyyy";
+        //}  
+        //if (cbEnableJudgerFromDate.Checked == false && (DateTimePicker)sender == dtpJudgerIssueDateFrom)
+        //{
+        //    //you need to extend it to all controls.
+        //    dtpJudgerIssueDateFrom.Tag = 1;
+        //    dtpJudgerIssueDateFrom.CustomFormat = "dd/MM/yyyy";
 
-            //}   
-            //if (cbEnableJudgerToDate.Checked == false && (DateTimePicker)sender == dtpJudgerIssueDateTo)
-            //{
-            //    //you need to extend it to all controls.
-            //    dtpJudgerIssueDateTo.Tag = 1;
-            //    dtpJudgerIssueDateTo.CustomFormat = "dd/MM/yyyy";
+        //}   
+        //if (cbEnableJudgerToDate.Checked == false && (DateTimePicker)sender == dtpJudgerIssueDateTo)
+        //{
+        //    //you need to extend it to all controls.
+        //    dtpJudgerIssueDateTo.Tag = 1;
+        //    dtpJudgerIssueDateTo.CustomFormat = "dd/MM/yyyy";
 
-            //}
+        //}
 
-            ////Expert
-            //if (cbEnableExpertIssueDate.Checked == false && (DateTimePicker)sender == dtpExpertIssueDate)
-            //{
-            //    //you need to extend it to all controls.
-            //    dtpExpertIssueDate.Tag = 1;
-            //    dtpExpertIssueDate.CustomFormat = "dd/MM/yyyy";
+        ////Expert
+        //if (cbEnableExpertIssueDate.Checked == false && (DateTimePicker)sender == dtpExpertIssueDate)
+        //{
+        //    //you need to extend it to all controls.
+        //    dtpExpertIssueDate.Tag = 1;
+        //    dtpExpertIssueDate.CustomFormat = "dd/MM/yyyy";
 
-            //}     
-            //if (cbEnableExpertFromDate.Checked == false && (DateTimePicker)sender == dtpExpertIssueDateFrom)
-            //{
-            //    //you need to extend it to all controls.
-            //    dtpExpertIssueDateFrom.Tag = 1;
-            //    dtpExpertIssueDateFrom.CustomFormat = "dd/MM/yyyy";
+        //}     
+        //if (cbEnableExpertFromDate.Checked == false && (DateTimePicker)sender == dtpExpertIssueDateFrom)
+        //{
+        //    //you need to extend it to all controls.
+        //    dtpExpertIssueDateFrom.Tag = 1;
+        //    dtpExpertIssueDateFrom.CustomFormat = "dd/MM/yyyy";
 
-            //}    
-            //if (cbEnableExpertToDate.Checked == false && (DateTimePicker)sender == dtpExpertIssueDateTo)
-            //{
-            //    //you need to extend it to all controls.
-            //    dtpExpertIssueDateTo.Tag = 1;
-            //    dtpExpertIssueDateTo.CustomFormat = "dd/MM/yyyy";
+        //}    
+        //if (cbEnableExpertToDate.Checked == false && (DateTimePicker)sender == dtpExpertIssueDateTo)
+        //{
+        //    //you need to extend it to all controls.
+        //    dtpExpertIssueDateTo.Tag = 1;
+        //    dtpExpertIssueDateTo.CustomFormat = "dd/MM/yyyy";
 
-            //}
-   
-        }
+        //}
+
+    }
         private void ResetValuesToDefault()
         {
 
@@ -471,13 +468,13 @@ namespace AADL.Pracititoners
                 case clsList.enListType.ShariaClosed:
                     {
 
-                        if (rbtnIsRegulatorClosedListYes.Checked)
+                        if (rbtnIsShariaClosedListYes.Checked)
                         {
                             return true;
 
                         }
 
-                        else if (rbtnIsRegulatorClosedListNo.Checked)
+                        else if (rbtnIsShariaClosedListNo.Checked)
                         {
                             return false;
 
@@ -658,7 +655,8 @@ namespace AADL.Pracititoners
             AssignPractitionerInfo();
             AssignRegulatorInfo();
             AssignShariaInfo();
-
+            AssignJudgerInfo();
+            AssignExpertInfo();
 
         }
         private void button1_Click(object sender, EventArgs e)

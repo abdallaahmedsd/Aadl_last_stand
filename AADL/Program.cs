@@ -25,7 +25,7 @@ namespace AADL
             Application.SetCompatibleTextRenderingDefault(false);
             string connectionString = ConfigurationManager.AppSettings["ConnectionString"];
             Console.WriteLine(connectionString);
-            Application.Run(new frmJudgersList());
+            Application.Run(new frmLaunch());
 
         }
     }

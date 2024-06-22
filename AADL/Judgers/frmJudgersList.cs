@@ -20,7 +20,7 @@ namespace AADL.Judgers
 
         private void _FillDataGridView(DataTable dtJudgers)
         {
-            if (dtJudgers != null)
+            if (dtJudgers != null && dtJudgers.Rows.Count > 0)
             {
                 dgvJudgers.DataSource = dtJudgers;
 
@@ -29,8 +29,7 @@ namespace AADL.Judgers
 
                 //Change the columns name
 
-                dgvJudgers.Columns["JudgerID"].HeaderText = "الرقم التعريفي كمحكم";
-                dgvJudgers.Columns["PractitionerID"].HeaderText = "الرقم التعريفي كمزوال";
+                dgvJudgers.Columns["JudgerID"].HeaderText = "الرقم التعريفي";
                 dgvJudgers.Columns["FullName"].HeaderText = "الاسم رباعي";
                 dgvJudgers.Columns["Phone"].HeaderText = "رقم الهاتف";
                 dgvJudgers.Columns["Gender"].HeaderText = "النوع";
@@ -38,6 +37,7 @@ namespace AADL.Judgers
                 dgvJudgers.Columns["CityName"].HeaderText = "المدينة";
                 dgvJudgers.Columns["Address"].HeaderText = "العنوان";
                 dgvJudgers.Columns["IsLawyer"].HeaderText = "هل محامي ؟";
+                dgvJudgers.Columns["IsActive"].HeaderText = "هل فعال ؟";
 
 
                 lblTotalRecordsCount.Text = dtJudgers.Rows.Count.ToString();
@@ -94,11 +94,8 @@ namespace AADL.Judgers
                 case "لا شيء":
                     filterColumn = "None";
                     break;
-                case "الرقم التعريفي كمحكم":
+                case "الرقم التعريفي":
                     filterColumn = "JudgerID";
-                    break;
-                case "الرقم التعريفي كمزوال":
-                    filterColumn = "PractitionerID";
                     break;
                 case "الاسم":
                     filterColumn = "FullName";
@@ -130,11 +127,6 @@ namespace AADL.Judgers
             lblTotalRecordsCount.Text = dgvJudgers.Rows.Count.ToString();
         }
 
-        private void btnAddJudger_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmJudgersList_Load(object sender, EventArgs e)
         {
             // Cusomize the appearance of the DataGridView
@@ -147,7 +139,12 @@ namespace AADL.Judgers
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtFilterValue.Visible = (cbFilterBy.Text != "لا شيء");
+            txtFilterValue.Visible = (cbFilterBy.Text != "لا شيء" && cbFilterBy.Text != "هل فعال ؟");
+
+            cbIsActive.Visible = cbFilterBy.Text == "هل فعال ؟";
+
+            if (cbIsActive.Visible)
+                cbIsActive.SelectedItem = "الكل";
 
             if (txtFilterValue.Visible)
             {
@@ -170,6 +167,9 @@ namespace AADL.Judgers
             // Load Judgers data from the database and view it in the DataGridView
             _dtJudgers = clsJudger.GetJudgersPerPage(_pageNumber, clsUtil.RowsPerPage);
             _FillDataGridView(_dtJudgers);
+
+            // Reset the filter
+            cbFilterBy.SelectedItem = "لا شيء";
         }
 
         private void txtFilterValue_TextChanged(object sender, EventArgs e)
@@ -179,7 +179,7 @@ namespace AADL.Judgers
 
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (cbFilterBy.Text == "الرقم التعريفي كمحكم" || cbFilterBy.Text == "الرقم التعريفي كمزاول")
+            if (cbFilterBy.Text == "الرقم التعريفي")
                 clsUtil.IsNumber(e);
         }
 
@@ -211,7 +211,7 @@ namespace AADL.Judgers
 
             if (MessageBox.Show($"هل انت متاكد انك تريد تريد الغاء تفعيل الحساب رقم {judgerID} ؟", "تاكيد الإلغاء", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                if (clsJudger.DeleteJudgerSoftlyByJudgerID(judgerID))
+                if (clsJudger.DeactivateByJudgerID(judgerID))
                 {
                     MessageBox.Show($"تم الإلغاء تفعيل الحساب بنجاح", "نجحت العملية", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -249,7 +249,72 @@ namespace AADL.Judgers
             frm.ShowDialog();
         }
 
-        private void dgvJudgers_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void cmsJudgers_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            bool isActive = (bool)dgvJudgers.CurrentRow.Cells["IsActive"].Value;
+
+            if (isActive)
+            {
+                activateJudgerToolStripMenuItem.Enabled = false;
+                deactivateJudgerToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                activateJudgerToolStripMenuItem.Enabled = true;
+                deactivateJudgerToolStripMenuItem.Enabled = false;
+            }
+        }
+
+        private void cbIsActive_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string filterColumn = "IsActive";
+            string filterValue = string.Empty;
+
+            // Map Selected Filter to real Column name 
+            switch (cbIsActive.Text)
+            {
+                case "الكل":
+                    filterValue = string.Empty;
+                    break;
+                case "نعم":
+                    filterValue = "1";
+                    break;
+                case "لا":
+                    filterValue = "0";
+                    break;
+                default:
+                    filterValue = string.Empty;
+                    break;
+            }
+
+            if (filterValue == string.Empty)
+                _dtJudgers.DefaultView.RowFilter = filterValue;
+            else
+                _dtJudgers.DefaultView.RowFilter = string.Format("[{0}] = {1}", filterColumn, filterValue);
+
+            // Updates the total records count label
+            lblTotalRecordsCount.Text = dgvJudgers.Rows.Count.ToString();
+        }
+
+        private void activateJudgerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int judgerID = (int)dgvJudgers.CurrentRow.Cells["JudgerID"].Value;
+
+            if (MessageBox.Show($"هل انت متاكد انك تريد تريد تفعيل الحساب رقم {judgerID} ؟", "تاكيد التفعيل", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                if (clsJudger.ActivateByJudgerID(judgerID))
+                {
+                    MessageBox.Show($"تم تفعيل الحساب بنجاح", "نجحت العملية", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    _mode = enMode.delete;
+                    _LoadRefreshJudgersPerPage();
+                }
+                else
+                    MessageBox.Show($"لم يتم تفعيل الحساب بنجاح بسبب عطل فني في النظام. الرجاء إبلاغ فريق الصيانة", "فشلت العملية", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvJudgers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int judgerID = (int)dgvJudgers.CurrentRow.Cells["JudgerID"].Value;
 

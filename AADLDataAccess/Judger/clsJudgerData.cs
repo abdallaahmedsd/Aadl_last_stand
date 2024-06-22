@@ -392,7 +392,7 @@ namespace AADLDataAccess.Judger
         /// <param name="ID"></param>
         /// <param name="WhichID"></param>
         /// <returns>true if a Judger has been softly deleted, otherwise false</returns>
-        public static bool DeleteSoftly(int ID, enWhichID WhichID)
+        public static bool Deactivate(int ID, enWhichID WhichID)
         {
             bool isDeleted = false;
 
@@ -429,6 +429,45 @@ namespace AADLDataAccess.Judger
             }
 
             return (isDeleted);
+        }
+
+        public static bool Activate(int ID, enWhichID WhichID)
+        {
+            bool isActivated = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+
+                    using (SqlCommand command = new SqlCommand("SP_ActivateJudger", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@ID", ID);
+                        command.Parameters.AddWithValue("@WhichID", (int)WhichID);
+
+                        // Add output parameter for the IsActivated
+                        SqlParameter isActivatedParameter = new SqlParameter("@IsActivated", SqlDbType.Bit);
+                        isActivatedParameter.Direction = ParameterDirection.Output;
+                        command.Parameters.Add(isActivatedParameter);
+
+                        connection.Open();
+
+                        command.ExecuteNonQuery();
+
+                        isActivated = (bool)command.Parameters["@IsActivated"].Value;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsDataAccessSettings.WriteEventToLogFile("Problem happened in Judger class while trying to softly delete Judger()\n" + ex.Message,
+                    EventLogEntryType.Error);
+
+                isActivated = false;
+            }
+
+            return (isActivated);
         }
 
         public static bool DeletePermanently(int? judgerID) => clsDataAccessHelper.Delete("SP_DeleteJudgerPermanently", "JudgerID", judgerID);

@@ -292,7 +292,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::AADL.Properties.Resources.Number_32;
+            this.pictureBox1.Image = global::AADL.Properties.Resources.name_512;
             this.pictureBox1.Location = new System.Drawing.Point(1062, 100);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";

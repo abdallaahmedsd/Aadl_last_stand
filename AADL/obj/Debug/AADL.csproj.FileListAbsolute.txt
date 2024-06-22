@@ -1540,5 +1540,5 @@ P:\GitHub\Aadl_last_stand\AADL\bin\Debug\arm64\vcruntime140_1.dll
 P:\GitHub\Aadl_last_stand\AADL\bin\Debug\TraceReloggerLib.dll
 P:\GitHub\Aadl_last_stand\AADL\bin\Debug\Dia2Lib.dll
 P:\GitHub\Aadl_last_stand\AADL\obj\Debug\AADL.GeneratedMSBuildEditorConfig.editorconfig
-P:\GitHub\Aadl_last_stand\AADL\bin\Debug\MethodTimer.dll
-P:\GitHub\Aadl_last_stand\AADL\bin\Debug\MethodTimer.xml
+P:\GitHub\Aadl_last_stand\AADL\obj\Debug\AADL.csproj.Fody.CopyLocal.cache
+P:\GitHub\Aadl_last_stand\AADL\obj\Debug\AADL.csproj.Fody.RuntimeCopyLocal.cache

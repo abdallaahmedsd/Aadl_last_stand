@@ -287,14 +287,14 @@ namespace AADLDataAccess
                 DateTime? ExpertIssueDateFrom,
                 DateTime? ExpertIssueDateTo,
                 bool? isInBlackList,        
-                bool? isInRegulatoryWhiteList, 
-                bool? isInRegulatoryClosedList,
-                bool? isInShariaClosedList,  
-                bool? isInShariaWhiteList,
-                bool? isInJudgerClosedList,
-                bool? isInJudgerWhiteList,
-                bool? isInExpertClosedList,
-                bool? isInExpertWhiteList
+                bool? isRegulatoryInWhiteList, 
+                bool? isRegulatoryInClosedList,
+                bool? isShariaInClosedList,  
+                bool? isShariaInWhiteList,
+                bool? isJudgerInClosedList,
+                bool? isJudgerInWhiteList,
+                bool? isExpertInClosedList,
+                bool? isExpertInWhiteList
             )
         {
             DataTable dt = new DataTable();
@@ -334,29 +334,29 @@ namespace AADLDataAccess
                     command.Parameters.AddWithValue("@ShariaIssueDateFrom", shariaIssueDateFrom);
                     command.Parameters.AddWithValue("@ShariaIssueDateTo", shariaIssueDateTo);
 
-                    command.Parameters.AddWithValue("@JudgerIssueDate", shariaIssueDate);
-                    command.Parameters.AddWithValue("@JudgerIssueDateFrom", shariaIssueDateFrom);
-                    command.Parameters.AddWithValue("@JudgerIssueDateTo", shariaIssueDateTo);
+                    command.Parameters.AddWithValue("@JudgerIssueDate", JudgerIssueDate);
+                    command.Parameters.AddWithValue("@JudgerIssueDateFrom", JudgerIssueDateFrom);
+                    command.Parameters.AddWithValue("@JudgerIssueDateTo", JudgerIssueDateTo);
 
-                    command.Parameters.AddWithValue("@ExpertIssueDate", shariaIssueDate);
-                    command.Parameters.AddWithValue("@ExpertIssueDateFrom", shariaIssueDateFrom);
-                    command.Parameters.AddWithValue("@ExpertIssueDateTo", shariaIssueDateTo);
+                    command.Parameters.AddWithValue("@ExpertIssueDate", ExpertIssueDate);
+                    command.Parameters.AddWithValue("@ExpertIssueDateFrom", ExpertIssueDateFrom);
+                    command.Parameters.AddWithValue("@ExpertIssueDateTo", ExpertIssueDateTo);
 
                     command.Parameters.AddWithValue("@IsPractitionerInBlackList", isInBlackList);
                    
-                    command.Parameters.AddWithValue("@IsRegulatoryInWhiteList", isInRegulatoryWhiteList);
-                    command.Parameters.AddWithValue("@IsRegulatoryInClosedList", isInRegulatoryClosedList);
+                    command.Parameters.AddWithValue("@IsRegulatoryInWhiteList", isRegulatoryInWhiteList);
+                    command.Parameters.AddWithValue("@IsRegulatoryInClosedList", isRegulatoryInClosedList);
                   
-                    command.Parameters.AddWithValue("@IsShariaInClosedList", isInShariaClosedList);
-                    command.Parameters.AddWithValue("@IsShariaInWhiteList", isInShariaWhiteList);
+                    command.Parameters.AddWithValue("@IsShariaInWhiteList", isShariaInWhiteList);
+                    command.Parameters.AddWithValue("@IsShariaInClosedList", isShariaInClosedList);
 
 
-                    command.Parameters.AddWithValue("@IsJudgerInClosedList", isInShariaClosedList);
-                    command.Parameters.AddWithValue("@IsJudgerInWhiteList", isInShariaWhiteList);
+                    command.Parameters.AddWithValue("@IsJudgerInWhiteList", isJudgerInWhiteList);
+                    command.Parameters.AddWithValue("@IsJudgerInClosedList", isJudgerInClosedList);
 
 
-                    command.Parameters.AddWithValue("@IsExpertInClosedList", isInShariaClosedList);
-                    command.Parameters.AddWithValue("@IsExpertInWhiteList", isInShariaWhiteList);
+                    command.Parameters.AddWithValue("@IsExpertInWhiteList", isExpertInWhiteList);
+                    command.Parameters.AddWithValue("@IsExpertInClosedList", isExpertInClosedList);
 
                     try
                     {

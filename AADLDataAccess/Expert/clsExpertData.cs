@@ -356,21 +356,30 @@ namespace AADLDataAccess.Expert
         }
 
         public static bool DeletePermanently(int? expertID)
-        => clsDataAccessHelper.Delete("SP_DeleteExpertPermanently", "ExpertID", expertID);
+            => clsDataAccessHelper.Delete("SP_DeleteExpertPermanently", "ExpertID", expertID);
 
-        public static bool DeleteSoftly(int? expertID)
-        => clsDataAccessHelper.Delete("SP_DeleteExpertSoftly", "ExpertID", expertID);
+        public static bool Deactivate(int expertID)
+            => clsDataAccessHelper.Deactivate("SP_DeactivateExpert", "ExpertID", expertID);
+
+        public static bool Activate(int expertID)
+            => clsDataAccessHelper.Activate("SP_ActivateExpert", "ExpertID", expertID);
 
         public static bool ExistsByExpertID(int? expertID)
-        => clsDataAccessHelper.Exists("SP_DoesExpertExistByExpertID", "ExpertID", expertID);
+            => clsDataAccessHelper.Exists("SP_DoesExpertExistByExpertID", "ExpertID", expertID);
 
         public static bool ExistsByPersonID(int? personID)
-        => clsDataAccessHelper.Exists("SP_DoesExpertExistByPersonID", "PersonID", personID);
+            => clsDataAccessHelper.Exists("SP_DoesExpertExistByPersonID", "PersonID", personID);
 
         public static bool ExistsByPractitionerID(int? practitionerID)
-        => clsDataAccessHelper.Exists("SP_DoesExpertExistByPractitionerID", "PractitionerID", practitionerID);
+            => clsDataAccessHelper.Exists("SP_DoesExpertExistByPractitionerID", "PractitionerID", practitionerID);
 
         public static DataTable All()
-        => clsDataAccessHelper.All("SP_GetAllExperts");
+            => clsDataAccessHelper.All("SP_GetAllExperts");
+
+        public static int Count()
+            => clsDataAccessHelper.Count("SP_GetTotalExpertsCount");
+
+        public static DataTable GetExpertsPerPage(ushort pageNumber, uint rowsPerPage)
+            => clsDataAccessHelper.AllInPages(pageNumber, rowsPerPage, "SP_GetExpertsPerPage");
     }
 }

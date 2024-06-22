@@ -979,6 +979,18 @@
   <ItemGroup>
     <None Include="Resources\client.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\name_512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activate_32_abdalla.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deactivate_32_abdalla.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_32_abdalla.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

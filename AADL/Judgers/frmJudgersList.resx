@@ -126,13 +126,10 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 150</value>
-  </data>
-  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>12, 185</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1125, 42</value>
+    <value>1500, 52</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
@@ -154,22 +151,22 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="dgvJudgers.ColumnHeadersHeight" type="System.Int32, mscorlib">
     <value>40</value>
   </data>
   <data name="dgvJudgers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 276</value>
+    <value>43, 340</value>
   </data>
   <data name="dgvJudgers.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="dgvJudgers.RowHeadersWidth" type="System.Int32, mscorlib">
     <value>51</value>
   </data>
   <data name="dgvJudgers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1078, 363</value>
+    <value>1437, 447</value>
   </data>
   <data name="dgvJudgers.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -184,7 +181,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dgvJudgers.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="lblTotalRecordsCount.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -196,13 +193,10 @@
     <value>NoControl</value>
   </data>
   <data name="lblTotalRecordsCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>130, 650</value>
-  </data>
-  <data name="lblTotalRecordsCount.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>173, 800</value>
   </data>
   <data name="lblTotalRecordsCount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>19, 20</value>
+    <value>24, 25</value>
   </data>
   <data name="lblTotalRecordsCount.TabIndex" type="System.Int32, mscorlib">
     <value>49</value>
@@ -220,7 +214,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblTotalRecordsCount.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -232,10 +226,13 @@
     <value>NoControl</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 245</value>
+    <value>37, 302</value>
+  </data>
+  <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+    <value>122, 25</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>131</value>
@@ -253,7 +250,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -265,10 +262,13 @@
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>614, 245</value>
+    <value>819, 302</value>
+  </data>
+  <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
+    <value>74, 25</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>137</value>
@@ -286,7 +286,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -298,16 +298,13 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 650</value>
-  </data>
-  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>37, 800</value>
   </data>
   <data name="label2.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 20</value>
+    <value>99, 25</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>48</value>
@@ -325,7 +322,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="cbFilterBy.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10pt</value>
@@ -334,28 +331,28 @@
     <value>لا شيء</value>
   </data>
   <data name="cbFilterBy.Items1" xml:space="preserve">
-    <value>الرقم التعريفي كمحكم</value>
+    <value>الرقم التعريفي</value>
   </data>
   <data name="cbFilterBy.Items2" xml:space="preserve">
-    <value>الرقم التعريفي كمزوال</value>
-  </data>
-  <data name="cbFilterBy.Items3" xml:space="preserve">
     <value>الاسم</value>
   </data>
-  <data name="cbFilterBy.Items4" xml:space="preserve">
+  <data name="cbFilterBy.Items3" xml:space="preserve">
     <value>رقم الهاتف</value>
   </data>
+  <data name="cbFilterBy.Items4" xml:space="preserve">
+    <value>هل فعال ؟</value>
+  </data>
   <data name="cbFilterBy.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 243</value>
+    <value>179, 299</value>
   </data>
   <data name="cbFilterBy.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="cbFilterBy.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
   <data name="cbFilterBy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 24</value>
+    <value>231, 28</value>
   </data>
   <data name="cbFilterBy.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -370,22 +367,22 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbFilterBy.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="cbPage.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10pt</value>
   </data>
   <data name="cbPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>681, 243</value>
+    <value>908, 299</value>
   </data>
   <data name="cbPage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="cbPage.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
   <data name="cbPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 24</value>
+    <value>129, 28</value>
   </data>
   <data name="cbPage.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -400,16 +397,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbPage.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="txtFilterValue.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10pt</value>
   </data>
   <data name="txtFilterValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>311, 244</value>
+    <value>428, 300</value>
   </data>
   <data name="txtFilterValue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="txtFilterValue.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -418,7 +415,7 @@
     <value>Yes</value>
   </data>
   <data name="txtFilterValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 23</value>
+    <value>285, 28</value>
   </data>
   <data name="txtFilterValue.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -433,7 +430,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtFilterValue.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <metadata name="cmsJudgers.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 1</value>
@@ -445,16 +442,25 @@
     <value>None</value>
   </data>
   <data name="showInfoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 43</value>
+    <value>233, 43</value>
   </data>
   <data name="showInfoToolStripMenuItem.Text" xml:space="preserve">
     <value>عرض المعلومات</value>
+  </data>
+  <data name="activateJudgerToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="activateJudgerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 43</value>
+  </data>
+  <data name="activateJudgerToolStripMenuItem.Text" xml:space="preserve">
+    <value>تفعيل الحساب</value>
   </data>
   <data name="deactivateJudgerToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
   <data name="deactivateJudgerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 43</value>
+    <value>233, 43</value>
   </data>
   <data name="deactivateJudgerToolStripMenuItem.Text" xml:space="preserve">
     <value>إلغاء تفعيل الحساب</value>
@@ -463,7 +469,7 @@
     <value>None</value>
   </data>
   <data name="deleteJudgerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 38</value>
+    <value>233, 38</value>
   </data>
   <data name="deleteJudgerToolStripMenuItem.Text" xml:space="preserve">
     <value>حذف الحساب نهائيا</value>
@@ -472,7 +478,7 @@
     <value>Yes</value>
   </data>
   <data name="cmsJudgers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 128</value>
+    <value>234, 171</value>
   </data>
   <data name="&gt;&gt;cmsJudgers.Name" xml:space="preserve">
     <value>cmsJudgers</value>
@@ -484,13 +490,13 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>483, 16</value>
+    <value>644, 20</value>
   </data>
   <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 132</value>
+    <value>237, 162</value>
   </data>
   <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
@@ -508,7 +514,43 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
+  </data>
+  <data name="cbIsActive.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="cbIsActive.Items" xml:space="preserve">
+    <value>الكل</value>
+  </data>
+  <data name="cbIsActive.Items1" xml:space="preserve">
+    <value>نعم</value>
+  </data>
+  <data name="cbIsActive.Items2" xml:space="preserve">
+    <value>لا</value>
+  </data>
+  <data name="cbIsActive.Location" type="System.Drawing.Point, System.Drawing">
+    <value>428, 299</value>
+  </data>
+  <data name="cbIsActive.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="cbIsActive.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 28</value>
+  </data>
+  <data name="cbIsActive.TabIndex" type="System.Int32, mscorlib">
+    <value>139</value>
+  </data>
+  <data name="&gt;&gt;cbIsActive.Name" xml:space="preserve">
+    <value>cbIsActive</value>
+  </data>
+  <data name="&gt;&gt;cbIsActive.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbIsActive.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbIsActive.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -517,13 +559,13 @@
     <value>25</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1143, 690</value>
+    <value>1524, 849</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
@@ -538,6 +580,12 @@
     <value>showInfoToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;showInfoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;activateJudgerToolStripMenuItem.Name" xml:space="preserve">
+    <value>activateJudgerToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;activateJudgerToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;deactivateJudgerToolStripMenuItem.Name" xml:space="preserve">

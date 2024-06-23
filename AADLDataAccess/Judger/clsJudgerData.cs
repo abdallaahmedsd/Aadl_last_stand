@@ -385,92 +385,14 @@ namespace AADLDataAccess.Judger
             return EffectedRows > 0;
         }
 
-        /// <summary>
-        /// This function does not delete a Judger physically from the database.
-        /// Just soft deletion happens by deactivting a Judger.
-        /// </summary>
-        /// <param name="ID"></param>
-        /// <param name="WhichID"></param>
-        /// <returns>true if a Judger has been softly deleted, otherwise false</returns>
-        public static bool Deactivate(int ID, enWhichID WhichID)
-        {
-            bool isDeleted = false;
+        public static bool Deactivate(int judgerID)
+            => clsDataAccessHelper.Deactivate("SP_DeactivateJudger", "JudgerID", judgerID);
 
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
+        public static bool Activate(int judgerID)
+            => clsDataAccessHelper.Activate("SP_ActivateJudger", "JudgerID", judgerID);
 
-                    using (SqlCommand command = new SqlCommand("SP_DeleteJudgerSoftly", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@ID", ID);
-                        command.Parameters.AddWithValue("@WhichID", (int)WhichID);
-
-                        // Add output parameter for the IsDeleted
-                        SqlParameter isDeletedParameter = new SqlParameter("@IsDeleted", SqlDbType.Bit);
-                        isDeletedParameter.Direction = ParameterDirection.Output;
-                        command.Parameters.Add(isDeletedParameter);
-
-                        connection.Open();
-
-                        command.ExecuteNonQuery();
-
-                        isDeleted = (bool)command.Parameters["@IsDeleted"].Value;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsDataAccessSettings.WriteEventToLogFile("Problem happened in Judger class while trying to softly delete Judger()\n" + ex.Message,
-                    EventLogEntryType.Error);
-
-                isDeleted = false;
-            }
-
-            return (isDeleted);
-        }
-
-        public static bool Activate(int ID, enWhichID WhichID)
-        {
-            bool isActivated = false;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-
-                    using (SqlCommand command = new SqlCommand("SP_ActivateJudger", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@ID", ID);
-                        command.Parameters.AddWithValue("@WhichID", (int)WhichID);
-
-                        // Add output parameter for the IsActivated
-                        SqlParameter isActivatedParameter = new SqlParameter("@IsActivated", SqlDbType.Bit);
-                        isActivatedParameter.Direction = ParameterDirection.Output;
-                        command.Parameters.Add(isActivatedParameter);
-
-                        connection.Open();
-
-                        command.ExecuteNonQuery();
-
-                        isActivated = (bool)command.Parameters["@IsActivated"].Value;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsDataAccessSettings.WriteEventToLogFile("Problem happened in Judger class while trying to softly delete Judger()\n" + ex.Message,
-                    EventLogEntryType.Error);
-
-                isActivated = false;
-            }
-
-            return (isActivated);
-        }
-
-        public static bool DeletePermanently(int? judgerID) => clsDataAccessHelper.Delete("SP_DeleteJudgerPermanently", "JudgerID", judgerID);
+        public static bool DeletePermanently(int? judgerID)
+            => clsDataAccessHelper.Delete("SP_DeleteJudgerPermanently", "JudgerID", judgerID);
 
         public static bool IsJudgerExist(int ID, enWhichID WhichID)
         {
@@ -510,9 +432,11 @@ namespace AADLDataAccess.Judger
             return isExist;
         }
     
-        public static int Count() => clsDataAccessHelper.Count("SP_GetTotalJudgersCount");
+        public static int Count()
+            => clsDataAccessHelper.Count("SP_GetTotalJudgersCount");
 
-        public static DataTable GetJudgersPerPage(ushort pageNumber, uint rowsPerPage) => clsDataAccessHelper.AllInPages(pageNumber, rowsPerPage, "SP_GetJudgersPerPage");
+        public static DataTable GetJudgersPerPage(ushort pageNumber, uint rowsPerPage)
+            => clsDataAccessHelper.AllInPages(pageNumber, rowsPerPage, "SP_GetJudgersPerPage");
     }
 
 }

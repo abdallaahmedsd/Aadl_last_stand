@@ -153,41 +153,20 @@ namespace AADLBusiness.Judger
             return clsJudgerData.IsJudgerExist(PractitionerID, clsJudgerData.enWhichID.PractitionerID);
         }
 
-        public static bool DeactivateByJudgerID(int JudgerID)
-        {
-            return clsJudgerData.Deactivate(JudgerID, clsJudgerData.enWhichID.JudgerID);
-        }
+        public static bool Deactivate(int JudgerID)
+            => clsJudgerData.Deactivate(JudgerID);
 
-        public static bool DeactivateByPersonID(int PersonID)
-        {
-            return clsJudgerData.Deactivate(PersonID, clsJudgerData.enWhichID.PersonID);
-        }
+        public static bool Activate(int JudgerID)
+            => clsJudgerData.Activate(JudgerID);
 
-        public static bool DeactivateByPractitionerID(int PractitionerID)
-        {
-            return clsJudgerData.Deactivate(PractitionerID, clsJudgerData.enWhichID.PractitionerID);
-        }
+        public static bool DeletePermanently(int JudgerID)
+            => clsJudgerData.DeletePermanently(JudgerID);
 
-        public static bool ActivateByJudgerID(int JudgerID)
-        {
-            return clsJudgerData.Activate(JudgerID, clsJudgerData.enWhichID.JudgerID);
-        }
+        public static int Count()
+            => clsJudgerData.Count();
 
-        public static bool ActivateByPersonID(int PersonID)
-        {
-            return clsJudgerData.Activate(PersonID, clsJudgerData.enWhichID.PersonID);
-        }
-
-        public static bool ActivateByPractitionerID(int PractitionerID)
-        {
-            return clsJudgerData.Activate(PractitionerID, clsJudgerData.enWhichID.PractitionerID);
-        }
-
-        public static bool DeleteJudgerPermanently(int JudgerID) => clsJudgerData.DeletePermanently(JudgerID);
-
-        public static int Count() => clsJudgerData.Count();
-
-        public static DataTable GetJudgersPerPage(ushort pageNumber, uint rowsPerPage) => clsJudgerData.GetJudgersPerPage(pageNumber, rowsPerPage);
+        public static DataTable GetJudgersPerPage(ushort pageNumber, uint rowsPerPage)
+            => clsJudgerData.GetJudgersPerPage(pageNumber, rowsPerPage);
 
         public override bool Save()
         {

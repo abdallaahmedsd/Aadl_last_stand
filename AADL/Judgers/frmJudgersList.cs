@@ -211,7 +211,7 @@ namespace AADL.Judgers
 
             if (MessageBox.Show($"هل انت متاكد انك تريد تريد الغاء تفعيل الحساب رقم {judgerID} ؟", "تاكيد الإلغاء", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                if (clsJudger.DeactivateByJudgerID(judgerID))
+                if (clsJudger.Deactivate(judgerID))
                 {
                     MessageBox.Show($"تم الإلغاء تفعيل الحساب بنجاح", "نجحت العملية", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -229,7 +229,7 @@ namespace AADL.Judgers
 
             if (MessageBox.Show($"تحذير: سوف يتم حذف الحساب رقم ({judgerID}) و كل ما يتعلق به. هل ما زلت تريد حذف هذا الحساب؟", "تاكيد الحذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                if (clsJudger.DeleteJudgerPermanently(judgerID))
+                if (clsJudger.DeletePermanently(judgerID))
                 {
                     MessageBox.Show($"تم حذف الحساب بنجاح", "نجحت العملية", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -302,7 +302,7 @@ namespace AADL.Judgers
 
             if (MessageBox.Show($"هل انت متاكد انك تريد تريد تفعيل الحساب رقم {judgerID} ؟", "تاكيد التفعيل", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                if (clsJudger.ActivateByJudgerID(judgerID))
+                if (clsJudger.Activate(judgerID))
                 {
                     MessageBox.Show($"تم تفعيل الحساب بنجاح", "نجحت العملية", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

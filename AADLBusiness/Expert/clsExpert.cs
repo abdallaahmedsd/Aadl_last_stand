@@ -169,8 +169,8 @@ namespace AADLBusiness.Expert
         }
 
         protected override bool _Update()
-        => clsExpertData.Update(ExpertID ?? -1, PractitionerID, LastEditByUserID,
-            SubscriptionTypeID, SubscriptionWayID, IsActive, ExpertCasesPracticeIDNameDictionary);
+            => clsExpertData.Update(ExpertID ?? -1, PractitionerID, LastEditByUserID,
+                SubscriptionTypeID, SubscriptionWayID, IsActive, ExpertCasesPracticeIDNameDictionary);
 
         public override bool Save()
         {
@@ -194,35 +194,29 @@ namespace AADLBusiness.Expert
             return false;
         }
 
-        private static bool _DeletePermanently(int? expertID)
-        => clsExpertData.DeletePermanently(expertID);
+        public static bool Deactivate(int expertID)
+            => clsExpertData.Deactivate(expertID);
 
-        private static bool _DeleteSoftly(int? expertID)
-               => clsExpertData.DeleteSoftly(expertID);
+        public static bool Activate(int expertID)
+            => clsExpertData.Activate(expertID);
 
-        public static bool Delete(int? expertID, enDeleteMode mode)
-        {
-            switch (mode)
-            {
-                case enDeleteMode.Permanently:
-                    return _DeletePermanently(expertID);
+        public static bool DeletePermanently(int expertID)
+            => clsExpertData.DeletePermanently(expertID);
 
-                case enDeleteMode.Softly:
-                    return _DeleteSoftly(expertID);
+        public static int Count()
+            => clsExpertData.Count();
 
-                default:
-                    return false;
-            }
-        }
+        public static DataTable GetExpertsPerPage(ushort pageNumber, uint rowsPerPage)
+            => clsExpertData.GetExpertsPerPage(pageNumber, rowsPerPage);
 
         private static bool _ExistsByExpertID(int? expertID)
-        => clsExpertData.ExistsByExpertID(expertID);
+            => clsExpertData.ExistsByExpertID(expertID);
 
         private static bool _ExistsByPersonID(int? personID)
-        => clsExpertData.ExistsByPersonID(personID);
+            => clsExpertData.ExistsByPersonID(personID);
 
         private static bool _ExistsByPractitionerID(int? practitionerID)
-        => clsExpertData.ExistsByPractitionerID(practitionerID);
+            => clsExpertData.ExistsByPractitionerID(practitionerID);
 
         public static bool Exists(int? entityID, enFindBy findBy)
         {
@@ -243,6 +237,6 @@ namespace AADLBusiness.Expert
         }
 
         public static DataTable All()
-        => clsExpertData.All();
+            => clsExpertData.All();
     }
 }

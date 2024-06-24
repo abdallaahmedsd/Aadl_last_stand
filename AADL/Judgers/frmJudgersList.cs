@@ -129,7 +129,7 @@ namespace AADL.Judgers
 
         private void frmJudgersList_Load(object sender, EventArgs e)
         {
-            // Cusomize the appearance of the DataGridView
+            //Customize the appearance of the DataGridView
             clsUtil.CustomizeDataGridView(dgvJudgers);
 
             _LoadRefreshJudgersPerPage();

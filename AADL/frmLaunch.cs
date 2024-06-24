@@ -118,5 +118,11 @@ namespace AADL
 
             frmJudgersList.ShowDialog();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            frmRegulatorList frmRegulatorList = new frmRegulatorList(); 
+            frmRegulatorList.ShowDialog();
+        }
     }
 }

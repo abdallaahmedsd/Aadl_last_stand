@@ -31,9 +31,19 @@ namespace AADL.Lists
 
         private int _PractitionerID = -1;
 
-        public EventHandler<int> OnListCreation;
 
+        // Define a delegate for the event
+        public delegate void CustomEventHandler(object sender, EventArgs e);
+
+        // Declare the event using the delegate
+        public event CustomEventHandler evCustomEventSaveUpdate;
         // I might create sub-enum for specilized lists
+
+        // Method to trigger the event
+        protected void OnCustomEvent()
+        {
+            evCustomEventSaveUpdate?.Invoke(this, EventArgs.Empty);
+        }
         public enum enCreationMode { BlackList,RegulatoryWhiteList,RegulatoryClosedList,
            ShariaWhiteList, ShariaClosedList};
         public enum enMode { AddNew,Update};
@@ -750,8 +760,10 @@ namespace AADL.Lists
                     MessageBox.Show("حفظ البيانات بنجاح.", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     lbListlD.Text = _BlackList.BlackListID.ToString();
                     btnDelete.Visible = true;
+                    OnCustomEvent();
+
                 }
-         
+
                 else
                 {
                     MessageBox.Show("فشل: لم تحفظ البيانات بشكل صحيح.", "فشل", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -787,6 +799,7 @@ namespace AADL.Lists
                     MessageBox.Show("حفظ البيانات بنجاح.", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     lbListlD.Text = _WhiteList.WhiteListID.ToString();
                     btnDelete.Visible = true;
+                    OnCustomEvent();
                 }
                 else
                 {
@@ -822,6 +835,7 @@ namespace AADL.Lists
                     MessageBox.Show("حفظ البيانات بنجاح.", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     lbListlD.Text = _ClosedList.ClosedListID.ToString();
                     btnDelete.Visible = true;
+                    OnCustomEvent();
                 }
                 else
                 {
@@ -867,9 +881,10 @@ namespace AADL.Lists
                     MessageBox.Show("تم حذف العنصر من القائمة ", "معلومة", MessageBoxButtons.OK,MessageBoxIcon.Information);
 
                     LoadInfo(_PractitionerID, _CreationMode);
-                    
-                }
-                else
+                        OnCustomEvent();
+
+                    }
+                    else
                 {
                     MessageBox.Show("حصل خطاء ما اثناء القيام بعملية الحذف.", "فشل", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -888,6 +903,7 @@ namespace AADL.Lists
                         MessageBox.Show("تم حذف العنصر من القائمة البيضاء للنظامين ", "معلومة", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         LoadInfo(_PractitionerID, _CreationMode);
+                        OnCustomEvent();
 
                     }
                     else
@@ -909,6 +925,7 @@ namespace AADL.Lists
                         MessageBox.Show("تم حذف العنصر من القائمة المغلقة للنظامين ", "معلومة", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         LoadInfo(_PractitionerID, _CreationMode);
+                        OnCustomEvent();
 
                     }
                     else
@@ -930,6 +947,7 @@ namespace AADL.Lists
                         MessageBox.Show("تم حذف العنصر من القائمة البيضاء للشرعيين ", "معلومة", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         LoadInfo(_PractitionerID, _CreationMode);
+                        OnCustomEvent();
 
                     }
                     else
@@ -951,6 +969,7 @@ namespace AADL.Lists
                         MessageBox.Show("تم حذف العنصر من القائمة المغلقة للشرعيين ", "معلومة", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         LoadInfo(_PractitionerID, _CreationMode);
+                        OnCustomEvent();
 
                     }
                     else

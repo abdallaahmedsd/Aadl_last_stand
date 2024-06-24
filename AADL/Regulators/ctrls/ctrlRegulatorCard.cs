@@ -28,8 +28,8 @@ namespace AADL.Regulators
     {
         public enum LoadRegulatorBy { PersonID, RegulatorID, MemberShipNumber,PractitionerID };
         public enum LoadShariaBy { PersonID, ShariaID, ShariaLicenseNumber, PractitionerID };
-
         public enum enCreationMode { Regulator,Sharia,Expert,Judger}
+        
         private clsRegulator _Regulator;
 
         private int? _RegulatorID = null;
@@ -60,7 +60,6 @@ namespace AADL.Regulators
                             _Regulator = clsRegulator.Find(RegulatorID, clsRegulator.enSearchBy.RegulatorID);
                             if (_Regulator == null)
                             {
-                                ResetRegulatorInfo();
                                 MessageBox.Show("لا يوجد شخص يحمل (الرقم التعريفي) .  = " + RegulatorID.ToString(), "خطاء", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
@@ -77,7 +76,6 @@ namespace AADL.Regulators
                             _Regulator = clsRegulator.Find(PersonID, clsRegulator.enSearchBy.PersonID);
                             if (_Regulator == null)
                             {
-                                ResetRegulatorInfo();
                                 MessageBox.Show("لا يوجد شخص يحمل (الرقم التعريفي) .  = " + PersonID.ToString(), "خطاء", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
@@ -94,7 +92,6 @@ namespace AADL.Regulators
                             _Regulator = clsRegulator.Find(MemberShipNumber, clsRegulator.enSearchBy.MemberShipNumber);
                             if (_Regulator == null)
                             {
-                                ResetRegulatorInfo();
                                 MessageBox.Show("لا يوجد شخص يحمل (الرقم التعريفي) .  = " + MemberShipNumber.ToString(), "خطاء", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
@@ -111,7 +108,6 @@ namespace AADL.Regulators
                             _Regulator = clsRegulator.Find(PractitionerID, clsRegulator.enSearchBy.PractitionerID);
                             if (_Regulator == null)
                             {
-                                ResetRegulatorInfo();
                                 MessageBox.Show("لا يوجد شخص يحمل (الرقم التعريفي) .  = " + PractitionerID.ToString(), "خطاء", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
@@ -128,6 +124,7 @@ namespace AADL.Regulators
 
         private void _FillRegulatorInfo()
         {
+            ResetRegulatorInfo();
             try
             {
                 lbFullName.Text = _Regulator.SelectedPersonInfo.FullName;
@@ -194,9 +191,11 @@ namespace AADL.Regulators
         {
             //Regulator info
             _RegulatorID = -1;
-            lblRegulatorID.Text = "[????]";
             lbMemberShip.Text = "[????]";
             lbSubscriptionType.Text = "[????]";
+            lbSubscriptionWay.Text = "[????]";
+            lblRegulatorID.Text = "[????]";
+            lbFullName.Text = "[????]";
 
             //Edit and create.
             lbCreatedByUserID.Text = "[????]";
@@ -219,10 +218,15 @@ namespace AADL.Regulators
 
         }
 
+        public void ResetOnDemand(object sender, EventArgs e)
+        {
+            _FillRegulatorInfo();
+        }
         private void llEditRegulatorInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmAddUpdatePractitioner frmAddUpdatePractitioner = new frmAddUpdatePractitioner(_Regulator.PractitionerID,
                 frmAddUpdatePractitioner.enRunSpecificTabPage.Regulatory);
+            frmAddUpdatePractitioner.evPractitionerUpdated += ResetOnDemand;
             frmAddUpdatePractitioner.ShowDialog();
         }
 
@@ -232,6 +236,7 @@ namespace AADL.Regulators
             {
                 frmListInfo frmListInfo = new frmListInfo(clsBlackList.Find(_Regulator.PractitionerID, clsBlackList.enFindBy.PractitionerID).BlackListID
                     , ctrlListInfo.CreationMode.BlackList);
+
                 frmListInfo.ShowDialog();
             }catch (Exception ex)
             {

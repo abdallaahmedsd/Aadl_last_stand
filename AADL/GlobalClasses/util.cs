@@ -114,6 +114,10 @@ namespace DVLD.Classes
             if(dgv.Name == "dgvJudgers") 
                 headerStyle.BackColor = JudgersMainColor;
 
+            else if (dgv.Name == "dgvRegulators")
+            {
+                headerStyle.BackColor = Color.FromArgb(192, 64, 0);
+            }
             dgv.ColumnHeadersDefaultCellStyle = headerStyle;
 
 

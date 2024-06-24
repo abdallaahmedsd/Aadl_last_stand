@@ -53,7 +53,7 @@ namespace AADL.Lists
                             lvReasons.Items.Add(ReasonName);
                         }
 
-                        tbListNote.Text=_BlackList.Notes.ToString();
+                        tbListNote.Text = _BlackList.Notes?.ToString() ?? string.Empty;
                         lbIssueDate.Text = _BlackList.AddedToListDate.ToShortDateString();
 
                         lbCreatedByUser.Text = clsUser.FindByUserID(_BlackList.CreatedByUserID).UserName.ToString();
@@ -81,7 +81,7 @@ namespace AADL.Lists
                             lvReasons.Items.Add(ReasonName);
                         }
 
-                        tbListNote.Text = _WhiteList.Notes.ToString();
+                        tbListNote.Text = _WhiteList.Notes?.ToString()??string.Empty;
                         lbIssueDate.Text = _WhiteList.AddedToListDate.ToShortDateString();
 
                         lbCreatedByUser.Text = clsUser.FindByUserID(_WhiteList.CreatedByUserID).UserName.ToString();
@@ -109,7 +109,7 @@ namespace AADL.Lists
                             lvReasons.Items.Add(ReasonName);
                         }
 
-                        tbListNote.Text = _ClosedList.Notes.ToString();
+                        tbListNote.Text = _ClosedList.Notes?.ToString() ?? string.Empty;
                         lbIssueDate.Text = _ClosedList.AddedToListDate.ToShortDateString();
 
                         lbCreatedByUser.Text = clsUser.FindByUserID(_ClosedList.CreatedByUserID).UserName.ToString();

@@ -17,11 +17,13 @@ namespace AADL.Lists
     {
         private int _PractitionerID = -1;
         private int _ListID = -1;
-        public enum enMode { AddNew,Update};
+        public enum enMode { AddNew,Update };
 
-        private enMode _Mode=enMode.AddNew;
+        private enMode _Mode = enMode.AddNew;
+        
         private ctrlAddUpdateList.enCreationMode _CreationMode;
 
+        public  ctrlAddUpdateList.CustomEventHandler evCustomEventAddUpdateList { set; get; }
         public FrmAddUpdateList(int PractitionerID,ctrlAddUpdateList.enCreationMode CreationMode)
         {
             InitializeComponent();
@@ -44,12 +46,18 @@ namespace AADL.Lists
             this.Close();
         }
 
+        private void TriggerEvent(object sender, EventArgs e)
+        {
+            evCustomEventAddUpdateList?.Invoke(this, EventArgs.Empty);
+
+        }
         private void FrmAddUpdateList_Load(object sender, EventArgs e)
         {
-            if(ctrlAddUpdateList1.LoadInfo(_PractitionerID, _CreationMode, _ListID) == false)
+            ctrlAddUpdateList1.evCustomEventSaveUpdate += TriggerEvent;
+
+            if (ctrlAddUpdateList1.LoadInfo(_PractitionerID, _CreationMode, _ListID) == false)
             {
                 this.Close();
-
             }
 
         }

@@ -55,6 +55,7 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.ctbRegulatoryMemberShipNumber = new myControlLibrary.myCustomControlTextBox();
             this.tpPersonalInfo = new System.Windows.Forms.TabPage();
+            this.ctrlPersonCardWithFilter1 = new AADL.People.controls.ctrlPersonCardWithFilter();
             this.btnPersonInfoNext = new System.Windows.Forms.Button();
             this.tcPractitionernfo = new System.Windows.Forms.TabControl();
             this.tpShariaInfo = new System.Windows.Forms.TabPage();
@@ -132,7 +133,6 @@
             this.cbAddExpert = new System.Windows.Forms.CheckBox();
             this.cbAddJudger = new System.Windows.Forms.CheckBox();
             this.cbAddRegulator = new System.Windows.Forms.CheckBox();
-            this.ctrlPersonCardWithFilter1 = new AADL.People.controls.ctrlPersonCardWithFilter();
             this.tpRegulatorInfo.SuspendLayout();
             this.gpRegulatorySubscriptionType.SuspendLayout();
             this.gpSubscriptionWay.SuspendLayout();
@@ -193,7 +193,7 @@
             // 
             this.btnResetRegulatoryCases.BackColor = System.Drawing.Color.Transparent;
             this.btnResetRegulatoryCases.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResetRegulatoryCases.ForeColor = System.Drawing.Color.SandyBrown;
+            this.btnResetRegulatoryCases.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnResetRegulatoryCases.Location = new System.Drawing.Point(969, 436);
             this.btnResetRegulatoryCases.Name = "btnResetRegulatoryCases";
             this.btnResetRegulatoryCases.Size = new System.Drawing.Size(64, 28);
@@ -206,7 +206,7 @@
             // 
             this.btnRegulatoryClosedList.BackColor = System.Drawing.Color.Transparent;
             this.btnRegulatoryClosedList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegulatoryClosedList.ForeColor = System.Drawing.Color.SandyBrown;
+            this.btnRegulatoryClosedList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnRegulatoryClosedList.Location = new System.Drawing.Point(408, 558);
             this.btnRegulatoryClosedList.Name = "btnRegulatoryClosedList";
             this.btnRegulatoryClosedList.Size = new System.Drawing.Size(141, 47);
@@ -219,7 +219,7 @@
             // 
             this.btnRegulatoryWhiteList.BackColor = System.Drawing.Color.Transparent;
             this.btnRegulatoryWhiteList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegulatoryWhiteList.ForeColor = System.Drawing.Color.SandyBrown;
+            this.btnRegulatoryWhiteList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnRegulatoryWhiteList.Location = new System.Drawing.Point(600, 558);
             this.btnRegulatoryWhiteList.Name = "btnRegulatoryWhiteList";
             this.btnRegulatoryWhiteList.Size = new System.Drawing.Size(141, 47);
@@ -254,7 +254,7 @@
             // 
             this.btnBlackList.BackColor = System.Drawing.Color.Transparent;
             this.btnBlackList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBlackList.ForeColor = System.Drawing.Color.SandyBrown;
+            this.btnBlackList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnBlackList.Location = new System.Drawing.Point(781, 558);
             this.btnBlackList.Name = "btnBlackList";
             this.btnBlackList.Size = new System.Drawing.Size(141, 47);
@@ -353,7 +353,7 @@
             this.clbRegulatoryCasesTypes.ContextMenuStrip = this.cms;
             this.clbRegulatoryCasesTypes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.clbRegulatoryCasesTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clbRegulatoryCasesTypes.ForeColor = System.Drawing.Color.SandyBrown;
+            this.clbRegulatoryCasesTypes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.clbRegulatoryCasesTypes.FormattingEnabled = true;
             this.clbRegulatoryCasesTypes.Location = new System.Drawing.Point(408, 141);
             this.clbRegulatoryCasesTypes.Name = "clbRegulatoryCasesTypes";
@@ -381,7 +381,7 @@
             // 
             this.lblRegulatorID.AutoSize = true;
             this.lblRegulatorID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegulatorID.ForeColor = System.Drawing.Color.SandyBrown;
+            this.lblRegulatorID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.lblRegulatorID.Location = new System.Drawing.Point(887, 37);
             this.lblRegulatorID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRegulatorID.Name = "lblRegulatorID";
@@ -405,7 +405,7 @@
             this.chkRegulatorIsActive.AutoSize = true;
             this.chkRegulatorIsActive.Checked = true;
             this.chkRegulatorIsActive.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkRegulatorIsActive.ForeColor = System.Drawing.Color.SandyBrown;
+            this.chkRegulatorIsActive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.chkRegulatorIsActive.Location = new System.Drawing.Point(873, 516);
             this.chkRegulatorIsActive.Name = "chkRegulatorIsActive";
             this.chkRegulatorIsActive.Size = new System.Drawing.Size(49, 17);
@@ -417,7 +417,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.SandyBrown;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(1124, 94);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -458,6 +458,7 @@
             // 
             // ctbRegulatoryMemberShipNumber
             // 
+            this.ctbRegulatoryMemberShipNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.ctbRegulatoryMemberShipNumber.InputType = myControlLibrary.myCustomControlTextBox.InputTypeEnum.NumberInput;
             this.ctbRegulatoryMemberShipNumber.IsRequired = true;
             this.ctbRegulatoryMemberShipNumber.Location = new System.Drawing.Point(409, 94);
@@ -478,6 +479,17 @@
             this.tpPersonalInfo.Size = new System.Drawing.Size(1236, 744);
             this.tpPersonalInfo.TabIndex = 0;
             this.tpPersonalInfo.Text = "البيانات الشخصية";
+            // 
+            // ctrlPersonCardWithFilter1
+            // 
+            this.ctrlPersonCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
+            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(163, 21);
+            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
+            this.ctrlPersonCardWithFilter1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ctrlPersonCardWithFilter1.ShowAddPerson = true;
+            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1067, 725);
+            this.ctrlPersonCardWithFilter1.TabIndex = 120;
             // 
             // btnPersonInfoNext
             // 
@@ -998,6 +1010,7 @@
             this.clbJudgerCasesTypes.Name = "clbJudgerCasesTypes";
             this.clbJudgerCasesTypes.Size = new System.Drawing.Size(513, 365);
             this.clbJudgerCasesTypes.TabIndex = 166;
+            this.clbJudgerCasesTypes.SelectedIndexChanged += new System.EventHandler(this.clbJudgerCasesTypes_SelectedIndexChanged);
             this.clbJudgerCasesTypes.Validating += new System.ComponentModel.CancelEventHandler(this.clbJudgerCasesTypes_Validating);
             // 
             // chkJudgerIsActive
@@ -1432,17 +1445,6 @@
             this.cbAddRegulator.Text = " نظامي";
             this.cbAddRegulator.UseVisualStyleBackColor = true;
             this.cbAddRegulator.CheckedChanged += new System.EventHandler(this.cbAdd_CheckedChanged);
-            // 
-            // ctrlPersonCardWithFilter1
-            // 
-            this.ctrlPersonCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
-            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(163, 21);
-            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
-            this.ctrlPersonCardWithFilter1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ctrlPersonCardWithFilter1.ShowAddPerson = true;
-            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1067, 725);
-            this.ctrlPersonCardWithFilter1.TabIndex = 120;
             // 
             // frmAddUpdatePractitioner
             // 

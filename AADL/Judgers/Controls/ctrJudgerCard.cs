@@ -1,4 +1,10 @@
-﻿using AADLBusiness.Judger;
+﻿using AADL.Lists;
+using AADL.Regulators;
+using AADLBusiness;
+using AADLBusiness.Judger;
+using AADLBusiness.Lists.Closed;
+using AADLBusiness.Lists.WhiteList;
+using System;
 using System.Windows.Forms;
 
 namespace AADL.Judgers.Controls
@@ -22,7 +28,11 @@ namespace AADL.Judgers.Controls
             lblCreatedByUserID.Text = _judger.UserInfo.UserName;
             lblIssueDate.Text = _judger.IssueDate.ToShortDateString();
             lblLastEditDate.Text = _judger.LastEditByUserInfo?.UserName ?? "لم يتم تعديله بعد";
-
+            llblBlackList.Enabled = _judger.IsPractitionerInBlackList();
+            llblWhiteList.Enabled = (clsWhiteList.IsPractitionerInWhiteList(_judger.PractitionerID,
+                clsPractitioner.enPractitionerType.Regulatory));
+            llblClosedList.Enabled = (clsClosedList.IsPractitionerInClosedList(_judger.PractitionerID,
+               clsPractitioner.enPractitionerType.Regulatory));
             // Handle Judger Casess
             if (_judger.JudgeCasesPracticeIDNameDictionary != null && _judger.JudgeCasesPracticeIDNameDictionary.Count != 0)
             {
@@ -99,5 +109,65 @@ namespace AADL.Judgers.Controls
             frmPersonInfo frm = new frmPersonInfo(_judger.PersonID);
             frm.ShowDialog();
         }
-    }
+
+        private void llblEditJudgerInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmAddUpdatePractitioner form = new frmAddUpdatePractitioner(_judger.PractitionerID,
+                frmAddUpdatePractitioner.enRunSpecificTabPage.Judger);
+            form.ShowDialog();
+        }
+
+        private void llblBlackList_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                frmListInfo frmListInfo = new frmListInfo(clsBlackList.Find(_judger.PractitionerID, clsBlackList.enFindBy.PractitionerID).BlackListID
+                    , ctrlListInfo.CreationMode.BlackList);
+                frmListInfo.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception:" + ex.ToString());
+
+                MessageBox.Show("لقد حدث عطل فني داخل النظام , اثناء محاولة استرجاع البيانات .", "فشل",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void llblWhiteList_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                frmListInfo ListInfoForm = new frmListInfo((int)clsWhiteList.Find(_judger.PractitionerID,
+              clsPractitioner.enPractitionerType.Judger).WhiteListID,
+              ctrlListInfo.CreationMode.WhiteList);
+            ListInfoForm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception:" + ex.ToString());
+
+                MessageBox.Show("لقد حدث عطل فني داخل النظام , اثناء محاولة استرجاع البيانات .", "فشل",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void llblClosedList_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                frmListInfo ListInfoForm = new frmListInfo((int)clsClosedList.Find(_judger.PractitionerID,
+          clsPractitioner.enPractitionerType.Judger).ClosedListID,
+          ctrlListInfo.CreationMode.ClosedList);
+                ListInfoForm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception:" + ex.ToString());
+
+                MessageBox.Show("لقد حدث عطل فني داخل النظام , اثناء محاولة استرجاع البيانات .", "فشل",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+}
 }

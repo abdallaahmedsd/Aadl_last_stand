@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Utilities;
+using static AADLDataAccess.Judger.clsJudgerData;
 
 namespace AADLDataAccess
 {
@@ -17,6 +18,7 @@ namespace AADLDataAccess
     /// </summary>
     public class clsRegulatorData
     {
+        public enum enWhichID { RegulatorID = 1, PractitionerID, PersonID }
 
         public static bool GetRegulatorInfoByRegulatorID(int RegulatorID,ref int PersonID,ref string MemberShipNumber,
             ref bool IsLawyer,ref int PractitionerID, ref DateTime IssueDate,ref int? LastEditByUserID,
@@ -785,43 +787,91 @@ namespace AADLDataAccess
             return isFound;
         }
 
-        /// <summary>
-        /// When black list delete it , it has ability to handle lawyers profiles.
-        /// </summary>
-        /// <param name="ListTypeID"> just for white,closed type</param>
-        /// <returns></returns>
-        [Obsolete("Don't use it i am not sure from its results yet.")]
-        public static bool UpdateRegulatorList(int RegulatorID,int ListID,int ListTypeID)
+  
+        public static int Count() => clsDataAccessHelper.Count("SP_GetTotalRegulatorsCount");
+        public static DataTable GetRegulatorsPerPage(ushort pageNumber, uint rowsPerPage) => clsDataAccessHelper.AllInPages(pageNumber, rowsPerPage, "SP_GetRegulatorsPerPage");
+        public static bool Activate(int ID, enWhichID WhichID)
         {
+            bool isActivated = false;
 
-            int rowsAffected = 0;
-
-            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            try
             {
-
-                using (SqlCommand command = new SqlCommand("SP_UpdateRegulatorList", connection))
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
                 {
 
-                    command.Parameters.AddWithValue("@RegulatorID", RegulatorID);
-                    command.Parameters.AddWithValue("@ListID", ListID);
-                    command.Parameters.AddWithValue("@ListTypeID", ListTypeID);
-
-                    try
+                    using (SqlCommand command = new SqlCommand("SP_ActivateRegulator", connection))
                     {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@ID", ID);
+                        command.Parameters.AddWithValue("@WhichID", (int)WhichID);
+
+                        // Add output parameter for the IsActivated
+                        SqlParameter isActivatedParameter = new SqlParameter("@IsActivated", SqlDbType.Bit);
+                        isActivatedParameter.Direction = ParameterDirection.Output;
+                        command.Parameters.Add(isActivatedParameter);
+
                         connection.Open();
-                        rowsAffected = command.ExecuteNonQuery();
 
-                    }
-                    catch (Exception ex)
-                    {
-                        clsDataAccessSettings.WriteEventToLogFile("Problem happened in regulator class while trying to cancel blackList ()\n" + ex.Message,
-                            EventLogEntryType.Error);
+                        command.ExecuteNonQuery();
+
+                        isActivated = (bool)command.Parameters["@IsActivated"].Value;
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                clsDataAccessSettings.WriteEventToLogFile("Problem happened in Judger class while trying to softly delete Judger()\n" + ex.Message,
+                    EventLogEntryType.Error);
 
-            return (rowsAffected > 0);
+                isActivated = false;
+            }
 
+            return (isActivated);
+        }
+        /// <summary>
+        /// This function does not delete a Judger physically from the database.
+        /// Just soft deletion happens by deactivating a Judger.
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="WhichID"></param>
+        /// <returns>true if a Regulator has been softly deleted, otherwise false</returns>
+        public static bool Deactivate(int ID, enWhichID WhichID)
+        {
+            bool isDeleted = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+
+                    using (SqlCommand command = new SqlCommand("SP_DeleteRegulatorSoftly", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@ID", ID);
+                        command.Parameters.AddWithValue("@WhichID", (int)WhichID);
+
+                        // Add output parameter for the IsDeleted
+                        SqlParameter isDeletedParameter = new SqlParameter("@IsDeleted", SqlDbType.Bit);
+                        isDeletedParameter.Direction = ParameterDirection.Output;
+                        command.Parameters.Add(isDeletedParameter);
+
+                        connection.Open();
+
+                        command.ExecuteNonQuery();
+
+                        isDeleted = (bool)command.Parameters["@IsDeleted"].Value;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsDataAccessSettings.WriteEventToLogFile("Problem happened in Judger class while trying to softly delete Judger()\n" + ex.Message,
+                    EventLogEntryType.Error);
+
+                isDeleted = false;
+            }
+
+            return (isDeleted);
         }
 
     }

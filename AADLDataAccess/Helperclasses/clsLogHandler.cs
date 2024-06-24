@@ -8,7 +8,7 @@ namespace AADL_DataAccess.HelperClasses
     {
         public static void LogToEventViewer(string errorType, Exception ex)
         {
-            string sourceName = ConfigurationManager.AppSettings["AADLApplication"];
+            string sourceName = ConfigurationManager.AppSettings?["AADLApplication"] ?? "AADLApplication";
 
             // Create the event source if it does not exist
             if (!EventLog.SourceExists(sourceName))

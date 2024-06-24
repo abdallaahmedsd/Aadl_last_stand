@@ -1,5 +1,6 @@
 ﻿using AADL.Pracititoners;
 using AADLBusiness;
+using DVLD.Classes;
 using myControlLibrary;
 using System;
 using System.CodeDom;
@@ -30,6 +31,8 @@ namespace AADL.Regulators
 
         private void _UpdateColumnsWidth()
         {
+            clsUtil.CustomizeDataGridView(dgvPractitioners);
+
             if (dgvPractitioners.Rows.Count > 0)
             {
                 dgvPractitioners.Columns["الرقم التعريفي"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -340,10 +343,10 @@ namespace AADL.Regulators
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             frmAddUpdatePractitioner frmAddUpdatePractitioner = new frmAddUpdatePractitioner();
-            frmAddUpdatePractitioner.NewPractitionerWasAdded += _NewPractitionerWasAddedUpdateYourSelf;
+            frmAddUpdatePractitioner.evNewPractitionerWasAdded += _evNewPractitionerWasAddedUpdateYourSelf;
             frmAddUpdatePractitioner.ShowDialog();
         }
-        private void _NewPractitionerWasAddedUpdateYourSelf(object sender, EventArgs e)
+        private void _evNewPractitionerWasAddedUpdateYourSelf(object sender, EventArgs e)
         {
             frmPractitionersList_Load(sender, e);
         }

@@ -128,16 +128,16 @@
     <value>المعلومات الشخصية</value>
   </data>
   <data name="btnClose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>464, 638</value>
+    <value>457, 679</value>
   </data>
   <data name="ctrlPersonCard1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 70</value>
   </data>
   <data name="ctrlPersonCard1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1044, 560</value>
+    <value>1044, 601</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1067, 686</value>
+    <value>1070, 730</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1270,5 +1270,9 @@
         AH////////////8AAAAAAAH/////////////4AAAAAAP//////////////wAAAAAf///////////////
         4AAAD//////////////////gD/////////8=
 </value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
 </root>

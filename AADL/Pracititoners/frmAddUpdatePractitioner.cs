@@ -33,12 +33,17 @@ namespace AADL.Regulators
         public delegate void EntityAddedEventHandler(object sender, EventArgs e);
 
         // Define the event in PractitionerForm
-        public event EntityAddedEventHandler NewPractitionerWasAdded;
+        public event EntityAddedEventHandler evNewPractitionerWasAdded;
 
+        // Define a delegate for the event handler
+        public delegate void EntityUpdatedEventHandler(object sender, EventArgs e);
+
+        // Define the event in PractitionerForm
+        public event EntityUpdatedEventHandler evPractitionerUpdated;
         private enum enSubscriptionType { Free=1,Medium=2,Special=3};
         private enum enSubscriptionWay{ SpecialSupport=1, scholarship = 2};
 
-        public enum enRunSpecificTabPage { Regulatory,Sharia,Expert,Judger};
+        public enum enRunSpecificTabPage { Regulatory,Sharia,Expert,Judger,Personal};
         public enum enMode { AddNew = 0, Update = 1 }
     
 
@@ -57,15 +62,25 @@ namespace AADL.Regulators
         clsRegulator _Regulator;
         clsSharia _Sharia;
         clsJudger _Judger;
-
+        private  enRunSpecificTabPage _initialTabPage = enRunSpecificTabPage.Personal;
         protected virtual void OnEntityAdded(EventArgs e)
         {
-            if(NewPractitionerWasAdded != null)
+            if(evNewPractitionerWasAdded != null)
             {
 
-            NewPractitionerWasAdded(this, e);
+            evNewPractitionerWasAdded(this, e);
             }
         }
+        protected virtual void OnEntityUpdated(EventArgs e)
+        {
+            if (evPractitionerUpdated != null)
+            {
+
+                evPractitionerUpdated(this, e);
+            }
+        }
+
+
         public frmAddUpdatePractitioner()
         {
             InitializeComponent();
@@ -100,16 +115,15 @@ namespace AADL.Regulators
             _Mode = enMode.Update;
             _PractitionerID = practitionerID;
             ctrlPersonCardWithFilter1.OnPersonComplete += CheckItOut;
-            MoveTabPage(RunSpecificTab);
+            _initialTabPage = RunSpecificTab;
         }
-        private void MoveTabPage(enRunSpecificTabPage TabPage)
+        private void MoveTabPage()
         {
 
-            switch (TabPage)
+            switch (_initialTabPage)
             {
                 case enRunSpecificTabPage.Regulatory:
                     {
-            
                         tcPractitionernfo.SelectedTab = tpRegulatorInfo;
                         cbAddRegulator.Checked = true;
                         break;
@@ -659,11 +673,11 @@ namespace AADL.Regulators
                     if (clsSharia.IsShariaExist(_PractitionerID, clsSharia.enSearchBy.PractitionerID))
                     {
                         _loadShariaInfoData();
-                        _ShariaMode = enMode.Update;
+                        _JudgerMode = enMode.Update;
                               if (!IsPersonInfoLoaded)
                               {
                             
-                                  ctrlPersonCardWithFilter1.LoadPersonInfo(_Sharia.PersonID);
+                                  ctrlPersonCardWithFilter1.LoadPersonInfo(_Judger.PersonID);
                                   ctrlPersonCardWithFilter1.FilterEnabled = false;
                                   IsPersonInfoLoaded = true;
                             
@@ -677,12 +691,14 @@ namespace AADL.Regulators
                         if (!IsPersonInfoLoaded)
                         {
 
-                            ctrlPersonCardWithFilter1.LoadPersonInfo(_Sharia.PersonID);
+                            ctrlPersonCardWithFilter1.LoadPersonInfo(_Judger.PersonID);
                             ctrlPersonCardWithFilter1.FilterEnabled = false;
                             IsPersonInfoLoaded = true;
 
                         }
                     }
+
+                   //Expert not implemented ,yet.
 
                 }
 
@@ -948,6 +964,11 @@ namespace AADL.Regulators
             {
                 if (_Regulator.Save())
                 {
+                    if (_RegulatorMode == enMode.Update)
+                    {
+                        OnEntityUpdated(EventArgs.Empty);
+                    }
+
                     lblRegulatorID.Text = _Regulator.RegulatorID.ToString();
                     _PractitionerID = _Regulator.PractitionerID;
                     //change form mode to update.
@@ -975,6 +996,10 @@ namespace AADL.Regulators
             {
                 if (_Sharia.Save())
                 {
+                    if (_RegulatorMode == enMode.Update)
+                    {
+                        OnEntityUpdated(EventArgs.Empty);
+                    }
                     lblShariaID.Text = _Sharia.ShariaID.ToString();
                     _PractitionerID = _Sharia.PractitionerID;
                     //change form mode to update.
@@ -1004,6 +1029,10 @@ namespace AADL.Regulators
             {
                 if (_Judger.Save())
                 {
+                    if (_RegulatorMode == enMode.Update)
+                    {
+                        OnEntityUpdated(EventArgs.Empty);
+                    }
                     lblJudgerID.Text = _Judger.JudgerID.ToString();
                     _PractitionerID = _Judger.PractitionerID;
                     //change form mode to update.
@@ -1312,6 +1341,10 @@ namespace AADL.Regulators
             BackColor = System.Drawing.Color.Black;
         }
 
+        private void ListWasCreatedUpdated(object sender, EventArgs e)
+        {
+            evPractitionerUpdated(sender,e);
+        }
         private void btnBlackList_Click(object sender, EventArgs e)
         {
             try
@@ -1329,13 +1362,16 @@ namespace AADL.Regulators
                             FrmAddUpdateList form = new FrmAddUpdateList(_PractitionerID, 
                                  clsBlackList.Find(_PractitionerID, clsBlackList.enFindBy.PractitionerID).BlackListID,
                                  ctrlAddUpdateList.enCreationMode.BlackList);
+                            form.evCustomEventAddUpdateList += ListWasCreatedUpdated;
                             form.ShowDialog();
                         }
                     }
                     //Check if there is already an exists ID  for his black-list ID .
                     else
                     {
+
                         FrmAddUpdateList form = new FrmAddUpdateList(_PractitionerID, ctrlAddUpdateList.enCreationMode.BlackList);
+                        form.evCustomEventAddUpdateList += ListWasCreatedUpdated;
                         form.ShowDialog();
                     }
                 }
@@ -1366,7 +1402,7 @@ namespace AADL.Regulators
         private void frmAddUpdateRegulator_Shown(object sender, EventArgs e)
         {
             ctrlPersonCardWithFilter1.FilterFocus();
-
+            MoveTabPage();
         }
 
         private void btnResetCases_Click(object sender, EventArgs e)
@@ -1718,7 +1754,9 @@ namespace AADL.Regulators
                         FrmAddUpdateList form = new FrmAddUpdateList(_PractitionerID,
                             (int)clsWhiteList.Find(_PractitionerID, clsPractitioner.enPractitionerType.Regulatory).WhiteListID,
                              ctrlAddUpdateList.enCreationMode.RegulatoryWhiteList);
-                        form.ShowDialog();
+                            form.evCustomEventAddUpdateList += ListWasCreatedUpdated;
+
+                            form.ShowDialog();
                     }
                 }
                 else
@@ -1726,7 +1764,9 @@ namespace AADL.Regulators
 
                     FrmAddUpdateList AddUpdateWhiteList = new FrmAddUpdateList(_PractitionerID,
                     ctrlAddUpdateList.enCreationMode.RegulatoryWhiteList);
-                    AddUpdateWhiteList.ShowDialog();
+                        AddUpdateWhiteList.evCustomEventAddUpdateList += ListWasCreatedUpdated;
+
+                        AddUpdateWhiteList.ShowDialog();
 
                     }
                 }
@@ -1769,6 +1809,7 @@ namespace AADL.Regulators
                             FrmAddUpdateList form = new FrmAddUpdateList(_PractitionerID,
                                 (int)clsClosedList.Find(_PractitionerID, clsPractitioner.enPractitionerType.Regulatory).ClosedListID,
                                  ctrlAddUpdateList.enCreationMode.RegulatoryClosedList);
+                            form.evCustomEventAddUpdateList += ListWasCreatedUpdated;
                             form.ShowDialog();
                         }
                     }
@@ -1984,6 +2025,11 @@ namespace AADL.Regulators
 
                 e.Cancel = false;
             }
+        }
+
+        private void clbJudgerCasesTypes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbJudgerCasesRecord.Text = clbJudgerCasesTypes.CheckedItems.Count.ToString();
         }
     }
 

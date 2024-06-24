@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJudgersList));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvJudgers = new System.Windows.Forms.DataGridView();
             this.lblTotalRecordsCount = new System.Windows.Forms.Label();
@@ -41,12 +41,12 @@
             this.cbPage = new System.Windows.Forms.ComboBox();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.cmsJudgers = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cbIsActive = new System.Windows.Forms.ComboBox();
             this.showInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activateJudgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deactivateJudgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteJudgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cbIsActive = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJudgers)).BeginInit();
             this.cmsJudgers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -67,15 +67,15 @@
             this.dgvJudgers.BackgroundColor = System.Drawing.Color.White;
             this.dgvJudgers.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvJudgers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvJudgers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvJudgers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             resources.ApplyResources(this.dgvJudgers, "dgvJudgers");
             this.dgvJudgers.GridColor = System.Drawing.Color.DarkGray;
             this.dgvJudgers.Name = "dgvJudgers";
@@ -150,6 +150,19 @@
             this.cmsJudgers.Name = "cmsJudgers";
             this.cmsJudgers.Opening += new System.ComponentModel.CancelEventHandler(this.cmsJudgers_Opening);
             // 
+            // cbIsActive
+            // 
+            this.cbIsActive.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbIsActive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cbIsActive, "cbIsActive");
+            this.cbIsActive.FormattingEnabled = true;
+            this.cbIsActive.Items.AddRange(new object[] {
+            resources.GetString("cbIsActive.Items"),
+            resources.GetString("cbIsActive.Items1"),
+            resources.GetString("cbIsActive.Items2")});
+            this.cbIsActive.Name = "cbIsActive";
+            this.cbIsActive.SelectedIndexChanged += new System.EventHandler(this.cbIsActive_SelectedIndexChanged);
+            // 
             // showInfoToolStripMenuItem
             // 
             this.showInfoToolStripMenuItem.Image = global::AADL.Properties.Resources.show_info_32;
@@ -187,19 +200,6 @@
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
-            // 
-            // cbIsActive
-            // 
-            this.cbIsActive.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbIsActive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.cbIsActive, "cbIsActive");
-            this.cbIsActive.FormattingEnabled = true;
-            this.cbIsActive.Items.AddRange(new object[] {
-            resources.GetString("cbIsActive.Items"),
-            resources.GetString("cbIsActive.Items1"),
-            resources.GetString("cbIsActive.Items2")});
-            this.cbIsActive.Name = "cbIsActive";
-            this.cbIsActive.SelectedIndexChanged += new System.EventHandler(this.cbIsActive_SelectedIndexChanged);
             // 
             // frmJudgersList
             // 

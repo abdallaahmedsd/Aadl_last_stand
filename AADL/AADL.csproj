@@ -341,6 +341,12 @@
     <Compile Include="Pracititoners\frmPractitionersList.Designer.cs">
       <DependentUpon>frmPractitionersList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Regulators\frmRegulatorList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Regulators\frmRegulatorList.Designer.cs">
+      <DependentUpon>frmRegulatorList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
@@ -463,6 +469,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pracititoners\frmPractitionersList.resx">
       <DependentUpon>frmPractitionersList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Regulators\frmRegulatorList.resx">
+      <DependentUpon>frmRegulatorList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\ctrlUserCard.resx">
       <DependentUpon>ctrlUserCard.cs</DependentUpon>

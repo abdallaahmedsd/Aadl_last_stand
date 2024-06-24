@@ -20,6 +20,7 @@ using AADLDataAccess.Lists.White;
 using AADLBusiness.Lists.Closed;
 using AADLDataAccess.Expert;
 using static AADLBusiness.Expert.clsExpert;
+using AADLDataAccess.Judger;
 
 namespace AADLBusiness
 {
@@ -343,14 +344,6 @@ namespace AADLBusiness
             return false;
         }
 
-        [Obsolete ("Not implemented well ,yet.")]
-        public  static bool UpdateRegulatorList(int RegulatorID,int ListID, clsList.enListType listType)
-        {
-
-            return clsRegulatorData.UpdateRegulatorList(RegulatorID, ListID, (int)listType);
-             
-        }
-
         public  bool IsRegulatorInWhiteList()
         {
             //Data access , set the right type of practitioner 
@@ -361,6 +354,19 @@ namespace AADLBusiness
             //Data access , set the right type of practitioner 
             return clsClosedList.IsPractitionerInClosedList(this.PractitionerID, clsPractitioner.enPractitionerType.Regulatory);
         }
+
+        public static int Count() => clsRegulatorData.Count();
+        public static DataTable GetRegulatorsPerPage(ushort pageNumber, uint rowsPerPage) => clsRegulatorData.GetRegulatorsPerPage(pageNumber, rowsPerPage);
+        public static bool ActivateByRegulatorID(int RegulatorID)
+        {
+            return clsRegulatorData.Activate(RegulatorID, clsRegulatorData.enWhichID.RegulatorID);
+        }
+        public static bool DeactivateByRegulatorID(int RegulatorID)
+        {
+            return clsRegulatorData.Deactivate(RegulatorID, clsRegulatorData.enWhichID.RegulatorID);
+        }
+
+        public static bool DeleteRegulatorPermanently(int RegulatorID) => clsRegulatorData.DeletePermanently(RegulatorID);
 
 
     }

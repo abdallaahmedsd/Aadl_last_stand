@@ -51,7 +51,7 @@ namespace AADLDataAccess.Lists.White
                                 // The record was found
                                 isFound = true;
                                 ListID = (int)reader["ListID"];
-                                Notes = (string)reader["Notes"];
+                                Notes = reader["Notes"] as string ?? string.Empty;
                                 AddedToListDate = (DateTime)reader["AddedToListDate"];
                                 CreatedByUserID = (int)reader["CreatedByUserID"];
                                 LastEditByUserID = reader["LastEditByUserID"] != DBNull.Value ? LastEditByUserID = (int)reader["LastEditByUserID"]
@@ -147,7 +147,7 @@ namespace AADLDataAccess.Lists.White
                                 // The record was found
                                 isFound = true;
                                 ListID = (int)reader["ListID"];
-                                Notes = (string)reader["Notes"];
+                                Notes = reader["Notes"] as string ?? string.Empty;
                                 AddedToListDate = (DateTime)reader["AddedToListDate"];
                                 CreatedByUserID = (int)reader["CreatedByUserID"];
                                 LastEditByUserID = reader["LastEditByUserID"] != DBNull.Value ? LastEditByUserID = (int)reader["LastEditByUserID"]

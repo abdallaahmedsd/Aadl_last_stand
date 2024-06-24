@@ -50,6 +50,62 @@ namespace AADL_DataAccess.HelperClasses
             return rowAffected > 0;
         }
 
+        public static bool Deactivate<T>(string storedProcedureName, string parameterName, T value)
+        {
+            int rowAffected = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(storedProcedureName, connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue($"@{parameterName}", (object)value ?? DBNull.Value);
+
+                        rowAffected = command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsDataAccessHelper.HandleException(ex);
+            }
+
+            return rowAffected > 0;
+        }
+
+        public static bool Activate<T>(string storedProcedureName, string parameterName, T value)
+        {
+            int rowAffected = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(storedProcedureName, connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue($"@{parameterName}", (object)value ?? DBNull.Value);
+
+                        rowAffected = command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsDataAccessHelper.HandleException(ex);
+            }
+
+            return rowAffected > 0;
+        }
+
         public static bool Exists<T>(string storedProcedureName, string parameterName, T value)
         {
             bool isFound = false;
@@ -183,6 +239,7 @@ namespace AADL_DataAccess.HelperClasses
             catch (Exception ex)
             {
                 clsDataAccessHelper.HandleException(ex);
+                dt = null;
             }
 
             return dt;
@@ -217,6 +274,7 @@ namespace AADL_DataAccess.HelperClasses
             catch (Exception ex)
             {
                 clsDataAccessHelper.HandleException(ex);
+                dt = null;
             }
 
             return dt;
@@ -252,6 +310,7 @@ namespace AADL_DataAccess.HelperClasses
             catch (Exception ex)
             {
                 clsDataAccessHelper.HandleException(ex);
+                dt = null;
             }
 
             return dt;
@@ -293,6 +352,7 @@ namespace AADL_DataAccess.HelperClasses
             catch (Exception ex)
             {
                 clsDataAccessHelper.HandleException(ex);
+                dt = null;
             }
 
             return dt;
@@ -329,6 +389,7 @@ namespace AADL_DataAccess.HelperClasses
             catch (Exception ex)
             {
                 clsDataAccessHelper.HandleException(ex);
+                dt = null;
             }
 
             return dt;

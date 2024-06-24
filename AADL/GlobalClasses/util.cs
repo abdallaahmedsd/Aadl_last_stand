@@ -86,6 +86,8 @@ namespace DVLD.Classes
 
         public static Color JudgersMainColor => Color.LimeGreen;
 
+        public static Color ExpertsMainColor => Color.DarkBlue;
+
         public static void CustomizeDataGridView(DataGridView dgv)
         {
             // Set Fill Mode to all cells
@@ -113,6 +115,9 @@ namespace DVLD.Classes
             // Set the main color 
             if(dgv.Name == "dgvJudgers") 
                 headerStyle.BackColor = JudgersMainColor;
+            else if(dgv.Name == "dgvExperts")
+                headerStyle.BackColor = ExpertsMainColor;
+
 
             else if (dgv.Name == "dgvRegulators")
             {

@@ -110,10 +110,16 @@ namespace AADL.Judgers.Controls
             frm.ShowDialog();
         }
 
+        private void ResetOnDemand(object sender, EventArgs e)
+        {
+            ResetJudgerInfo();
+            _FillFormWithJudgerInfo();
+        }
         private void llblEditJudgerInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmAddUpdatePractitioner form = new frmAddUpdatePractitioner(_judger.PractitionerID,
                 frmAddUpdatePractitioner.enRunSpecificTabPage.Judger);
+            form.evPractitionerUpdated += ResetOnDemand;
             form.ShowDialog();
         }
 
@@ -123,6 +129,7 @@ namespace AADL.Judgers.Controls
             {
                 frmListInfo frmListInfo = new frmListInfo(clsBlackList.Find(_judger.PractitionerID, clsBlackList.enFindBy.PractitionerID).BlackListID
                     , ctrlListInfo.CreationMode.BlackList);
+
                 frmListInfo.ShowDialog();
             }
             catch (Exception ex)

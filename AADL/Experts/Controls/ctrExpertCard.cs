@@ -1,4 +1,9 @@
-﻿using AADLBusiness.Expert;
+﻿using AADL.Lists;
+using AADL.Regulators;
+using AADLBusiness;
+using AADLBusiness.Expert;
+using AADLBusiness.Lists.Closed;
+using AADLBusiness.Lists.WhiteList;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -92,6 +97,75 @@ namespace AADL.Experts.Controls
         {
             frmPersonInfo frm = new frmPersonInfo(_expert.PersonID);
             frm.ShowDialog();
+        }
+        private void ResetOnDemand(object sender, EventArgs e)
+        {
+            ResetExpertInfo();
+            _FillFormWithExpertInfo();
+        }
+
+
+        private void llblEditExpertInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmAddUpdatePractitioner form = new frmAddUpdatePractitioner(_expert.PractitionerID,
+              frmAddUpdatePractitioner.enRunSpecificTabPage.Judger);
+            form.evPractitionerUpdated += ResetOnDemand;
+            form.ShowDialog();
+        }
+
+        private void llblBlackList_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                frmListInfo frmListInfo = new frmListInfo(clsBlackList.Find(_expert.PractitionerID, clsBlackList.enFindBy.PractitionerID).BlackListID
+                    , ctrlListInfo.CreationMode.BlackList);
+
+                frmListInfo.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception:" + ex.ToString());
+
+                MessageBox.Show("لقد حدث عطل فني داخل النظام , اثناء محاولة استرجاع البيانات .", "فشل",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void llblWhiteList_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                frmListInfo ListInfoForm = new frmListInfo((int)clsWhiteList.Find(_expert.PractitionerID,
+              clsPractitioner.enPractitionerType.Judger).WhiteListID,
+              ctrlListInfo.CreationMode.WhiteList);
+                ListInfoForm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception:" + ex.ToString());
+
+                MessageBox.Show("لقد حدث عطل فني داخل النظام , اثناء محاولة استرجاع البيانات .", "فشل",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void llblClosedList_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+                try
+                {
+                    frmListInfo ListInfoForm = new frmListInfo((int)clsClosedList.Find(_expert.PractitionerID,
+              clsPractitioner.enPractitionerType.Judger).ClosedListID,
+              ctrlListInfo.CreationMode.ClosedList);
+                    ListInfoForm.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Exception:" + ex.ToString());
+
+                    MessageBox.Show("لقد حدث عطل فني داخل النظام , اثناء محاولة استرجاع البيانات .", "فشل",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
         }
     }
 }

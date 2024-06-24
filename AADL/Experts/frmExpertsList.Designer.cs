@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.cbPage = new System.Windows.Forms.ComboBox();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
@@ -40,12 +40,16 @@
             this.lblTotalRecordsCount = new System.Windows.Forms.Label();
             this.dgvExperts = new System.Windows.Forms.DataGridView();
             this.cmsExperts = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cbIsActive = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.showInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activateExpertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deactivateExpertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteExpertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbIsActive = new System.Windows.Forms.ComboBox();
+            this.btnPreviousPage = new System.Windows.Forms.Button();
+            this.btnNextPage = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cbSubscriptionType = new System.Windows.Forms.ComboBox();
+            this.cbSubscriptionWay = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExperts)).BeginInit();
             this.cmsExperts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -55,7 +59,7 @@
             // 
             this.txtFilterValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFilterValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtFilterValue.Location = new System.Drawing.Point(428, 302);
+            this.txtFilterValue.Location = new System.Drawing.Point(428, 301);
             this.txtFilterValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFilterValue.Multiline = true;
             this.txtFilterValue.Name = "txtFilterValue";
@@ -90,6 +94,9 @@
             "الرقم التعريفي",
             "الاسم",
             "رقم الهاتف",
+            "البريد الالكتروني",
+            "نوع الاشتراك",
+            "طريقة الاشتراك",
             "هل فعال ؟"});
             this.cbFilterBy.Location = new System.Drawing.Point(179, 301);
             this.cbFilterBy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -168,15 +175,15 @@
             this.dgvExperts.BackgroundColor = System.Drawing.Color.White;
             this.dgvExperts.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvExperts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvExperts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvExperts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvExperts.ColumnHeadersHeight = 40;
             this.dgvExperts.GridColor = System.Drawing.Color.DarkGray;
             this.dgvExperts.Location = new System.Drawing.Point(43, 342);
@@ -204,35 +211,6 @@
             this.cmsExperts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmsExperts.Size = new System.Drawing.Size(234, 171);
             this.cmsExperts.Opening += new System.ComponentModel.CancelEventHandler(this.cmsExperts_Opening);
-            // 
-            // cbIsActive
-            // 
-            this.cbIsActive.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbIsActive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbIsActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.cbIsActive.FormattingEnabled = true;
-            this.cbIsActive.Items.AddRange(new object[] {
-            "الكل",
-            "نعم",
-            "لا"});
-            this.cbIsActive.Location = new System.Drawing.Point(428, 301);
-            this.cbIsActive.Name = "cbIsActive";
-            this.cbIsActive.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cbIsActive.Size = new System.Drawing.Size(130, 28);
-            this.cbIsActive.TabIndex = 150;
-            this.cbIsActive.SelectedIndexChanged += new System.EventHandler(this.cbIsActive_SelectedIndexChanged);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::AADL.Properties.Resources.expert_512;
-            this.pictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox1.Location = new System.Drawing.Point(644, 22);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(237, 162);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 144;
-            this.pictureBox1.TabStop = false;
             // 
             // showInfoToolStripMenuItem
             // 
@@ -273,12 +251,111 @@
             this.deleteExpertToolStripMenuItem.Text = "حذف الحساب نهائيا";
             this.deleteExpertToolStripMenuItem.Click += new System.EventHandler(this.deleteExpertToolStripMenuItem_Click);
             // 
+            // cbIsActive
+            // 
+            this.cbIsActive.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbIsActive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbIsActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cbIsActive.FormattingEnabled = true;
+            this.cbIsActive.Items.AddRange(new object[] {
+            "الكل",
+            "نعم",
+            "لا"});
+            this.cbIsActive.Location = new System.Drawing.Point(428, 301);
+            this.cbIsActive.Name = "cbIsActive";
+            this.cbIsActive.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cbIsActive.Size = new System.Drawing.Size(130, 28);
+            this.cbIsActive.TabIndex = 150;
+            this.cbIsActive.SelectedIndexChanged += new System.EventHandler(this.cbIsActive_SelectedIndexChanged);
+            // 
+            // btnPreviousPage
+            // 
+            this.btnPreviousPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPreviousPage.FlatAppearance.BorderSize = 0;
+            this.btnPreviousPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPreviousPage.Image = global::AADL.Properties.Resources.right_arrow_24;
+            this.btnPreviousPage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnPreviousPage.Location = new System.Drawing.Point(1061, 297);
+            this.btnPreviousPage.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPreviousPage.Name = "btnPreviousPage";
+            this.btnPreviousPage.Size = new System.Drawing.Size(44, 35);
+            this.btnPreviousPage.TabIndex = 163;
+            this.btnPreviousPage.UseVisualStyleBackColor = true;
+            this.btnPreviousPage.Click += new System.EventHandler(this.btnPreviousPage_Click);
+            // 
+            // btnNextPage
+            // 
+            this.btnNextPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNextPage.FlatAppearance.BorderSize = 0;
+            this.btnNextPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNextPage.Image = global::AADL.Properties.Resources.left_arrow_24;
+            this.btnNextPage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnNextPage.Location = new System.Drawing.Point(1113, 297);
+            this.btnNextPage.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNextPage.Name = "btnNextPage";
+            this.btnNextPage.Size = new System.Drawing.Size(44, 35);
+            this.btnNextPage.TabIndex = 162;
+            this.btnNextPage.UseVisualStyleBackColor = true;
+            this.btnNextPage.Click += new System.EventHandler(this.btnNextPage_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AADL.Properties.Resources.expert_512;
+            this.pictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBox1.Location = new System.Drawing.Point(644, 22);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(237, 162);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 144;
+            this.pictureBox1.TabStop = false;
+            // 
+            // cbSubscriptionType
+            // 
+            this.cbSubscriptionType.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbSubscriptionType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSubscriptionType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cbSubscriptionType.FormattingEnabled = true;
+            this.cbSubscriptionType.Items.AddRange(new object[] {
+            "الكل",
+            "نعم",
+            "لا"});
+            this.cbSubscriptionType.Location = new System.Drawing.Point(429, 300);
+            this.cbSubscriptionType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbSubscriptionType.Name = "cbSubscriptionType";
+            this.cbSubscriptionType.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cbSubscriptionType.Size = new System.Drawing.Size(129, 28);
+            this.cbSubscriptionType.TabIndex = 164;
+            this.cbSubscriptionType.SelectedIndexChanged += new System.EventHandler(this.cbSubscriptionType_SelectedIndexChanged);
+            // 
+            // cbSubscriptionWay
+            // 
+            this.cbSubscriptionWay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbSubscriptionWay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSubscriptionWay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cbSubscriptionWay.FormattingEnabled = true;
+            this.cbSubscriptionWay.Items.AddRange(new object[] {
+            "الكل",
+            "نعم",
+            "لا"});
+            this.cbSubscriptionWay.Location = new System.Drawing.Point(429, 300);
+            this.cbSubscriptionWay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbSubscriptionWay.Name = "cbSubscriptionWay";
+            this.cbSubscriptionWay.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cbSubscriptionWay.Size = new System.Drawing.Size(129, 28);
+            this.cbSubscriptionWay.TabIndex = 165;
+            this.cbSubscriptionWay.SelectedIndexChanged += new System.EventHandler(this.cbSubscriptionWay_SelectedIndexChanged);
+            // 
             // frmExpertsList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1524, 849);
+            this.Controls.Add(this.cbSubscriptionWay);
+            this.Controls.Add(this.cbSubscriptionType);
+            this.Controls.Add(this.btnPreviousPage);
+            this.Controls.Add(this.btnNextPage);
             this.Controls.Add(this.cbPage);
             this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.label2);
@@ -323,5 +400,9 @@
         private System.Windows.Forms.ToolStripMenuItem deleteExpertToolStripMenuItem;
         private System.Windows.Forms.ComboBox cbIsActive;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnPreviousPage;
+        private System.Windows.Forms.Button btnNextPage;
+        private System.Windows.Forms.ComboBox cbSubscriptionType;
+        private System.Windows.Forms.ComboBox cbSubscriptionWay;
     }
 }

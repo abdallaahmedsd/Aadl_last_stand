@@ -12,6 +12,8 @@ namespace AADL.Experts
         private enum enMode { add, update, delete }
         private enMode _mode = enMode.add;
         private ushort _pageNumber = 0;
+        private uint? _currentPageNumber = 1;
+        private uint? _totalNumberOfPages = null;
         private DataTable _dtExperts;
 
         public frmExpertsList()
@@ -33,13 +35,13 @@ namespace AADL.Experts
                 dgvExperts.Columns["ExpertID"].HeaderText = "الرقم التعريفي";
                 dgvExperts.Columns["FullName"].HeaderText = "الاسم رباعي";
                 dgvExperts.Columns["Phone"].HeaderText = "رقم الهاتف";
+                dgvExperts.Columns["Email"].HeaderText = "الايميل";
                 dgvExperts.Columns["Gender"].HeaderText = "النوع";
                 dgvExperts.Columns["CountryName"].HeaderText = "الدولة";
                 dgvExperts.Columns["CityName"].HeaderText = "المدينة";
-                dgvExperts.Columns["Address"].HeaderText = "العنوان";
-                dgvExperts.Columns["IsLawyer"].HeaderText = "هل محامي ؟";
+                dgvExperts.Columns["SubscriptionTypeName"].HeaderText = "نوع الاشتراك";
+                dgvExperts.Columns["SubscriptionWayName"].HeaderText = "طريقة الاشتراك";
                 dgvExperts.Columns["IsActive"].HeaderText = "هل فعال ؟";
-
 
                 lblTotalRecordsCount.Text = dtExperts.Rows.Count.ToString();
             }
@@ -69,7 +71,11 @@ namespace AADL.Experts
             if (numberOfPages == 0)
             {
                 cbPage.Items.Add(0);
+
                 cbPage.Enabled = false;
+                cbFilterBy.Enabled = false;
+                btnNextPage.Enabled = false;
+                btnPreviousPage.Enabled = false;
             }
             else
             {
@@ -77,6 +83,9 @@ namespace AADL.Experts
                     cbPage.Items.Add(i);
 
                 cbPage.Enabled = true;
+                cbFilterBy.Enabled = true;
+                btnNextPage.Enabled = true;
+                btnPreviousPage.Enabled = true;
             }
 
             // Select the first page to to load its data if any
@@ -104,6 +113,9 @@ namespace AADL.Experts
                 case "رقم الهاتف":
                     filterColumn = "Phone";
                     break;
+                case "البريد الالكتروني":
+                    filterColumn = "Email";
+                    break;
                 default:
                     filterColumn = "None";
                     break;
@@ -128,14 +140,35 @@ namespace AADL.Experts
             lblTotalRecordsCount.Text = dgvExperts.Rows.Count.ToString();
         }
 
+        private void _FillComboBoxBySubscriptionWaies()
+        {
+            clsUtil.FillComboBoxBySubscriptionWaies(cbSubscriptionWay);
+        }
+
+        private void _FillComboBoxBySubscriptionTypes()
+        {
+            clsUtil.FillComboBoxBySubscriptionTypes(cbSubscriptionType);
+        }
+
+        private void _Settings()
+        {
+            cbFilterBy.SelectedItem = "لا شيء";
+        }
+
+        private void _HandleCurrentPage()
+        {
+            cbPage.SelectedIndex = Convert.ToInt16(_currentPageNumber - 1);
+        }
+
         private void frmExpertsList_Load(object sender, EventArgs e)
         {
             // Cusomize the appearance of the DataGridView
             clsUtil.CustomizeDataGridView(dgvExperts);
 
             _LoadRefreshExpertsPerPage();
-
-            cbFilterBy.SelectedItem = "لا شيء";
+            _FillComboBoxBySubscriptionWaies();
+            _FillComboBoxBySubscriptionTypes();
+            _Settings();
         }
 
         private void cbPage_SelectedIndexChanged(object sender, EventArgs e)
@@ -153,14 +186,26 @@ namespace AADL.Experts
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtFilterValue.Visible = (cbFilterBy.Text != "لا شيء" && cbFilterBy.Text != "هل فعال ؟");
+            txtFilterValue.Visible = (cbFilterBy.Text != "لا شيء" && cbFilterBy.Text != "هل فعال ؟"
+                                        && cbFilterBy.Text != "نوع الاشتراك" && cbFilterBy.Text != "طريقة الاشتراك");
 
             cbIsActive.Visible = cbFilterBy.Text == "هل فعال ؟";
+            cbSubscriptionType.Visible = cbFilterBy.Text == "نوع الاشتراك";
+            cbSubscriptionWay.Visible = cbFilterBy.Text == "طريقة الاشتراك";
 
             if (cbIsActive.Visible)
                 cbIsActive.SelectedItem = "الكل";
+            else if (cbSubscriptionType.Visible)
+            {
+                cbSubscriptionType.SelectedItem = "الكل";
+            }
 
-            if (txtFilterValue.Visible)
+            else if (cbSubscriptionWay.Visible)
+            {
+                cbSubscriptionWay.SelectedItem = "الكل";
+            }
+
+            else if (txtFilterValue.Visible)
             {
                 txtFilterValue.Clear();
                 txtFilterValue.Focus();
@@ -321,6 +366,61 @@ namespace AADL.Experts
 
             frmExpertCard frm = new frmExpertCard(expertID, clsExpert.enFindBy.ExpertID);
             frm.ShowDialog();
+        }
+
+        private void cbSubscriptionType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string filterColumn = "SubscriptionTypeName";
+            string filterValue = string.Empty;
+            if (cbSubscriptionType.Text != "الكل")
+            {
+                filterValue = cbSubscriptionType.Text.ToString();
+            }
+
+            if (filterValue == string.Empty)
+                _dtExperts.DefaultView.RowFilter = filterValue;
+            else
+                _dtExperts.DefaultView.RowFilter = string.Format("[{0}] = '{1}'", filterColumn, filterValue);
+
+            // Updates the total records count label
+            lblTotalRecordsCount.Text = dgvExperts.Rows.Count.ToString();
+        }
+
+        private void cbSubscriptionWay_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string filterColumn = "SubscriptionWayName";
+            string filterValue = string.Empty;
+
+            if (cbSubscriptionWay.Text != "الكل")
+            {
+                filterValue = cbSubscriptionWay.Text.ToString();
+            }
+
+            if (filterValue == string.Empty)
+                _dtExperts.DefaultView.RowFilter = filterValue;
+            else
+                _dtExperts.DefaultView.RowFilter = string.Format("[{0}] = '{1}'", filterColumn, filterValue);
+
+            // Updates the total records count label
+            lblTotalRecordsCount.Text = dgvExperts.Rows.Count.ToString();
+        }
+
+        private void btnPreviousPage_Click(object sender, EventArgs e)
+        {
+            if (_currentPageNumber > 1)
+            {
+                _currentPageNumber--;
+                _HandleCurrentPage();
+            }
+        }
+
+        private void btnNextPage_Click(object sender, EventArgs e)
+        {
+            if (_currentPageNumber < _totalNumberOfPages)
+            {
+                _currentPageNumber++;
+                _HandleCurrentPage();
+            }
         }
     }
 }

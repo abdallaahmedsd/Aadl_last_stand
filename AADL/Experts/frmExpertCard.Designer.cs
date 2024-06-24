@@ -83,7 +83,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "بينات الخبير";
+            this.Text = "بيانات الخبير";
             this.Load += new System.EventHandler(this.frmExpertCard_Load);
             this.ResumeLayout(false);
 

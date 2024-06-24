@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJudgersList));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvJudgers = new System.Windows.Forms.DataGridView();
             this.lblTotalRecordsCount = new System.Windows.Forms.Label();
@@ -42,6 +42,10 @@
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.cmsJudgers = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cbIsActive = new System.Windows.Forms.ComboBox();
+            this.cbSubscriptionWay = new System.Windows.Forms.ComboBox();
+            this.cbSubscriptionType = new System.Windows.Forms.ComboBox();
+            this.btnPreviousPage = new System.Windows.Forms.Button();
+            this.btnNextPage = new System.Windows.Forms.Button();
             this.showInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activateJudgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deactivateJudgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,15 +71,15 @@
             this.dgvJudgers.BackgroundColor = System.Drawing.Color.White;
             this.dgvJudgers.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvJudgers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvJudgers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvJudgers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             resources.ApplyResources(this.dgvJudgers, "dgvJudgers");
             this.dgvJudgers.GridColor = System.Drawing.Color.DarkGray;
             this.dgvJudgers.Name = "dgvJudgers";
@@ -117,7 +121,10 @@
             resources.GetString("cbFilterBy.Items1"),
             resources.GetString("cbFilterBy.Items2"),
             resources.GetString("cbFilterBy.Items3"),
-            resources.GetString("cbFilterBy.Items4")});
+            resources.GetString("cbFilterBy.Items4"),
+            resources.GetString("cbFilterBy.Items5"),
+            resources.GetString("cbFilterBy.Items6"),
+            resources.GetString("cbFilterBy.Items7")});
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
             // 
@@ -163,6 +170,52 @@
             this.cbIsActive.Name = "cbIsActive";
             this.cbIsActive.SelectedIndexChanged += new System.EventHandler(this.cbIsActive_SelectedIndexChanged);
             // 
+            // cbSubscriptionWay
+            // 
+            this.cbSubscriptionWay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbSubscriptionWay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cbSubscriptionWay, "cbSubscriptionWay");
+            this.cbSubscriptionWay.FormattingEnabled = true;
+            this.cbSubscriptionWay.Items.AddRange(new object[] {
+            resources.GetString("cbSubscriptionWay.Items"),
+            resources.GetString("cbSubscriptionWay.Items1"),
+            resources.GetString("cbSubscriptionWay.Items2")});
+            this.cbSubscriptionWay.Name = "cbSubscriptionWay";
+            this.cbSubscriptionWay.SelectedIndexChanged += new System.EventHandler(this.cbSubscriptionWay_SelectedIndexChanged);
+            // 
+            // cbSubscriptionType
+            // 
+            this.cbSubscriptionType.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbSubscriptionType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cbSubscriptionType, "cbSubscriptionType");
+            this.cbSubscriptionType.FormattingEnabled = true;
+            this.cbSubscriptionType.Items.AddRange(new object[] {
+            resources.GetString("cbSubscriptionType.Items"),
+            resources.GetString("cbSubscriptionType.Items1"),
+            resources.GetString("cbSubscriptionType.Items2")});
+            this.cbSubscriptionType.Name = "cbSubscriptionType";
+            this.cbSubscriptionType.SelectedIndexChanged += new System.EventHandler(this.cbSubscriptionType_SelectedIndexChanged);
+            // 
+            // btnPreviousPage
+            // 
+            this.btnPreviousPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPreviousPage.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.btnPreviousPage, "btnPreviousPage");
+            this.btnPreviousPage.Image = global::AADL.Properties.Resources.right_arrow_24;
+            this.btnPreviousPage.Name = "btnPreviousPage";
+            this.btnPreviousPage.UseVisualStyleBackColor = true;
+            this.btnPreviousPage.Click += new System.EventHandler(this.btnPreviousPage_Click);
+            // 
+            // btnNextPage
+            // 
+            this.btnNextPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNextPage.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.btnNextPage, "btnNextPage");
+            this.btnNextPage.Image = global::AADL.Properties.Resources.left_arrow_24;
+            this.btnNextPage.Name = "btnNextPage";
+            this.btnNextPage.UseVisualStyleBackColor = true;
+            this.btnNextPage.Click += new System.EventHandler(this.btnNextPage_Click);
+            // 
             // showInfoToolStripMenuItem
             // 
             this.showInfoToolStripMenuItem.Image = global::AADL.Properties.Resources.show_info_32;
@@ -206,6 +259,9 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnPreviousPage);
+            this.Controls.Add(this.btnNextPage);
+            this.Controls.Add(this.cbSubscriptionWay);
             this.Controls.Add(this.cbIsActive);
             this.Controls.Add(this.txtFilterValue);
             this.Controls.Add(this.cbPage);
@@ -217,6 +273,7 @@
             this.Controls.Add(this.lblTotalRecordsCount);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dgvJudgers);
+            this.Controls.Add(this.cbSubscriptionType);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmJudgersList";
             this.Load += new System.EventHandler(this.frmJudgersList_Load);
@@ -245,5 +302,9 @@
         private System.Windows.Forms.ToolStripMenuItem deleteJudgerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem activateJudgerToolStripMenuItem;
         private System.Windows.Forms.ComboBox cbIsActive;
+        private System.Windows.Forms.ComboBox cbSubscriptionWay;
+        private System.Windows.Forms.ComboBox cbSubscriptionType;
+        private System.Windows.Forms.Button btnPreviousPage;
+        private System.Windows.Forms.Button btnNextPage;
     }
 }

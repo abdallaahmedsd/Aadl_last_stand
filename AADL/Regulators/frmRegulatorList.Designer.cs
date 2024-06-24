@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbIsActive = new System.Windows.Forms.ComboBox();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.cbPage = new System.Windows.Forms.ComboBox();
@@ -41,14 +40,19 @@
             this.dgvRegulators = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.lblTotalRecordsCount = new System.Windows.Forms.Label();
-            this.showInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsRegulators = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cbSubscriptionType = new System.Windows.Forms.ComboBox();
+            this.cbSubscriptionWay = new System.Windows.Forms.ComboBox();
+            this.btnPreviousPage = new System.Windows.Forms.Button();
+            this.btnNextPage = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.showInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.activateRegulatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deactivateRegulatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteJudgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegulators)).BeginInit();
             this.cmsRegulators.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -63,18 +67,6 @@
             this.label1.TabIndex = 144;
             this.label1.Text = "إدارة النظامين";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::AADL.Properties.Resources.judge_512;
-            this.pictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox1.Location = new System.Drawing.Point(469, 11);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(178, 132);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 143;
-            this.pictureBox1.TabStop = false;
             // 
             // cbIsActive
             // 
@@ -134,6 +126,8 @@
             "الاسم",
             "رقم الهاتف",
             "البريد الالكتروني",
+            "نوع الاشتراك",
+            "طريقة الاشتراك",
             "هل فعال ؟"});
             this.cbFilterBy.Location = new System.Drawing.Point(144, 241);
             this.cbFilterBy.Margin = new System.Windows.Forms.Padding(2);
@@ -174,15 +168,15 @@
             this.dgvRegulators.BackgroundColor = System.Drawing.Color.White;
             this.dgvRegulators.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvRegulators.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRegulators.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRegulators.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvRegulators.ColumnHeadersHeight = 40;
             this.dgvRegulators.GridColor = System.Drawing.Color.DarkGray;
             this.dgvRegulators.Location = new System.Drawing.Point(32, 276);
@@ -223,15 +217,6 @@
             this.lblTotalRecordsCount.TabIndex = 153;
             this.lblTotalRecordsCount.Text = "0";
             // 
-            // showInfoToolStripMenuItem
-            // 
-            this.showInfoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showInfoToolStripMenuItem.Image = global::AADL.Properties.Resources.show_info_32;
-            this.showInfoToolStripMenuItem.Name = "showInfoToolStripMenuItem";
-            this.showInfoToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
-            this.showInfoToolStripMenuItem.Text = "عرض المعلومات";
-            this.showInfoToolStripMenuItem.Click += new System.EventHandler(this.showInfoToolStripMenuItem_Click);
-            // 
             // cmsRegulators
             // 
             this.cmsRegulators.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -245,6 +230,87 @@
             this.cmsRegulators.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.cmsRegulators.Size = new System.Drawing.Size(185, 108);
             this.cmsRegulators.Opening += new System.ComponentModel.CancelEventHandler(this.cmsRegulator_Opening);
+            // 
+            // cbSubscriptionType
+            // 
+            this.cbSubscriptionType.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbSubscriptionType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSubscriptionType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cbSubscriptionType.FormattingEnabled = true;
+            this.cbSubscriptionType.Items.AddRange(new object[] {
+            "الكل",
+            "نعم",
+            "لا"});
+            this.cbSubscriptionType.Location = new System.Drawing.Point(331, 241);
+            this.cbSubscriptionType.Margin = new System.Windows.Forms.Padding(2);
+            this.cbSubscriptionType.Name = "cbSubscriptionType";
+            this.cbSubscriptionType.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cbSubscriptionType.Size = new System.Drawing.Size(98, 24);
+            this.cbSubscriptionType.TabIndex = 154;
+            this.cbSubscriptionType.SelectedIndexChanged += new System.EventHandler(this.cbSubscriptionType_SelectedIndexChanged);
+            // 
+            // cbSubscriptionWay
+            // 
+            this.cbSubscriptionWay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbSubscriptionWay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSubscriptionWay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cbSubscriptionWay.FormattingEnabled = true;
+            this.cbSubscriptionWay.Items.AddRange(new object[] {
+            "الكل",
+            "نعم",
+            "لا"});
+            this.cbSubscriptionWay.Location = new System.Drawing.Point(331, 241);
+            this.cbSubscriptionWay.Margin = new System.Windows.Forms.Padding(2);
+            this.cbSubscriptionWay.Name = "cbSubscriptionWay";
+            this.cbSubscriptionWay.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cbSubscriptionWay.Size = new System.Drawing.Size(98, 24);
+            this.cbSubscriptionWay.TabIndex = 155;
+            this.cbSubscriptionWay.SelectedIndexChanged += new System.EventHandler(this.cbSubscriptionWay_SelectedIndexChanged);
+            // 
+            // btnPreviousPage
+            // 
+            this.btnPreviousPage.FlatAppearance.BorderSize = 0;
+            this.btnPreviousPage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPreviousPage.Image = global::AADL.Properties.Resources.up;
+            this.btnPreviousPage.Location = new System.Drawing.Point(819, 226);
+            this.btnPreviousPage.Name = "btnPreviousPage";
+            this.btnPreviousPage.Size = new System.Drawing.Size(49, 39);
+            this.btnPreviousPage.TabIndex = 157;
+            this.btnPreviousPage.UseVisualStyleBackColor = true;
+            this.btnPreviousPage.Click += new System.EventHandler(this.btnPreviousPage_Click);
+            // 
+            // btnNextPage
+            // 
+            this.btnNextPage.FlatAppearance.BorderSize = 0;
+            this.btnNextPage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnNextPage.Image = global::AADL.Properties.Resources.down__1_;
+            this.btnNextPage.Location = new System.Drawing.Point(885, 226);
+            this.btnNextPage.Name = "btnNextPage";
+            this.btnNextPage.Size = new System.Drawing.Size(49, 39);
+            this.btnNextPage.TabIndex = 156;
+            this.btnNextPage.UseVisualStyleBackColor = true;
+            this.btnNextPage.Click += new System.EventHandler(this.btnNextPage_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AADL.Properties.Resources.judge_512;
+            this.pictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBox1.Location = new System.Drawing.Point(469, 11);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(178, 132);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 143;
+            this.pictureBox1.TabStop = false;
+            // 
+            // showInfoToolStripMenuItem
+            // 
+            this.showInfoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showInfoToolStripMenuItem.Image = global::AADL.Properties.Resources.show_info_32;
+            this.showInfoToolStripMenuItem.Name = "showInfoToolStripMenuItem";
+            this.showInfoToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.showInfoToolStripMenuItem.Text = "عرض المعلومات";
+            this.showInfoToolStripMenuItem.Click += new System.EventHandler(this.showInfoToolStripMenuItem_Click);
             // 
             // activateRegulatorToolStripMenuItem
             // 
@@ -275,6 +341,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1143, 690);
+            this.Controls.Add(this.btnPreviousPage);
+            this.Controls.Add(this.btnNextPage);
+            this.Controls.Add(this.cbSubscriptionWay);
+            this.Controls.Add(this.cbSubscriptionType);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTotalRecordsCount);
             this.Controls.Add(this.dgvRegulators);
@@ -292,9 +362,9 @@
             this.ShowIcon = false;
             this.Text = "نافذة النظامين";
             this.Load += new System.EventHandler(this.frmRegulatorList_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegulators)).EndInit();
             this.cmsRegulators.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,5 +387,9 @@
         private System.Windows.Forms.ToolStripMenuItem activateRegulatorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deactivateRegulatorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteJudgerToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cbSubscriptionType;
+        private System.Windows.Forms.ComboBox cbSubscriptionWay;
+        private System.Windows.Forms.Button btnNextPage;
+        private System.Windows.Forms.Button btnPreviousPage;
     }
 }

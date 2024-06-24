@@ -16,6 +16,10 @@ namespace AADL.Regulators
 {
     public partial class frmRegulatorList : Form
     {
+
+        private uint? _currentPageNumber = 1;
+        private uint? _totalNumberOfPages= null;
+
         private enum enMode { add, update, delete }
         private enMode _mode = enMode.add;
         private ushort _pageNumber = 0;
@@ -43,11 +47,42 @@ namespace AADL.Regulators
                 dgvRegulators.Columns["Gender"].HeaderText = "النوع";
                 dgvRegulators.Columns["CountryName"].HeaderText = "الدولة";
                 dgvRegulators.Columns["CityName"].HeaderText = "المدينة";
+                dgvRegulators.Columns["SubscriptionTypeName"].HeaderText = "نوع الاشتراك";
+                dgvRegulators.Columns["SubscriptionWayName"].HeaderText = "طريقة الاشتراك";
                 dgvRegulators.Columns["IsActive"].HeaderText = "هل فعال ؟";
 
 
                 lblTotalRecordsCount.Text = dtRegulators.Rows.Count.ToString();
             }
+        }
+        private void _FillComboBoxesSubscriptionWay()
+        {
+            cbSubscriptionWay.Items.Clear();
+            DataTable dtSubscriptionWay = clsSubscriptionWay.GetAllSubscriptionWays();
+            cbSubscriptionWay.Items.Add("الكل");
+
+            foreach (DataRow row in dtSubscriptionWay.Rows)
+            {
+                string SubscriptionName = row["SubscriptionName"].ToString();
+
+                cbSubscriptionWay.Items.Add(SubscriptionName);
+            }
+        }
+        private void _FillComboBoxesSubscriptionType()
+        {
+            cbSubscriptionType.Items.Clear();
+
+            DataTable dtSubscriptionType =clsSubscriptionType.GetAllSubscriptionTypes();
+
+            cbSubscriptionType.Items.Add("الكل");
+
+            foreach (DataRow row in dtSubscriptionType.Rows)
+            {
+                string SubscriptionName = row["SubscriptionName"].ToString();
+
+                cbSubscriptionType.Items.Add(SubscriptionName);
+            }
+
         }
         private void _LoadRefreshRegulatorsPerPage()
         {
@@ -66,6 +101,8 @@ namespace AADL.Regulators
 
             // Calculate the number of pages depending on "totalJudgersCount"
             uint numberOfPages = totalJudgersCount > 0 ? (uint)Math.Ceiling((double)totalJudgersCount / clsUtil.RowsPerPage) : 0;
+            
+            _totalNumberOfPages = numberOfPages;
 
             cbPage.Items.Clear();
 
@@ -132,6 +169,12 @@ namespace AADL.Regulators
             // Updates the total records count label
             lblTotalRecordsCount.Text = dgvRegulators.Rows.Count.ToString();
         }
+
+        private void _Settings()
+        {
+            cbFilterBy.SelectedItem = "لا شيء";
+
+        }
         private void frmRegulatorList_Load(object sender, EventArgs e)
         {
 
@@ -139,19 +182,34 @@ namespace AADL.Regulators
             clsUtil.CustomizeDataGridView(dgvRegulators);
 
             _LoadRefreshRegulatorsPerPage();
+            _FillComboBoxesSubscriptionType();
+            _FillComboBoxesSubscriptionWay();
+            _Settings();
 
-            cbFilterBy.SelectedItem = "لا شيء";
         }
+
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtFilterValue.Visible = (cbFilterBy.Text != "لا شيء" && cbFilterBy.Text != "هل فعال ؟");
+            txtFilterValue.Visible = (cbFilterBy.Text != "لا شيء" && cbFilterBy.Text != "هل فعال ؟"
+                &&cbFilterBy.Text!="نوع الاشتراك" && cbFilterBy.Text != "طريقة الاشتراك");
 
             cbIsActive.Visible = cbFilterBy.Text == "هل فعال ؟";
+            cbSubscriptionType.Visible = cbFilterBy.Text == "نوع الاشتراك";
+            cbSubscriptionWay.Visible = cbFilterBy.Text == "طريقة الاشتراك";
 
             if (cbIsActive.Visible)
                 cbIsActive.SelectedItem = "الكل";
-
-            if (txtFilterValue.Visible)
+            else if (cbSubscriptionType.Visible)
+            {
+                cbSubscriptionType.SelectedItem = "الكل";
+            }
+         
+            else if (cbSubscriptionWay.Visible)
+            {
+                cbSubscriptionWay.SelectedItem = "الكل";
+            }
+         
+            else if (txtFilterValue.Visible)
             {
                 txtFilterValue.Clear();
                 txtFilterValue.Focus();
@@ -162,18 +220,42 @@ namespace AADL.Regulators
                 _dtRegulators.DefaultView.RowFilter = string.Empty;
                 lblTotalRecordsCount.Text = dgvRegulators.Rows.Count.ToString();
             }
+
         }
         private void cbPage_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Get the selected page number
             _pageNumber = ushort.TryParse(cbPage.Text, out ushort result) == true ? result : (ushort)0;
 
-            // Load Judgers data from the database and view it in the DataGridView
+            // Load Regulators data from the database and view it in the DataGridView
             _dtRegulators = clsRegulator.GetRegulatorsPerPage(_pageNumber, clsUtil.RowsPerPage);
             _FillDataGridView(_dtRegulators);
 
             // Reset the filter
             cbFilterBy.SelectedItem = "لا شيء";
+        }
+        private void _HandleCurrentPage()
+        {
+            cbPage.SelectedIndex = Convert.ToInt16( _currentPageNumber - 1);
+
+        }
+        private void btnPreviousPage_Click(object sender, EventArgs e)
+        {
+            if (_currentPageNumber > 1)
+            {
+            _currentPageNumber -= 1;
+            _HandleCurrentPage();
+            }
+        }
+
+        private void btnNextPage_Click(object sender, EventArgs e)
+        {
+            if (_currentPageNumber < _totalNumberOfPages)
+            {
+            _currentPageNumber += 1;
+            _HandleCurrentPage();
+            }
+
         }
         private void txtFilterValue_TextChanged(object sender, EventArgs e)
         {
@@ -260,6 +342,43 @@ namespace AADL.Regulators
             lblTotalRecordsCount.Text = dgvRegulators.Rows.Count.ToString();
         }
 
+        private void cbSubscriptionType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string filterColumn = "SubscriptionTypeName";
+            string filterValue = string.Empty;
+            if (cbSubscriptionType.Text != "الكل")
+            {
+                filterValue = cbSubscriptionType.Text.ToString();
+            }
+
+            if (filterValue == string.Empty)
+                _dtRegulators.DefaultView.RowFilter = filterValue;
+            else
+            _dtRegulators.DefaultView.RowFilter = string.Format("[{0}] = '{1}'", filterColumn, filterValue);
+
+
+            // Updates the total records count label
+            lblTotalRecordsCount.Text = dgvRegulators.Rows.Count.ToString();
+        }
+        private void cbSubscriptionWay_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string filterColumn = "SubscriptionWayName";
+            string filterValue = string.Empty;
+
+        
+            if (cbSubscriptionWay.Text != "الكل")
+            {
+                filterValue = cbSubscriptionWay.Text.ToString();
+            }
+
+            if (filterValue == string.Empty)
+                _dtRegulators.DefaultView.RowFilter = filterValue;
+            else
+                _dtRegulators.DefaultView.RowFilter = string.Format("[{0}] = '{1}'", filterColumn, filterValue);
+
+            // Updates the total records count label
+            lblTotalRecordsCount.Text = dgvRegulators.Rows.Count.ToString();
+        }
         private void showInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -327,6 +446,8 @@ namespace AADL.Regulators
                     MessageBox.Show($"لم يتم حذف الحساب بنجاح بسبب عطل فني في النظام.الرجاء إبلاغ فريق الصيانة", "فشلت العملية", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
    
     }
 

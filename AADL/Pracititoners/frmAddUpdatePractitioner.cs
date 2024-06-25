@@ -62,7 +62,9 @@ namespace AADL.Regulators
         clsRegulator _Regulator;
         clsSharia _Sharia;
         clsJudger _Judger;
-        private  enRunSpecificTabPage _initialTabPage = enRunSpecificTabPage.Personal;
+        clsExpert _Expert;
+
+        private enRunSpecificTabPage _initialTabPage = enRunSpecificTabPage.Personal;
         protected virtual void OnEntityAdded(EventArgs e)
         {
             if(evNewPractitionerWasAdded != null)
@@ -250,6 +252,38 @@ namespace AADL.Regulators
             catch (Exception ex)
             {
                 clsGlobal.WriteEventToLogFile("Exception dropped at Judger form add/update while loading cases types ",
+                                  System.Diagnostics.EventLogEntryType.Error);
+                MessageBox.Show("Exception dropped while loading Lists cases !!\n" + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        private void _loadExpertCasesTypes()
+        {
+            try
+            {
+
+                DataTable ExpertCasesTypeDataTable = clsExpertCaseType.All();
+                if (ExpertCasesTypeDataTable.Rows.Count > 0)
+                {
+
+                    foreach (DataRow row in ExpertCasesTypeDataTable.Rows)
+                    {
+                        int ExpertCaseTypeID = (int)row["ExpertCaseTypeID"];
+                        string ExpertCaseTypeName = (string)row["ExpertCaseTypeName"];
+
+                        clsGlobal.CheckListBoxItem ExpertCaseTypeItem = new clsGlobal.CheckListBoxItem(ExpertCaseTypeID,
+                            ExpertCaseTypeName);
+
+                        clbExpertCasesTypes.Items.Add(ExpertCaseTypeItem);// Add item using Name column
+
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                clsGlobal.WriteEventToLogFile("Exception dropped at Expert form add/update while loading cases types ",
                                   System.Diagnostics.EventLogEntryType.Error);
                 MessageBox.Show("Exception dropped while loading Lists cases !!\n" + ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -470,6 +504,77 @@ namespace AADL.Regulators
 
             }
         }
+        private void _loadExpertInfoData()
+        {
+            try
+            {
+                _Expert = clsExpert.Find(_PractitionerID,clsExpert.enFindBy.PractitionerID);
+
+
+                if (_Expert != null)
+                {
+                    _LoadExpertCasesPractice();
+                    //the following code will not be executed if the Judger was not found
+                    lblExpertID.Text = _Expert.ExpertID.ToString();
+                    chkExpertIsActive.Checked = _Expert.IsActive;
+
+                    switch (_Expert.SubscriptionTypeID)
+                    {
+                        case 1://Free
+                            {
+                                rbtnJudgerFree.Checked = true;
+                                break;
+
+                            }
+                        case 2://Medium
+                            {
+                                rbtnJudgerMedium.Checked = true;
+                                break;
+                            }
+                        case 3://Special
+                            {
+                                rbtnJudgerSpecial.Checked = true;
+                                break;
+                            }
+                    }
+                    switch (_Expert.SubscriptionWayID)
+                    {
+                        case 1://Free
+                            {
+                                rbtnJScholarship.Checked = true;
+                                break;
+
+                            }
+                        case 2://Medium
+                            {
+                                rbtnJSpecialSupport.Checked = true;
+                                break;
+                            }
+
+                    }
+
+                }
+
+                else
+                {
+                    _ExpertMode = enMode.AddNew;
+                    MessageBox.Show("حدث هنالك خطاء فني  , اثناء تحميل البيانات المتعلقة بالخبير", "مشكلة",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //Ignore it ...
+                    return;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("حدث خطاء فني اثناء تحميل البيانات ", "فشل", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsHelperClasses.WriteEventToLogFile("Exception was dropped in ADd update practitioner  form , while loading Judger info data,\n" + ex.Message,
+                    System.Diagnostics.EventLogEntryType.Error);
+                Console.WriteLine(ex.Message);
+
+            }
+        }
 
         private void _LoadRegulatorCasesPractice()
         {
@@ -550,11 +655,38 @@ namespace AADL.Regulators
                 }
             }
         }
+        private void _LoadExpertCasesPractice()
+        {
+            // Wait for the UI thread to process pending events
+            if (_Expert.ExpertID != null)
+            {
+
+                if (_Expert.ExpertCasesPracticeIDNameDictionary.Count > 0)
+                {
+                    for (int idx = 0; idx < clbExpertCasesTypes.Items.Count; idx++)
+                    {
+
+                        clsGlobal.CheckListBoxItem item = (clsGlobal.CheckListBoxItem)clbExpertCasesTypes.Items[idx];
+
+                        // Check if the key case ID  exists in the Dictionary of cases of Expert 
+                        if (_Expert.ExpertCasesPracticeIDNameDictionary.ContainsKey(item.ID))
+                        {
+                            // If the case ID  exists in the CheckedListBox items, set its checked state
+                            clbExpertCasesTypes.SetItemChecked(idx, true);
+                        }
+
+                    }
+
+                    lbExpertCasesRecord.Text = clbExpertCasesTypes.CheckedItems.Count.ToString();
+                }
+            }
+        }
 
         private void _ResetRegulatorInfo()
         {
             _Regulator = new clsRegulator();
             ctbRegulatoryMemberShipNumber.Text = "";
+            lblRegulatorID.Text = "[????]";
             chkRegulatorIsActive.Checked = true;
             rbtnRegulatoryFree.Checked = true;
             rbtnRScholarship.Checked = true;
@@ -574,7 +706,9 @@ namespace AADL.Regulators
             _ShariaMode = enMode.AddNew;
             tpShariaInfo.Enabled = false;
             cbAddSharia.Checked = false;
+            lblShariaID.Text = "[????]";
             _loadShariaCasesTypes();
+
         }
         private void _ResetJudgerInfo()
         {
@@ -584,18 +718,24 @@ namespace AADL.Regulators
             chkJudgerIsActive.Checked = true;
             rbtnJudgerFree.Checked = true;
             lbJudgerCasesRecord.Text = "0";
-            _JudgerMode = enMode.AddNew;
             tpJudgerInfo.Enabled = false;
-            cbAddJudger.Checked = false;
+            cbAddJudger.Checked = false; 
+            lblJudgerID.Text = "[????]";
             _loadJudgerCasesTypes();
 
         }
         private void _ResetExpertInfo()
         {
             //Reset - expert Info.
-
+            _Expert = new clsExpert();
             _ExpertMode = enMode.AddNew;
+            chkExpertIsActive.Checked = true;
+            rbtnExpertFree.Checked = true;
+            lbExpertCasesRecord.Text = "0";
+            tpExpertInfo.Enabled = false;
             cbAddExpert.Checked = false;
+            lblExpertID.Text = "[????]";
+            _loadExpertCasesTypes();
 
         }
         private void _ResetDefaultValues()
@@ -622,7 +762,6 @@ namespace AADL.Regulators
             _ResetExpertInfo();
 
         }
-
         private void _SwitchCurrentMode()
         {
             if (_Mode == enMode.Update)
@@ -673,11 +812,11 @@ namespace AADL.Regulators
                     if (clsSharia.IsShariaExist(_PractitionerID, clsSharia.enSearchBy.PractitionerID))
                     {
                         _loadShariaInfoData();
-                        _JudgerMode = enMode.Update;
+                        _ShariaMode = enMode.Update;
                               if (!IsPersonInfoLoaded)
                               {
                             
-                                  ctrlPersonCardWithFilter1.LoadPersonInfo(_Judger.PersonID);
+                                  ctrlPersonCardWithFilter1.LoadPersonInfo(_Sharia.PersonID);
                                   ctrlPersonCardWithFilter1.FilterEnabled = false;
                                   IsPersonInfoLoaded = true;
                             
@@ -698,7 +837,19 @@ namespace AADL.Regulators
                         }
                     }
 
-                   //Expert not implemented ,yet.
+                    if (clsExpert.Exists(_PractitionerID,clsExpert.enFindBy.PractitionerID))
+                    {
+                        _loadExpertInfoData();
+                        _ExpertMode = enMode.Update;
+                        if (!IsPersonInfoLoaded)
+                        {
+
+                            ctrlPersonCardWithFilter1.LoadPersonInfo(_Expert.PersonID);
+                            ctrlPersonCardWithFilter1.FilterEnabled = false;
+                            IsPersonInfoLoaded = true;
+
+                        }
+                    }
 
                 }
 
@@ -764,28 +915,52 @@ namespace AADL.Regulators
             return 1;
 
         }
-        private Dictionary<int, string> _GetRegulatorCasesPractice()
+        private Dictionary<int,string>GetCasesPracticesForPractitioner(clsPractitioner.enPractitionerType enPractitionerType)
         {
+            CheckedListBox checkedListBoxCasesTypes = new CheckedListBox();
+            switch (enPractitionerType)
+            {
+                case clsPractitioner.enPractitionerType.Regulatory:
+                    {
+                        checkedListBoxCasesTypes = clbRegulatoryCasesTypes;
+                        break;
+                    }
+                case clsPractitioner.enPractitionerType.Sharia:
+                    {
+                        checkedListBoxCasesTypes = clbShariaCasesTypes;
+                        break;
+                    }
+                case clsPractitioner.enPractitionerType.Judger:
+                    {
+                        checkedListBoxCasesTypes = clbJudgerCasesTypes;
+                        break;
+                    }
+                case clsPractitioner.enPractitionerType.Expert:
+                    {
+                        checkedListBoxCasesTypes = clbExpertCasesTypes;
+                        break;
+                    }
+            }
             try
             {
 
-                Dictionary<int, string> RegulatorCasesPracticeIdNameDictionary = new Dictionary<int, string>();
+                Dictionary<int, string> CasesPracticeIdNameDictionary = new Dictionary<int, string>();
 
                 // Get the selected items
-                foreach (clsGlobal.CheckListBoxItem selectedItem in clbRegulatoryCasesTypes.CheckedItems)
+                foreach (clsGlobal.CheckListBoxItem selectedItem in checkedListBoxCasesTypes.CheckedItems)
                 {
 
-                    RegulatorCasesPracticeIdNameDictionary.Add(selectedItem.ID, selectedItem.Text);
+                    CasesPracticeIdNameDictionary.Add(selectedItem.ID, selectedItem.Text);
 
                 }
 
-                return RegulatorCasesPracticeIdNameDictionary;
+                return CasesPracticeIdNameDictionary;
 
 
             }
             catch (Exception ex)
             {
-                clsHelperClasses.WriteEventToLogFile("Regulator add/update form , getRegulatorCasesPractice().\n" +
+                clsHelperClasses.WriteEventToLogFile("practitioner add/update form , getCasesPractice().\n" +
                     ex.Message, System.Diagnostics.EventLogEntryType.Error);
 
                 MessageBox.Show("Exception:\t" + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -793,71 +968,7 @@ namespace AADL.Regulators
                 return null;
 
             }
-
         }
-        private Dictionary<int, string> _GetShariaCasesPractice()
-        {
-            try
-            {
-
-                Dictionary<int, string> ShariaCasesPracticeIdNameDictionary = new Dictionary<int, string>();
-
-                // Get the selected items
-                foreach (clsGlobal.CheckListBoxItem selectedItem in clbShariaCasesTypes.CheckedItems)
-                {
-
-                    ShariaCasesPracticeIdNameDictionary.Add(selectedItem.ID, selectedItem.Text);
-
-                }
-
-                return ShariaCasesPracticeIdNameDictionary;
-
-
-            }
-            catch (Exception ex)
-            {
-                clsHelperClasses.WriteEventToLogFile("Sharia add/update form , getShariaCasesPractice().\n" +
-                    ex.Message, System.Diagnostics.EventLogEntryType.Error);
-
-                MessageBox.Show("Exception:\t" + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                return null;
-
-            }
-
-        }
-        private Dictionary<int, string> _GetJudgerCasesPractice()
-        {
-            try
-            {
-
-                Dictionary<int, string> JudgerCasesPracticeIdNameDictionary = new Dictionary<int, string>();
-
-                // Get the selected items
-                foreach (clsGlobal.CheckListBoxItem selectedItem in clbShariaCasesTypes.CheckedItems)
-                {
-
-                    JudgerCasesPracticeIdNameDictionary.Add(selectedItem.ID, selectedItem.Text);
-
-                }
-
-                return JudgerCasesPracticeIdNameDictionary;
-
-
-            }
-            catch (Exception ex)
-            {
-                clsHelperClasses.WriteEventToLogFile("Judger add/update form , getJudgerCasesPractice().\n" +
-                    ex.Message, System.Diagnostics.EventLogEntryType.Error);
-
-                MessageBox.Show("Exception:\t" + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                return null;
-
-            }
-
-        }
-
         private void _AssignRegulator()
         {
             if (cbAddRegulator.Checked)
@@ -880,7 +991,7 @@ namespace AADL.Regulators
                 _Regulator.IsActive = chkRegulatorIsActive.Checked;
                 _Regulator.SubscriptionTypeID = _GetSelectedSubscriptionTypeID();
                 _Regulator.SubscriptionWayID = _GetSelectedSubscriptionWayID();
-                _Regulator.RegulatorCasesPracticeIDNameDictionary = _GetRegulatorCasesPractice();
+                _Regulator.RegulatorCasesPracticeIDNameDictionary = GetCasesPracticesForPractitioner(clsPractitioner.enPractitionerType.Regulatory);
 
             }
         }
@@ -905,7 +1016,7 @@ namespace AADL.Regulators
                 _Sharia.IsActive = chkShariaIsActive.Checked;
                 _Sharia.SubscriptionTypeID = _GetSelectedSubscriptionTypeID();
                 _Sharia.SubscriptionWayID = _GetSelectedSubscriptionWayID();
-                _Sharia.ShariaCasesPracticeIDNameDictionary = _GetShariaCasesPractice();
+                _Sharia.ShariaCasesPracticeIDNameDictionary = GetCasesPracticesForPractitioner(clsPractitioner.enPractitionerType.Sharia);
 
 
             }
@@ -931,12 +1042,39 @@ namespace AADL.Regulators
                 _Judger.IsActive = chkJudgerIsActive.Checked;
                 _Judger.SubscriptionTypeID = _GetSelectedSubscriptionTypeID();
                 _Judger.SubscriptionWayID = _GetSelectedSubscriptionWayID();
-                _Judger.JudgeCasesPracticeIDNameDictionary = _GetJudgerCasesPractice();
+                _Judger.JudgeCasesPracticeIDNameDictionary = GetCasesPracticesForPractitioner(clsPractitioner.enPractitionerType.Judger);
 
 
             }
 
         }
+        private void _AssignExpert()
+        {
+
+            if (cbAddExpert.Checked)
+            {
+                if (_ExpertMode == enMode.AddNew)
+                {
+                    _Expert.IssueDate = DateTime.Now;
+                    _Expert.CreatedByUserID = (int)clsGlobal.CurrentUser.UserID;
+                }
+
+                else if (_ExpertMode == enMode.Update)
+                {
+                    _Expert.LastEditByUserID = clsGlobal.CurrentUser.UserID;
+                }
+
+                _Expert.PersonID = (int)ctrlPersonCardWithFilter1.PersonID;
+                _Expert.IsActive = chkJudgerIsActive.Checked;
+                _Expert.SubscriptionTypeID = _GetSelectedSubscriptionTypeID();
+                _Expert.SubscriptionWayID = _GetSelectedSubscriptionWayID();
+                _Expert.ExpertCasesPracticeIDNameDictionary = GetCasesPracticesForPractitioner(clsPractitioner.enPractitionerType.Expert);
+
+
+            }
+
+        }
+
         private bool _AssignData()
         {
 
@@ -945,6 +1083,8 @@ namespace AADL.Regulators
                 _AssignRegulator();
                 _AssignSharia();
                 _AssignJudger();
+                _AssignExpert();
+
             }
             catch (Exception ex)
             {
@@ -1021,7 +1161,6 @@ namespace AADL.Regulators
             }
 
         }
-
         private void _SaveJudger()
         {
 
@@ -1053,6 +1192,39 @@ namespace AADL.Regulators
                 }
             }
         }
+        private void _SaveExpert()
+        {
+
+                if (cbAddExpert.Checked)
+                {
+                    if (_Expert.Save())
+                    {
+                        if (_ExpertMode == enMode.Update)
+                        {
+                            OnEntityUpdated(EventArgs.Empty);
+                        }
+                        lblExpertID.Text = _Expert.ExpertID.ToString();
+                        _PractitionerID = _Expert.PractitionerID;
+                        //change form mode to update.
+                        _Mode = enMode.Update;
+                        _ExpertMode = enMode.Update;
+                        lblTitle.Text = "تحديث  و تعديل البيانات";
+                        this.Text = "تحديث  و تعديل البيانات";
+                        MessageBox.Show("حفظ البيانات  للخبير بنجاح.", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Save the entity to the database
+                        // After saving successfully, raise the event
+                        OnEntityAdded(null);
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("فشل: لم تحفظ البيانات للخبير بشكل صحيح.", "فشل", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    } 
+                }
+
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             //Think deeply about saving , and updating ...
@@ -1072,13 +1244,13 @@ namespace AADL.Regulators
                     _SaveRegulator();
                     _SaveSharia();
                     _SaveJudger();
+                    _SaveExpert();
                 }
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Exception :" + ex.Message, "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
 
         }
@@ -1352,7 +1524,7 @@ namespace AADL.Regulators
                 if (_Mode == enMode.Update)
                 {
                     
-                    if (_Regulator.IsPractitionerInBlackList())
+                    if (clsBlackList.IsPractitionerInBlackList(_PractitionerID))
                     {
                         DialogResult result = MessageBox.Show("الشخص مضاف بالفعل الى القائمة السوداء , ان كنت تريد التعديل اضعط على 'نعم ' ", "سؤال"
                              , MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
@@ -1442,7 +1614,6 @@ namespace AADL.Regulators
 
 
         }
-
         private void ctbShariaLicenseNumber_Validating(object sender, CancelEventArgs e)
         {
 
@@ -1524,7 +1695,6 @@ namespace AADL.Regulators
             }
 
         }
-
         private void _UpdateSaveButton(object sender, EventArgs e)
         {
             btnSave.Enabled = (tpRegulatorInfo.Enabled || tpShariaInfo.Enabled || tpJudgerInfo.Enabled || tpExpertInfo.Enabled);
@@ -1606,7 +1776,6 @@ namespace AADL.Regulators
 
             _UpdateSaveButton(null,null);
         }
-
         private void RadioButton_SubscriptionType_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -1634,7 +1803,6 @@ namespace AADL.Regulators
             }
 
         }
-
         private void tcPractitionernfo_SelectedIndexChanged(object sender, EventArgs e)
         {
             
@@ -1680,27 +1848,41 @@ namespace AADL.Regulators
                 if (_ShariaMode == enMode.AddNew)
                 {
                     lblTitle.Text = "أضافة محامي شرعي جديد";
-                    lblTitle.ForeColor = System.Drawing.Color.LimeGreen;
+                    lblTitle.ForeColor = System.Drawing.Color.Red;
 
                 }
                 else if (_ShariaMode == enMode.Update)
                 {
                     lblTitle.Text = "تحديث او تعديل بيانات المحامي الشرعي ";
-                    lblTitle.ForeColor = System.Drawing.Color.LimeGreen;
+                    lblTitle.ForeColor = System.Drawing.Color.Red;
                 }
             }
             else if (tcPractitionernfo.SelectedIndex == 3)
             {
                 if (_ShariaMode == enMode.AddNew)
                 {
-                    lblTitle.Text = "أضافة محامي محكم جديد";
-                    lblTitle.ForeColor = System.Drawing.Color.Red;
+                    lblTitle.Text = "أضافة  محكم جديد";
+                    lblTitle.ForeColor = System.Drawing.Color.LimeGreen;
 
                 }
                 else if (_ShariaMode == enMode.Update)
                 {
                     lblTitle.Text = "تحديث او تعديل بيانات المحكم ";
-                    lblTitle.ForeColor = System.Drawing.Color.Red;
+                    lblTitle.ForeColor = System.Drawing.Color.LimeGreen;
+                }
+            }
+            else if (tcPractitionernfo.SelectedIndex == 4)
+            {
+                if (_ShariaMode == enMode.AddNew)
+                {
+                    lblTitle.Text = "أضافة خبير جديد";
+                    lblTitle.ForeColor = System.Drawing.Color.DarkBlue;
+
+                }
+                else if (_ShariaMode == enMode.Update)
+                {
+                    lblTitle.Text = "تحديث او تعديل بيانات الخبير ";
+                    lblTitle.ForeColor = System.Drawing.Color.DarkBlue;
                 }
             }
 
@@ -1891,7 +2073,6 @@ namespace AADL.Regulators
             }
 
         }
-
         private void btnShariaClosedList_Click(object sender, EventArgs e)
 
         {
@@ -1942,6 +2123,203 @@ namespace AADL.Regulators
             }
         }
 
+        private void btnJudgerWhite_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_PractitionerID != -1 && clsJudger.IsJudgerExistByPractitionerID(_PractitionerID))
+                {
+
+                if (_Mode == enMode.Update && _ShariaMode == enMode.Update 
+                    && _Judger.IsJudgerInWhiteList())
+                {
+                    DialogResult result = MessageBox.Show("الشخص مضاف بالفعل الى القائمة البيضاء للمحكمين , ان كنت تريد التعديل اضعط على 'نعم ' ", "سؤال"
+                         , MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                    if (result == DialogResult.OK)
+                    {
+                        // get ID of white-list by practitioner ID 
+                        FrmAddUpdateList form = new FrmAddUpdateList(_PractitionerID,
+                            (int)clsWhiteList.Find(_PractitionerID, clsPractitioner.enPractitionerType.Judger).WhiteListID,
+                             ctrlAddUpdateList.enCreationMode.JudgerWhiteList);
+                        form.ShowDialog();
+                    }
+                }
+                else
+                {
+
+                    FrmAddUpdateList AddUpdateWhiteList = new FrmAddUpdateList(_PractitionerID,
+                    ctrlAddUpdateList.enCreationMode.JudgerWhiteList);
+                    AddUpdateWhiteList.ShowDialog();
+
+                }
+                }
+                else
+                {
+                    MessageBox.Show(text: "عليك اولا اضافة ملف للمحكم قبل اضافته الى احد القوائم."
+                   , "فشل", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                clsHelperClasses.WriteEventToLogFile("I have a problem in loading white list form for practitioners type " +
+                    "judger,You might need to check add/update practitioner form \nexception:" + ex.Message
+                    , System.Diagnostics.EventLogEntryType.Error);
+
+                MessageBox.Show(text: "Problem happen in the system while loading data,you might need to contact maintenance team."
+                    , "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Exception:\t" + ex.Message);
+
+            }
+
+        }
+        private void btnJudgerClosedList_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_PractitionerID != -1 && clsJudger.IsJudgerExistByPractitionerID(_PractitionerID))
+                {
+
+                    if (_Mode == enMode.Update && _ShariaMode == enMode.Update
+                        && _Judger.IsJudgerInClosedList())
+                    {
+                        DialogResult result = MessageBox.Show("الشخص مضاف بالفعل الى القائمة البيضاء للمحكمين , ان كنت تريد التعديل اضعط على 'نعم ' ", "سؤال"
+                             , MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                        if (result == DialogResult.OK)
+                        {
+                            // get ID of white-list by practitioner ID 
+                            FrmAddUpdateList form = new FrmAddUpdateList(_PractitionerID,
+                                (int)clsClosedList.Find(_PractitionerID, clsPractitioner.enPractitionerType.Judger).ClosedListID,
+                                 ctrlAddUpdateList.enCreationMode.JudgerClosedList);
+                            form.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+
+                        FrmAddUpdateList AddUpdateWhiteList = new FrmAddUpdateList(_PractitionerID,
+                        ctrlAddUpdateList.enCreationMode.JudgerClosedList);
+                        AddUpdateWhiteList.ShowDialog();
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(text: "عليك اولا اضافة ملف للمحكم قبل اضافته الى احد القوائم."
+                   , "فشل", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                clsHelperClasses.WriteEventToLogFile("I have a problem in loading white list form for practitioners type " +
+                    "judger,You might need to check add/update practitioner form \nexception:" + ex.Message
+                    , System.Diagnostics.EventLogEntryType.Error);
+
+                MessageBox.Show(text: "Problem happen in the system while loading data,you might need to contact maintenance team."
+                    , "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Exception:\t" + ex.Message);
+
+            }
+
+        }
+        private void btnExpertWhite_Click(object sender, EventArgs e)
+
+        {
+            try
+            {
+                if (_PractitionerID != -1 && clsExpert.Exists(_PractitionerID,clsExpert.enFindBy.PractitionerID))
+                {
+
+                    if (_Mode == enMode.Update && _ShariaMode == enMode.Update
+                        && _Expert.IsExpertInWhiteList())
+                    {
+                        DialogResult result = MessageBox.Show("الشخص مضاف بالفعل الى القائمة البيضاء للخبراء , ان كنت تريد التعديل اضعط على 'نعم ' ", "سؤال"
+                             , MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                        if (result == DialogResult.OK)
+                        {
+                            // get ID of white-list by practitioner ID 
+                            FrmAddUpdateList form = new FrmAddUpdateList(_PractitionerID,
+                                (int)clsWhiteList.Find(_PractitionerID, clsPractitioner.enPractitionerType.Expert).WhiteListID,
+                                 ctrlAddUpdateList.enCreationMode.ExpertWhiteList);
+                            form.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+
+                        FrmAddUpdateList AddUpdateWhiteList = new FrmAddUpdateList(_PractitionerID,
+                        ctrlAddUpdateList.enCreationMode.ExpertWhiteList);
+                        AddUpdateWhiteList.ShowDialog();
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(text: "عليك اولا اضافة ملف للخبير قبل اضافته الى احد القوائم."
+                   , "فشل", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                clsHelperClasses.WriteEventToLogFile("I have a problem in loading white list form for practitioners type " +
+                    "expert,You might need to check add/update practitioner form \nexception:" + ex.Message
+                    , System.Diagnostics.EventLogEntryType.Error);
+
+                MessageBox.Show(text: "Problem happen in the system while loading data,you might need to contact maintenance team."
+                    , "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Exception:\t" + ex.Message);
+
+            }
+
+        }
+        private void btnExpertClosedList_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_PractitionerID != -1 && clsExpert.Exists(_PractitionerID, clsExpert.enFindBy.PractitionerID))
+                {
+
+                    if (_Mode == enMode.Update && _ShariaMode == enMode.Update
+                        && _Expert.IsExpertInClosedList())
+                    {
+                        DialogResult result = MessageBox.Show("الشخص مضاف بالفعل الى القائمة البيضاء للخبراء , ان كنت تريد التعديل اضعط على 'نعم ' ", "سؤال"
+                             , MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                        if (result == DialogResult.OK)
+                        {
+                            // get ID of white-list by practitioner ID 
+                            FrmAddUpdateList form = new FrmAddUpdateList(_PractitionerID,
+                                (int)clsClosedList.Find(_PractitionerID, clsPractitioner.enPractitionerType.Expert).ClosedListID,
+                                 ctrlAddUpdateList.enCreationMode.ExpertClosedList);
+                            form.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+
+                        FrmAddUpdateList AddUpdateWhiteList = new FrmAddUpdateList(_PractitionerID,
+                        ctrlAddUpdateList.enCreationMode.ExpertClosedList);
+                        AddUpdateWhiteList.ShowDialog();
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(text: "عليك اولا اضافة ملف للخبير قبل اضافته الى احد القوائم."
+                   , "فشل", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                clsHelperClasses.WriteEventToLogFile("I have a problem in loading white list form for practitioners type " +
+                    "expert,You might need to check add/update practitioner form \nexception:" + ex.Message
+                    , System.Diagnostics.EventLogEntryType.Error);
+
+                MessageBox.Show(text: "Problem happen in the system while loading data,you might need to contact maintenance team."
+                    , "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Exception:\t" + ex.Message);
+
+            }
+
+        }
         private void clbShariaCasesTypes_Validating(object sender, CancelEventArgs e)
         {
             if (rbtnShariaFree.Checked && clbShariaCasesTypes.CheckedItems.Count > 1)
@@ -1969,7 +2347,6 @@ namespace AADL.Regulators
                 e.Cancel = false;
             }
         }
-
         private void clbJudgerCasesTypes_Validating(object sender, CancelEventArgs e)
         {
             if (rbtnJudgerFree.Checked && clbJudgerCasesTypes.CheckedItems.Count > 1)
@@ -1998,7 +2375,6 @@ namespace AADL.Regulators
             }
 
         }
-
         private void clbExpertCasesTypes_Validating(object sender, CancelEventArgs e)
         {
             if (rbtnExpertFree.Checked && clbExpertCasesTypes.CheckedItems.Count > 1)
@@ -2031,6 +2407,13 @@ namespace AADL.Regulators
         {
             lbJudgerCasesRecord.Text = clbJudgerCasesTypes.CheckedItems.Count.ToString();
         }
+        private void clbExpertCasesTypes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbExpertCasesRecord.Text = clbExpertCasesTypes.CheckedItems.Count.ToString();
+
+        }
+
+
     }
 
 }

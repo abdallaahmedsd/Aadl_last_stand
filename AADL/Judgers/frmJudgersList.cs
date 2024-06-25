@@ -141,9 +141,9 @@ namespace AADL.Judgers
             lblTotalRecordsCount.Text = dgvJudgers.Rows.Count.ToString();
         }
 
-        private void _FillComboBoxBySubscriptionWaies()
+        private void _FillComboBoxBySubscriptionWays()
         {
-            clsUtil.FillComboBoxBySubscriptionWaies(cbSubscriptionWay);
+            clsUtil.FillComboBoxBySubscriptionWays(cbSubscriptionWay);
         }
 
         private void _FillComboBoxBySubscriptionTypes()
@@ -167,7 +167,7 @@ namespace AADL.Judgers
             clsUtil.CustomizeDataGridView(dgvJudgers);
 
             _LoadRefreshJudgersPerPage();
-            _FillComboBoxBySubscriptionWaies();
+            _FillComboBoxBySubscriptionWays();
             _FillComboBoxBySubscriptionTypes();
             _Settings();
         }

@@ -111,15 +111,15 @@
             this.rbtnExpertSpecial = new System.Windows.Forms.RadioButton();
             this.rbtnExpertMedium = new System.Windows.Forms.RadioButton();
             this.rbtnExpertFree = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.btnExpertClosedList = new System.Windows.Forms.Button();
+            this.btnExpertWhite = new System.Windows.Forms.Button();
+            this.btnBlackListExpert = new System.Windows.Forms.Button();
+            this.btnResetExpertCases = new System.Windows.Forms.Button();
+            this.lbExpertCasesRecord = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.clbExpertCasesTypes = new System.Windows.Forms.CheckedListBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.chkExpertIsActive = new System.Windows.Forms.CheckBox();
+            this.lblExpertID = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -194,7 +194,7 @@
             this.btnResetRegulatoryCases.BackColor = System.Drawing.Color.Transparent;
             this.btnResetRegulatoryCases.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResetRegulatoryCases.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnResetRegulatoryCases.Location = new System.Drawing.Point(969, 436);
+            this.btnResetRegulatoryCases.Location = new System.Drawing.Point(986, 446);
             this.btnResetRegulatoryCases.Name = "btnResetRegulatoryCases";
             this.btnResetRegulatoryCases.Size = new System.Drawing.Size(64, 28);
             this.btnResetRegulatoryCases.TabIndex = 147;
@@ -232,7 +232,7 @@
             // 
             this.lbRegulatoryCasesRecord.AutoSize = true;
             this.lbRegulatoryCasesRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRegulatoryCasesRecord.Location = new System.Drawing.Point(933, 486);
+            this.lbRegulatoryCasesRecord.Location = new System.Drawing.Point(942, 486);
             this.lbRegulatoryCasesRecord.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbRegulatoryCasesRecord.Name = "lbRegulatoryCasesRecord";
             this.lbRegulatoryCasesRecord.Size = new System.Drawing.Size(19, 20);
@@ -635,7 +635,7 @@
             // 
             this.btnShariaClosedList.BackColor = System.Drawing.Color.Transparent;
             this.btnShariaClosedList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShariaClosedList.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnShariaClosedList.ForeColor = System.Drawing.Color.Crimson;
             this.btnShariaClosedList.Location = new System.Drawing.Point(409, 558);
             this.btnShariaClosedList.Name = "btnShariaClosedList";
             this.btnShariaClosedList.Size = new System.Drawing.Size(141, 47);
@@ -648,7 +648,7 @@
             // 
             this.btnShariaWhite.BackColor = System.Drawing.Color.Transparent;
             this.btnShariaWhite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShariaWhite.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnShariaWhite.ForeColor = System.Drawing.Color.Crimson;
             this.btnShariaWhite.Location = new System.Drawing.Point(599, 558);
             this.btnShariaWhite.Name = "btnShariaWhite";
             this.btnShariaWhite.Size = new System.Drawing.Size(141, 47);
@@ -661,7 +661,7 @@
             // 
             this.btnBlackListSharia.BackColor = System.Drawing.Color.Transparent;
             this.btnBlackListSharia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBlackListSharia.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnBlackListSharia.ForeColor = System.Drawing.Color.Crimson;
             this.btnBlackListSharia.Location = new System.Drawing.Point(781, 558);
             this.btnBlackListSharia.Name = "btnBlackListSharia";
             this.btnBlackListSharia.Size = new System.Drawing.Size(141, 47);
@@ -674,8 +674,8 @@
             // 
             this.btnResetShariaCases.BackColor = System.Drawing.Color.Transparent;
             this.btnResetShariaCases.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResetShariaCases.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btnResetShariaCases.Location = new System.Drawing.Point(970, 436);
+            this.btnResetShariaCases.ForeColor = System.Drawing.Color.Crimson;
+            this.btnResetShariaCases.Location = new System.Drawing.Point(987, 436);
             this.btnResetShariaCases.Name = "btnResetShariaCases";
             this.btnResetShariaCases.Size = new System.Drawing.Size(64, 28);
             this.btnResetShariaCases.TabIndex = 154;
@@ -687,7 +687,7 @@
             // 
             this.lbShariaCasesRecord.AutoSize = true;
             this.lbShariaCasesRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbShariaCasesRecord.Location = new System.Drawing.Point(934, 486);
+            this.lbShariaCasesRecord.Location = new System.Drawing.Point(943, 486);
             this.lbShariaCasesRecord.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbShariaCasesRecord.Name = "lbShariaCasesRecord";
             this.lbShariaCasesRecord.Size = new System.Drawing.Size(19, 20);
@@ -722,7 +722,7 @@
             this.clbShariaCasesTypes.ContextMenuStrip = this.cms;
             this.clbShariaCasesTypes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.clbShariaCasesTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clbShariaCasesTypes.ForeColor = System.Drawing.Color.LimeGreen;
+            this.clbShariaCasesTypes.ForeColor = System.Drawing.Color.Crimson;
             this.clbShariaCasesTypes.FormattingEnabled = true;
             this.clbShariaCasesTypes.Location = new System.Drawing.Point(409, 141);
             this.clbShariaCasesTypes.Name = "clbShariaCasesTypes";
@@ -736,7 +736,7 @@
             this.chkShariaIsActive.AutoSize = true;
             this.chkShariaIsActive.Checked = true;
             this.chkShariaIsActive.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkShariaIsActive.ForeColor = System.Drawing.Color.LimeGreen;
+            this.chkShariaIsActive.ForeColor = System.Drawing.Color.Crimson;
             this.chkShariaIsActive.Location = new System.Drawing.Point(874, 516);
             this.chkShariaIsActive.Name = "chkShariaIsActive";
             this.chkShariaIsActive.Size = new System.Drawing.Size(49, 17);
@@ -748,7 +748,7 @@
             // 
             this.lblShariaID.AutoSize = true;
             this.lblShariaID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShariaID.ForeColor = System.Drawing.Color.LimeGreen;
+            this.lblShariaID.ForeColor = System.Drawing.Color.Crimson;
             this.lblShariaID.Location = new System.Drawing.Point(887, 37);
             this.lblShariaID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblShariaID.Name = "lblShariaID";
@@ -781,7 +781,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label5.ForeColor = System.Drawing.Color.Crimson;
             this.label5.Location = new System.Drawing.Point(1077, 94);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
@@ -932,44 +932,47 @@
             // 
             this.btnJudgerClosedList.BackColor = System.Drawing.Color.Transparent;
             this.btnJudgerClosedList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnJudgerClosedList.ForeColor = System.Drawing.Color.Red;
+            this.btnJudgerClosedList.ForeColor = System.Drawing.Color.LightGreen;
             this.btnJudgerClosedList.Location = new System.Drawing.Point(400, 515);
             this.btnJudgerClosedList.Name = "btnJudgerClosedList";
             this.btnJudgerClosedList.Size = new System.Drawing.Size(141, 47);
             this.btnJudgerClosedList.TabIndex = 174;
             this.btnJudgerClosedList.Text = "اضافة الى القائمة المغلقة";
             this.btnJudgerClosedList.UseVisualStyleBackColor = false;
+            this.btnJudgerClosedList.Click += new System.EventHandler(this.btnJudgerClosedList_Click);
             // 
             // btnJudgerWhite
             // 
             this.btnJudgerWhite.BackColor = System.Drawing.Color.Transparent;
             this.btnJudgerWhite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnJudgerWhite.ForeColor = System.Drawing.Color.Red;
+            this.btnJudgerWhite.ForeColor = System.Drawing.Color.LightGreen;
             this.btnJudgerWhite.Location = new System.Drawing.Point(590, 515);
             this.btnJudgerWhite.Name = "btnJudgerWhite";
             this.btnJudgerWhite.Size = new System.Drawing.Size(141, 47);
             this.btnJudgerWhite.TabIndex = 173;
             this.btnJudgerWhite.Text = "اضافة الى القائمة البيضاء";
             this.btnJudgerWhite.UseVisualStyleBackColor = false;
+            this.btnJudgerWhite.Click += new System.EventHandler(this.btnJudgerWhite_Click);
             // 
             // btnBlackListJudger
             // 
             this.btnBlackListJudger.BackColor = System.Drawing.Color.Transparent;
             this.btnBlackListJudger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBlackListJudger.ForeColor = System.Drawing.Color.Red;
+            this.btnBlackListJudger.ForeColor = System.Drawing.Color.LightGreen;
             this.btnBlackListJudger.Location = new System.Drawing.Point(772, 515);
             this.btnBlackListJudger.Name = "btnBlackListJudger";
             this.btnBlackListJudger.Size = new System.Drawing.Size(141, 47);
             this.btnBlackListJudger.TabIndex = 172;
             this.btnBlackListJudger.Text = "اضافة الى القائمة السوداء";
             this.btnBlackListJudger.UseVisualStyleBackColor = false;
+            this.btnBlackListJudger.Click += new System.EventHandler(this.btnBlackList_Click);
             // 
             // btnResetJudgerCases
             // 
             this.btnResetJudgerCases.BackColor = System.Drawing.Color.Transparent;
             this.btnResetJudgerCases.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResetJudgerCases.ForeColor = System.Drawing.Color.Red;
-            this.btnResetJudgerCases.Location = new System.Drawing.Point(961, 440);
+            this.btnResetJudgerCases.ForeColor = System.Drawing.Color.LightGreen;
+            this.btnResetJudgerCases.Location = new System.Drawing.Point(978, 440);
             this.btnResetJudgerCases.Name = "btnResetJudgerCases";
             this.btnResetJudgerCases.Size = new System.Drawing.Size(64, 28);
             this.btnResetJudgerCases.TabIndex = 171;
@@ -1004,7 +1007,7 @@
             this.clbJudgerCasesTypes.ContextMenuStrip = this.cms;
             this.clbJudgerCasesTypes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.clbJudgerCasesTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clbJudgerCasesTypes.ForeColor = System.Drawing.Color.Red;
+            this.clbJudgerCasesTypes.ForeColor = System.Drawing.Color.LimeGreen;
             this.clbJudgerCasesTypes.FormattingEnabled = true;
             this.clbJudgerCasesTypes.Location = new System.Drawing.Point(401, 103);
             this.clbJudgerCasesTypes.Name = "clbJudgerCasesTypes";
@@ -1018,7 +1021,7 @@
             this.chkJudgerIsActive.AutoSize = true;
             this.chkJudgerIsActive.Checked = true;
             this.chkJudgerIsActive.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkJudgerIsActive.ForeColor = System.Drawing.Color.Red;
+            this.chkJudgerIsActive.ForeColor = System.Drawing.Color.LightGreen;
             this.chkJudgerIsActive.Location = new System.Drawing.Point(864, 474);
             this.chkJudgerIsActive.Name = "chkJudgerIsActive";
             this.chkJudgerIsActive.Size = new System.Drawing.Size(49, 17);
@@ -1030,7 +1033,7 @@
             // 
             this.lblJudgerID.AutoSize = true;
             this.lblJudgerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJudgerID.ForeColor = System.Drawing.Color.Red;
+            this.lblJudgerID.ForeColor = System.Drawing.Color.LightGreen;
             this.lblJudgerID.Location = new System.Drawing.Point(878, 41);
             this.lblJudgerID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblJudgerID.Name = "lblJudgerID";
@@ -1083,15 +1086,15 @@
             // tpExpertInfo
             // 
             this.tpExpertInfo.Controls.Add(this.groupBox4);
-            this.tpExpertInfo.Controls.Add(this.button1);
-            this.tpExpertInfo.Controls.Add(this.button2);
-            this.tpExpertInfo.Controls.Add(this.button3);
-            this.tpExpertInfo.Controls.Add(this.button4);
-            this.tpExpertInfo.Controls.Add(this.label7);
+            this.tpExpertInfo.Controls.Add(this.btnExpertClosedList);
+            this.tpExpertInfo.Controls.Add(this.btnExpertWhite);
+            this.tpExpertInfo.Controls.Add(this.btnBlackListExpert);
+            this.tpExpertInfo.Controls.Add(this.btnResetExpertCases);
+            this.tpExpertInfo.Controls.Add(this.lbExpertCasesRecord);
             this.tpExpertInfo.Controls.Add(this.label11);
             this.tpExpertInfo.Controls.Add(this.clbExpertCasesTypes);
-            this.tpExpertInfo.Controls.Add(this.checkBox1);
-            this.tpExpertInfo.Controls.Add(this.label13);
+            this.tpExpertInfo.Controls.Add(this.chkExpertIsActive);
+            this.tpExpertInfo.Controls.Add(this.lblExpertID);
             this.tpExpertInfo.Controls.Add(this.pictureBox9);
             this.tpExpertInfo.Controls.Add(this.label15);
             this.tpExpertInfo.Controls.Add(this.label16);
@@ -1110,7 +1113,7 @@
             this.groupBox4.Controls.Add(this.rbtnExpertSpecial);
             this.groupBox4.Controls.Add(this.rbtnExpertMedium);
             this.groupBox4.Controls.Add(this.rbtnExpertFree);
-            this.groupBox4.Location = new System.Drawing.Point(47, 114);
+            this.groupBox4.Location = new System.Drawing.Point(68, 37);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(200, 173);
             this.groupBox4.TabIndex = 189;
@@ -1188,70 +1191,73 @@
             this.rbtnExpertFree.UseVisualStyleBackColor = true;
             this.rbtnExpertFree.CheckedChanged += new System.EventHandler(this.RadioButton_SubscriptionType_CheckedChanged);
             // 
-            // button1
+            // btnExpertClosedList
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(374, 588);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 47);
-            this.button1.TabIndex = 188;
-            this.button1.Text = "اضافة الى القائمة المغلقة";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnExpertClosedList.BackColor = System.Drawing.Color.Transparent;
+            this.btnExpertClosedList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExpertClosedList.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnExpertClosedList.Location = new System.Drawing.Point(400, 523);
+            this.btnExpertClosedList.Name = "btnExpertClosedList";
+            this.btnExpertClosedList.Size = new System.Drawing.Size(141, 47);
+            this.btnExpertClosedList.TabIndex = 188;
+            this.btnExpertClosedList.Text = "اضافة الى القائمة المغلقة";
+            this.btnExpertClosedList.UseVisualStyleBackColor = false;
+            this.btnExpertClosedList.Click += new System.EventHandler(this.btnExpertClosedList_Click);
             // 
-            // button2
+            // btnExpertWhite
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(564, 588);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(141, 47);
-            this.button2.TabIndex = 187;
-            this.button2.Text = "اضافة الى القائمة البيضاء";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnExpertWhite.BackColor = System.Drawing.Color.Transparent;
+            this.btnExpertWhite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExpertWhite.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnExpertWhite.Location = new System.Drawing.Point(590, 523);
+            this.btnExpertWhite.Name = "btnExpertWhite";
+            this.btnExpertWhite.Size = new System.Drawing.Size(141, 47);
+            this.btnExpertWhite.TabIndex = 187;
+            this.btnExpertWhite.Text = "اضافة الى القائمة البيضاء";
+            this.btnExpertWhite.UseVisualStyleBackColor = false;
+            this.btnExpertWhite.Click += new System.EventHandler(this.btnExpertWhite_Click);
             // 
-            // button3
+            // btnBlackListExpert
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.Red;
-            this.button3.Location = new System.Drawing.Point(746, 588);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(141, 47);
-            this.button3.TabIndex = 186;
-            this.button3.Text = "اضافة الى القائمة السوداء";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnBlackListExpert.BackColor = System.Drawing.Color.Transparent;
+            this.btnBlackListExpert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBlackListExpert.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnBlackListExpert.Location = new System.Drawing.Point(772, 523);
+            this.btnBlackListExpert.Name = "btnBlackListExpert";
+            this.btnBlackListExpert.Size = new System.Drawing.Size(141, 47);
+            this.btnBlackListExpert.TabIndex = 186;
+            this.btnBlackListExpert.Text = "اضافة الى القائمة السوداء";
+            this.btnBlackListExpert.UseVisualStyleBackColor = false;
+            this.btnBlackListExpert.Click += new System.EventHandler(this.btnBlackList_Click);
             // 
-            // button4
+            // btnResetExpertCases
             // 
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.Red;
-            this.button4.Location = new System.Drawing.Point(935, 513);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(64, 28);
-            this.button4.TabIndex = 185;
-            this.button4.Text = "اعادة";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnResetExpertCases.BackColor = System.Drawing.Color.Transparent;
+            this.btnResetExpertCases.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResetExpertCases.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnResetExpertCases.Location = new System.Drawing.Point(978, 440);
+            this.btnResetExpertCases.Name = "btnResetExpertCases";
+            this.btnResetExpertCases.Size = new System.Drawing.Size(64, 28);
+            this.btnResetExpertCases.TabIndex = 185;
+            this.btnResetExpertCases.Text = "اعادة";
+            this.btnResetExpertCases.UseVisualStyleBackColor = false;
             // 
-            // label7
+            // lbExpertCasesRecord
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(908, 563);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(19, 20);
-            this.label7.TabIndex = 184;
-            this.label7.Text = "0";
+            this.lbExpertCasesRecord.AutoSize = true;
+            this.lbExpertCasesRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbExpertCasesRecord.Location = new System.Drawing.Point(934, 490);
+            this.lbExpertCasesRecord.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbExpertCasesRecord.Name = "lbExpertCasesRecord";
+            this.lbExpertCasesRecord.Size = new System.Drawing.Size(19, 20);
+            this.lbExpertCasesRecord.TabIndex = 184;
+            this.lbExpertCasesRecord.Text = "0";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(935, 563);
+            this.label11.Location = new System.Drawing.Point(961, 490);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(85, 20);
@@ -1264,43 +1270,44 @@
             this.clbExpertCasesTypes.ContextMenuStrip = this.cms;
             this.clbExpertCasesTypes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.clbExpertCasesTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clbExpertCasesTypes.ForeColor = System.Drawing.Color.Red;
+            this.clbExpertCasesTypes.ForeColor = System.Drawing.Color.DarkBlue;
             this.clbExpertCasesTypes.FormattingEnabled = true;
-            this.clbExpertCasesTypes.Location = new System.Drawing.Point(375, 176);
+            this.clbExpertCasesTypes.Location = new System.Drawing.Point(401, 103);
             this.clbExpertCasesTypes.Name = "clbExpertCasesTypes";
             this.clbExpertCasesTypes.Size = new System.Drawing.Size(513, 365);
             this.clbExpertCasesTypes.TabIndex = 181;
+            this.clbExpertCasesTypes.SelectedIndexChanged += new System.EventHandler(this.clbExpertCasesTypes_SelectedIndexChanged);
             this.clbExpertCasesTypes.Validating += new System.ComponentModel.CancelEventHandler(this.clbExpertCasesTypes_Validating);
             // 
-            // checkBox1
+            // chkExpertIsActive
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.ForeColor = System.Drawing.Color.Red;
-            this.checkBox1.Location = new System.Drawing.Point(838, 547);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(49, 17);
-            this.checkBox1.TabIndex = 182;
-            this.checkBox1.Text = "فعال";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkExpertIsActive.AutoSize = true;
+            this.chkExpertIsActive.Checked = true;
+            this.chkExpertIsActive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkExpertIsActive.ForeColor = System.Drawing.Color.DarkBlue;
+            this.chkExpertIsActive.Location = new System.Drawing.Point(865, 474);
+            this.chkExpertIsActive.Name = "chkExpertIsActive";
+            this.chkExpertIsActive.Size = new System.Drawing.Size(49, 17);
+            this.chkExpertIsActive.TabIndex = 182;
+            this.chkExpertIsActive.Text = "فعال";
+            this.chkExpertIsActive.UseVisualStyleBackColor = true;
             // 
-            // label13
+            // lblExpertID
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(852, 114);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(39, 20);
-            this.label13.TabIndex = 180;
-            this.label13.Text = "???";
+            this.lblExpertID.AutoSize = true;
+            this.lblExpertID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExpertID.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblExpertID.Location = new System.Drawing.Point(878, 41);
+            this.lblExpertID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblExpertID.Name = "lblExpertID";
+            this.lblExpertID.Size = new System.Drawing.Size(39, 20);
+            this.lblExpertID.TabIndex = 180;
+            this.lblExpertID.Text = "???";
             // 
             // pictureBox9
             // 
             this.pictureBox9.Image = global::AADL.Properties.Resources.List_32;
-            this.pictureBox9.Location = new System.Drawing.Point(971, 176);
+            this.pictureBox9.Location = new System.Drawing.Point(997, 99);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(31, 26);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1311,7 +1318,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(1090, 110);
+            this.label15.Location = new System.Drawing.Point(1116, 37);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(99, 20);
@@ -1322,7 +1329,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(1090, 176);
+            this.label16.Location = new System.Drawing.Point(1118, 99);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(97, 20);
@@ -1332,7 +1339,7 @@
             // pictureBox10
             // 
             this.pictureBox10.Image = global::AADL.Properties.Resources.PersonDetails_32;
-            this.pictureBox10.Location = new System.Drawing.Point(971, 114);
+            this.pictureBox10.Location = new System.Drawing.Point(997, 41);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(31, 26);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1603,15 +1610,15 @@
         private System.Windows.Forms.RadioButton rbtnExpertSpecial;
         private System.Windows.Forms.RadioButton rbtnExpertMedium;
         private System.Windows.Forms.RadioButton rbtnExpertFree;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnExpertClosedList;
+        private System.Windows.Forms.Button btnExpertWhite;
+        private System.Windows.Forms.Button btnBlackListExpert;
+        private System.Windows.Forms.Button btnResetExpertCases;
+        private System.Windows.Forms.Label lbExpertCasesRecord;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckedListBox clbExpertCasesTypes;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.CheckBox chkExpertIsActive;
+        private System.Windows.Forms.Label lblExpertID;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;

@@ -146,7 +146,7 @@ namespace DVLD.Classes
                 e.Handled = true; // Suppress the character
         }
 
-        public static void FillComboBoxBySubscriptionWaies(ComboBox cb)
+        public static void FillComboBoxBySubscriptionWays(ComboBox cb)
         {
             DataTable dtSubscriptionWay = clsSubscriptionWay.GetAllSubscriptionWays();
 

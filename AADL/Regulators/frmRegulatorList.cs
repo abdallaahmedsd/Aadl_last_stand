@@ -55,9 +55,9 @@ namespace AADL.Regulators
                 lblTotalRecordsCount.Text = dtRegulators.Rows.Count.ToString();
             }
         }
-        private void _FillComboBoxBySubscriptionWaies()
+        private void _FillComboBoxBySubscriptionWays()
         {
-            clsUtil.FillComboBoxBySubscriptionWaies(cbSubscriptionWay);
+            clsUtil.FillComboBoxBySubscriptionWays(cbSubscriptionWay);
         }
 
         private void _FillComboBoxBySubscriptionTypes()
@@ -170,7 +170,7 @@ namespace AADL.Regulators
             clsUtil.CustomizeDataGridView(dgvRegulators);
 
             _LoadRefreshRegulatorsPerPage();
-            _FillComboBoxBySubscriptionWaies();
+            _FillComboBoxBySubscriptionWays();
             _FillComboBoxBySubscriptionTypes();
             _Settings();
         }

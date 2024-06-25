@@ -19,11 +19,11 @@ namespace AADL.Lists
 {
     public partial class ctrlAddUpdateList : UserControl
     {
-       private enum problemTypes { LoadingInfo}
+        private enum problemTypes { LoadingInfo }
 
         private int _BlackListID = -1;
         private int _WhiteListID = -1;
-        private int _ClosedListID= -1;
+        private int _ClosedListID = -1;
 
         private clsBlackList _BlackList;
         private clsWhiteList _WhiteList;
@@ -44,29 +44,29 @@ namespace AADL.Lists
         {
             evCustomEventSaveUpdate?.Invoke(this, EventArgs.Empty);
         }
-        public enum enCreationMode { BlackList,RegulatoryWhiteList,RegulatoryClosedList,
-           ShariaWhiteList, ShariaClosedList};
-        public enum enMode { AddNew,Update};
-        private enCreationMode _CreationMode= enCreationMode.BlackList;
-        private enMode _Mode=enMode.AddNew;
+        public enum enCreationMode { BlackList, RegulatoryWhiteList, RegulatoryClosedList,
+            ShariaWhiteList, ShariaClosedList, JudgerWhiteList, JudgerClosedList, ExpertWhiteList, ExpertClosedList };
+        public enum enMode { AddNew, Update };
+        private enCreationMode _CreationMode = enCreationMode.BlackList;
+        private enMode _Mode = enMode.AddNew;
         public ctrlAddUpdateList()
         {
             InitializeComponent();
         }
         private bool _LoadBlackListReasonsInfo()
         {
-          
+
             try
             {
 
-                Dictionary<int,string> PractitionerBlackListReasonsIdNameDictionary= _BlackList.BlackListPractitionerReasonsIDNamesDictionary;
-              
+                Dictionary<int, string> PractitionerBlackListReasonsIdNameDictionary = _BlackList.BlackListPractitionerReasonsIDNamesDictionary;
+
                 if (PractitionerBlackListReasonsIdNameDictionary == null)
                 {
                     MessageBox.Show("يوجد خطاء ما في تحميل اسباب القائمة السوداءة,القائمة لا تحمل اسباب!. ", "");
                     return false;
                 }
-           
+
                 for (int Idx = 0; Idx < clbListReasons.Items.Count; Idx++)
                 {
 
@@ -83,16 +83,16 @@ namespace AADL.Lists
 
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                
+
                 MessageBox.Show("حدث خطاء اثناء تحميل البيانات", "فشل"
                     , MessageBoxButtons.OK, MessageBoxIcon.Error);
-                clsGlobal.WriteEventToLogFile("Exception due to loading list reasons in add/update list form.\n"+ex.Message
-                    ,System.Diagnostics.EventLogEntryType.Error);
-            
+                clsGlobal.WriteEventToLogFile("Exception due to loading list reasons in add/update list form.\n" + ex.Message
+                    , System.Diagnostics.EventLogEntryType.Error);
+
                 return false;
-            
+
             }
 
             return true;
@@ -192,7 +192,7 @@ namespace AADL.Lists
         }
 
         private bool _SetBlackListSettings()
-        { 
+        {
             try
             {
                 handleLabelsBasedOnMode();
@@ -214,9 +214,9 @@ namespace AADL.Lists
 
                 }
 
-                
 
-            }catch(Exception ex)
+
+            } catch (Exception ex)
             {
                 Console.WriteLine("Exception:\t" + ex.Message);
                 WriteEventToLogFile("This exception was dropped in ctrlAdd\'Updatelist in _SetBlackListSettings():\n" +
@@ -234,41 +234,41 @@ namespace AADL.Lists
             if (_Mode == enMode.AddNew)
             {
 
-            switch (_CreationMode)
-            {
-                case enCreationMode.BlackList:
-                    {
-                        lblTitle.Text = "أضف الى القائمة السوداء";
-                        this.Text = "لوحة القائمة السوداء";
-                        this.gbList.Text = "القائمة السوداء";
-                        break;
-                    }
-          
-                case enCreationMode.RegulatoryWhiteList:
-                    {
-                        lblTitle.Text = "أضف الى القائمة البيضاء النظامين";
-                        this.Text = "لوحة القائمة البيضاء النظامين";
-                        this.gbList.Text = "القائمة البيضاء النظامين";
-                        break;
-                    }
+                switch (_CreationMode)
+                {
+                    case enCreationMode.BlackList:
+                        {
+                            lblTitle.Text = "أضف الى القائمة السوداء";
+                            this.Text = "لوحة القائمة السوداء";
+                            this.gbList.Text = "القائمة السوداء";
+                            break;
+                        }
 
-                case enCreationMode.RegulatoryClosedList:
-                    {
-                        lblTitle.Text = "أضف الى القائمة المغلقة النظامين";
-                        this.Text = "لوحة القائمة المغلقة النظامين";
-                        this.gbList.Text = "القائمة المغلقة النظامين";
-                        break;
-                    }
-                  
-                case enCreationMode.ShariaWhiteList:
+                    case enCreationMode.RegulatoryWhiteList:
+                        {
+                            lblTitle.Text = "أضف الى القائمة البيضاء النظامين";
+                            this.Text = "لوحة القائمة البيضاء النظامين";
+                            this.gbList.Text = "القائمة البيضاء النظامين";
+                            break;
+                        }
+
+                    case enCreationMode.RegulatoryClosedList:
+                        {
+                            lblTitle.Text = "أضف الى القائمة المغلقة النظامين";
+                            this.Text = "لوحة القائمة المغلقة النظامين";
+                            this.gbList.Text = "القائمة المغلقة النظامين";
+                            break;
+                        }
+
+                    case enCreationMode.ShariaWhiteList:
                         {
                             lblTitle.Text = "أضف الى القائمة البيضاء للشرعيين";
                             this.Text = "لوحة القائمة البيضاء للشرعيين";
                             this.gbList.Text = "القائمة البيضاء للشرعيين";
                             break;
                         }
-         
-                case enCreationMode.ShariaClosedList:
+
+                    case enCreationMode.ShariaClosedList:
                         {
                             lblTitle.Text = "أضف الى القائمة المغلقة للشرعيين";
                             this.Text = "لوحة القائمة المغلقة للشرعيين";
@@ -276,6 +276,36 @@ namespace AADL.Lists
                             break;
                         }
 
+                    case enCreationMode.JudgerWhiteList:
+                        {
+                            lblTitle.Text = "أضف الى القائمة البيضاء للمحكمين";
+                            this.Text = "لوحة القائمة البيضاء للمحكمين";
+                            this.gbList.Text = "القائمة البيضاء للمحكمين";
+                            break;
+                        }
+
+                    case enCreationMode.JudgerClosedList:
+                        {
+                            lblTitle.Text = "أضف الى القائمة المغلقة للمحكمين";
+                            this.Text = "لوحة القائمة المغلقة للمحكمين";
+                            this.gbList.Text = "القائمة المغلقة للمحكمين";
+                            break;
+                        }
+                    case enCreationMode.ExpertWhiteList:
+                        {
+                            lblTitle.Text = "أضف الى القائمة البيضاء للخبراء";
+                            this.Text = "لوحة القائمة البيضاء للخبراء";
+                            this.gbList.Text = "القائمة البيضاء للخبراء";
+                            break;
+                        }
+
+                    case enCreationMode.ExpertClosedList:
+                        {
+                            lblTitle.Text = "أضف الى القائمة المغلقة للخبراء";
+                            this.Text = "لوحة القائمة المغلقة للخبراء";
+                            this.gbList.Text = "القائمة المغلقة للخبراء";
+                            break;
+                        }
                 }
 
             }
@@ -314,10 +344,32 @@ namespace AADL.Lists
                             break;
                         }
 
+                    case enCreationMode.JudgerWhiteList:
+                        {
+                            lblTitle.Text = "تحديث و تعديل القائمة البيضاء للمحكمين";
+                            break;
+                        }
+
+                    case enCreationMode.JudgerClosedList:
+                        {
+                            lblTitle.Text = "تحديث و تعديل القائمة المغلقة للمحكمين";
+                            break;
+                        }
+                    case enCreationMode.ExpertWhiteList:
+                        {
+                            lblTitle.Text = "تحديث و تعديل القائمة البيضاء للخبراء";
+                            break;
+                        }
+
+                    case enCreationMode.ExpertClosedList:
+                        {
+                            lblTitle.Text = "تحديث و تعديل القائمة المغلقة للخبراء";
+                            break;
+                        }
                 }
 
             }
-       
+
         }
         private bool _SetWhiteListSettings()
         {
@@ -356,7 +408,7 @@ namespace AADL.Lists
             return true;
             //Case white -closed...
         }
-    
+
         private bool _SetClosedListSettings()
 
         {
@@ -419,9 +471,9 @@ namespace AADL.Lists
                         {
 
                             return _SetBlackListSettings();
-                                
+
                         }
-      
+
                     case enCreationMode.RegulatoryWhiteList:
                         {
 
@@ -447,6 +499,30 @@ namespace AADL.Lists
                             return _SetClosedListSettings();
 
                         }
+                    case enCreationMode.JudgerWhiteList:
+                        {
+
+                            return _SetWhiteListSettings();
+
+                        }
+                    case enCreationMode.JudgerClosedList:
+                        {
+
+                            return _SetClosedListSettings();
+
+                        }
+                    case enCreationMode.ExpertWhiteList:
+                        {
+
+                            return _SetWhiteListSettings();
+
+                        }
+                    case enCreationMode.ExpertClosedList:
+                        {
+
+                            return _SetClosedListSettings();
+
+                        }
                 }
 
 
@@ -462,47 +538,47 @@ namespace AADL.Lists
 
             return true;
         }
-        
+
         private void ShowErrorMessageBasedOnCreationMode(problemTypes type)
         {
-           
+
             string ErrorMessage = "";
             if (type == problemTypes.LoadingInfo)
             {
 
-            switch (_CreationMode)
-            {
-                case enCreationMode.RegulatoryClosedList:
-                    {
-                        ErrorMessage = "لم استطع ايجاد بيانات خاصة بهذا الشخص داخل القائمة المغلقة الخاصة بالنظامين";
-                        break;
-                    }
-                case enCreationMode.RegulatoryWhiteList:
-                    {
-                        ErrorMessage = "لم استطع ايجاد بيانات خاصة بهذا الشخص داخل القائمة البيضاء الخاصة بالنظامين";
-                        break;
-                    }
-                case enCreationMode.ShariaWhiteList:
-                    {
-                        ErrorMessage = "لم استطع ايجاد بيانات خاصة بهذا الشخص داخل القائمة البيضاء الخاصة بالشرعيين";
-                        break;
-                    }
-                case enCreationMode.ShariaClosedList:
-                    {
-                        ErrorMessage = "لم استطع ايجاد بيانات خاصة بهذا الشخص داخل القائمة المغلقة الخاصة بالشرعيين";
-                        break;
-                    }
-            }
-            
+                switch (_CreationMode)
+                {
+                    case enCreationMode.RegulatoryClosedList:
+                        {
+                            ErrorMessage = "لم استطع ايجاد بيانات خاصة بهذا الشخص داخل القائمة المغلقة الخاصة بالنظامين";
+                            break;
+                        }
+                    case enCreationMode.RegulatoryWhiteList:
+                        {
+                            ErrorMessage = "لم استطع ايجاد بيانات خاصة بهذا الشخص داخل القائمة البيضاء الخاصة بالنظامين";
+                            break;
+                        }
+                    case enCreationMode.ShariaWhiteList:
+                        {
+                            ErrorMessage = "لم استطع ايجاد بيانات خاصة بهذا الشخص داخل القائمة البيضاء الخاصة بالشرعيين";
+                            break;
+                        }
+                    case enCreationMode.ShariaClosedList:
+                        {
+                            ErrorMessage = "لم استطع ايجاد بيانات خاصة بهذا الشخص داخل القائمة المغلقة الخاصة بالشرعيين";
+                            break;
+                        }
+                }
+
 
             }
-            MessageBox.Show(ErrorMessage,"فشل",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(ErrorMessage, "فشل", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
         }
-        public  bool LoadInfo(int PractitionerID, enCreationMode CreationMode,int ListID=-1)
+        public bool LoadInfo(int PractitionerID, enCreationMode CreationMode, int ListID = -1)
         {
-          
+
             try
             {
                 _CreationMode = CreationMode;
@@ -511,29 +587,29 @@ namespace AADL.Lists
                 // Decide creationMode
 
                 _PractitionerID = PractitionerID;
-               
-               if (_PractitionerID == -1)
-               {
-                MessageBox.Show("You can't add Practitioner To List while its ID =-1","Failed",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-               }
-           
-           
-                if(CreationMode==enCreationMode.BlackList)
-               {
 
-                _BlackListID = ListID;
-                _BlackList = new clsBlackList();
-
-               
-                //Decide mode (Add,Update)
-                if (_BlackListID == -1)
+                if (_PractitionerID == -1)
                 {
-                    _Mode=enMode.AddNew;
-
+                    MessageBox.Show("You can't add Practitioner To List while its ID =-1", "Failed",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
                 }
-                    
+
+
+                if (_CreationMode == enCreationMode.BlackList)
+                {
+
+                    _BlackListID = ListID;
+                    _BlackList = new clsBlackList();
+
+
+                    //Decide mode (Add,Update)
+                    if (_BlackListID == -1)
+                    {
+                        _Mode = enMode.AddNew;
+
+                    }
+
                     else
                     {
                         _Mode = enMode.Update;
@@ -548,7 +624,7 @@ namespace AADL.Lists
                         }
                     }
 
-                    if (_Mode == enMode.Update )
+                    if (_Mode == enMode.Update)
                     {
 
                         lbListlD.Text = _BlackList.BlackListID.ToString();
@@ -564,8 +640,9 @@ namespace AADL.Lists
 
                 }
 
-                else if (CreationMode == enCreationMode.RegulatoryWhiteList||
-                    CreationMode == enCreationMode.ShariaWhiteList)
+                else if (_CreationMode == enCreationMode.RegulatoryWhiteList ||
+                    _CreationMode == enCreationMode.ShariaWhiteList || _CreationMode == enCreationMode.JudgerWhiteList
+                    || _CreationMode == enCreationMode.ExpertWhiteList)
                 {
 
                     _WhiteListID = ListID;
@@ -578,7 +655,7 @@ namespace AADL.Lists
                         _Mode = enMode.AddNew;
 
                     }
-     
+
                     else
                     {
                         _Mode = enMode.Update;
@@ -591,7 +668,7 @@ namespace AADL.Lists
                         }
                     }
 
-                    if (_Mode == enMode.Update )
+                    if (_Mode == enMode.Update)
                     {
 
                         lbListlD.Text = _WhiteList.WhiteListID.ToString();
@@ -601,14 +678,15 @@ namespace AADL.Lists
                         {
                             return false;
                         }
-                    
+
                     }
                     handleLabelsBasedOnMode();
 
                 }
 
-                else if (CreationMode == enCreationMode.RegulatoryClosedList||
-                    CreationMode==enCreationMode.ShariaClosedList)
+                else if (_CreationMode == enCreationMode.RegulatoryClosedList ||
+                    _CreationMode == enCreationMode.ShariaClosedList || _CreationMode == enCreationMode.JudgerClosedList ||
+                    _CreationMode == enCreationMode.ExpertClosedList)
                 {
 
                     _ClosedListID = ListID;
@@ -660,38 +738,38 @@ namespace AADL.Lists
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-           
+
             return true;
-       
+
         }
 
         private Dictionary<int, string> _GetCheckedReasons()
         {
             try
             {
-                Dictionary<int,string>ListReasonIDNameDictionary= new Dictionary<int, string>();
+                Dictionary<int, string> ListReasonIDNameDictionary = new Dictionary<int, string>();
 
                 foreach (CheckListBoxItem itemChecked in clbListReasons.CheckedItems)
                 {
 
                     ListReasonIDNameDictionary.Add(itemChecked.ID, itemChecked.Text);
-                                
+
                 }
 
                 return ListReasonIDNameDictionary;
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("لقد حدث خطاء فني اثناء حفظ البيانات", "Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                clsGlobal.WriteEventToLogFile("Problem while getting reasons from check list box in form,\n"+ex.Message,
+                clsGlobal.WriteEventToLogFile("Problem while getting reasons from check list box in form,\n" + ex.Message,
                     System.Diagnostics.EventLogEntryType.Error);
                 return null;
 
             }
-            
+
 
         }
 
@@ -718,13 +796,156 @@ namespace AADL.Lists
                         return clsPractitioner.enPractitionerType.Sharia;
 
                     }
+                case enCreationMode.JudgerWhiteList:
+                    {
+                        return clsPractitioner.enPractitionerType.Judger;
+
+                    }
+                case enCreationMode.JudgerClosedList:
+                    {
+                        return clsPractitioner.enPractitionerType.Judger;
+
+                    }
+                case enCreationMode.ExpertWhiteList:
+                    {
+                        return clsPractitioner.enPractitionerType.Expert;
+
+                    }
+                case enCreationMode.ExpertClosedList:
+                    {
+                        return clsPractitioner.enPractitionerType.Expert;
+
+                    }
             }
 
             return clsPractitioner.enPractitionerType.Regulatory;
         }
-        private void btnSave_Click(object sender, EventArgs e)
+
+        private void AssignBlackList()
+        {
+            if (_Mode == enMode.Update)
+            {
+                _BlackList.LastEditByUserID = clsGlobal.CurrentUser.UserID;
+                _BlackList.LastEditDate = DateTime.Now;
+            }
+
+            else
+            {
+                _BlackList.AddedToListDate = DateTime.Now;
+            }
+
+            _BlackList.PractitionerID = _PractitionerID;
+            _BlackList.Notes = tbListNote.Text;
+            _BlackList.CreatedByUserID = (int)clsGlobal.CurrentUser.UserID;
+            _BlackList.BlackListPractitionerReasonsIDNamesDictionary = _GetCheckedReasons();
+
+        }
+        private bool SaveBlackList()
         {
 
+            if (_BlackList.Save())
+            {
+                _Mode = enMode.Update;
+                handleLabelsBasedOnMode();
+                MessageBox.Show("حفظ البيانات بنجاح.", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lbListlD.Text = _BlackList.BlackListID.ToString();
+                btnDelete.Visible = true;
+                OnCustomEvent();
+
+            }
+
+            else
+            {
+                MessageBox.Show("فشل: لم تحفظ البيانات بشكل صحيح.", "فشل", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+
+        }
+        private void AssignWhiteList()
+        {
+
+
+            if (_Mode == enMode.Update)
+            {
+                _WhiteList.LastEditByUserID = clsGlobal.CurrentUser.UserID;
+                _WhiteList.LastEditDate = DateTime.Now;
+            }
+
+            else
+            {
+                _WhiteList.AddedToListDate = DateTime.Now;
+            }
+
+            _WhiteList.PractitionerID = _PractitionerID;
+            _WhiteList.Notes = tbListNote.Text;
+            _WhiteList.CreatedByUserID = (int)clsGlobal.CurrentUser.UserID;
+            _WhiteList.WhiteListPractitionerReasonsIDNamesDictionary = _GetCheckedReasons();
+            _WhiteList.PractitionerType = _ReturnPractitionerTypeBasedOnCreationMode();
+        } 
+        private bool SaveWhiteList()
+        {
+            if (_WhiteList.Save())
+            {
+                _Mode = enMode.Update;
+                handleLabelsBasedOnMode();
+                MessageBox.Show("حفظ البيانات بنجاح.", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lbListlD.Text = _WhiteList.WhiteListID.ToString();
+                btnDelete.Visible = true;
+                OnCustomEvent();
+            }
+            else
+            {
+                MessageBox.Show("فشل: لم تحفظ البيانات بشكل صحيح.", "فشل", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
+        private void AssignClosedList()
+        {
+            if (_Mode == enMode.Update)
+            {
+                _ClosedList.LastEditByUserID = clsGlobal.CurrentUser.UserID;
+                _ClosedList.LastEditDate = DateTime.Now;
+            }
+
+            else
+            {
+                _ClosedList.AddedToListDate = DateTime.Now;
+            }
+
+            _ClosedList.PractitionerID = _PractitionerID;
+            _ClosedList.Notes = tbListNote.Text;
+            _ClosedList.CreatedByUserID = (int)clsGlobal.CurrentUser.UserID;
+            _ClosedList.ClosedListPractitionerReasonsIDNamesDictionary = _GetCheckedReasons();
+            //This is the only property would differ between different lists
+            _ClosedList.PractitionerType = _ReturnPractitionerTypeBasedOnCreationMode();
+
+
+        }
+        private bool SaveClosedList()
+        {
+
+            if (_ClosedList.Save())
+            {
+                _Mode = enMode.Update;
+                handleLabelsBasedOnMode();
+                MessageBox.Show("حفظ البيانات بنجاح.", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lbListlD.Text = _ClosedList.ClosedListID.ToString();
+                btnDelete.Visible = true;
+                OnCustomEvent();
+            }
+            else
+            {
+                MessageBox.Show("فشل: لم تحفظ البيانات بشكل صحيح.", "فشل", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
             if (!this.ValidateChildren())
             {
                 //Here we don't  continue because the form is not valid
@@ -733,118 +954,38 @@ namespace AADL.Lists
                 return;
 
             }
-   
+            try 
+            {
+              
             if (_CreationMode == enCreationMode.BlackList)
             {
-                if (_Mode == enMode.Update)
-                {
-                    _BlackList.LastEditByUserID = clsGlobal.CurrentUser.UserID;
-                    _BlackList.LastEditDate = DateTime.Now;
-                }
 
-                else
-                {
-                    _BlackList.AddedToListDate = DateTime.Now;
-                }
-
-                _BlackList.PractitionerID = _PractitionerID;
-                _BlackList.Notes = tbListNote.Text;
-                _BlackList.CreatedByUserID = (int)clsGlobal.CurrentUser.UserID;
-                _BlackList.BlackListPractitionerReasonsIDNamesDictionary = _GetCheckedReasons();
-                //Assign Black-List-Reasons ...
-
-                if (_BlackList.Save())
-                {
-                    _Mode = enMode.Update;
-                    handleLabelsBasedOnMode();
-                    MessageBox.Show("حفظ البيانات بنجاح.", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    lbListlD.Text = _BlackList.BlackListID.ToString();
-                    btnDelete.Visible = true;
-                    OnCustomEvent();
-
-                }
-
-                else
-                {
-                    MessageBox.Show("فشل: لم تحفظ البيانات بشكل صحيح.", "فشل", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-           
+                AssignBlackList();
+                SaveBlackList();
+                
             }
 
-            else if (_CreationMode == enCreationMode.RegulatoryWhiteList || _CreationMode == enCreationMode.ShariaWhiteList)
+            else if (_CreationMode == enCreationMode.RegulatoryWhiteList || _CreationMode == enCreationMode.ShariaWhiteList
+                || _CreationMode == enCreationMode.JudgerWhiteList || _CreationMode == enCreationMode.ExpertWhiteList)
             {
-
-
-                if (_Mode == enMode.Update)
-                {
-                    _WhiteList.LastEditByUserID = clsGlobal.CurrentUser.UserID;
-                    _WhiteList.LastEditDate = DateTime.Now;
-                }
-
-                else
-                {
-                    _WhiteList.AddedToListDate = DateTime.Now;
-                }
-
-                _WhiteList.PractitionerID = _PractitionerID;
-                _WhiteList.Notes = tbListNote.Text;
-                _WhiteList.CreatedByUserID = (int)clsGlobal.CurrentUser.UserID;
-                _WhiteList.WhiteListPractitionerReasonsIDNamesDictionary = _GetCheckedReasons();
-                _WhiteList.PractitionerType = _ReturnPractitionerTypeBasedOnCreationMode();
-
-                if (_WhiteList.Save())
-                {
-                    _Mode = enMode.Update;
-                    handleLabelsBasedOnMode();
-                    MessageBox.Show("حفظ البيانات بنجاح.", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    lbListlD.Text = _WhiteList.WhiteListID.ToString();
-                    btnDelete.Visible = true;
-                    OnCustomEvent();
-                }
-                else
-                {
-                    MessageBox.Show("فشل: لم تحفظ البيانات بشكل صحيح.", "فشل", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-
+                AssignWhiteList();
+                SaveWhiteList();
             }
 
-            else if (_CreationMode == enCreationMode.RegulatoryClosedList || _CreationMode == enCreationMode.ShariaClosedList)
+            else if (_CreationMode == enCreationMode.RegulatoryClosedList || _CreationMode == enCreationMode.ShariaClosedList
+                || _CreationMode == enCreationMode.JudgerClosedList||_CreationMode == enCreationMode.ExpertClosedList)
             {
-                if (_Mode == enMode.Update)
-                {
-                    _ClosedList.LastEditByUserID = clsGlobal.CurrentUser.UserID;
-                    _ClosedList.LastEditDate = DateTime.Now;
-                }
-
-                else
-                {
-                    _ClosedList.AddedToListDate = DateTime.Now;
-                }
-
-                _ClosedList.PractitionerID = _PractitionerID;
-                _ClosedList.Notes = tbListNote.Text;
-                _ClosedList.CreatedByUserID = (int)clsGlobal.CurrentUser.UserID;
-                _ClosedList.ClosedListPractitionerReasonsIDNamesDictionary = _GetCheckedReasons();
-                _ClosedList.PractitionerType = _ReturnPractitionerTypeBasedOnCreationMode();//This is the only property would differ between different lists
-
-                if (_ClosedList.Save())
-                {
-                    _Mode = enMode.Update;
-                    handleLabelsBasedOnMode();
-                    MessageBox.Show("حفظ البيانات بنجاح.", "حفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    lbListlD.Text = _ClosedList.ClosedListID.ToString();
-                    btnDelete.Visible = true;
-                    OnCustomEvent();
-                }
-                else
-                {
-                    MessageBox.Show("فشل: لم تحفظ البيانات بشكل صحيح.", "فشل", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                AssignClosedList();
+                SaveClosedList();
             }
-       
+            }
+            catch (Exception ex)
+            {
+                clsHelperClasses.WriteEventToLogFile("Exception was dropped in ctrlAddUpdateList.cs due to problem in Save process of one of lists" +
+                    " it might be white/close/black/(R,S,J,E", System.Diagnostics.EventLogEntryType.Error);
+                Console.WriteLine("Exception:\t" + ex.Message);
+            }
 
-        
         }
 
         private void clbBlackListReasons_Validating(object sender, CancelEventArgs e)
@@ -868,128 +1009,177 @@ namespace AADL.Lists
             btnSave_Click(null,null);
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void HandleMessageAppearForUserBeforeDeleteProcess( ref string QuestionAppearsForUserBasedOnListType)
         {
-            if (enMode.Update == _Mode && enCreationMode.BlackList == _CreationMode)
+            switch (_CreationMode)
             {
-            DialogResult result = MessageBox.Show("سيتم حذف الشخص من القائمة السوداء هل تريد المتابعة؟", "تاكيد", MessageBoxButtons.YesNo);
-      
-            if (result == DialogResult.Yes)
+                case enCreationMode.BlackList:
+                    {
+                        QuestionAppearsForUserBasedOnListType = "سيتم حذف الشخص من القائمة السوداء هل تريد المتابعة؟";
+                        break;
+                    }
+                case enCreationMode.RegulatoryWhiteList:
+                    {
+                        QuestionAppearsForUserBasedOnListType = "سيتم حذف المحامي النظامي من القائمة البيضاء  هل تريد المتابعة؟";
+                        break;
+                    }
+                case enCreationMode.RegulatoryClosedList:
+                    {
+                        QuestionAppearsForUserBasedOnListType = "سيتم حذف المحامي النظامي من القائمة السوداء  هل تريد المتابعة؟";
+                        break;
+                    }
+                case enCreationMode.ShariaWhiteList:
+                    {
+                        QuestionAppearsForUserBasedOnListType = "سيتم حذف المحامي الشرعي من القائمة البيضاء  هل تريد المتابعة؟";
+                        break;
+                    }
+                case enCreationMode.ShariaClosedList:
+                    {
+                        QuestionAppearsForUserBasedOnListType = "سيتم حذف المحامي الشرعي من القائمة السوداء  هل تريد المتابعة؟";
+                        break;
+                    }
+                case enCreationMode.JudgerWhiteList:
+                    {
+                        QuestionAppearsForUserBasedOnListType = "سيتم حذف المحكم  من القائمة البيضاء  هل تريد المتابعة؟";
+                        break;
+                    }
+                case enCreationMode.JudgerClosedList:
+                    {
+                        QuestionAppearsForUserBasedOnListType = "سيتم حذف المحكم من القائمة السوداء  هل تريد المتابعة؟";
+                        break;
+                    }
+                case enCreationMode.ExpertWhiteList:
+                    {
+                        QuestionAppearsForUserBasedOnListType = "سيتم حذف الحبير  من القائمة البيضاء  هل تريد المتابعة؟";
+                        break;
+                    }
+                case enCreationMode.ExpertClosedList:
+                    {
+                        QuestionAppearsForUserBasedOnListType = "سيتم حذف الحبير من القائمة السوداء  هل تريد المتابعة؟";
+                        break;
+                    }
+            }
+        }
+        private void HandleMessageResponseAppearForUserAfterDeleteProcess(ref string ResponseAppearsForUserBasedOnListType)
+
+        {
+            switch (_CreationMode)
             {
-                if (clsBlackList.DeleteList(_BlackListID))
-                {
-                    MessageBox.Show("تم حذف العنصر من القائمة ", "معلومة", MessageBoxButtons.OK,MessageBoxIcon.Information);
-
-                    LoadInfo(_PractitionerID, _CreationMode);
-                        OnCustomEvent();
-
+                case enCreationMode.BlackList:
+                    {
+                        ResponseAppearsForUserBasedOnListType = "سيتم حذف الشخص من القائمة السوداء هل تريد المتابعة؟";
+                        break;
                     }
-                    else
-                {
-                    MessageBox.Show("حصل خطاء ما اثناء القيام بعملية الحذف.", "فشل", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
+                case enCreationMode.RegulatoryWhiteList:
+                    {
+                        ResponseAppearsForUserBasedOnListType = "تم حذف العنصر من القائمة البيضاء للنظامين";
+                        break;
+                    }
+                case enCreationMode.RegulatoryClosedList:
+                    {
+                        ResponseAppearsForUserBasedOnListType = "تم حذف العنصر من القائمة المغلقة للنظامين ";
+                        break;
+                    }
+                case enCreationMode.ShariaWhiteList:
+                    {
+                        ResponseAppearsForUserBasedOnListType = "تم حذف العنصر من القائمة البيضاء للشرعيين ";
+                        break;
+                    }
+                case enCreationMode.ShariaClosedList:
+                    {
+                        ResponseAppearsForUserBasedOnListType = "تم حذف العنصر من القائمة البيضاء للشرعيين ";
+                        break;
+                    }
+                case enCreationMode.JudgerWhiteList:
+                    {
+                        ResponseAppearsForUserBasedOnListType = "تم حذف العنصر من القائمة البيضاء للمحكمين ";
+                        break;
+                    }
+                case enCreationMode.JudgerClosedList:
+                    {
+                        ResponseAppearsForUserBasedOnListType = "تم حذف العنصر من القائمة المغلقة للمحكمين ";
+                        break;
+                    }
+                case enCreationMode.ExpertWhiteList:
+                    {
+                        ResponseAppearsForUserBasedOnListType = "تم حذف العنصر من القائمة البيضاء للخبراء ";
+                        break;
+                    }
+                case enCreationMode.ExpertClosedList:
+                    {
+                        ResponseAppearsForUserBasedOnListType = "تم حذف العنصر من القائمة للمغلفة للخبراء ";
+                        break;
+                    }
             }
-            }
-          
-            else if (enMode.Update == _Mode && enCreationMode.RegulatoryWhiteList == _CreationMode)
-            {
-                DialogResult result = MessageBox.Show("سيتم حذف الشخص من القائمة البيضاء للنظامين هل تريد المتابعة؟", "تاكيد", MessageBoxButtons.YesNo);
-
-                if (result == DialogResult.Yes)
-                {
-                    if (clsWhiteList.DeleteList(_WhiteListID))
-                    {
-                        MessageBox.Show("تم حذف العنصر من القائمة البيضاء للنظامين ", "معلومة", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        LoadInfo(_PractitionerID, _CreationMode);
-                        OnCustomEvent();
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("حصل خطاء ما اثناء القيام بعملية الحذف.", "فشل", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    }
-                }
-            }
-
-            else if (enMode.Update == _Mode && enCreationMode.RegulatoryClosedList == _CreationMode)
-            {
-                DialogResult result = MessageBox.Show("سيتم حذف الشخص من القائمة المغلقة للنظامين هل تريد المتابعة؟", "تاكيد", MessageBoxButtons.YesNo);
-
-                if (result == DialogResult.Yes)
-                {
-                    if (clsClosedList.DeleteList(_ClosedListID))
-                    {
-                        MessageBox.Show("تم حذف العنصر من القائمة المغلقة للنظامين ", "معلومة", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        LoadInfo(_PractitionerID, _CreationMode);
-                        OnCustomEvent();
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("حصل خطاء ما اثناء القيام بعملية الحذف.", "فشل", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    }
-                }
-            }
-
-            else if (enMode.Update == _Mode && enCreationMode.ShariaWhiteList == _CreationMode)
-            {
-                DialogResult result = MessageBox.Show("سيتم حذف الشخص من القائمة البيضاء للشرعيين هل تريد المتابعة؟", "تاكيد", MessageBoxButtons.YesNo);
-
-                if (result == DialogResult.Yes)
-                {
-                    if (clsWhiteList.DeleteList(_WhiteListID))
-                    {
-                        MessageBox.Show("تم حذف العنصر من القائمة البيضاء للشرعيين ", "معلومة", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        LoadInfo(_PractitionerID, _CreationMode);
-                        OnCustomEvent();
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("حصل خطاء ما اثناء القيام بعملية الحذف.", "فشل", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    }
-                }
-            }
-
-            else if (enMode.Update == _Mode && enCreationMode.ShariaClosedList == _CreationMode)
-            {
-                DialogResult result = MessageBox.Show("سيتم حذف الشخص من القائمة المغلقة للشرعيين هل تريد المتابعة؟", "تاكيد", MessageBoxButtons.YesNo);
-
-                if (result == DialogResult.Yes)
-                {
-                    if (clsClosedList.DeleteList(_ClosedListID))
-                    {
-                        MessageBox.Show("تم حذف العنصر من القائمة المغلقة للشرعيين ", "معلومة", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        LoadInfo(_PractitionerID, _CreationMode);
-                        OnCustomEvent();
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("حصل خطاء ما اثناء القيام بعملية الحذف.", "فشل", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    }
-                }
-            }
-           
-            else
-            {
-                MessageBox.Show("process went what of what was expected", "Failed",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                WriteEventToLogFile("Delete was clicked when mode status ain't update one, clsAddUpdateList ctrl,BtnDelete()"
-                    , System.Diagnostics.EventLogEntryType.Warning);
-            }
-      
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string QuestionAppearsForUserBasedOnListType = "";
+            string ResponseMessageAppearForUser= "";
+
+            HandleMessageAppearForUserBeforeDeleteProcess(ref QuestionAppearsForUserBasedOnListType);
+            HandleMessageResponseAppearForUserAfterDeleteProcess(ref ResponseMessageAppearForUser);
+
+            bool IsDeleted = false;
+
+            if (enMode.Update == _Mode)
+            {
+                DialogResult result = MessageBox.Show(QuestionAppearsForUserBasedOnListType, "تاكيد", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    if (enCreationMode.BlackList == _CreationMode && clsBlackList.DeleteList(_BlackListID))
+                    {
+                        MessageBox.Show("تم حذف العنصر من القائمة ", "معلومة", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        LoadInfo(_PractitionerID, _CreationMode);
+                        OnCustomEvent();
+                        IsDeleted = true;
+
+                    }
+
+
+                    else if (enCreationMode.RegulatoryWhiteList == _CreationMode ||
+                            enCreationMode.ShariaWhiteList == _CreationMode ||
+                            enCreationMode.JudgerWhiteList == _CreationMode ||
+                            enCreationMode.ExpertWhiteList == _CreationMode)
+                    {
+
+                        if (clsWhiteList.DeleteList(_WhiteListID))
+                        {
+                            IsDeleted = true;
+                        }
+
+                    }
+
+                    else
+                    {
+                        if (clsClosedList.DeleteList(_ClosedListID))
+                        {
+                            IsDeleted = true;
+
+                        }
+                    }
+                }
+
+                if (IsDeleted)
+                {
+                    MessageBox.Show(ResponseMessageAppearForUser, "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadInfo(_PractitionerID, _CreationMode);
+                    OnCustomEvent();
+                }
+                else 
+                {
+                    MessageBox.Show("process went what of what was expected", "Failed",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    WriteEventToLogFile("Delete was clicked when mode status ain't update one, clsAddUpdateList ctrl,BtnDelete()"
+                        , System.Diagnostics.EventLogEntryType.Warning);
+                }
+
+            }
+        }
     }
 
 }
+

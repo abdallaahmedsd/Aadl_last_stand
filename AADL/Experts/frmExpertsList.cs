@@ -140,9 +140,9 @@ namespace AADL.Experts
             lblTotalRecordsCount.Text = dgvExperts.Rows.Count.ToString();
         }
 
-        private void _FillComboBoxBySubscriptionWaies()
+        private void _FillComboBoxBySubscriptionWays()
         {
-            clsUtil.FillComboBoxBySubscriptionWaies(cbSubscriptionWay);
+            clsUtil.FillComboBoxBySubscriptionWays(cbSubscriptionWay);
         }
 
         private void _FillComboBoxBySubscriptionTypes()
@@ -166,7 +166,7 @@ namespace AADL.Experts
             clsUtil.CustomizeDataGridView(dgvExperts);
 
             _LoadRefreshExpertsPerPage();
-            _FillComboBoxBySubscriptionWaies();
+            _FillComboBoxBySubscriptionWays();
             _FillComboBoxBySubscriptionTypes();
             _Settings();
         }

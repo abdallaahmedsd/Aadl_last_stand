@@ -3,6 +3,8 @@ using System.IO;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Drawing;
+using AADLBusiness;
+using System.Data;
 
 namespace DVLD.Classes
 {
@@ -88,6 +90,8 @@ namespace DVLD.Classes
 
         public static Color ExpertsMainColor => Color.DarkBlue;
 
+        public static Color RegulatorsMainColor => Color.FromArgb(192, 64, 0);
+
         public static void CustomizeDataGridView(DataGridView dgv)
         {
             // Set Fill Mode to all cells
@@ -117,14 +121,10 @@ namespace DVLD.Classes
                 headerStyle.BackColor = JudgersMainColor;
             else if(dgv.Name == "dgvExperts")
                 headerStyle.BackColor = ExpertsMainColor;
-
-
             else if (dgv.Name == "dgvRegulators")
-            {
-                headerStyle.BackColor = Color.FromArgb(192, 64, 0);
-            }
-            dgv.ColumnHeadersDefaultCellStyle = headerStyle;
+                headerStyle.BackColor = RegulatorsMainColor;
 
+            dgv.ColumnHeadersDefaultCellStyle = headerStyle;
 
             // customize the default cell styles as well
             DataGridViewCellStyle cellStyle = new DataGridViewCellStyle
@@ -144,6 +144,46 @@ namespace DVLD.Classes
             // Check if the key pressed is a control key (like Backspace)
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true; // Suppress the character
+        }
+
+        public static void FillComboBoxBySubscriptionWaies(ComboBox cb)
+        {
+            DataTable dtSubscriptionWay = clsSubscriptionWay.GetAllSubscriptionWays();
+
+            if(dtSubscriptionWay == null || dtSubscriptionWay.Rows.Count == 0)
+            {
+                MessageBox.Show("حدث خطاء في النظام اثناء تحميل طرق الاشتراك. الرجاء تبليغ فريق الصيانة.", "فشلت العملية", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            cb.Items.Clear();
+            cb.Items.Add("الكل");
+
+            foreach (DataRow row in dtSubscriptionWay.Rows)
+            {
+                string SubscriptionName = row["SubscriptionName"].ToString();
+                cb.Items.Add(SubscriptionName);
+            }
+        }
+
+        public static void FillComboBoxBySubscriptionTypes(ComboBox cb)
+        {
+            DataTable dtSubscriptionTypes = clsSubscriptionType.GetAllSubscriptionTypes();
+
+            if (dtSubscriptionTypes == null || dtSubscriptionTypes.Rows.Count == 0)
+            {
+                MessageBox.Show("حدث خطاء في النظام اثناء تحميل انواع الاشتراك. الرجاء تبليغ فريق الصيانة.", "فشلت العملية", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            cb.Items.Clear();
+            cb.Items.Add("الكل");
+
+            foreach (DataRow row in dtSubscriptionTypes.Rows)
+            {
+                string SubscriptionName = row["SubscriptionName"].ToString();
+                cb.Items.Add(SubscriptionName);
+            }
         }
     }
 }

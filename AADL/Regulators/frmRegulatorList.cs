@@ -43,7 +43,7 @@ namespace AADL.Regulators
                 dgvRegulators.Columns["MembershipNumber"].HeaderText = "رقم العضوية";
                 dgvRegulators.Columns["FullName"].HeaderText = "الاسم رباعي";
                 dgvRegulators.Columns["Phone"].HeaderText = "رقم الهاتف";
-                dgvRegulators.Columns["Email"].HeaderText = "رقم الهاتف";
+                dgvRegulators.Columns["Email"].HeaderText = "الايميل";
                 dgvRegulators.Columns["Gender"].HeaderText = "النوع";
                 dgvRegulators.Columns["CountryName"].HeaderText = "الدولة";
                 dgvRegulators.Columns["CityName"].HeaderText = "المدينة";
@@ -55,35 +55,16 @@ namespace AADL.Regulators
                 lblTotalRecordsCount.Text = dtRegulators.Rows.Count.ToString();
             }
         }
-        private void _FillComboBoxesSubscriptionWay()
+        private void _FillComboBoxBySubscriptionWaies()
         {
-            cbSubscriptionWay.Items.Clear();
-            DataTable dtSubscriptionWay = clsSubscriptionWay.GetAllSubscriptionWays();
-            cbSubscriptionWay.Items.Add("الكل");
-
-            foreach (DataRow row in dtSubscriptionWay.Rows)
-            {
-                string SubscriptionName = row["SubscriptionName"].ToString();
-
-                cbSubscriptionWay.Items.Add(SubscriptionName);
-            }
+            clsUtil.FillComboBoxBySubscriptionWaies(cbSubscriptionWay);
         }
-        private void _FillComboBoxesSubscriptionType()
+
+        private void _FillComboBoxBySubscriptionTypes()
         {
-            cbSubscriptionType.Items.Clear();
-
-            DataTable dtSubscriptionType =clsSubscriptionType.GetAllSubscriptionTypes();
-
-            cbSubscriptionType.Items.Add("الكل");
-
-            foreach (DataRow row in dtSubscriptionType.Rows)
-            {
-                string SubscriptionName = row["SubscriptionName"].ToString();
-
-                cbSubscriptionType.Items.Add(SubscriptionName);
-            }
-
+            clsUtil.FillComboBoxBySubscriptionTypes(cbSubscriptionType);
         }
+
         private void _LoadRefreshRegulatorsPerPage()
         {
             // Get the number of pages and show them in the ComoboBox "cbPage"
@@ -109,7 +90,11 @@ namespace AADL.Regulators
             if (numberOfPages == 0)
             {
                 cbPage.Items.Add(0);
+
                 cbPage.Enabled = false;
+                cbFilterBy.Enabled = false;
+                btnNextPage.Enabled = false;
+                btnPreviousPage.Enabled = false;
             }
             else
             {
@@ -117,6 +102,9 @@ namespace AADL.Regulators
                     cbPage.Items.Add(i);
 
                 cbPage.Enabled = true;
+                cbFilterBy.Enabled = true;
+                btnNextPage.Enabled = true;
+                btnPreviousPage.Enabled = true;
             }
 
             // Select the first page to to load its data if any
@@ -182,10 +170,9 @@ namespace AADL.Regulators
             clsUtil.CustomizeDataGridView(dgvRegulators);
 
             _LoadRefreshRegulatorsPerPage();
-            _FillComboBoxesSubscriptionType();
-            _FillComboBoxesSubscriptionWay();
+            _FillComboBoxBySubscriptionWaies();
+            _FillComboBoxBySubscriptionTypes();
             _Settings();
-
         }
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
@@ -243,8 +230,8 @@ namespace AADL.Regulators
         {
             if (_currentPageNumber > 1)
             {
-            _currentPageNumber -= 1;
-            _HandleCurrentPage();
+                _currentPageNumber--;
+                _HandleCurrentPage();
             }
         }
 
@@ -252,8 +239,8 @@ namespace AADL.Regulators
         {
             if (_currentPageNumber < _totalNumberOfPages)
             {
-            _currentPageNumber += 1;
-            _HandleCurrentPage();
+                _currentPageNumber++;
+                _HandleCurrentPage();
             }
 
         }
@@ -263,7 +250,7 @@ namespace AADL.Regulators
         }
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (cbFilterBy.Text == "الرقم التعريفي"|| cbFilterBy.Text == "الهاتف")
+            if (cbFilterBy.Text == "الرقم التعريفي")
                 clsUtil.IsNumber(e);
         }  
   
@@ -448,7 +435,7 @@ namespace AADL.Regulators
         }
 
 
-   
+
     }
 
 }

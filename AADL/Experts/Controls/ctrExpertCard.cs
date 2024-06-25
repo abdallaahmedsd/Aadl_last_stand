@@ -5,13 +5,6 @@ using AADLBusiness.Expert;
 using AADLBusiness.Lists.Closed;
 using AADLBusiness.Lists.WhiteList;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AADL.Experts.Controls
@@ -98,12 +91,12 @@ namespace AADL.Experts.Controls
             frmPersonInfo frm = new frmPersonInfo(_expert.PersonID);
             frm.ShowDialog();
         }
+
         private void ResetOnDemand(object sender, EventArgs e)
         {
             ResetExpertInfo();
             _FillFormWithExpertInfo();
         }
-
 
         private void llblEditExpertInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

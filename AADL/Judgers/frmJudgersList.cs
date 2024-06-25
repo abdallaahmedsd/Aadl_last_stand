@@ -11,6 +11,8 @@ namespace AADL.Judgers
         private enum enMode { add, update, delete }
         private enMode _mode = enMode.add;
         private ushort _pageNumber = 0;
+        private uint? _currentPageNumber = 1;
+        private uint? _totalNumberOfPages = null;
         private DataTable _dtJudgers;
 
         public frmJudgersList()
@@ -32,13 +34,13 @@ namespace AADL.Judgers
                 dgvJudgers.Columns["JudgerID"].HeaderText = "الرقم التعريفي";
                 dgvJudgers.Columns["FullName"].HeaderText = "الاسم رباعي";
                 dgvJudgers.Columns["Phone"].HeaderText = "رقم الهاتف";
+                dgvJudgers.Columns["Email"].HeaderText = "الايميل";
                 dgvJudgers.Columns["Gender"].HeaderText = "النوع";
                 dgvJudgers.Columns["CountryName"].HeaderText = "الدولة";
                 dgvJudgers.Columns["CityName"].HeaderText = "المدينة";
-                dgvJudgers.Columns["Address"].HeaderText = "العنوان";
-                dgvJudgers.Columns["IsLawyer"].HeaderText = "هل محامي ؟";
+                dgvJudgers.Columns["SubscriptionTypeName"].HeaderText = "نوع الاشتراك";
+                dgvJudgers.Columns["SubscriptionWayName"].HeaderText = "طريقة الاشتراك";
                 dgvJudgers.Columns["IsActive"].HeaderText = "هل فعال ؟";
-
 
                 lblTotalRecordsCount.Text = dtJudgers.Rows.Count.ToString();
             }
@@ -63,12 +65,18 @@ namespace AADL.Judgers
             // Calculate the number of pages depending on "totalJudgersCount"
             uint numberOfPages = totalJudgersCount > 0 ? (uint)Math.Ceiling((double)totalJudgersCount / clsUtil.RowsPerPage) : 0;
 
+            _totalNumberOfPages = numberOfPages;
+
             cbPage.Items.Clear();
 
             if (numberOfPages == 0)
             {
                 cbPage.Items.Add(0);
+
                 cbPage.Enabled = false;
+                cbFilterBy.Enabled = false;
+                btnNextPage.Enabled = false;
+                btnPreviousPage.Enabled = false;
             }
             else
             {
@@ -76,6 +84,9 @@ namespace AADL.Judgers
                     cbPage.Items.Add(i);
 
                 cbPage.Enabled = true;
+                cbFilterBy.Enabled = true;
+                btnNextPage.Enabled = true;
+                btnPreviousPage.Enabled = true;
             }
 
             // Select the first page to to load its data if any
@@ -103,6 +114,9 @@ namespace AADL.Judgers
                 case "رقم الهاتف":
                     filterColumn = "Phone";
                     break;
+                case "البريد الالكتروني":
+                    filterColumn = "Email";
+                    break;
                 default:
                     filterColumn = "None";
                     break;
@@ -127,26 +141,59 @@ namespace AADL.Judgers
             lblTotalRecordsCount.Text = dgvJudgers.Rows.Count.ToString();
         }
 
+        private void _FillComboBoxBySubscriptionWaies()
+        {
+            clsUtil.FillComboBoxBySubscriptionWaies(cbSubscriptionWay);
+        }
+
+        private void _FillComboBoxBySubscriptionTypes()
+        {
+            clsUtil.FillComboBoxBySubscriptionTypes(cbSubscriptionType);
+        }
+
+        private void _Settings()
+        {
+            cbFilterBy.SelectedItem = "لا شيء";
+        }
+
+        private void _HandleCurrentPage()
+        {
+            cbPage.SelectedIndex = Convert.ToInt16(_currentPageNumber - 1);
+        }
+
         private void frmJudgersList_Load(object sender, EventArgs e)
         {
             //Customize the appearance of the DataGridView
             clsUtil.CustomizeDataGridView(dgvJudgers);
 
             _LoadRefreshJudgersPerPage();
-
-            cbFilterBy.SelectedItem = "لا شيء";
+            _FillComboBoxBySubscriptionWaies();
+            _FillComboBoxBySubscriptionTypes();
+            _Settings();
         }
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtFilterValue.Visible = (cbFilterBy.Text != "لا شيء" && cbFilterBy.Text != "هل فعال ؟");
+            txtFilterValue.Visible = (cbFilterBy.Text != "لا شيء" && cbFilterBy.Text != "هل فعال ؟"
+               && cbFilterBy.Text != "نوع الاشتراك" && cbFilterBy.Text != "طريقة الاشتراك");
 
             cbIsActive.Visible = cbFilterBy.Text == "هل فعال ؟";
+            cbSubscriptionType.Visible = cbFilterBy.Text == "نوع الاشتراك";
+            cbSubscriptionWay.Visible = cbFilterBy.Text == "طريقة الاشتراك";
 
             if (cbIsActive.Visible)
                 cbIsActive.SelectedItem = "الكل";
+            else if (cbSubscriptionType.Visible)
+            {
+                cbSubscriptionType.SelectedItem = "الكل";
+            }
 
-            if (txtFilterValue.Visible)
+            else if (cbSubscriptionWay.Visible)
+            {
+                cbSubscriptionWay.SelectedItem = "الكل";
+            }
+
+            else if (txtFilterValue.Visible)
             {
                 txtFilterValue.Clear();
                 txtFilterValue.Focus();
@@ -320,6 +367,61 @@ namespace AADL.Judgers
 
             frmJudgerCard frm = new frmJudgerCard(judgerID, Judgers.Controls.ctrJudgerCard.enWhichID.JudgerID);
             frm.ShowDialog();
+        }
+
+        private void cbSubscriptionWay_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string filterColumn = "SubscriptionWayName";
+            string filterValue = string.Empty;
+
+            if (cbSubscriptionWay.Text != "الكل")
+            {
+                filterValue = cbSubscriptionWay.Text.ToString();
+            }
+
+            if (filterValue == string.Empty)
+                _dtJudgers.DefaultView.RowFilter = filterValue;
+            else
+                _dtJudgers.DefaultView.RowFilter = string.Format("[{0}] = '{1}'", filterColumn, filterValue);
+
+            // Updates the total records count label
+            lblTotalRecordsCount.Text = dgvJudgers.Rows.Count.ToString();
+        }
+
+        private void cbSubscriptionType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string filterColumn = "SubscriptionTypeName";
+            string filterValue = string.Empty;
+            if (cbSubscriptionType.Text != "الكل")
+            {
+                filterValue = cbSubscriptionType.Text.ToString();
+            }
+
+            if (filterValue == string.Empty)
+                _dtJudgers.DefaultView.RowFilter = filterValue;
+            else
+                _dtJudgers.DefaultView.RowFilter = string.Format("[{0}] = '{1}'", filterColumn, filterValue);
+
+            // Updates the total records count label
+            lblTotalRecordsCount.Text = dgvJudgers.Rows.Count.ToString();
+        }
+
+        private void btnPreviousPage_Click(object sender, EventArgs e)
+        {
+            if (_currentPageNumber > 1)
+            {
+                _currentPageNumber--;
+                _HandleCurrentPage();
+            }
+        }
+
+        private void btnNextPage_Click(object sender, EventArgs e)
+        {
+            if (_currentPageNumber < _totalNumberOfPages)
+            {
+                _currentPageNumber++;
+                _HandleCurrentPage();
+            }
         }
     }
 }

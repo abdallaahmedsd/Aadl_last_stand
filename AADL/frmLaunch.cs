@@ -16,6 +16,7 @@ using Microsoft.VisualBasic;
 using AADL.Judgers;
 using AADLBusiness.Judger;
 using AADL.Judgers.Controls;
+using AADL.Experts;
 namespace AADL
 {
     public partial class frmLaunch : Form
@@ -123,6 +124,12 @@ namespace AADL
         {
             frmRegulatorList frmRegulatorList = new frmRegulatorList(); 
             frmRegulatorList.ShowDialog();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            frmExpertsList frmExpertsList = new frmExpertsList();
+            frmExpertsList.ShowDialog();
         }
     }
 }

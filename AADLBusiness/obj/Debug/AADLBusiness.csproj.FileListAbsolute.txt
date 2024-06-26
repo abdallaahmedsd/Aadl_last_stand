@@ -118,8 +118,8 @@ C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\bin\Debug
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusiness.csproj.AssemblyReference.cache
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusiness.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusiness.csproj.CoreCompileInputs.cache
-C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusiness.csproj.Fody.CopyLocal.cache
-C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusiness.csproj.Fody.RuntimeCopyLocal.cache
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusi.505918E1.Up2Date
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusiness.dll
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusiness.pdb
+C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusiness.csproj.Fody.CopyLocal.cache
+C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusiness.csproj.Fody.RuntimeCopyLocal.cache

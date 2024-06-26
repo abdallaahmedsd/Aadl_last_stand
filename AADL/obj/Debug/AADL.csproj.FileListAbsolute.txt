@@ -170,8 +170,6 @@ C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADL\obj\Debug\AADL.fr
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADL\obj\Debug\AADL.csproj.GenerateResource.cache
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADL\obj\Debug\AADL.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADL\obj\Debug\AADL.csproj.CoreCompileInputs.cache
-C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADL\obj\Debug\AADL.csproj.Fody.CopyLocal.cache
-C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADL\obj\Debug\AADL.csproj.Fody.RuntimeCopyLocal.cache
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADL\obj\Debug\ar-001\AADL.resources.dll
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADL\obj\Debug\ar-JO\AADL.resources.dll
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADL\obj\Debug\aa\AADL.resources.dll
@@ -179,3 +177,5 @@ C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADL\obj\Debug\ar\AADL
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADL\obj\Debug\AADL.csproj.Up2Date
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADL\obj\Debug\AADL.exe
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADL\obj\Debug\AADL.pdb
+C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADL\obj\Debug\AADL.csproj.Fody.CopyLocal.cache
+C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADL\obj\Debug\AADL.csproj.Fody.RuntimeCopyLocal.cache

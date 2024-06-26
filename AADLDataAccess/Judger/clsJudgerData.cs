@@ -431,7 +431,11 @@ namespace AADLDataAccess.Judger
 
             return isExist;
         }
-    
+        public static bool IsExistsInWhiteListByPractitionerIDAndPractitionerTypeID(int PractitionerID, int PractitionerTypeID)
+          => clsDataAccessHelper.Exists("SP_IsPractitionerInWhiteList", "PractitionerID", PractitionerID, "PractitionerTypeID", PractitionerTypeID);
+
+        public static bool IsExistsInClosedListByPractitionerIDAndPractitionerTypeID(int PractitionerID, int PractitionerTypeID)
+        => clsDataAccessHelper.Exists("SP_IsPractitionerInClosedList", "PractitionerID", PractitionerID, "PractitionerTypeID", PractitionerTypeID);
         public static int Count()
             => clsDataAccessHelper.Count("SP_GetTotalJudgersCount");
 

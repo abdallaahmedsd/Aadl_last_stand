@@ -242,20 +242,6 @@ namespace AADLBusiness.Expert
         public static DataTable All()
             => clsExpertData.All();
 
-<<<<<<< HEAD
-        public static bool IsExpertInWhiteList(int expertID)
-            => clsExpertData.IsExpertInWhiteList(expertID);
-
-        public bool IsExpertInWhiteList()
-            => clsExpertData.IsExpertInWhiteList((int)this.ExpertID);
-
-        public static bool IsExpertInClosedList(int expertID)
-            => clsExpertData.IsExpertInClosedList(expertID);
-
-        public bool IsExpertInClosedList()
-            => clsExpertData.IsExpertInClosedList((int)this.ExpertID);
-=======
-
         public bool IsExpertInWhiteList()
         {
             //Data access , set the right type of practitioner 
@@ -266,6 +252,5 @@ namespace AADLBusiness.Expert
             //Data access , set the right type of practitioner 
             return clsClosedList.IsPractitionerInClosedList(this.PractitionerID, clsPractitioner.enPractitionerType.Expert);
         }
->>>>>>> b2c11c3db4e054805dbbda02ad5fa8ec8e297744
     }
 }

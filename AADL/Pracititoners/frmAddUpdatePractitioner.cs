@@ -2229,7 +2229,7 @@ namespace AADL.Regulators
                 if (_PractitionerID != -1 && clsExpert.Exists(_PractitionerID,clsExpert.enFindBy.PractitionerID))
                 {
 
-                    if (_Mode == enMode.Update && _ShariaMode == enMode.Update
+                    if (_Mode == enMode.Update && _ExpertMode == enMode.Update
                         && _Expert.IsExpertInWhiteList())
                     {
                         DialogResult result = MessageBox.Show("الشخص مضاف بالفعل الى القائمة البيضاء للخبراء , ان كنت تريد التعديل اضعط على 'نعم ' ", "سؤال"
@@ -2278,7 +2278,7 @@ namespace AADL.Regulators
                 if (_PractitionerID != -1 && clsExpert.Exists(_PractitionerID, clsExpert.enFindBy.PractitionerID))
                 {
 
-                    if (_Mode == enMode.Update && _ShariaMode == enMode.Update
+                    if (_Mode == enMode.Update && _ExpertMode == enMode.Update
                         && _Expert.IsExpertInClosedList())
                     {
                         DialogResult result = MessageBox.Show("الشخص مضاف بالفعل الى القائمة البيضاء للخبراء , ان كنت تريد التعديل اضعط على 'نعم ' ", "سؤال"

@@ -118,11 +118,10 @@ C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\bin\Debug
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusiness.csproj.AssemblyReference.cache
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusiness.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusiness.csproj.CoreCompileInputs.cache
-C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusiness.csproj.Fody.CopyLocal.cache
-C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusiness.csproj.Fody.RuntimeCopyLocal.cache
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusi.505918E1.Up2Date
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusiness.dll
 C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusiness.pdb
+<<<<<<< HEAD
 P:\GitHub\Aadl_last_stand\AADLBusiness\bin\Debug\OSExtensions.dll
 P:\GitHub\Aadl_last_stand\AADLBusiness\bin\Debug\x86\KernelTraceControl.dll
 P:\GitHub\Aadl_last_stand\AADLBusiness\bin\Debug\x86\KernelTraceControl.Win61.dll
@@ -248,3 +247,7 @@ P:\GitHub\Aadl_last_stand\AADLBusiness\obj\Debug\AADLBusiness.dll
 P:\GitHub\Aadl_last_stand\AADLBusiness\obj\Debug\AADLBusiness.pdb
 P:\GitHub\Aadl_last_stand\AADLBusiness\bin\Debug\MethodTimer.dll
 P:\GitHub\Aadl_last_stand\AADLBusiness\bin\Debug\MethodTimer.xml
+=======
+C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusiness.csproj.Fody.CopyLocal.cache
+C:\Users\XIGMATEK\Documents\repo\abdullah_version\Aadl_v3\AADLBusiness\obj\Debug\AADLBusiness.csproj.Fody.RuntimeCopyLocal.cache
+>>>>>>> b2c11c3db4e054805dbbda02ad5fa8ec8e297744

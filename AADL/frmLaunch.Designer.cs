@@ -37,6 +37,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnLawyerInfo = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button8
@@ -47,6 +48,7 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(132, 98);
             this.button8.TabIndex = 9;
+            this.button8.Text = "regulator";
             this.button8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
@@ -148,11 +150,25 @@
             this.btnLawyerInfo.UseVisualStyleBackColor = true;
             this.btnLawyerInfo.Click += new System.EventHandler(this.btnLawyerInfo_Click);
             // 
+            // button9
+            // 
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button9.Image = global::AADL.Properties.Resources.delete;
+            this.button9.Location = new System.Drawing.Point(445, 502);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(132, 98);
+            this.button9.TabIndex = 10;
+            this.button9.Text = "expert";
+            this.button9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // frmLaunch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1026, 506);
+            this.ClientSize = new System.Drawing.Size(1026, 627);
+            this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button7);
@@ -182,5 +198,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
     }
 }

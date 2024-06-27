@@ -1,5 +1,8 @@
 ﻿using AADLBusiness;
+using AADLBusiness.Lists.Closed;
+using AADLBusiness.Lists.WhiteList;
 using AADLDataAccess.Expert;
+using AADLDataAccess.Judger;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -239,6 +242,7 @@ namespace AADLBusiness.Expert
         public static DataTable All()
             => clsExpertData.All();
 
+<<<<<<< HEAD
         public static bool IsExpertInWhiteList(int expertID)
             => clsExpertData.IsExpertInWhiteList(expertID);
 
@@ -250,5 +254,18 @@ namespace AADLBusiness.Expert
 
         public bool IsExpertInClosedList()
             => clsExpertData.IsExpertInClosedList((int)this.ExpertID);
+=======
+
+        public bool IsExpertInWhiteList()
+        {
+            //Data access , set the right type of practitioner 
+            return clsWhiteList.IsPractitionerInWhiteList(this.PractitionerID, clsPractitioner.enPractitionerType.Expert);
+        }
+        public bool IsExpertInClosedList()
+        {
+            //Data access , set the right type of practitioner 
+            return clsClosedList.IsPractitionerInClosedList(this.PractitionerID, clsPractitioner.enPractitionerType.Expert);
+        }
+>>>>>>> b2c11c3db4e054805dbbda02ad5fa8ec8e297744
     }
 }

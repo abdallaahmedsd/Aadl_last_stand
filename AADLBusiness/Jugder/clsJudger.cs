@@ -1,4 +1,6 @@
 ﻿using AADLBusiness;
+using AADLBusiness.Lists.Closed;
+using AADLBusiness.Lists.WhiteList;
 using AADLDataAccess.Judger;
 using System;
 using System.Collections.Generic;
@@ -148,9 +150,18 @@ namespace AADLBusiness.Judger
             return clsJudgerData.IsJudgerExist(PersonID, clsJudgerData.enWhichID.PersonID);
         }
 
-        public static bool IsJudgerExistByPractitionerID(int PractitionerID)
+        public static bool IsJudgerExistByPractitionerID(int PractitionerID)=>
+            clsJudgerData.IsJudgerExist(PractitionerID, clsJudgerData.enWhichID.PractitionerID);
+
+        public bool IsJudgerInWhiteList()
         {
-            return clsJudgerData.IsJudgerExist(PractitionerID, clsJudgerData.enWhichID.PractitionerID);
+            //Data access , set the right type of practitioner 
+            return clsWhiteList.IsPractitionerInWhiteList(this.PractitionerID, clsPractitioner.enPractitionerType.Judger);
+        }
+        public bool IsJudgerInClosedList()
+        {
+            //Data access , set the right type of practitioner 
+            return clsClosedList.IsPractitionerInClosedList(this.PractitionerID, clsPractitioner.enPractitionerType.Judger);
         }
 
         public static bool Deactivate(int JudgerID)

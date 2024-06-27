@@ -343,7 +343,7 @@ namespace AADLBusiness
             }
             return false;
         }
-
+        
         public  bool IsRegulatorInWhiteList()
         {
             //Data access , set the right type of practitioner 

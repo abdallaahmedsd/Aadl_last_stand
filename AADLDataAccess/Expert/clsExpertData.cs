@@ -237,11 +237,12 @@ namespace AADLDataAccess.Expert
             return isFound;
         }
 
-        public static (int NewExpertID, int NewPractitionerID) Add(int PersonID,
+        public static (int? NewExpertID, int NewPractitionerID) Add(int PersonID,
             int SubscriptionTypeID, int SubscriptionWayID, int CreatedByUserID, bool IsActive,
             Dictionary<int, string> CasesExpertPracticesIDNameDictionary)
         {
-            int ExpertID = -1, PractitionerID = -1;
+            int? ExpertID = null;
+            int PractitionerID = -1;
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
@@ -293,9 +294,26 @@ namespace AADLDataAccess.Expert
                         PractitionerID = (int)command.Parameters["@OUTPUTPractitionerID"].Value;
 
                     }
+                    catch (SqlException ex)
+                    {
+                        // Log the exception
+                        clsDataAccessHelper.HandleException(ex);
+
+                        // Check if the exception is due to a unique constraint violation
+                        if (ex.Number == 2601 || ex.Number == 2627)
+                        {
+                            throw new Exception("Failed to add new expert. A duplicate record already exists. Please verify the data and try again.");
+                        }
+                        else
+                        {
+                            throw new Exception("Failed to add new expert. Error: " + ex.Message + ". Please try again later.");
+                        }
+                    }
                     catch (Exception ex)
                     {
+                        // Handle any other exceptions
                         clsDataAccessHelper.HandleException(ex);
+                        throw; // Rethrow the exception to maintain stack trace integrity
                     }
                 }
 
@@ -364,6 +382,11 @@ namespace AADLDataAccess.Expert
         public static bool Activate(int expertID)
             => clsDataAccessHelper.Activate("SP_ActivateExpert", "ExpertID", expertID);
 
+        public static bool IsExistsInWhiteListByPractitionerIDAndPractitionerTypeID(int? PractitionerID,int?PractitionerTypeID)
+          => clsDataAccessHelper.Exists("SP_IsPractitionerInWhiteList", "PractitionerID", PractitionerID, "PractitionerTypeID", PractitionerTypeID);
+
+        public static bool IsExistsInClosedListByPractitionerIDAndPractitionerTypeID(int? PractitionerID, int? PractitionerTypeID)
+        => clsDataAccessHelper.Exists("SP_IsPractitionerInClosedList", "PractitionerID", PractitionerID, "PractitionerTypeID", PractitionerTypeID);
         public static bool ExistsByExpertID(int? expertID)
             => clsDataAccessHelper.Exists("SP_DoesExpertExistByExpertID", "ExpertID", expertID);
 

@@ -1030,6 +1030,15 @@
   <ItemGroup>
     <None Include="Resources\expert_512.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left-arrow_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right-arrow_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\requlators_512.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

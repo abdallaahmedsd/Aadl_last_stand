@@ -437,6 +437,12 @@ namespace AADLDataAccess.Judger
 
         public static DataTable GetJudgersPerPage(ushort pageNumber, uint rowsPerPage)
             => clsDataAccessHelper.AllInPages(pageNumber, rowsPerPage, "SP_GetJudgersPerPage");
+
+        public static bool IsJudgerInWhiteList(int judgerID)
+            => throw new NotImplementedException();
+
+        public static bool IsJudgerInClosedList(int judgerID)
+            => throw new NotImplementedException();
     }
 
 }

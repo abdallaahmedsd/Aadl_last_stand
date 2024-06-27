@@ -238,5 +238,17 @@ namespace AADLBusiness.Expert
 
         public static DataTable All()
             => clsExpertData.All();
+
+        public static bool IsExpertInWhiteList(int expertID)
+            => clsExpertData.IsExpertInWhiteList(expertID);
+
+        public bool IsExpertInWhiteList()
+            => clsExpertData.IsExpertInWhiteList((int)this.ExpertID);
+
+        public static bool IsExpertInClosedList(int expertID)
+            => clsExpertData.IsExpertInClosedList(expertID);
+
+        public bool IsExpertInClosedList()
+            => clsExpertData.IsExpertInClosedList((int)this.ExpertID);
     }
 }

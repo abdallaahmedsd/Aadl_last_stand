@@ -168,6 +168,18 @@ namespace AADLBusiness.Judger
         public static DataTable GetJudgersPerPage(ushort pageNumber, uint rowsPerPage)
             => clsJudgerData.GetJudgersPerPage(pageNumber, rowsPerPage);
 
+        public static bool IsJudgerInWhiteList(int judgerID)
+            => clsJudgerData.IsJudgerInWhiteList(judgerID);
+
+        public bool IsJudgerInWhiteList()
+            => clsJudgerData.IsJudgerInWhiteList(this.JudgerID);
+
+        public static bool IsJudgerInClosedList(int judgerID)
+            => clsJudgerData.IsJudgerInClosedList(judgerID);
+
+        public bool IsJudgerInClosedList()
+            => clsJudgerData.IsJudgerInClosedList(this.JudgerID);
+
         public override bool Save()
         {
             switch (Mode)

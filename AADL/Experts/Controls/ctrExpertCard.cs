@@ -11,12 +11,43 @@ namespace AADL.Experts.Controls
 {
     public partial class ctrExpertCard : UserControl
     {
+        public event Action ExpertInfoUpdated;
+
+        // the pramas are only there to match the signature of the delegate in frmAddUpdatePractitioner
+        protected virtual void OnExpertInfoUpdated(object sender, EventArgs e)
+        {
+            ExpertInfoUpdated?.Invoke();
+
+            // Refresh card 
+            LoadExpertInfo(_ID, _findBy);
+        }
+
+        protected virtual void OnExpertInfoUpdated()
+        {
+            ExpertInfoUpdated?.Invoke();
+
+            // Refresh card 
+            LoadExpertInfo(_ID, _findBy);
+        }
+
+        private void _Subscribe(frmPersonInfo frm)
+        {
+            frm.PersonUpdated += OnExpertInfoUpdated;
+        }
+
+        private void _Subscribe(frmAddUpdatePractitioner frm)
+        {
+            frm.evPractitionerUpdated += OnExpertInfoUpdated;
+            frm.evPractitionerUpdated += _ResetOnDemand;
+        }
+
         public ctrExpertCard()
         {
             InitializeComponent();
         }
 
         private clsExpert _expert;
+        private clsExpert.enFindBy _findBy;
         private int _ID;
 
         private void _FillFormWithExpertInfo()
@@ -30,6 +61,7 @@ namespace AADL.Experts.Controls
             lblLastEditDate.Text = _expert.LastEditByUserInfo?.UserName ?? "لم يتم تعديله بعد";
 
             // Handle Expert Casess
+            lvCasestypes.Items.Clear();
             if (_expert.ExpertCasesPracticeIDNameDictionary != null && _expert.ExpertCasesPracticeIDNameDictionary.Count != 0)
             {
                 int count = 0;
@@ -44,9 +76,16 @@ namespace AADL.Experts.Controls
             }
         }
 
+        private void _ResetOnDemand(object sender, EventArgs e)
+        {
+            ResetExpertInfo();
+            _FillFormWithExpertInfo();
+        }
+
         public void LoadExpertInfo(int ID, clsExpert.enFindBy findBy)
         {
             _ID = ID;
+            _findBy = findBy;
 
             _expert = clsExpert.Find(ID, findBy);
 
@@ -89,20 +128,15 @@ namespace AADL.Experts.Controls
         private void llblPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmPersonInfo frm = new frmPersonInfo(_expert.PersonID);
+            _Subscribe(frm);
             frm.ShowDialog();
-        }
-
-        private void ResetOnDemand(object sender, EventArgs e)
-        {
-            ResetExpertInfo();
-            _FillFormWithExpertInfo();
         }
 
         private void llblEditExpertInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmAddUpdatePractitioner form = new frmAddUpdatePractitioner(_expert.PractitionerID,
-              frmAddUpdatePractitioner.enRunSpecificTabPage.Judger);
-            form.evPractitionerUpdated += ResetOnDemand;
+              frmAddUpdatePractitioner.enRunSpecificTabPage.Expert);
+            _Subscribe(form);
             form.ShowDialog();
         }
 
@@ -129,7 +163,7 @@ namespace AADL.Experts.Controls
             try
             {
                 frmListInfo ListInfoForm = new frmListInfo((int)clsWhiteList.Find(_expert.PractitionerID,
-              clsPractitioner.enPractitionerType.Judger).WhiteListID,
+              clsPractitioner.enPractitionerType.Expert).WhiteListID,
               ctrlListInfo.CreationMode.WhiteList);
                 ListInfoForm.ShowDialog();
             }
@@ -148,7 +182,7 @@ namespace AADL.Experts.Controls
                 try
                 {
                     frmListInfo ListInfoForm = new frmListInfo((int)clsClosedList.Find(_expert.PractitionerID,
-              clsPractitioner.enPractitionerType.Judger).ClosedListID,
+              clsPractitioner.enPractitionerType.Expert).ClosedListID,
               ctrlListInfo.CreationMode.ClosedList);
                     ListInfoForm.ShowDialog();
                 }

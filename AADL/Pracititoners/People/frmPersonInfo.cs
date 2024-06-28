@@ -13,6 +13,15 @@ namespace AADL
 {
     public partial class frmPersonInfo : Form
     {
+        public event Action PersonUpdated;
+
+        protected virtual void OnPersonUpdated()
+        {
+            PersonUpdated?.Invoke();
+        }
+
+        private void _Subscribe(ctrlPersonCard personCard) => personCard.PersonUpdated += OnPersonUpdated;
+
         private int? _PersonID = null;
         public frmPersonInfo(int? personID)
         {
@@ -27,6 +36,7 @@ namespace AADL
 
         private void frmPersonInfo_Load(object sender, EventArgs e)
         {
+            _Subscribe(ctrlPersonCard1);
             ctrlPersonCard1.LoadPersonInfo(_PersonID, ctrlPersonCard.LoadPersonBy.PersonID);
         }
     }

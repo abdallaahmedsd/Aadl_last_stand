@@ -268,7 +268,6 @@
             this.lvCasestypes.TabIndex = 197;
             this.lvCasestypes.UseCompatibleStateImageBehavior = false;
             this.lvCasestypes.View = System.Windows.Forms.View.List;
-            this.lvCasestypes.SelectedIndexChanged += new System.EventHandler(this.lvCasestypes_SelectedIndexChanged);
             // 
             // cmsCases
             // 
@@ -286,7 +285,6 @@
             this.أضافةToolStripMenuItem.Name = "أضافةToolStripMenuItem";
             this.أضافةToolStripMenuItem.Size = new System.Drawing.Size(112, 30);
             this.أضافةToolStripMenuItem.Text = "أضافة";
-            this.أضافةToolStripMenuItem.Click += new System.EventHandler(this.أضافةToolStripMenuItem_Click);
             // 
             // حذفToolStripMenuItem
             // 
@@ -294,7 +292,6 @@
             this.حذفToolStripMenuItem.Name = "حذفToolStripMenuItem";
             this.حذفToolStripMenuItem.Size = new System.Drawing.Size(112, 30);
             this.حذفToolStripMenuItem.Text = "حذف";
-            this.حذفToolStripMenuItem.Click += new System.EventHandler(this.حذفToolStripMenuItem_Click);
             // 
             // lbClosedList
             // 

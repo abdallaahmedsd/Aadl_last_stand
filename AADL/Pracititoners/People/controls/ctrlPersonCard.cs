@@ -17,6 +17,17 @@ namespace AADL.People
 {
     public partial class ctrlPersonCard : UserControl
     {
+        public event Action PersonUpdated;
+
+        protected virtual void OnPersonUpdated()
+        {
+            PersonUpdated?.Invoke();
+
+            //refresh
+            LoadPersonInfo(_PersonID.Value, LoadPersonBy.PersonID);
+        }
+
+        private void _Subscribe(frmAddUpdatePerson frm) => frm.PersonUpdated += OnPersonUpdated;
 
         public enum LoadPersonBy { PersonID,NationalNo,PassportNo,FullName,Phone,WhatsApp,Email};
         private clsPerson _Person;
@@ -282,10 +293,8 @@ namespace AADL.People
             int ID = (int)_PersonID;
 
             frmAddUpdatePerson frm = new frmAddUpdatePerson(ID);
+            _Subscribe(frm);
             frm.ShowDialog();
-
-            //refresh
-            LoadPersonInfo(_PersonID.Value, LoadPersonBy.PersonID);
         }
 
     }

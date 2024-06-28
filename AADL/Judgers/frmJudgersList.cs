@@ -1,4 +1,5 @@
-﻿using AADLBusiness.Judger;
+﻿using AADL.Regulators;
+using AADLBusiness.Judger;
 using DVLD.Classes;
 using System;
 using System.Data;
@@ -8,6 +9,14 @@ namespace AADL.Judgers
 {
     public partial class frmJudgersList : Form
     {
+        private void _OnJudgerInfoUpdated() => _LoadRefreshJudgersPerPage();
+
+        private void _Subscribe(frmJudgerCard frm) => frm.JudgerInfoUpdated += _OnJudgerInfoUpdated;
+
+        private void _OnJudgerInfoAdded(object sender, EventArgs e) => _LoadRefreshJudgersPerPage();
+
+        private void _Subscribe(frmAddUpdatePractitioner frm) => frm.evNewPractitionerAdded += _OnJudgerInfoAdded;
+
         private enum enMode { add, update, delete }
         private enMode _mode = enMode.add;
         private ushort _pageNumber = 0;
@@ -34,7 +43,7 @@ namespace AADL.Judgers
                 dgvJudgers.Columns["JudgerID"].HeaderText = "الرقم التعريفي";
                 dgvJudgers.Columns["FullName"].HeaderText = "الاسم رباعي";
                 dgvJudgers.Columns["Phone"].HeaderText = "رقم الهاتف";
-                dgvJudgers.Columns["Email"].HeaderText = "الايميل";
+                dgvJudgers.Columns["Email"].HeaderText = "البريد الالكتروني";
                 dgvJudgers.Columns["Gender"].HeaderText = "النوع";
                 dgvJudgers.Columns["CountryName"].HeaderText = "الدولة";
                 dgvJudgers.Columns["CityName"].HeaderText = "المدينة";
@@ -154,6 +163,16 @@ namespace AADL.Judgers
         private void _Settings()
         {
             cbFilterBy.SelectedItem = "لا شيء";
+        }
+
+        private void _ShowJudgerCardForm()
+        {
+            int judgerID = (int)dgvJudgers.CurrentRow.Cells["JudgerID"].Value;
+
+            frmJudgerCard frm = new frmJudgerCard(judgerID, Judgers.Controls.ctrJudgerCard.enWhichID.JudgerID);
+            _mode = enMode.update;
+            _Subscribe(frm);
+            frm.ShowDialog();
         }
 
         private void _HandleCurrentPage()
@@ -290,10 +309,7 @@ namespace AADL.Judgers
 
         private void showInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int judgerID = (int)dgvJudgers.CurrentRow.Cells["JudgerID"].Value;
-
-            frmJudgerCard frm = new frmJudgerCard(judgerID, Judgers.Controls.ctrJudgerCard.enWhichID.JudgerID);
-            frm.ShowDialog();
+            _ShowJudgerCardForm();
         }
 
         private void cmsJudgers_Opening(object sender, System.ComponentModel.CancelEventArgs e)
@@ -363,10 +379,7 @@ namespace AADL.Judgers
 
         private void dgvJudgers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int judgerID = (int)dgvJudgers.CurrentRow.Cells["JudgerID"].Value;
-
-            frmJudgerCard frm = new frmJudgerCard(judgerID, Judgers.Controls.ctrJudgerCard.enWhichID.JudgerID);
-            frm.ShowDialog();
+            _ShowJudgerCardForm();
         }
 
         private void cbSubscriptionWay_SelectedIndexChanged(object sender, EventArgs e)
@@ -422,6 +435,15 @@ namespace AADL.Judgers
                 _currentPageNumber++;
                 _HandleCurrentPage();
             }
+        }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            _mode = enMode.add;
+
+            frmAddUpdatePractitioner frm = new frmAddUpdatePractitioner();
+            _Subscribe(frm);
+            frm.ShowDialog();
         }
     }
 }

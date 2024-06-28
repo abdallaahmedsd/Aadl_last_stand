@@ -7,22 +7,11 @@ using AADLBusiness.Lists.Closed;
 using AADLBusiness.Lists.WhiteList;
 using AADLBusiness.Sharia;
 using MethodTimer;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.Diagnostics.Runtime.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Media;
-using static AADL.GlobalClasses.clsTestClasses;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
 
 namespace AADL.Regulators
 {
@@ -33,7 +22,7 @@ namespace AADL.Regulators
         public delegate void EntityAddedEventHandler(object sender, EventArgs e);
 
         // Define the event in PractitionerForm
-        public event EntityAddedEventHandler evNewPractitionerWasAdded;
+        public event EntityAddedEventHandler evNewPractitionerAdded;
 
         // Define a delegate for the event handler
         public delegate void EntityUpdatedEventHandler(object sender, EventArgs e);
@@ -67,10 +56,10 @@ namespace AADL.Regulators
         private enRunSpecificTabPage _initialTabPage = enRunSpecificTabPage.Personal;
         protected virtual void OnEntityAdded(EventArgs e)
         {
-            if(evNewPractitionerWasAdded != null)
+            if(evNewPractitionerAdded != null)
             {
 
-            evNewPractitionerWasAdded(this, e);
+            evNewPractitionerAdded(this, e);
             }
         }
         protected virtual void OnEntityUpdated(EventArgs e)

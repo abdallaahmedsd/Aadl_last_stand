@@ -115,8 +115,8 @@ P:\GitHub\Aadl_last_stand\AADLDataAccess\bin\Debug\zh-Hant\Microsoft.CodeAnalysi
 P:\GitHub\Aadl_last_stand\AADLDataAccess\obj\Debug\AADLDataAccess.csproj.AssemblyReference.cache
 P:\GitHub\Aadl_last_stand\AADLDataAccess\obj\Debug\AADLDataAccess.GeneratedMSBuildEditorConfig.editorconfig
 P:\GitHub\Aadl_last_stand\AADLDataAccess\obj\Debug\AADLDataAccess.csproj.CoreCompileInputs.cache
-P:\GitHub\Aadl_last_stand\AADLDataAccess\obj\Debug\AADLDataAccess.csproj.Fody.CopyLocal.cache
-P:\GitHub\Aadl_last_stand\AADLDataAccess\obj\Debug\AADLDataAccess.csproj.Fody.RuntimeCopyLocal.cache
 P:\GitHub\Aadl_last_stand\AADLDataAccess\obj\Debug\AADLData.AE2D893F.Up2Date
 P:\GitHub\Aadl_last_stand\AADLDataAccess\obj\Debug\AADLDataAccess.dll
 P:\GitHub\Aadl_last_stand\AADLDataAccess\obj\Debug\AADLDataAccess.pdb
+P:\GitHub\Aadl_last_stand\AADLDataAccess\bin\Debug\MethodTimer.dll
+P:\GitHub\Aadl_last_stand\AADLDataAccess\bin\Debug\MethodTimer.xml

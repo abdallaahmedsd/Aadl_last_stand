@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbIsActiveSubscription = new System.Windows.Forms.ComboBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblRecordsCount = new System.Windows.Forms.Label();
@@ -66,7 +66,7 @@
             this.cbIsActiveSubscription.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbIsActiveSubscription.FormattingEnabled = true;
             this.cbIsActiveSubscription.Location = new System.Drawing.Point(519, 318);
-            this.cbIsActiveSubscription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbIsActiveSubscription.Margin = new System.Windows.Forms.Padding(4);
             this.cbIsActiveSubscription.Name = "cbIsActiveSubscription";
             this.cbIsActiveSubscription.Size = new System.Drawing.Size(160, 24);
             this.cbIsActiveSubscription.TabIndex = 121;
@@ -80,7 +80,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.Location = new System.Drawing.Point(0, 826);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(1924, 44);
             this.btnClose.TabIndex = 120;
@@ -126,7 +126,7 @@
             "تم الانشاء من قبل",
             "هل فعال"});
             this.cbFilterBy.Location = new System.Drawing.Point(201, 319);
-            this.cbFilterBy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFilterBy.Margin = new System.Windows.Forms.Padding(4);
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(279, 24);
             this.cbFilterBy.TabIndex = 117;
@@ -151,37 +151,37 @@
             this.dgvPractitioners.BackgroundColor = System.Drawing.Color.White;
             this.dgvPractitioners.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvPractitioners.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPractitioners.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPractitioners.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPractitioners.ColumnHeadersHeight = 40;
             this.dgvPractitioners.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPractitioners.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPractitioners.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPractitioners.GridColor = System.Drawing.Color.DarkGray;
             this.dgvPractitioners.Location = new System.Drawing.Point(65, 354);
             this.dgvPractitioners.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.dgvPractitioners.Name = "dgvPractitioners";
             this.dgvPractitioners.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPractitioners.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPractitioners.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPractitioners.RowHeadersWidth = 51;
             this.dgvPractitioners.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPractitioners.Size = new System.Drawing.Size(2400, 862);
@@ -277,7 +277,7 @@
             this.ctbFilterValue.InputType = myControlLibrary.myCustomControlTextBox.InputTypeEnum.TextInput;
             this.ctbFilterValue.IsRequired = false;
             this.ctbFilterValue.Location = new System.Drawing.Point(519, 319);
-            this.ctbFilterValue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ctbFilterValue.Margin = new System.Windows.Forms.Padding(4);
             this.ctbFilterValue.Name = "ctbFilterValue";
             this.ctbFilterValue.Size = new System.Drawing.Size(340, 22);
             this.ctbFilterValue.TabIndex = 123;
@@ -288,9 +288,9 @@
             // 
             this.gpAdvnacedSearch.Controls.Add(this.btnAdvancedSearch);
             this.gpAdvnacedSearch.Location = new System.Drawing.Point(1645, 60);
-            this.gpAdvnacedSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpAdvnacedSearch.Margin = new System.Windows.Forms.Padding(4);
             this.gpAdvnacedSearch.Name = "gpAdvnacedSearch";
-            this.gpAdvnacedSearch.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpAdvnacedSearch.Padding = new System.Windows.Forms.Padding(4);
             this.gpAdvnacedSearch.Size = new System.Drawing.Size(245, 123);
             this.gpAdvnacedSearch.TabIndex = 125;
             this.gpAdvnacedSearch.TabStop = false;
@@ -301,7 +301,7 @@
             this.btnAdvancedSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdvancedSearch.Image = global::AADL.Properties.Resources.SearchPerson;
             this.btnAdvancedSearch.Location = new System.Drawing.Point(25, 23);
-            this.btnAdvancedSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdvancedSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdvancedSearch.Name = "btnAdvancedSearch";
             this.btnAdvancedSearch.Size = new System.Drawing.Size(117, 71);
             this.btnAdvancedSearch.TabIndex = 124;
@@ -313,7 +313,7 @@
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Image = global::AADL.Properties.Resources.refresh__1_;
             this.btnRefresh.Location = new System.Drawing.Point(1899, 112);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(112, 71);
             this.btnRefresh.TabIndex = 126;
@@ -325,7 +325,7 @@
             this.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddUser.Image = global::AADL.Properties.Resources.lawyer_add__1_;
             this.btnAddUser.Location = new System.Drawing.Point(2333, 265);
-            this.btnAddUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(117, 80);
             this.btnAddUser.TabIndex = 112;
@@ -366,7 +366,7 @@
             this.Controls.Add(this.dgvPractitioners);
             this.Controls.Add(this.pbPersonImage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmPractitionersList";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;

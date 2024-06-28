@@ -1,18 +1,17 @@
 ﻿using AADLBusiness;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AADL.Regulators
 {
     public partial class frmRegulatorInfo : Form
     {
+        public event Action RegulatorInfoUpdated;
+
+        protected virtual void OnRegulatorInfoUpdated() => RegulatorInfoUpdated?.Invoke();
+
+        private void _Subscribe(ctrlRegulatorCard judgerCard) => judgerCard.RegulatorInfoUpdated += OnRegulatorInfoUpdated;
+
         private int _RegulatorID = -1;
 
         public frmRegulatorInfo(int RegulatorID)
@@ -29,6 +28,7 @@ namespace AADL.Regulators
 
                 if (_RegulatorID != -1)
                 {
+                    _Subscribe(ctrlRegulatorCard1);
                     ctrlRegulatorCard1.LoadRegulatorInfo(_RegulatorID, ctrlRegulatorCard.LoadRegulatorBy.RegulatorID);
                 }
                 else

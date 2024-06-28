@@ -170,8 +170,6 @@ P:\GitHub\Aadl_last_stand\AADL\obj\Debug\AADL.frmPersonInfo.ar.resources
 P:\GitHub\Aadl_last_stand\AADL\obj\Debug\AADL.csproj.GenerateResource.cache
 P:\GitHub\Aadl_last_stand\AADL\obj\Debug\AADL.GeneratedMSBuildEditorConfig.editorconfig
 P:\GitHub\Aadl_last_stand\AADL\obj\Debug\AADL.csproj.CoreCompileInputs.cache
-P:\GitHub\Aadl_last_stand\AADL\obj\Debug\AADL.csproj.Fody.CopyLocal.cache
-P:\GitHub\Aadl_last_stand\AADL\obj\Debug\AADL.csproj.Fody.RuntimeCopyLocal.cache
 P:\GitHub\Aadl_last_stand\AADL\obj\Debug\ar-001\AADL.resources.dll
 P:\GitHub\Aadl_last_stand\AADL\obj\Debug\ar-JO\AADL.resources.dll
 P:\GitHub\Aadl_last_stand\AADL\obj\Debug\aa\AADL.resources.dll
@@ -179,3 +177,5 @@ P:\GitHub\Aadl_last_stand\AADL\obj\Debug\ar\AADL.resources.dll
 P:\GitHub\Aadl_last_stand\AADL\obj\Debug\AADL.csproj.Up2Date
 P:\GitHub\Aadl_last_stand\AADL\obj\Debug\AADL.exe
 P:\GitHub\Aadl_last_stand\AADL\obj\Debug\AADL.pdb
+P:\GitHub\Aadl_last_stand\AADL\bin\Debug\MethodTimer.dll
+P:\GitHub\Aadl_last_stand\AADL\bin\Debug\MethodTimer.xml

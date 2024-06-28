@@ -1,38 +1,57 @@
-﻿using AADL.GlobalClasses;
-using AADL.Lists;
-using AADL.People;
-using AADL.Properties;
-using AADLBusiness;
+﻿using AADL.Lists;
 using AADLBusiness;
 using AADLBusiness.Lists.Closed;
 using AADLBusiness.Lists.WhiteList;
-using AADLBusiness.Sharia;
-using CommandLine.Text;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static AADL.People.ctrlPersonCard;
-using static AADL.Regulators.ctrlRegulatorCard;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AADL.Regulators
 {
     public partial class ctrlRegulatorCard : UserControl
     {
+        public event Action RegulatorInfoUpdated;
+
+        // the pramas are only there to match the signature of the delegate in frmAddUpdatePractitioner
+        protected virtual void OnRegulatorInfoUpdated(object sender, EventArgs e)
+        {
+            RegulatorInfoUpdated?.Invoke();
+
+            // Refresh card 
+            LoadRegulatorInfo(_value, _enLoadRegulatorBy);
+        }
+
+        protected virtual void OnRegulatorInfoUpdated()
+        {
+            RegulatorInfoUpdated?.Invoke();
+
+            // Refresh card 
+            LoadRegulatorInfo(_value, _enLoadRegulatorBy);
+        }
+
+        private void _Subscribe(frmPersonInfo frm)
+        {
+            frm.PersonUpdated += OnRegulatorInfoUpdated;
+        }
+
+        private void _Subscribe(frmAddUpdatePractitioner frm)
+        {
+            frm.evPractitionerUpdated += OnRegulatorInfoUpdated;
+            frm.evPractitionerUpdated += _ResetOnDemand;
+        }
+
+        private LoadRegulatorBy _enLoadRegulatorBy;
+        private object _value;
+
         public enum LoadRegulatorBy { PersonID, RegulatorID, MemberShipNumber,PractitionerID };
+
         public enum LoadShariaBy { PersonID, ShariaID, ShariaLicenseNumber, PractitionerID };
+
         public enum enCreationMode { Regulator,Sharia,Expert,Judger}
         
         private clsRegulator _Regulator;
 
         private int? _RegulatorID = null;
+
         public int? RegulatorID
         {
             get { return _RegulatorID; }
@@ -50,6 +69,9 @@ namespace AADL.Regulators
 
         public void LoadRegulatorInfo<T>(T Value, LoadRegulatorBy enLoadRegulatorBy)
         {
+            _enLoadRegulatorBy = enLoadRegulatorBy;
+            _value = Value;
+
             switch (enLoadRegulatorBy)
             {
                 case LoadRegulatorBy.RegulatorID:
@@ -151,6 +173,7 @@ namespace AADL.Regulators
                 //cases practice
                 try
                 {
+                    lvCasestypes.Items.Clear();
                     if (_Regulator.RegulatorCasesPracticeIDNameDictionary != null && _Regulator.RegulatorCasesPracticeIDNameDictionary.Count != 0)
                     {
 
@@ -187,6 +210,7 @@ namespace AADL.Regulators
             }
 
         }
+
         public void ResetRegulatorInfo()
         {
             //Regulator info
@@ -213,20 +237,16 @@ namespace AADL.Regulators
             lbClosedList.Enabled = false;
         }
 
-        private void lbClosedList_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public void ResetOnDemand(object sender, EventArgs e)
+        public void _ResetOnDemand(object sender, EventArgs e)
         {
             _FillRegulatorInfo();
         }
+
         private void llEditRegulatorInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmAddUpdatePractitioner frmAddUpdatePractitioner = new frmAddUpdatePractitioner(_Regulator.PractitionerID,
                 frmAddUpdatePractitioner.enRunSpecificTabPage.Regulatory);
-            frmAddUpdatePractitioner.evPractitionerUpdated += ResetOnDemand;
+            _Subscribe(frmAddUpdatePractitioner);
             frmAddUpdatePractitioner.ShowDialog();
         }
 
@@ -264,26 +284,11 @@ namespace AADL.Regulators
 
         }
 
-        private void أضافةToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void حذفToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Check that the selected items is bigger than zero
-
-        }
-
-        private void lvCasestypes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void lbPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmPersonInfo frmPersonInfo = new frmPersonInfo(_Regulator.PersonID);
+            _Subscribe(frmPersonInfo);
             frmPersonInfo.ShowDialog();
         }
     }
-
 }

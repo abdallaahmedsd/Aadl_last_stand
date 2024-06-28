@@ -30,7 +30,13 @@ namespace AADL.People
         public event EventHandler<PersonCompleteEventArgs> DataBackEventHandler;
         public delegate void EventUpdatePeopleInfo();
 
-        public static Action OnPeopleUpdated { get; set; }
+        public event Action PersonUpdated;
+
+        protected virtual void OnPersonUpdated()
+        {
+            PersonUpdated?.Invoke();
+        }
+
         public enum enMode { AddNew, Update }
 
         private enMode _Mode;
@@ -371,10 +377,8 @@ namespace AADL.People
                         DataBackEventHandler(null, new PersonCompleteEventArgs(_Person.PersonID));
                     }
 
-                    if (OnPeopleUpdated != null)
-                    {
-                        OnPeopleUpdated();
-                    }
+                    OnPersonUpdated(); // fire an event to call all subscribers
+
                     clsGlobal.WriteEventToLogFile($"{clsGlobal.CurrentUser.UserName}, Save a new person to the system. with ID: " + _Person.PersonID
                     , EventLogEntryType.Information);
 

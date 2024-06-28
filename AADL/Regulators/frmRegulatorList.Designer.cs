@@ -50,6 +50,7 @@
             this.btnPreviousPage = new System.Windows.Forms.Button();
             this.btnNextPage = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAddNew = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegulators)).BeginInit();
             this.cmsRegulators.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -341,12 +342,26 @@
             this.pictureBox1.TabIndex = 143;
             this.pictureBox1.TabStop = false;
             // 
+            // btnAddNew
+            // 
+            this.btnAddNew.BackgroundImage = global::AADL.Properties.Resources.add;
+            this.btnAddNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnAddNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddNew.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnAddNew.Location = new System.Drawing.Point(1418, 275);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(63, 50);
+            this.btnAddNew.TabIndex = 162;
+            this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
+            // 
             // frmRegulatorList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1524, 849);
+            this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.btnPreviousPage);
             this.Controls.Add(this.btnNextPage);
             this.Controls.Add(this.cbSubscriptionType);
@@ -400,5 +415,6 @@
         private System.Windows.Forms.ComboBox cbSubscriptionWay;
         private System.Windows.Forms.Button btnPreviousPage;
         private System.Windows.Forms.Button btnNextPage;
+        private System.Windows.Forms.Button btnAddNew;
     }
 }

@@ -404,5 +404,11 @@ namespace AADLDataAccess.Expert
 
         public static DataTable GetExpertsPerPage(ushort pageNumber, uint rowsPerPage)
             => clsDataAccessHelper.AllInPages(pageNumber, rowsPerPage, "SP_GetExpertsPerPage");
+
+        public static bool IsExpertInWhiteList(int expertID)
+            => throw new NotImplementedException();
+
+        public static bool IsExpertInClosedList(int expertID)
+            => throw new NotImplementedException();
     }
 }

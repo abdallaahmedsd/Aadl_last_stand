@@ -1,4 +1,6 @@
-﻿using AADLBusiness.Expert;
+﻿using AADL.Experts;
+using AADL.Regulators;
+using AADLBusiness.Expert;
 using DVLD.Classes;
 using System;
 using System.ComponentModel;
@@ -9,6 +11,14 @@ namespace AADL.Experts
 {
     public partial class frmExpertsList : Form
     {
+        private void _OnExpertInfoUpdated() => _LoadRefreshExpertsPerPage();
+
+        private void _Subscribe(frmExpertCard frm) => frm.ExpertInfoUpdated += _OnExpertInfoUpdated;
+
+        private void _OnExpertInfoAdded(object sender, EventArgs e) => _LoadRefreshExpertsPerPage();
+
+        private void _Subscribe(frmAddUpdatePractitioner frm) => frm.evNewPractitionerAdded += _OnExpertInfoAdded;
+
         private enum enMode { add, update, delete }
         private enMode _mode = enMode.add;
         private ushort _pageNumber = 0;
@@ -35,7 +45,7 @@ namespace AADL.Experts
                 dgvExperts.Columns["ExpertID"].HeaderText = "الرقم التعريفي";
                 dgvExperts.Columns["FullName"].HeaderText = "الاسم رباعي";
                 dgvExperts.Columns["Phone"].HeaderText = "رقم الهاتف";
-                dgvExperts.Columns["Email"].HeaderText = "الايميل";
+                dgvExperts.Columns["Email"].HeaderText = "البريد الالكتروني";
                 dgvExperts.Columns["Gender"].HeaderText = "النوع";
                 dgvExperts.Columns["CountryName"].HeaderText = "الدولة";
                 dgvExperts.Columns["CityName"].HeaderText = "المدينة";
@@ -158,6 +168,16 @@ namespace AADL.Experts
         private void _HandleCurrentPage()
         {
             cbPage.SelectedIndex = Convert.ToInt16(_currentPageNumber - 1);
+        }
+
+        private void _ShowExpertCardForm()
+        {
+            int expertID = (int)dgvExperts.CurrentRow.Cells["ExpertID"].Value;
+
+            frmExpertCard frm = new frmExpertCard(expertID, clsExpert.enFindBy.ExpertID);
+            _mode = enMode.update;
+            _Subscribe(frm);
+            frm.ShowDialog();
         }
 
         private void frmExpertsList_Load(object sender, EventArgs e)
@@ -300,10 +320,7 @@ namespace AADL.Experts
 
         private void showInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int expertID = (int)dgvExperts.CurrentRow.Cells["ExpertID"].Value;
-
-            frmExpertCard frm = new frmExpertCard(expertID, clsExpert.enFindBy.ExpertID);
-            frm.ShowDialog();
+            _ShowExpertCardForm();
         }
 
         private void activateExpertToolStripMenuItem_Click(object sender, EventArgs e)
@@ -362,10 +379,7 @@ namespace AADL.Experts
 
         private void dgvExperts_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int expertID = (int)dgvExperts.CurrentRow.Cells["ExpertID"].Value;
-
-            frmExpertCard frm = new frmExpertCard(expertID, clsExpert.enFindBy.ExpertID);
-            frm.ShowDialog();
+            _ShowExpertCardForm();
         }
 
         private void cbSubscriptionType_SelectedIndexChanged(object sender, EventArgs e)
@@ -421,6 +435,15 @@ namespace AADL.Experts
                 _currentPageNumber++;
                 _HandleCurrentPage();
             }
+        }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            _mode = enMode.add;
+
+            frmAddUpdatePractitioner frm = new frmAddUpdatePractitioner();
+            _Subscribe(frm);
+            frm.ShowDialog();
         }
     }
 }

@@ -343,7 +343,7 @@ namespace AADL.Regulators
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             frmAddUpdatePractitioner frmAddUpdatePractitioner = new frmAddUpdatePractitioner();
-            frmAddUpdatePractitioner.evNewPractitionerWasAdded += _evNewPractitionerWasAddedUpdateYourSelf;
+            frmAddUpdatePractitioner.evNewPractitionerAdded += _evNewPractitionerWasAddedUpdateYourSelf;
             frmAddUpdatePractitioner.ShowDialog();
         }
         private void _evNewPractitionerWasAddedUpdateYourSelf(object sender, EventArgs e)

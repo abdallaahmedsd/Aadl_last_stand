@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJudgersList));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvJudgers = new System.Windows.Forms.DataGridView();
             this.lblTotalRecordsCount = new System.Windows.Forms.Label();
@@ -41,16 +41,17 @@
             this.cbPage = new System.Windows.Forms.ComboBox();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.cmsJudgers = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activateJudgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deactivateJudgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteJudgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cbIsActive = new System.Windows.Forms.ComboBox();
             this.cbSubscriptionWay = new System.Windows.Forms.ComboBox();
             this.cbSubscriptionType = new System.Windows.Forms.ComboBox();
             this.btnPreviousPage = new System.Windows.Forms.Button();
             this.btnNextPage = new System.Windows.Forms.Button();
-            this.showInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.activateJudgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deactivateJudgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteJudgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAddNew = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJudgers)).BeginInit();
             this.cmsJudgers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -71,15 +72,15 @@
             this.dgvJudgers.BackgroundColor = System.Drawing.Color.White;
             this.dgvJudgers.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvJudgers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvJudgers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvJudgers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             resources.ApplyResources(this.dgvJudgers, "dgvJudgers");
             this.dgvJudgers.GridColor = System.Drawing.Color.DarkGray;
             this.dgvJudgers.Name = "dgvJudgers";
@@ -157,6 +158,37 @@
             this.cmsJudgers.Name = "cmsJudgers";
             this.cmsJudgers.Opening += new System.ComponentModel.CancelEventHandler(this.cmsJudgers_Opening);
             // 
+            // showInfoToolStripMenuItem
+            // 
+            this.showInfoToolStripMenuItem.Image = global::AADL.Properties.Resources.show_info_32;
+            resources.ApplyResources(this.showInfoToolStripMenuItem, "showInfoToolStripMenuItem");
+            this.showInfoToolStripMenuItem.Name = "showInfoToolStripMenuItem";
+            this.showInfoToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.showInfoToolStripMenuItem.Click += new System.EventHandler(this.showInfoToolStripMenuItem_Click);
+            // 
+            // activateJudgerToolStripMenuItem
+            // 
+            this.activateJudgerToolStripMenuItem.Image = global::AADL.Properties.Resources.activate_32_abdalla;
+            resources.ApplyResources(this.activateJudgerToolStripMenuItem, "activateJudgerToolStripMenuItem");
+            this.activateJudgerToolStripMenuItem.Name = "activateJudgerToolStripMenuItem";
+            this.activateJudgerToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.activateJudgerToolStripMenuItem.Click += new System.EventHandler(this.activateJudgerToolStripMenuItem_Click);
+            // 
+            // deactivateJudgerToolStripMenuItem
+            // 
+            this.deactivateJudgerToolStripMenuItem.Image = global::AADL.Properties.Resources.deactivate_32_abdalla;
+            resources.ApplyResources(this.deactivateJudgerToolStripMenuItem, "deactivateJudgerToolStripMenuItem");
+            this.deactivateJudgerToolStripMenuItem.Name = "deactivateJudgerToolStripMenuItem";
+            this.deactivateJudgerToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
+            this.deactivateJudgerToolStripMenuItem.Click += new System.EventHandler(this.deactivateJudgerToolStripMenuItem_Click);
+            // 
+            // deleteJudgerToolStripMenuItem
+            // 
+            this.deleteJudgerToolStripMenuItem.Image = global::AADL.Properties.Resources.delete_32_abdalla;
+            resources.ApplyResources(this.deleteJudgerToolStripMenuItem, "deleteJudgerToolStripMenuItem");
+            this.deleteJudgerToolStripMenuItem.Name = "deleteJudgerToolStripMenuItem";
+            this.deleteJudgerToolStripMenuItem.Click += new System.EventHandler(this.deleteJudgerToolStripMenuItem_Click);
+            // 
             // cbIsActive
             // 
             this.cbIsActive.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -216,37 +248,6 @@
             this.btnNextPage.UseVisualStyleBackColor = true;
             this.btnNextPage.Click += new System.EventHandler(this.btnNextPage_Click);
             // 
-            // showInfoToolStripMenuItem
-            // 
-            this.showInfoToolStripMenuItem.Image = global::AADL.Properties.Resources.show_info_32;
-            resources.ApplyResources(this.showInfoToolStripMenuItem, "showInfoToolStripMenuItem");
-            this.showInfoToolStripMenuItem.Name = "showInfoToolStripMenuItem";
-            this.showInfoToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
-            this.showInfoToolStripMenuItem.Click += new System.EventHandler(this.showInfoToolStripMenuItem_Click);
-            // 
-            // activateJudgerToolStripMenuItem
-            // 
-            this.activateJudgerToolStripMenuItem.Image = global::AADL.Properties.Resources.activate_32_abdalla;
-            resources.ApplyResources(this.activateJudgerToolStripMenuItem, "activateJudgerToolStripMenuItem");
-            this.activateJudgerToolStripMenuItem.Name = "activateJudgerToolStripMenuItem";
-            this.activateJudgerToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
-            this.activateJudgerToolStripMenuItem.Click += new System.EventHandler(this.activateJudgerToolStripMenuItem_Click);
-            // 
-            // deactivateJudgerToolStripMenuItem
-            // 
-            this.deactivateJudgerToolStripMenuItem.Image = global::AADL.Properties.Resources.deactivate_32_abdalla;
-            resources.ApplyResources(this.deactivateJudgerToolStripMenuItem, "deactivateJudgerToolStripMenuItem");
-            this.deactivateJudgerToolStripMenuItem.Name = "deactivateJudgerToolStripMenuItem";
-            this.deactivateJudgerToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 1, 0, 6);
-            this.deactivateJudgerToolStripMenuItem.Click += new System.EventHandler(this.deactivateJudgerToolStripMenuItem_Click);
-            // 
-            // deleteJudgerToolStripMenuItem
-            // 
-            this.deleteJudgerToolStripMenuItem.Image = global::AADL.Properties.Resources.delete_32_abdalla;
-            resources.ApplyResources(this.deleteJudgerToolStripMenuItem, "deleteJudgerToolStripMenuItem");
-            this.deleteJudgerToolStripMenuItem.Name = "deleteJudgerToolStripMenuItem";
-            this.deleteJudgerToolStripMenuItem.Click += new System.EventHandler(this.deleteJudgerToolStripMenuItem_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::AADL.Properties.Resources.judge_512;
@@ -254,11 +255,21 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
+            // btnAddNew
+            // 
+            this.btnAddNew.BackgroundImage = global::AADL.Properties.Resources.add;
+            resources.ApplyResources(this.btnAddNew, "btnAddNew");
+            this.btnAddNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
+            // 
             // frmJudgersList
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.btnPreviousPage);
             this.Controls.Add(this.btnNextPage);
             this.Controls.Add(this.cbSubscriptionWay);
@@ -306,5 +317,6 @@
         private System.Windows.Forms.ComboBox cbSubscriptionType;
         private System.Windows.Forms.Button btnPreviousPage;
         private System.Windows.Forms.Button btnNextPage;
+        private System.Windows.Forms.Button btnAddNew;
     }
 }

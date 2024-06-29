@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.cbPage = new System.Windows.Forms.ComboBox();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
@@ -50,6 +50,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbSubscriptionType = new System.Windows.Forms.ComboBox();
             this.cbSubscriptionWay = new System.Windows.Forms.ComboBox();
+            this.btnAddNew = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExperts)).BeginInit();
             this.cmsExperts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -175,15 +176,15 @@
             this.dgvExperts.BackgroundColor = System.Drawing.Color.White;
             this.dgvExperts.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvExperts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvExperts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvExperts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvExperts.ColumnHeadersHeight = 40;
             this.dgvExperts.GridColor = System.Drawing.Color.DarkGray;
             this.dgvExperts.Location = new System.Drawing.Point(43, 342);
@@ -346,12 +347,26 @@
             this.cbSubscriptionWay.TabIndex = 165;
             this.cbSubscriptionWay.SelectedIndexChanged += new System.EventHandler(this.cbSubscriptionWay_SelectedIndexChanged);
             // 
+            // btnAddNew
+            // 
+            this.btnAddNew.BackgroundImage = global::AADL.Properties.Resources.add;
+            this.btnAddNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnAddNew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddNew.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnAddNew.Location = new System.Drawing.Point(1417, 278);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(63, 50);
+            this.btnAddNew.TabIndex = 166;
+            this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
+            // 
             // frmExpertsList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1524, 849);
+            this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.cbSubscriptionWay);
             this.Controls.Add(this.cbSubscriptionType);
             this.Controls.Add(this.btnPreviousPage);
@@ -404,5 +419,6 @@
         private System.Windows.Forms.Button btnNextPage;
         private System.Windows.Forms.ComboBox cbSubscriptionType;
         private System.Windows.Forms.ComboBox cbSubscriptionWay;
+        private System.Windows.Forms.Button btnAddNew;
     }
 }

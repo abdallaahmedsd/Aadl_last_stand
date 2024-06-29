@@ -65,9 +65,10 @@
             // 
             this.cbIsActiveSubscription.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbIsActiveSubscription.FormattingEnabled = true;
-            this.cbIsActiveSubscription.Location = new System.Drawing.Point(389, 258);
+            this.cbIsActiveSubscription.Location = new System.Drawing.Point(519, 318);
+            this.cbIsActiveSubscription.Margin = new System.Windows.Forms.Padding(4);
             this.cbIsActiveSubscription.Name = "cbIsActiveSubscription";
-            this.cbIsActiveSubscription.Size = new System.Drawing.Size(121, 21);
+            this.cbIsActiveSubscription.Size = new System.Drawing.Size(160, 24);
             this.cbIsActiveSubscription.TabIndex = 121;
             this.cbIsActiveSubscription.Visible = false;
             this.cbIsActiveSubscription.SelectedIndexChanged += new System.EventHandler(this.cbIsActive_SelectedIndexChanged);
@@ -78,9 +79,10 @@
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(0, 671);
+            this.btnClose.Location = new System.Drawing.Point(0, 826);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(1520, 36);
+            this.btnClose.Size = new System.Drawing.Size(1924, 44);
             this.btnClose.TabIndex = 120;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -90,9 +92,10 @@
             // 
             this.lblRecordsCount.AutoSize = true;
             this.lblRecordsCount.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblRecordsCount.Location = new System.Drawing.Point(0, 707);
+            this.lblRecordsCount.Location = new System.Drawing.Point(0, 870);
+            this.lblRecordsCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRecordsCount.Name = "lblRecordsCount";
-            this.lblRecordsCount.Size = new System.Drawing.Size(19, 13);
+            this.lblRecordsCount.Size = new System.Drawing.Size(21, 16);
             this.lblRecordsCount.TabIndex = 119;
             this.lblRecordsCount.Text = "??";
             // 
@@ -101,9 +104,10 @@
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(0, 720);
+            this.label2.Location = new System.Drawing.Point(0, 886);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 20);
+            this.label2.Size = new System.Drawing.Size(71, 25);
             this.label2.TabIndex = 118;
             this.label2.Text = "سجلات:";
             // 
@@ -121,9 +125,10 @@
             "نوع الاشتراك",
             "تم الانشاء من قبل",
             "هل فعال"});
-            this.cbFilterBy.Location = new System.Drawing.Point(151, 259);
+            this.cbFilterBy.Location = new System.Drawing.Point(201, 319);
+            this.cbFilterBy.Margin = new System.Windows.Forms.Padding(4);
             this.cbFilterBy.Name = "cbFilterBy";
-            this.cbFilterBy.Size = new System.Drawing.Size(210, 21);
+            this.cbFilterBy.Size = new System.Drawing.Size(279, 24);
             this.cbFilterBy.TabIndex = 117;
             this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
             // 
@@ -131,9 +136,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(45, 260);
+            this.label1.Location = new System.Drawing.Point(60, 320);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 20);
+            this.label1.Size = new System.Drawing.Size(122, 25);
             this.label1.TabIndex = 115;
             this.label1.Text = "البحث بواسطة:";
             // 
@@ -164,8 +170,8 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPractitioners.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPractitioners.GridColor = System.Drawing.Color.DarkGray;
-            this.dgvPractitioners.Location = new System.Drawing.Point(49, 288);
-            this.dgvPractitioners.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvPractitioners.Location = new System.Drawing.Point(65, 354);
+            this.dgvPractitioners.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.dgvPractitioners.Name = "dgvPractitioners";
             this.dgvPractitioners.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -176,8 +182,9 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvPractitioners.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvPractitioners.RowHeadersWidth = 51;
             this.dgvPractitioners.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPractitioners.Size = new System.Drawing.Size(1800, 700);
+            this.dgvPractitioners.Size = new System.Drawing.Size(2400, 862);
             this.dgvPractitioners.StandardTab = true;
             this.dgvPractitioners.TabIndex = 114;
             // 
@@ -195,60 +202,60 @@
             this.القائمةالسوداءToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(177, 420);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(203, 420);
             // 
             // تفاصيلToolStripMenuItem
             // 
             this.تفاصيلToolStripMenuItem.Image = global::AADL.Properties.Resources.lawyer_search;
             this.تفاصيلToolStripMenuItem.Name = "تفاصيلToolStripMenuItem";
-            this.تفاصيلToolStripMenuItem.Size = new System.Drawing.Size(176, 52);
+            this.تفاصيلToolStripMenuItem.Size = new System.Drawing.Size(202, 52);
             this.تفاصيلToolStripMenuItem.Text = "تفاصيل";
             // 
             // أضافةToolStripMenuItem
             // 
             this.أضافةToolStripMenuItem.Name = "أضافةToolStripMenuItem";
-            this.أضافةToolStripMenuItem.Size = new System.Drawing.Size(176, 52);
+            this.أضافةToolStripMenuItem.Size = new System.Drawing.Size(202, 52);
             this.أضافةToolStripMenuItem.Text = "أضافة";
             // 
             // تعديلToolStripMenuItem
             // 
             this.تعديلToolStripMenuItem.Image = global::AADL.Properties.Resources.lawyer_config;
             this.تعديلToolStripMenuItem.Name = "تعديلToolStripMenuItem";
-            this.تعديلToolStripMenuItem.Size = new System.Drawing.Size(176, 52);
+            this.تعديلToolStripMenuItem.Size = new System.Drawing.Size(202, 52);
             this.تعديلToolStripMenuItem.Text = "تعديل";
             // 
             // حذفToolStripMenuItem
             // 
             this.حذفToolStripMenuItem.Image = global::AADL.Properties.Resources.lawyer_delete;
             this.حذفToolStripMenuItem.Name = "حذفToolStripMenuItem";
-            this.حذفToolStripMenuItem.Size = new System.Drawing.Size(176, 52);
+            this.حذفToolStripMenuItem.Size = new System.Drawing.Size(202, 52);
             this.حذفToolStripMenuItem.Text = "حذف";
             // 
             // شرعيToolStripMenuItem
             // 
             this.شرعيToolStripMenuItem.Image = global::AADL.Properties.Resources.balance;
             this.شرعيToolStripMenuItem.Name = "شرعيToolStripMenuItem";
-            this.شرعيToolStripMenuItem.Size = new System.Drawing.Size(176, 52);
+            this.شرعيToolStripMenuItem.Size = new System.Drawing.Size(202, 52);
             this.شرعيToolStripMenuItem.Text = "شرعي";
             // 
             // خبيرToolStripMenuItem
             // 
             this.خبيرToolStripMenuItem.Name = "خبيرToolStripMenuItem";
-            this.خبيرToolStripMenuItem.Size = new System.Drawing.Size(176, 52);
+            this.خبيرToolStripMenuItem.Size = new System.Drawing.Size(202, 52);
             this.خبيرToolStripMenuItem.Text = "خبير";
             // 
             // محكمToolStripMenuItem
             // 
             this.محكمToolStripMenuItem.Image = global::AADL.Properties.Resources.lawyer__2_;
             this.محكمToolStripMenuItem.Name = "محكمToolStripMenuItem";
-            this.محكمToolStripMenuItem.Size = new System.Drawing.Size(176, 52);
+            this.محكمToolStripMenuItem.Size = new System.Drawing.Size(202, 52);
             this.محكمToolStripMenuItem.Text = "محكم";
             // 
             // القائمةالسوداءToolStripMenuItem
             // 
             this.القائمةالسوداءToolStripMenuItem.Image = global::AADL.Properties.Resources.lawyer_female;
             this.القائمةالسوداءToolStripMenuItem.Name = "القائمةالسوداءToolStripMenuItem";
-            this.القائمةالسوداءToolStripMenuItem.Size = new System.Drawing.Size(176, 52);
+            this.القائمةالسوداءToolStripMenuItem.Size = new System.Drawing.Size(202, 52);
             this.القائمةالسوداءToolStripMenuItem.Text = "القائمة السوداء";
             // 
             // lblTitle
@@ -256,9 +263,10 @@
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTitle.Location = new System.Drawing.Point(0, 189);
+            this.lblTitle.Location = new System.Drawing.Point(0, 233);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(1520, 39);
+            this.lblTitle.Size = new System.Drawing.Size(1924, 48);
             this.lblTitle.TabIndex = 122;
             this.lblTitle.Text = "ادارة المحامين";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -268,9 +276,10 @@
             // 
             this.ctbFilterValue.InputType = myControlLibrary.myCustomControlTextBox.InputTypeEnum.TextInput;
             this.ctbFilterValue.IsRequired = false;
-            this.ctbFilterValue.Location = new System.Drawing.Point(389, 259);
+            this.ctbFilterValue.Location = new System.Drawing.Point(519, 319);
+            this.ctbFilterValue.Margin = new System.Windows.Forms.Padding(4);
             this.ctbFilterValue.Name = "ctbFilterValue";
-            this.ctbFilterValue.Size = new System.Drawing.Size(256, 20);
+            this.ctbFilterValue.Size = new System.Drawing.Size(340, 22);
             this.ctbFilterValue.TabIndex = 123;
             this.ctbFilterValue.TextChanged += new System.EventHandler(this.txtFilterValue_TextChanged);
             this.ctbFilterValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterValue_KeyPress);
@@ -278,9 +287,11 @@
             // gpAdvnacedSearch
             // 
             this.gpAdvnacedSearch.Controls.Add(this.btnAdvancedSearch);
-            this.gpAdvnacedSearch.Location = new System.Drawing.Point(1234, 49);
+            this.gpAdvnacedSearch.Location = new System.Drawing.Point(1645, 60);
+            this.gpAdvnacedSearch.Margin = new System.Windows.Forms.Padding(4);
             this.gpAdvnacedSearch.Name = "gpAdvnacedSearch";
-            this.gpAdvnacedSearch.Size = new System.Drawing.Size(184, 100);
+            this.gpAdvnacedSearch.Padding = new System.Windows.Forms.Padding(4);
+            this.gpAdvnacedSearch.Size = new System.Drawing.Size(245, 123);
             this.gpAdvnacedSearch.TabIndex = 125;
             this.gpAdvnacedSearch.TabStop = false;
             this.gpAdvnacedSearch.Text = "البحث المتقدم";
@@ -289,9 +300,10 @@
             // 
             this.btnAdvancedSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdvancedSearch.Image = global::AADL.Properties.Resources.SearchPerson;
-            this.btnAdvancedSearch.Location = new System.Drawing.Point(19, 19);
+            this.btnAdvancedSearch.Location = new System.Drawing.Point(25, 23);
+            this.btnAdvancedSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdvancedSearch.Name = "btnAdvancedSearch";
-            this.btnAdvancedSearch.Size = new System.Drawing.Size(88, 58);
+            this.btnAdvancedSearch.Size = new System.Drawing.Size(117, 71);
             this.btnAdvancedSearch.TabIndex = 124;
             this.btnAdvancedSearch.UseVisualStyleBackColor = true;
             this.btnAdvancedSearch.Click += new System.EventHandler(this.button1_Click);
@@ -300,9 +312,10 @@
             // 
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Image = global::AADL.Properties.Resources.refresh__1_;
-            this.btnRefresh.Location = new System.Drawing.Point(1424, 91);
+            this.btnRefresh.Location = new System.Drawing.Point(1899, 112);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(84, 58);
+            this.btnRefresh.Size = new System.Drawing.Size(112, 71);
             this.btnRefresh.TabIndex = 126;
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -311,9 +324,10 @@
             // 
             this.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddUser.Image = global::AADL.Properties.Resources.lawyer_add__1_;
-            this.btnAddUser.Location = new System.Drawing.Point(1750, 215);
+            this.btnAddUser.Location = new System.Drawing.Point(2333, 265);
+            this.btnAddUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(88, 65);
+            this.btnAddUser.Size = new System.Drawing.Size(117, 80);
             this.btnAddUser.TabIndex = 112;
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
@@ -325,9 +339,9 @@
             this.pbPersonImage.Image = global::AADL.Properties.Resources.Local_Driving_License_512;
             this.pbPersonImage.InitialImage = null;
             this.pbPersonImage.Location = new System.Drawing.Point(0, 0);
-            this.pbPersonImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbPersonImage.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.pbPersonImage.Name = "pbPersonImage";
-            this.pbPersonImage.Size = new System.Drawing.Size(1520, 189);
+            this.pbPersonImage.Size = new System.Drawing.Size(1924, 233);
             this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPersonImage.TabIndex = 101;
             this.pbPersonImage.TabStop = false;
@@ -335,9 +349,9 @@
             // frmPractitionersList
             // 
             this.AcceptButton = this.btnRefresh;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1520, 740);
+            this.ClientSize = new System.Drawing.Size(1924, 911);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.gpAdvnacedSearch);
             this.Controls.Add(this.btnAddUser);
@@ -352,7 +366,7 @@
             this.Controls.Add(this.dgvPractitioners);
             this.Controls.Add(this.pbPersonImage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmPractitionersList";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;

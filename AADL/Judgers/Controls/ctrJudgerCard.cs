@@ -11,9 +11,40 @@ namespace AADL.Judgers.Controls
 {
     public partial class ctrJudgerCard : UserControl
     {
+        public event Action JudgerInfoUpdated;
+
+        // the pramas are only there to match the signature of the delegate in frmAddUpdatePractitioner
+        protected virtual void OnJudgerInfoUpdated(object sender, EventArgs e)
+        {
+            JudgerInfoUpdated?.Invoke();
+
+            // Refresh card 
+            LoadJudgerInfo(_ID, _whichID);
+        }
+
+        protected virtual void OnJudgerInfoUpdated()
+        {
+            JudgerInfoUpdated?.Invoke();
+
+            // Refresh card 
+            LoadJudgerInfo(_ID, _whichID);
+        }
+
+        private void _Subscribe(frmPersonInfo frm)
+        {
+            frm.PersonUpdated += OnJudgerInfoUpdated;
+        }
+
+        private void _Subscribe(frmAddUpdatePractitioner frm)
+        {
+            frm.evPractitionerUpdated += OnJudgerInfoUpdated;
+            frm.evPractitionerUpdated += _ResetOnDemand;
+        }
+
         public enum enWhichID { JudgerID = 1, PractitionerID, PersonID }
         private clsJudger _judger;
         private int _ID;
+        private enWhichID _whichID;
         public ctrJudgerCard()
         {
             InitializeComponent();
@@ -33,7 +64,9 @@ namespace AADL.Judgers.Controls
                 clsPractitioner.enPractitionerType.Regulatory));
             llblClosedList.Enabled = (clsClosedList.IsPractitionerInClosedList(_judger.PractitionerID,
                clsPractitioner.enPractitionerType.Regulatory));
+
             // Handle Judger Casess
+            lvCasestypes.Items.Clear();
             if (_judger.JudgeCasesPracticeIDNameDictionary != null && _judger.JudgeCasesPracticeIDNameDictionary.Count != 0)
             {
                 int count = 0;
@@ -51,8 +84,9 @@ namespace AADL.Judgers.Controls
         public void LoadJudgerInfo(int ID, enWhichID whichID)
         {
             _ID = ID;
+            _whichID = whichID;
 
-            switch(whichID)
+            switch (whichID)
             {
                 case enWhichID.JudgerID:
                     _judger = clsJudger.FindByJudgerID(ID);
@@ -107,19 +141,21 @@ namespace AADL.Judgers.Controls
         private void llblPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmPersonInfo frm = new frmPersonInfo(_judger.PersonID);
+            _Subscribe(frm);    
             frm.ShowDialog();
         }
 
-        private void ResetOnDemand(object sender, EventArgs e)
+        private void _ResetOnDemand(object sender, EventArgs e)
         {
             ResetJudgerInfo();
             _FillFormWithJudgerInfo();
         }
+
         private void llblEditJudgerInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmAddUpdatePractitioner form = new frmAddUpdatePractitioner(_judger.PractitionerID,
                 frmAddUpdatePractitioner.enRunSpecificTabPage.Judger);
-            form.evPractitionerUpdated += ResetOnDemand;
+            _Subscribe(form);
             form.ShowDialog();
         }
 
@@ -176,5 +212,5 @@ namespace AADL.Judgers.Controls
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-}
+    }
 }

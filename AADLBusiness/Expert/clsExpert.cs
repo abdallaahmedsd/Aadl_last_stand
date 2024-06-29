@@ -242,7 +242,6 @@ namespace AADLBusiness.Expert
         public static DataTable All()
             => clsExpertData.All();
 
-
         public bool IsExpertInWhiteList()
         {
             //Data access , set the right type of practitioner 

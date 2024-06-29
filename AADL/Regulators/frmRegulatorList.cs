@@ -1,33 +1,34 @@
-﻿using AADL.Judgers;
-using AADLBusiness;
-using AADLBusiness.Judger;
+﻿using AADLBusiness;
 using DVLD.Classes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AADL.Regulators
 {
     public partial class frmRegulatorList : Form
     {
+        private void _OnRegulatorInfoUpdated() => _LoadRefreshRegulatorsPerPage();
 
-        private uint? _currentPageNumber = 1;
-        private uint? _totalNumberOfPages= null;
+        private void _Subscribe(frmRegulatorInfo frm) => frm.RegulatorInfoUpdated += _OnRegulatorInfoUpdated;
+
+        private void _OnRegulatorInfoAdded(object sender, EventArgs e) => _LoadRefreshRegulatorsPerPage();
+
+        private void _Subscribe(frmAddUpdatePractitioner frm) => frm.evNewPractitionerAdded += _OnRegulatorInfoAdded;
 
         private enum enMode { add, update, delete }
         private enMode _mode = enMode.add;
-        private ushort _pageNumber = 0;
+
         private DataTable _dtRegulators;
+        private ushort _pageNumber = 0;
+        private uint? _currentPageNumber = 1;
+        private uint? _totalNumberOfPages= null;
+
         public frmRegulatorList()
         {
             InitializeComponent();
         }
+
         private void _FillDataGridView(DataTable dtRegulators)
         {
             if (dtRegulators != null && dtRegulators.Rows.Count > 0)
@@ -43,7 +44,7 @@ namespace AADL.Regulators
                 dgvRegulators.Columns["MembershipNumber"].HeaderText = "رقم العضوية";
                 dgvRegulators.Columns["FullName"].HeaderText = "الاسم رباعي";
                 dgvRegulators.Columns["Phone"].HeaderText = "رقم الهاتف";
-                dgvRegulators.Columns["Email"].HeaderText = "الايميل";
+                dgvRegulators.Columns["Email"].HeaderText = "البريد الالكتروني";
                 dgvRegulators.Columns["Gender"].HeaderText = "النوع";
                 dgvRegulators.Columns["CountryName"].HeaderText = "الدولة";
                 dgvRegulators.Columns["CityName"].HeaderText = "المدينة";
@@ -55,6 +56,7 @@ namespace AADL.Regulators
                 lblTotalRecordsCount.Text = dtRegulators.Rows.Count.ToString();
             }
         }
+
         private void _FillComboBoxBySubscriptionWays()
         {
             clsUtil.FillComboBoxBySubscriptionWays(cbSubscriptionWay);
@@ -76,6 +78,7 @@ namespace AADL.Regulators
             _dtRegulators = _pageNumber > 0 ? clsRegulator.GetRegulatorsPerPage(_pageNumber, clsUtil.RowsPerPage) : null;
             _FillDataGridView(_dtRegulators);
         }
+
         private void _HandleNumberOfPages()
         {
             uint totalJudgersCount = (uint)clsRegulator.Count();
@@ -111,6 +114,7 @@ namespace AADL.Regulators
             cbPage.SelectedIndex = 0;
             _pageNumber = ushort.TryParse(cbPage.Text, out ushort result) == true ? result : (ushort)0;
         }
+
         private void _Filter()
         {
             string filterColumn = string.Empty;
@@ -163,6 +167,23 @@ namespace AADL.Regulators
             cbFilterBy.SelectedItem = "لا شيء";
 
         }
+
+        private void _HandleCurrentPage()
+        {
+            cbPage.SelectedIndex = Convert.ToInt16( _currentPageNumber - 1);
+
+        }
+
+        private void _ShowRequlatorCardForm()
+        {
+            int RegulatorID = (int)dgvRegulators.CurrentRow.Cells["RegulatorID"].Value;
+
+            frmRegulatorInfo frm = new frmRegulatorInfo(RegulatorID);
+            _mode = enMode.update;
+            _Subscribe(frm);
+            frm.ShowDialog();
+        }
+
         private void frmRegulatorList_Load(object sender, EventArgs e)
         {
 
@@ -209,6 +230,7 @@ namespace AADL.Regulators
             }
 
         }
+
         private void cbPage_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Get the selected page number
@@ -221,11 +243,7 @@ namespace AADL.Regulators
             // Reset the filter
             cbFilterBy.SelectedItem = "لا شيء";
         }
-        private void _HandleCurrentPage()
-        {
-            cbPage.SelectedIndex = Convert.ToInt16( _currentPageNumber - 1);
 
-        }
         private void btnPreviousPage_Click(object sender, EventArgs e)
         {
             if (_currentPageNumber > 1)
@@ -244,10 +262,12 @@ namespace AADL.Regulators
             }
 
         }
+
         private void txtFilterValue_TextChanged(object sender, EventArgs e)
         {
             _Filter();
         }
+
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (cbFilterBy.Text == "الرقم التعريفي")
@@ -275,12 +295,10 @@ namespace AADL.Regulators
                 }
             }
         }
+
         private void dgvRegulators_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int RegulatorID = (int)dgvRegulators.CurrentRow.Cells["RegulatorID"].Value;
-
-            frmRegulatorInfo frm = new frmRegulatorInfo(RegulatorID);
-            frm.ShowDialog();
+            _ShowRequlatorCardForm();
         }
 
         private void cmsRegulator_Opening(object sender, System.ComponentModel.CancelEventArgs e)
@@ -298,6 +316,7 @@ namespace AADL.Regulators
                 deactivateRegulatorToolStripMenuItem.Enabled = false;
             }
         }
+
         private void cbIsActive_SelectedIndexChanged(object sender, EventArgs e)
         {
             string filterColumn = "IsActive";
@@ -347,6 +366,7 @@ namespace AADL.Regulators
             // Updates the total records count label
             lblTotalRecordsCount.Text = dgvRegulators.Rows.Count.ToString();
         }
+
         private void cbSubscriptionWay_SelectedIndexChanged(object sender, EventArgs e)
         {
             string filterColumn = "SubscriptionWayName";
@@ -366,13 +386,10 @@ namespace AADL.Regulators
             // Updates the total records count label
             lblTotalRecordsCount.Text = dgvRegulators.Rows.Count.ToString();
         }
+
         private void showInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            int RegulatorID = (int)dgvRegulators.CurrentRow.Cells["RegulatorID"].Value;
-
-            frmRegulatorInfo frm = new frmRegulatorInfo(RegulatorID);
-            frm.ShowDialog();
+            _ShowRequlatorCardForm();
         }
 
         private void activateRegulatorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -434,8 +451,13 @@ namespace AADL.Regulators
             }
         }
 
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            _mode = enMode.add;
 
-
+            frmAddUpdatePractitioner frm = new frmAddUpdatePractitioner();
+            _Subscribe(frm);
+            frm.ShowDialog();
+        }
     }
-
 }

@@ -55,7 +55,6 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.ctbRegulatoryMemberShipNumber = new myControlLibrary.myCustomControlTextBox();
             this.tpPersonalInfo = new System.Windows.Forms.TabPage();
-            this.ctrlPersonCardWithFilter1 = new AADL.People.controls.ctrlPersonCardWithFilter();
             this.btnPersonInfoNext = new System.Windows.Forms.Button();
             this.tcPractitionernfo = new System.Windows.Forms.TabControl();
             this.tpShariaInfo = new System.Windows.Forms.TabPage();
@@ -133,6 +132,7 @@
             this.cbAddExpert = new System.Windows.Forms.CheckBox();
             this.cbAddJudger = new System.Windows.Forms.CheckBox();
             this.cbAddRegulator = new System.Windows.Forms.CheckBox();
+            this.ctrlPersonCardWithFilter1 = new AADL.People.controls.ctrlPersonCardWithFilter();
             this.tpRegulatorInfo.SuspendLayout();
             this.gpRegulatorySubscriptionType.SuspendLayout();
             this.gpSubscriptionWay.SuspendLayout();
@@ -180,10 +180,11 @@
             this.tpRegulatorInfo.Controls.Add(this.pictureBox2);
             this.tpRegulatorInfo.Controls.Add(this.pictureBox8);
             this.tpRegulatorInfo.Controls.Add(this.ctbRegulatoryMemberShipNumber);
-            this.tpRegulatorInfo.Location = new System.Drawing.Point(4, 22);
+            this.tpRegulatorInfo.Location = new System.Drawing.Point(4, 25);
+            this.tpRegulatorInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpRegulatorInfo.Name = "tpRegulatorInfo";
-            this.tpRegulatorInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRegulatorInfo.Size = new System.Drawing.Size(1236, 744);
+            this.tpRegulatorInfo.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tpRegulatorInfo.Size = new System.Drawing.Size(1651, 919);
             this.tpRegulatorInfo.TabIndex = 1;
             this.tpRegulatorInfo.Text = "النظامي";
             this.tpRegulatorInfo.UseVisualStyleBackColor = true;
@@ -194,9 +195,10 @@
             this.btnResetRegulatoryCases.BackColor = System.Drawing.Color.Transparent;
             this.btnResetRegulatoryCases.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResetRegulatoryCases.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnResetRegulatoryCases.Location = new System.Drawing.Point(986, 446);
+            this.btnResetRegulatoryCases.Location = new System.Drawing.Point(1315, 549);
+            this.btnResetRegulatoryCases.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnResetRegulatoryCases.Name = "btnResetRegulatoryCases";
-            this.btnResetRegulatoryCases.Size = new System.Drawing.Size(64, 28);
+            this.btnResetRegulatoryCases.Size = new System.Drawing.Size(85, 34);
             this.btnResetRegulatoryCases.TabIndex = 147;
             this.btnResetRegulatoryCases.Text = "اعادة";
             this.btnResetRegulatoryCases.UseVisualStyleBackColor = false;
@@ -207,9 +209,10 @@
             this.btnRegulatoryClosedList.BackColor = System.Drawing.Color.Transparent;
             this.btnRegulatoryClosedList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegulatoryClosedList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnRegulatoryClosedList.Location = new System.Drawing.Point(408, 558);
+            this.btnRegulatoryClosedList.Location = new System.Drawing.Point(544, 687);
+            this.btnRegulatoryClosedList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRegulatoryClosedList.Name = "btnRegulatoryClosedList";
-            this.btnRegulatoryClosedList.Size = new System.Drawing.Size(141, 47);
+            this.btnRegulatoryClosedList.Size = new System.Drawing.Size(188, 58);
             this.btnRegulatoryClosedList.TabIndex = 144;
             this.btnRegulatoryClosedList.Text = "اضافة الى القائمة المغلقة";
             this.btnRegulatoryClosedList.UseVisualStyleBackColor = false;
@@ -220,9 +223,10 @@
             this.btnRegulatoryWhiteList.BackColor = System.Drawing.Color.Transparent;
             this.btnRegulatoryWhiteList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegulatoryWhiteList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnRegulatoryWhiteList.Location = new System.Drawing.Point(600, 558);
+            this.btnRegulatoryWhiteList.Location = new System.Drawing.Point(800, 687);
+            this.btnRegulatoryWhiteList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRegulatoryWhiteList.Name = "btnRegulatoryWhiteList";
-            this.btnRegulatoryWhiteList.Size = new System.Drawing.Size(141, 47);
+            this.btnRegulatoryWhiteList.Size = new System.Drawing.Size(188, 58);
             this.btnRegulatoryWhiteList.TabIndex = 143;
             this.btnRegulatoryWhiteList.Text = "اضافة الى القائمة البيضاء";
             this.btnRegulatoryWhiteList.UseVisualStyleBackColor = false;
@@ -232,10 +236,10 @@
             // 
             this.lbRegulatoryCasesRecord.AutoSize = true;
             this.lbRegulatoryCasesRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRegulatoryCasesRecord.Location = new System.Drawing.Point(942, 486);
-            this.lbRegulatoryCasesRecord.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbRegulatoryCasesRecord.Location = new System.Drawing.Point(1256, 598);
+            this.lbRegulatoryCasesRecord.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbRegulatoryCasesRecord.Name = "lbRegulatoryCasesRecord";
-            this.lbRegulatoryCasesRecord.Size = new System.Drawing.Size(19, 20);
+            this.lbRegulatoryCasesRecord.Size = new System.Drawing.Size(24, 25);
             this.lbRegulatoryCasesRecord.TabIndex = 142;
             this.lbRegulatoryCasesRecord.Text = "0";
             // 
@@ -243,10 +247,10 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(969, 486);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(1292, 598);
+            this.label10.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(85, 20);
+            this.label10.Size = new System.Drawing.Size(105, 25);
             this.label10.TabIndex = 141;
             this.label10.Text = "عدد القضايا:";
             // 
@@ -255,9 +259,10 @@
             this.btnBlackList.BackColor = System.Drawing.Color.Transparent;
             this.btnBlackList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBlackList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnBlackList.Location = new System.Drawing.Point(781, 558);
+            this.btnBlackList.Location = new System.Drawing.Point(1041, 687);
+            this.btnBlackList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBlackList.Name = "btnBlackList";
-            this.btnBlackList.Size = new System.Drawing.Size(141, 47);
+            this.btnBlackList.Size = new System.Drawing.Size(188, 58);
             this.btnBlackList.TabIndex = 140;
             this.btnBlackList.Text = "اضافة الى القائمة السوداء";
             this.btnBlackList.UseVisualStyleBackColor = false;
@@ -269,9 +274,11 @@
             this.gpRegulatorySubscriptionType.Controls.Add(this.gpSubscriptionWay);
             this.gpRegulatorySubscriptionType.Controls.Add(this.rbtnRegulatoryMedium);
             this.gpRegulatorySubscriptionType.Controls.Add(this.rbtnRegulatoryFree);
-            this.gpRegulatorySubscriptionType.Location = new System.Drawing.Point(83, 37);
+            this.gpRegulatorySubscriptionType.Location = new System.Drawing.Point(111, 46);
+            this.gpRegulatorySubscriptionType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gpRegulatorySubscriptionType.Name = "gpRegulatorySubscriptionType";
-            this.gpRegulatorySubscriptionType.Size = new System.Drawing.Size(200, 173);
+            this.gpRegulatorySubscriptionType.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpRegulatorySubscriptionType.Size = new System.Drawing.Size(267, 213);
             this.gpRegulatorySubscriptionType.TabIndex = 133;
             this.gpRegulatorySubscriptionType.TabStop = false;
             this.gpRegulatorySubscriptionType.Text = "نوع الاشتراك";
@@ -279,9 +286,10 @@
             // rbtnRegulatorySpecial
             // 
             this.rbtnRegulatorySpecial.AutoSize = true;
-            this.rbtnRegulatorySpecial.Location = new System.Drawing.Point(6, 29);
+            this.rbtnRegulatorySpecial.Location = new System.Drawing.Point(8, 36);
+            this.rbtnRegulatorySpecial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnRegulatorySpecial.Name = "rbtnRegulatorySpecial";
-            this.rbtnRegulatorySpecial.Size = new System.Drawing.Size(44, 17);
+            this.rbtnRegulatorySpecial.Size = new System.Drawing.Size(50, 20);
             this.rbtnRegulatorySpecial.TabIndex = 2;
             this.rbtnRegulatorySpecial.Tag = "3";
             this.rbtnRegulatorySpecial.Text = "مميز";
@@ -292,9 +300,11 @@
             // 
             this.gpSubscriptionWay.Controls.Add(this.rbtnRScholarship);
             this.gpSubscriptionWay.Controls.Add(this.rbtnRSpecialSupport);
-            this.gpSubscriptionWay.Location = new System.Drawing.Point(6, 104);
+            this.gpSubscriptionWay.Location = new System.Drawing.Point(8, 128);
+            this.gpSubscriptionWay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gpSubscriptionWay.Name = "gpSubscriptionWay";
-            this.gpSubscriptionWay.Size = new System.Drawing.Size(188, 60);
+            this.gpSubscriptionWay.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpSubscriptionWay.Size = new System.Drawing.Size(251, 74);
             this.gpSubscriptionWay.TabIndex = 134;
             this.gpSubscriptionWay.TabStop = false;
             this.gpSubscriptionWay.Text = "طريقة الاشتراك";
@@ -302,9 +312,10 @@
             // rbtnRScholarship
             // 
             this.rbtnRScholarship.AutoSize = true;
-            this.rbtnRScholarship.Location = new System.Drawing.Point(6, 37);
+            this.rbtnRScholarship.Location = new System.Drawing.Point(8, 46);
+            this.rbtnRScholarship.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnRScholarship.Name = "rbtnRScholarship";
-            this.rbtnRScholarship.Size = new System.Drawing.Size(46, 17);
+            this.rbtnRScholarship.Size = new System.Drawing.Size(51, 20);
             this.rbtnRScholarship.TabIndex = 2;
             this.rbtnRScholarship.Tag = "2";
             this.rbtnRScholarship.Text = "منحة";
@@ -314,9 +325,10 @@
             // rbtnRSpecialSupport
             // 
             this.rbtnRSpecialSupport.AutoSize = true;
-            this.rbtnRSpecialSupport.Location = new System.Drawing.Point(115, 37);
+            this.rbtnRSpecialSupport.Location = new System.Drawing.Point(153, 46);
+            this.rbtnRSpecialSupport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnRSpecialSupport.Name = "rbtnRSpecialSupport";
-            this.rbtnRSpecialSupport.Size = new System.Drawing.Size(67, 17);
+            this.rbtnRSpecialSupport.Size = new System.Drawing.Size(76, 20);
             this.rbtnRSpecialSupport.TabIndex = 3;
             this.rbtnRSpecialSupport.Tag = "1";
             this.rbtnRSpecialSupport.Text = "دعم خاص";
@@ -326,9 +338,10 @@
             // rbtnRegulatoryMedium
             // 
             this.rbtnRegulatoryMedium.AutoSize = true;
-            this.rbtnRegulatoryMedium.Location = new System.Drawing.Point(139, 77);
+            this.rbtnRegulatoryMedium.Location = new System.Drawing.Point(185, 95);
+            this.rbtnRegulatoryMedium.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnRegulatoryMedium.Name = "rbtnRegulatoryMedium";
-            this.rbtnRegulatoryMedium.Size = new System.Drawing.Size(56, 17);
+            this.rbtnRegulatoryMedium.Size = new System.Drawing.Size(60, 20);
             this.rbtnRegulatoryMedium.TabIndex = 1;
             this.rbtnRegulatoryMedium.Tag = "2";
             this.rbtnRegulatoryMedium.Text = "متوسط";
@@ -338,9 +351,10 @@
             // rbtnRegulatoryFree
             // 
             this.rbtnRegulatoryFree.AutoSize = true;
-            this.rbtnRegulatoryFree.Location = new System.Drawing.Point(139, 29);
+            this.rbtnRegulatoryFree.Location = new System.Drawing.Point(185, 36);
+            this.rbtnRegulatoryFree.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnRegulatoryFree.Name = "rbtnRegulatoryFree";
-            this.rbtnRegulatoryFree.Size = new System.Drawing.Size(55, 17);
+            this.rbtnRegulatoryFree.Size = new System.Drawing.Size(61, 20);
             this.rbtnRegulatoryFree.TabIndex = 0;
             this.rbtnRegulatoryFree.Tag = "1";
             this.rbtnRegulatoryFree.Text = "مجاني";
@@ -355,24 +369,27 @@
             this.clbRegulatoryCasesTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clbRegulatoryCasesTypes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.clbRegulatoryCasesTypes.FormattingEnabled = true;
-            this.clbRegulatoryCasesTypes.Location = new System.Drawing.Point(408, 141);
+            this.clbRegulatoryCasesTypes.Location = new System.Drawing.Point(544, 174);
+            this.clbRegulatoryCasesTypes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clbRegulatoryCasesTypes.Name = "clbRegulatoryCasesTypes";
-            this.clbRegulatoryCasesTypes.Size = new System.Drawing.Size(513, 365);
+            this.clbRegulatoryCasesTypes.Size = new System.Drawing.Size(683, 436);
             this.clbRegulatoryCasesTypes.TabIndex = 2;
             this.clbRegulatoryCasesTypes.SelectedIndexChanged += new System.EventHandler(this.clbRegulatoryCasesTypes_SelectedIndexChanged);
             this.clbRegulatoryCasesTypes.Validating += new System.ComponentModel.CancelEventHandler(this.clbRegulatoryCasesTypes_Validating);
             // 
             // cms
             // 
+            this.cms.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cms.Name = "cms";
             this.cms.Size = new System.Drawing.Size(61, 4);
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::AADL.Properties.Resources.List_32;
-            this.pictureBox4.Location = new System.Drawing.Point(1006, 141);
+            this.pictureBox4.Location = new System.Drawing.Point(1341, 174);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox4.Size = new System.Drawing.Size(41, 32);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 131;
             this.pictureBox4.TabStop = false;
@@ -382,10 +399,10 @@
             this.lblRegulatorID.AutoSize = true;
             this.lblRegulatorID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRegulatorID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblRegulatorID.Location = new System.Drawing.Point(887, 37);
-            this.lblRegulatorID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRegulatorID.Location = new System.Drawing.Point(1183, 46);
+            this.lblRegulatorID.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblRegulatorID.Name = "lblRegulatorID";
-            this.lblRegulatorID.Size = new System.Drawing.Size(39, 20);
+            this.lblRegulatorID.Size = new System.Drawing.Size(48, 25);
             this.lblRegulatorID.TabIndex = 129;
             this.lblRegulatorID.Text = "???";
             // 
@@ -393,10 +410,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1116, 37);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(1488, 46);
+            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 20);
+            this.label4.Size = new System.Drawing.Size(121, 25);
             this.label4.TabIndex = 128;
             this.label4.Text = "الرقم التعريفي:";
             // 
@@ -406,9 +423,10 @@
             this.chkRegulatorIsActive.Checked = true;
             this.chkRegulatorIsActive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkRegulatorIsActive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.chkRegulatorIsActive.Location = new System.Drawing.Point(873, 516);
+            this.chkRegulatorIsActive.Location = new System.Drawing.Point(1164, 635);
+            this.chkRegulatorIsActive.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkRegulatorIsActive.Name = "chkRegulatorIsActive";
-            this.chkRegulatorIsActive.Size = new System.Drawing.Size(49, 17);
+            this.chkRegulatorIsActive.Size = new System.Drawing.Size(53, 20);
             this.chkRegulatorIsActive.TabIndex = 127;
             this.chkRegulatorIsActive.Text = "فعال";
             this.chkRegulatorIsActive.UseVisualStyleBackColor = true;
@@ -418,10 +436,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(1124, 94);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(1499, 116);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 20);
+            this.label1.Size = new System.Drawing.Size(111, 25);
             this.label1.TabIndex = 120;
             this.label1.Text = "رقم العضوية:";
             // 
@@ -429,19 +447,20 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1118, 141);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(1491, 174);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 20);
+            this.label2.Size = new System.Drawing.Size(114, 25);
             this.label2.TabIndex = 121;
             this.label2.Text = "انواع القضايا:";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::AADL.Properties.Resources.PersonDetails_32;
-            this.pictureBox2.Location = new System.Drawing.Point(1006, 37);
+            this.pictureBox2.Location = new System.Drawing.Point(1341, 46);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox2.Size = new System.Drawing.Size(41, 32);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 130;
             this.pictureBox2.TabStop = false;
@@ -449,9 +468,10 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = global::AADL.Properties.Resources.Number_32;
-            this.pictureBox8.Location = new System.Drawing.Point(1006, 94);
+            this.pictureBox8.Location = new System.Drawing.Point(1341, 116);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox8.Size = new System.Drawing.Size(41, 32);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 123;
             this.pictureBox8.TabStop = false;
@@ -461,10 +481,11 @@
             this.ctbRegulatoryMemberShipNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.ctbRegulatoryMemberShipNumber.InputType = myControlLibrary.myCustomControlTextBox.InputTypeEnum.NumberInput;
             this.ctbRegulatoryMemberShipNumber.IsRequired = true;
-            this.ctbRegulatoryMemberShipNumber.Location = new System.Drawing.Point(409, 94);
+            this.ctbRegulatoryMemberShipNumber.Location = new System.Drawing.Point(545, 116);
+            this.ctbRegulatoryMemberShipNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ctbRegulatoryMemberShipNumber.MaxLength = 30;
             this.ctbRegulatoryMemberShipNumber.Name = "ctbRegulatoryMemberShipNumber";
-            this.ctbRegulatoryMemberShipNumber.Size = new System.Drawing.Size(512, 20);
+            this.ctbRegulatoryMemberShipNumber.Size = new System.Drawing.Size(681, 22);
             this.ctbRegulatoryMemberShipNumber.TabIndex = 148;
             this.ctbRegulatoryMemberShipNumber.Validating += new System.ComponentModel.CancelEventHandler(this.tbRegulatorMemberShip_Validating);
             // 
@@ -473,32 +494,22 @@
             this.tpPersonalInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tpPersonalInfo.Controls.Add(this.ctrlPersonCardWithFilter1);
             this.tpPersonalInfo.Controls.Add(this.btnPersonInfoNext);
-            this.tpPersonalInfo.Location = new System.Drawing.Point(4, 22);
+            this.tpPersonalInfo.Location = new System.Drawing.Point(4, 25);
+            this.tpPersonalInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpPersonalInfo.Name = "tpPersonalInfo";
-            this.tpPersonalInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tpPersonalInfo.Size = new System.Drawing.Size(1236, 744);
+            this.tpPersonalInfo.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tpPersonalInfo.Size = new System.Drawing.Size(1651, 919);
             this.tpPersonalInfo.TabIndex = 0;
             this.tpPersonalInfo.Text = "البيانات الشخصية";
-            // 
-            // ctrlPersonCardWithFilter1
-            // 
-            this.ctrlPersonCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
-            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(163, 21);
-            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
-            this.ctrlPersonCardWithFilter1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ctrlPersonCardWithFilter1.ShowAddPerson = true;
-            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1067, 725);
-            this.ctrlPersonCardWithFilter1.TabIndex = 120;
             // 
             // btnPersonInfoNext
             // 
             this.btnPersonInfoNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPersonInfoNext.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPersonInfoNext.Location = new System.Drawing.Point(7, 699);
-            this.btnPersonInfoNext.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPersonInfoNext.Location = new System.Drawing.Point(9, 860);
+            this.btnPersonInfoNext.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnPersonInfoNext.Name = "btnPersonInfoNext";
-            this.btnPersonInfoNext.Size = new System.Drawing.Size(126, 37);
+            this.btnPersonInfoNext.Size = new System.Drawing.Size(168, 46);
             this.btnPersonInfoNext.TabIndex = 119;
             this.btnPersonInfoNext.Text = "التالي";
             this.btnPersonInfoNext.UseVisualStyleBackColor = true;
@@ -511,11 +522,12 @@
             this.tcPractitionernfo.Controls.Add(this.tpShariaInfo);
             this.tcPractitionernfo.Controls.Add(this.tpJudgerInfo);
             this.tcPractitionernfo.Controls.Add(this.tpExpertInfo);
-            this.tcPractitionernfo.Location = new System.Drawing.Point(74, 162);
+            this.tcPractitionernfo.Location = new System.Drawing.Point(99, 199);
+            this.tcPractitionernfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tcPractitionernfo.Name = "tcPractitionernfo";
             this.tcPractitionernfo.RightToLeftLayout = true;
             this.tcPractitionernfo.SelectedIndex = 0;
-            this.tcPractitionernfo.Size = new System.Drawing.Size(1244, 770);
+            this.tcPractitionernfo.Size = new System.Drawing.Size(1659, 948);
             this.tcPractitionernfo.TabIndex = 118;
             this.tcPractitionernfo.SelectedIndexChanged += new System.EventHandler(this.tcPractitionernfo_SelectedIndexChanged);
             this.tcPractitionernfo.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tcRegulatorInfo_Selecting);
@@ -539,10 +551,11 @@
             this.tpShariaInfo.Controls.Add(this.label6);
             this.tpShariaInfo.Controls.Add(this.pictureBox3);
             this.tpShariaInfo.Controls.Add(this.pictureBox5);
-            this.tpShariaInfo.Location = new System.Drawing.Point(4, 22);
+            this.tpShariaInfo.Location = new System.Drawing.Point(4, 25);
+            this.tpShariaInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpShariaInfo.Name = "tpShariaInfo";
-            this.tpShariaInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tpShariaInfo.Size = new System.Drawing.Size(1236, 744);
+            this.tpShariaInfo.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tpShariaInfo.Size = new System.Drawing.Size(1651, 919);
             this.tpShariaInfo.TabIndex = 2;
             this.tpShariaInfo.Text = "شرعي";
             this.tpShariaInfo.UseVisualStyleBackColor = true;
@@ -553,9 +566,11 @@
             this.gpShariaSubscriptionType.Controls.Add(this.rbtnShariaSpecial);
             this.gpShariaSubscriptionType.Controls.Add(this.rbtnShariaMedium);
             this.gpShariaSubscriptionType.Controls.Add(this.rbtnShariaFree);
-            this.gpShariaSubscriptionType.Location = new System.Drawing.Point(82, 37);
+            this.gpShariaSubscriptionType.Location = new System.Drawing.Point(109, 46);
+            this.gpShariaSubscriptionType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gpShariaSubscriptionType.Name = "gpShariaSubscriptionType";
-            this.gpShariaSubscriptionType.Size = new System.Drawing.Size(200, 173);
+            this.gpShariaSubscriptionType.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gpShariaSubscriptionType.Size = new System.Drawing.Size(267, 213);
             this.gpShariaSubscriptionType.TabIndex = 158;
             this.gpShariaSubscriptionType.TabStop = false;
             this.gpShariaSubscriptionType.Text = "نوع الاشتراك";
@@ -564,9 +579,11 @@
             // 
             this.groupBox1.Controls.Add(this.rbtnSScholarship);
             this.groupBox1.Controls.Add(this.rbtnSSpecialSupport);
-            this.groupBox1.Location = new System.Drawing.Point(6, 104);
+            this.groupBox1.Location = new System.Drawing.Point(8, 128);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(188, 60);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(251, 74);
             this.groupBox1.TabIndex = 135;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "طريقة الاشتراك";
@@ -574,9 +591,10 @@
             // rbtnSScholarship
             // 
             this.rbtnSScholarship.AutoSize = true;
-            this.rbtnSScholarship.Location = new System.Drawing.Point(6, 37);
+            this.rbtnSScholarship.Location = new System.Drawing.Point(8, 46);
+            this.rbtnSScholarship.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnSScholarship.Name = "rbtnSScholarship";
-            this.rbtnSScholarship.Size = new System.Drawing.Size(46, 17);
+            this.rbtnSScholarship.Size = new System.Drawing.Size(51, 20);
             this.rbtnSScholarship.TabIndex = 2;
             this.rbtnSScholarship.Tag = "2";
             this.rbtnSScholarship.Text = "منحة";
@@ -586,9 +604,10 @@
             // rbtnSSpecialSupport
             // 
             this.rbtnSSpecialSupport.AutoSize = true;
-            this.rbtnSSpecialSupport.Location = new System.Drawing.Point(115, 37);
+            this.rbtnSSpecialSupport.Location = new System.Drawing.Point(153, 46);
+            this.rbtnSSpecialSupport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnSSpecialSupport.Name = "rbtnSSpecialSupport";
-            this.rbtnSSpecialSupport.Size = new System.Drawing.Size(67, 17);
+            this.rbtnSSpecialSupport.Size = new System.Drawing.Size(76, 20);
             this.rbtnSSpecialSupport.TabIndex = 3;
             this.rbtnSSpecialSupport.Tag = "1";
             this.rbtnSSpecialSupport.Text = "دعم خاص";
@@ -598,9 +617,10 @@
             // rbtnShariaSpecial
             // 
             this.rbtnShariaSpecial.AutoSize = true;
-            this.rbtnShariaSpecial.Location = new System.Drawing.Point(6, 29);
+            this.rbtnShariaSpecial.Location = new System.Drawing.Point(8, 36);
+            this.rbtnShariaSpecial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnShariaSpecial.Name = "rbtnShariaSpecial";
-            this.rbtnShariaSpecial.Size = new System.Drawing.Size(44, 17);
+            this.rbtnShariaSpecial.Size = new System.Drawing.Size(50, 20);
             this.rbtnShariaSpecial.TabIndex = 2;
             this.rbtnShariaSpecial.Tag = "3";
             this.rbtnShariaSpecial.Text = "مميز";
@@ -610,9 +630,10 @@
             // rbtnShariaMedium
             // 
             this.rbtnShariaMedium.AutoSize = true;
-            this.rbtnShariaMedium.Location = new System.Drawing.Point(139, 77);
+            this.rbtnShariaMedium.Location = new System.Drawing.Point(185, 95);
+            this.rbtnShariaMedium.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnShariaMedium.Name = "rbtnShariaMedium";
-            this.rbtnShariaMedium.Size = new System.Drawing.Size(56, 17);
+            this.rbtnShariaMedium.Size = new System.Drawing.Size(60, 20);
             this.rbtnShariaMedium.TabIndex = 1;
             this.rbtnShariaMedium.Tag = "2";
             this.rbtnShariaMedium.Text = "متوسط";
@@ -622,9 +643,10 @@
             // rbtnShariaFree
             // 
             this.rbtnShariaFree.AutoSize = true;
-            this.rbtnShariaFree.Location = new System.Drawing.Point(139, 29);
+            this.rbtnShariaFree.Location = new System.Drawing.Point(185, 36);
+            this.rbtnShariaFree.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnShariaFree.Name = "rbtnShariaFree";
-            this.rbtnShariaFree.Size = new System.Drawing.Size(55, 17);
+            this.rbtnShariaFree.Size = new System.Drawing.Size(61, 20);
             this.rbtnShariaFree.TabIndex = 0;
             this.rbtnShariaFree.Tag = "1";
             this.rbtnShariaFree.Text = "مجاني";
@@ -636,9 +658,10 @@
             this.btnShariaClosedList.BackColor = System.Drawing.Color.Transparent;
             this.btnShariaClosedList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShariaClosedList.ForeColor = System.Drawing.Color.Crimson;
-            this.btnShariaClosedList.Location = new System.Drawing.Point(409, 558);
+            this.btnShariaClosedList.Location = new System.Drawing.Point(545, 687);
+            this.btnShariaClosedList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnShariaClosedList.Name = "btnShariaClosedList";
-            this.btnShariaClosedList.Size = new System.Drawing.Size(141, 47);
+            this.btnShariaClosedList.Size = new System.Drawing.Size(188, 58);
             this.btnShariaClosedList.TabIndex = 157;
             this.btnShariaClosedList.Text = "اضافة الى القائمة المغلقة";
             this.btnShariaClosedList.UseVisualStyleBackColor = false;
@@ -649,9 +672,10 @@
             this.btnShariaWhite.BackColor = System.Drawing.Color.Transparent;
             this.btnShariaWhite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShariaWhite.ForeColor = System.Drawing.Color.Crimson;
-            this.btnShariaWhite.Location = new System.Drawing.Point(599, 558);
+            this.btnShariaWhite.Location = new System.Drawing.Point(799, 687);
+            this.btnShariaWhite.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnShariaWhite.Name = "btnShariaWhite";
-            this.btnShariaWhite.Size = new System.Drawing.Size(141, 47);
+            this.btnShariaWhite.Size = new System.Drawing.Size(188, 58);
             this.btnShariaWhite.TabIndex = 156;
             this.btnShariaWhite.Text = "اضافة الى القائمة البيضاء";
             this.btnShariaWhite.UseVisualStyleBackColor = false;
@@ -662,9 +686,10 @@
             this.btnBlackListSharia.BackColor = System.Drawing.Color.Transparent;
             this.btnBlackListSharia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBlackListSharia.ForeColor = System.Drawing.Color.Crimson;
-            this.btnBlackListSharia.Location = new System.Drawing.Point(781, 558);
+            this.btnBlackListSharia.Location = new System.Drawing.Point(1041, 687);
+            this.btnBlackListSharia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBlackListSharia.Name = "btnBlackListSharia";
-            this.btnBlackListSharia.Size = new System.Drawing.Size(141, 47);
+            this.btnBlackListSharia.Size = new System.Drawing.Size(188, 58);
             this.btnBlackListSharia.TabIndex = 155;
             this.btnBlackListSharia.Text = "اضافة الى القائمة السوداء";
             this.btnBlackListSharia.UseVisualStyleBackColor = false;
@@ -675,9 +700,10 @@
             this.btnResetShariaCases.BackColor = System.Drawing.Color.Transparent;
             this.btnResetShariaCases.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResetShariaCases.ForeColor = System.Drawing.Color.Crimson;
-            this.btnResetShariaCases.Location = new System.Drawing.Point(987, 436);
+            this.btnResetShariaCases.Location = new System.Drawing.Point(1316, 537);
+            this.btnResetShariaCases.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnResetShariaCases.Name = "btnResetShariaCases";
-            this.btnResetShariaCases.Size = new System.Drawing.Size(64, 28);
+            this.btnResetShariaCases.Size = new System.Drawing.Size(85, 34);
             this.btnResetShariaCases.TabIndex = 154;
             this.btnResetShariaCases.Text = "اعادة";
             this.btnResetShariaCases.UseVisualStyleBackColor = false;
@@ -687,10 +713,10 @@
             // 
             this.lbShariaCasesRecord.AutoSize = true;
             this.lbShariaCasesRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbShariaCasesRecord.Location = new System.Drawing.Point(943, 486);
-            this.lbShariaCasesRecord.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbShariaCasesRecord.Location = new System.Drawing.Point(1257, 598);
+            this.lbShariaCasesRecord.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbShariaCasesRecord.Name = "lbShariaCasesRecord";
-            this.lbShariaCasesRecord.Size = new System.Drawing.Size(19, 20);
+            this.lbShariaCasesRecord.Size = new System.Drawing.Size(24, 25);
             this.lbShariaCasesRecord.TabIndex = 153;
             this.lbShariaCasesRecord.Text = "0";
             // 
@@ -698,10 +724,10 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(970, 486);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(1293, 598);
+            this.label9.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(85, 20);
+            this.label9.Size = new System.Drawing.Size(105, 25);
             this.label9.TabIndex = 152;
             this.label9.Text = "عدد القضايا:";
             // 
@@ -709,10 +735,11 @@
             // 
             this.ctbShariaLicenseNumber.InputType = myControlLibrary.myCustomControlTextBox.InputTypeEnum.NumberInput;
             this.ctbShariaLicenseNumber.IsRequired = true;
-            this.ctbShariaLicenseNumber.Location = new System.Drawing.Point(410, 94);
+            this.ctbShariaLicenseNumber.Location = new System.Drawing.Point(547, 116);
+            this.ctbShariaLicenseNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ctbShariaLicenseNumber.MaxLength = 30;
             this.ctbShariaLicenseNumber.Name = "ctbShariaLicenseNumber";
-            this.ctbShariaLicenseNumber.Size = new System.Drawing.Size(512, 20);
+            this.ctbShariaLicenseNumber.Size = new System.Drawing.Size(681, 22);
             this.ctbShariaLicenseNumber.TabIndex = 151;
             this.ctbShariaLicenseNumber.Validating += new System.ComponentModel.CancelEventHandler(this.ctbShariaLicenseNumber_Validating);
             // 
@@ -724,9 +751,10 @@
             this.clbShariaCasesTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clbShariaCasesTypes.ForeColor = System.Drawing.Color.Crimson;
             this.clbShariaCasesTypes.FormattingEnabled = true;
-            this.clbShariaCasesTypes.Location = new System.Drawing.Point(409, 141);
+            this.clbShariaCasesTypes.Location = new System.Drawing.Point(545, 174);
+            this.clbShariaCasesTypes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clbShariaCasesTypes.Name = "clbShariaCasesTypes";
-            this.clbShariaCasesTypes.Size = new System.Drawing.Size(513, 365);
+            this.clbShariaCasesTypes.Size = new System.Drawing.Size(683, 436);
             this.clbShariaCasesTypes.TabIndex = 149;
             this.clbShariaCasesTypes.SelectedIndexChanged += new System.EventHandler(this.clbShariaCasesTypes_SelectedIndexChanged);
             this.clbShariaCasesTypes.Validating += new System.ComponentModel.CancelEventHandler(this.clbShariaCasesTypes_Validating);
@@ -737,9 +765,10 @@
             this.chkShariaIsActive.Checked = true;
             this.chkShariaIsActive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkShariaIsActive.ForeColor = System.Drawing.Color.Crimson;
-            this.chkShariaIsActive.Location = new System.Drawing.Point(874, 516);
+            this.chkShariaIsActive.Location = new System.Drawing.Point(1165, 635);
+            this.chkShariaIsActive.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkShariaIsActive.Name = "chkShariaIsActive";
-            this.chkShariaIsActive.Size = new System.Drawing.Size(49, 17);
+            this.chkShariaIsActive.Size = new System.Drawing.Size(53, 20);
             this.chkShariaIsActive.TabIndex = 150;
             this.chkShariaIsActive.Text = "فعال";
             this.chkShariaIsActive.UseVisualStyleBackColor = true;
@@ -749,19 +778,20 @@
             this.lblShariaID.AutoSize = true;
             this.lblShariaID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShariaID.ForeColor = System.Drawing.Color.Crimson;
-            this.lblShariaID.Location = new System.Drawing.Point(887, 37);
-            this.lblShariaID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblShariaID.Location = new System.Drawing.Point(1183, 46);
+            this.lblShariaID.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblShariaID.Name = "lblShariaID";
-            this.lblShariaID.Size = new System.Drawing.Size(39, 20);
+            this.lblShariaID.Size = new System.Drawing.Size(48, 25);
             this.lblShariaID.TabIndex = 138;
             this.lblShariaID.Text = "???";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::AADL.Properties.Resources.List_32;
-            this.pictureBox1.Location = new System.Drawing.Point(1006, 141);
+            this.pictureBox1.Location = new System.Drawing.Point(1341, 174);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox1.Size = new System.Drawing.Size(41, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 137;
             this.pictureBox1.TabStop = false;
@@ -770,10 +800,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1116, 37);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(1488, 46);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 20);
+            this.label3.Size = new System.Drawing.Size(121, 25);
             this.label3.TabIndex = 135;
             this.label3.Text = "الرقم التعريفي:";
             // 
@@ -782,10 +812,10 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Crimson;
-            this.label5.Location = new System.Drawing.Point(1077, 94);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(1436, 116);
+            this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(138, 20);
+            this.label5.Size = new System.Drawing.Size(169, 25);
             this.label5.TabIndex = 132;
             this.label5.Text = "رقم الاجازة الشرعية:";
             // 
@@ -793,19 +823,20 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1118, 141);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(1491, 174);
+            this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 20);
+            this.label6.Size = new System.Drawing.Size(114, 25);
             this.label6.TabIndex = 133;
             this.label6.Text = "انواع القضايا:";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::AADL.Properties.Resources.PersonDetails_32;
-            this.pictureBox3.Location = new System.Drawing.Point(1006, 37);
+            this.pictureBox3.Location = new System.Drawing.Point(1341, 46);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox3.Size = new System.Drawing.Size(41, 32);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 136;
             this.pictureBox3.TabStop = false;
@@ -813,9 +844,10 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::AADL.Properties.Resources.Number_32;
-            this.pictureBox5.Location = new System.Drawing.Point(1006, 94);
+            this.pictureBox5.Location = new System.Drawing.Point(1341, 116);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox5.Size = new System.Drawing.Size(41, 32);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 134;
             this.pictureBox5.TabStop = false;
@@ -836,10 +868,11 @@
             this.tpJudgerInfo.Controls.Add(this.label12);
             this.tpJudgerInfo.Controls.Add(this.label14);
             this.tpJudgerInfo.Controls.Add(this.pictureBox7);
-            this.tpJudgerInfo.Location = new System.Drawing.Point(4, 22);
+            this.tpJudgerInfo.Location = new System.Drawing.Point(4, 25);
+            this.tpJudgerInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpJudgerInfo.Name = "tpJudgerInfo";
-            this.tpJudgerInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tpJudgerInfo.Size = new System.Drawing.Size(1236, 744);
+            this.tpJudgerInfo.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tpJudgerInfo.Size = new System.Drawing.Size(1651, 919);
             this.tpJudgerInfo.TabIndex = 3;
             this.tpJudgerInfo.Text = "محكم";
             this.tpJudgerInfo.UseVisualStyleBackColor = true;
@@ -850,9 +883,11 @@
             this.groupBox2.Controls.Add(this.rbtnJudgerSpecial);
             this.groupBox2.Controls.Add(this.rbtnJudgerMedium);
             this.groupBox2.Controls.Add(this.rbtnJudgerFree);
-            this.groupBox2.Location = new System.Drawing.Point(73, 41);
+            this.groupBox2.Location = new System.Drawing.Point(97, 50);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 173);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(267, 213);
             this.groupBox2.TabIndex = 175;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "نوع الاشتراك";
@@ -861,9 +896,11 @@
             // 
             this.groupBox3.Controls.Add(this.rbtnJScholarship);
             this.groupBox3.Controls.Add(this.rbtnJSpecialSupport);
-            this.groupBox3.Location = new System.Drawing.Point(6, 104);
+            this.groupBox3.Location = new System.Drawing.Point(8, 128);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(188, 60);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(251, 74);
             this.groupBox3.TabIndex = 135;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "طريقة الاشتراك";
@@ -871,9 +908,10 @@
             // rbtnJScholarship
             // 
             this.rbtnJScholarship.AutoSize = true;
-            this.rbtnJScholarship.Location = new System.Drawing.Point(6, 37);
+            this.rbtnJScholarship.Location = new System.Drawing.Point(8, 46);
+            this.rbtnJScholarship.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnJScholarship.Name = "rbtnJScholarship";
-            this.rbtnJScholarship.Size = new System.Drawing.Size(46, 17);
+            this.rbtnJScholarship.Size = new System.Drawing.Size(51, 20);
             this.rbtnJScholarship.TabIndex = 2;
             this.rbtnJScholarship.Tag = "2";
             this.rbtnJScholarship.Text = "منحة";
@@ -883,9 +921,10 @@
             // rbtnJSpecialSupport
             // 
             this.rbtnJSpecialSupport.AutoSize = true;
-            this.rbtnJSpecialSupport.Location = new System.Drawing.Point(115, 37);
+            this.rbtnJSpecialSupport.Location = new System.Drawing.Point(153, 46);
+            this.rbtnJSpecialSupport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnJSpecialSupport.Name = "rbtnJSpecialSupport";
-            this.rbtnJSpecialSupport.Size = new System.Drawing.Size(67, 17);
+            this.rbtnJSpecialSupport.Size = new System.Drawing.Size(76, 20);
             this.rbtnJSpecialSupport.TabIndex = 3;
             this.rbtnJSpecialSupport.Tag = "1";
             this.rbtnJSpecialSupport.Text = "دعم خاص";
@@ -895,9 +934,10 @@
             // rbtnJudgerSpecial
             // 
             this.rbtnJudgerSpecial.AutoSize = true;
-            this.rbtnJudgerSpecial.Location = new System.Drawing.Point(6, 29);
+            this.rbtnJudgerSpecial.Location = new System.Drawing.Point(8, 36);
+            this.rbtnJudgerSpecial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnJudgerSpecial.Name = "rbtnJudgerSpecial";
-            this.rbtnJudgerSpecial.Size = new System.Drawing.Size(44, 17);
+            this.rbtnJudgerSpecial.Size = new System.Drawing.Size(50, 20);
             this.rbtnJudgerSpecial.TabIndex = 2;
             this.rbtnJudgerSpecial.Tag = "3";
             this.rbtnJudgerSpecial.Text = "مميز";
@@ -907,9 +947,10 @@
             // rbtnJudgerMedium
             // 
             this.rbtnJudgerMedium.AutoSize = true;
-            this.rbtnJudgerMedium.Location = new System.Drawing.Point(139, 77);
+            this.rbtnJudgerMedium.Location = new System.Drawing.Point(185, 95);
+            this.rbtnJudgerMedium.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnJudgerMedium.Name = "rbtnJudgerMedium";
-            this.rbtnJudgerMedium.Size = new System.Drawing.Size(56, 17);
+            this.rbtnJudgerMedium.Size = new System.Drawing.Size(60, 20);
             this.rbtnJudgerMedium.TabIndex = 1;
             this.rbtnJudgerMedium.Tag = "2";
             this.rbtnJudgerMedium.Text = "متوسط";
@@ -919,9 +960,10 @@
             // rbtnJudgerFree
             // 
             this.rbtnJudgerFree.AutoSize = true;
-            this.rbtnJudgerFree.Location = new System.Drawing.Point(139, 29);
+            this.rbtnJudgerFree.Location = new System.Drawing.Point(185, 36);
+            this.rbtnJudgerFree.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnJudgerFree.Name = "rbtnJudgerFree";
-            this.rbtnJudgerFree.Size = new System.Drawing.Size(55, 17);
+            this.rbtnJudgerFree.Size = new System.Drawing.Size(61, 20);
             this.rbtnJudgerFree.TabIndex = 0;
             this.rbtnJudgerFree.Tag = "1";
             this.rbtnJudgerFree.Text = "مجاني";
@@ -933,9 +975,10 @@
             this.btnJudgerClosedList.BackColor = System.Drawing.Color.Transparent;
             this.btnJudgerClosedList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnJudgerClosedList.ForeColor = System.Drawing.Color.LightGreen;
-            this.btnJudgerClosedList.Location = new System.Drawing.Point(400, 515);
+            this.btnJudgerClosedList.Location = new System.Drawing.Point(533, 634);
+            this.btnJudgerClosedList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnJudgerClosedList.Name = "btnJudgerClosedList";
-            this.btnJudgerClosedList.Size = new System.Drawing.Size(141, 47);
+            this.btnJudgerClosedList.Size = new System.Drawing.Size(188, 58);
             this.btnJudgerClosedList.TabIndex = 174;
             this.btnJudgerClosedList.Text = "اضافة الى القائمة المغلقة";
             this.btnJudgerClosedList.UseVisualStyleBackColor = false;
@@ -946,9 +989,10 @@
             this.btnJudgerWhite.BackColor = System.Drawing.Color.Transparent;
             this.btnJudgerWhite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnJudgerWhite.ForeColor = System.Drawing.Color.LightGreen;
-            this.btnJudgerWhite.Location = new System.Drawing.Point(590, 515);
+            this.btnJudgerWhite.Location = new System.Drawing.Point(787, 634);
+            this.btnJudgerWhite.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnJudgerWhite.Name = "btnJudgerWhite";
-            this.btnJudgerWhite.Size = new System.Drawing.Size(141, 47);
+            this.btnJudgerWhite.Size = new System.Drawing.Size(188, 58);
             this.btnJudgerWhite.TabIndex = 173;
             this.btnJudgerWhite.Text = "اضافة الى القائمة البيضاء";
             this.btnJudgerWhite.UseVisualStyleBackColor = false;
@@ -959,9 +1003,10 @@
             this.btnBlackListJudger.BackColor = System.Drawing.Color.Transparent;
             this.btnBlackListJudger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBlackListJudger.ForeColor = System.Drawing.Color.LightGreen;
-            this.btnBlackListJudger.Location = new System.Drawing.Point(772, 515);
+            this.btnBlackListJudger.Location = new System.Drawing.Point(1029, 634);
+            this.btnBlackListJudger.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBlackListJudger.Name = "btnBlackListJudger";
-            this.btnBlackListJudger.Size = new System.Drawing.Size(141, 47);
+            this.btnBlackListJudger.Size = new System.Drawing.Size(188, 58);
             this.btnBlackListJudger.TabIndex = 172;
             this.btnBlackListJudger.Text = "اضافة الى القائمة السوداء";
             this.btnBlackListJudger.UseVisualStyleBackColor = false;
@@ -972,9 +1017,10 @@
             this.btnResetJudgerCases.BackColor = System.Drawing.Color.Transparent;
             this.btnResetJudgerCases.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResetJudgerCases.ForeColor = System.Drawing.Color.LightGreen;
-            this.btnResetJudgerCases.Location = new System.Drawing.Point(978, 440);
+            this.btnResetJudgerCases.Location = new System.Drawing.Point(1304, 542);
+            this.btnResetJudgerCases.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnResetJudgerCases.Name = "btnResetJudgerCases";
-            this.btnResetJudgerCases.Size = new System.Drawing.Size(64, 28);
+            this.btnResetJudgerCases.Size = new System.Drawing.Size(85, 34);
             this.btnResetJudgerCases.TabIndex = 171;
             this.btnResetJudgerCases.Text = "اعادة";
             this.btnResetJudgerCases.UseVisualStyleBackColor = false;
@@ -983,10 +1029,10 @@
             // 
             this.lbJudgerCasesRecord.AutoSize = true;
             this.lbJudgerCasesRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbJudgerCasesRecord.Location = new System.Drawing.Point(934, 490);
-            this.lbJudgerCasesRecord.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbJudgerCasesRecord.Location = new System.Drawing.Point(1245, 603);
+            this.lbJudgerCasesRecord.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbJudgerCasesRecord.Name = "lbJudgerCasesRecord";
-            this.lbJudgerCasesRecord.Size = new System.Drawing.Size(19, 20);
+            this.lbJudgerCasesRecord.Size = new System.Drawing.Size(24, 25);
             this.lbJudgerCasesRecord.TabIndex = 170;
             this.lbJudgerCasesRecord.Text = "0";
             // 
@@ -994,10 +1040,10 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(961, 490);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(1281, 603);
+            this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 20);
+            this.label8.Size = new System.Drawing.Size(105, 25);
             this.label8.TabIndex = 169;
             this.label8.Text = "عدد القضايا:";
             // 
@@ -1009,9 +1055,10 @@
             this.clbJudgerCasesTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clbJudgerCasesTypes.ForeColor = System.Drawing.Color.LimeGreen;
             this.clbJudgerCasesTypes.FormattingEnabled = true;
-            this.clbJudgerCasesTypes.Location = new System.Drawing.Point(401, 103);
+            this.clbJudgerCasesTypes.Location = new System.Drawing.Point(535, 127);
+            this.clbJudgerCasesTypes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clbJudgerCasesTypes.Name = "clbJudgerCasesTypes";
-            this.clbJudgerCasesTypes.Size = new System.Drawing.Size(513, 365);
+            this.clbJudgerCasesTypes.Size = new System.Drawing.Size(683, 436);
             this.clbJudgerCasesTypes.TabIndex = 166;
             this.clbJudgerCasesTypes.SelectedIndexChanged += new System.EventHandler(this.clbJudgerCasesTypes_SelectedIndexChanged);
             this.clbJudgerCasesTypes.Validating += new System.ComponentModel.CancelEventHandler(this.clbJudgerCasesTypes_Validating);
@@ -1022,9 +1069,10 @@
             this.chkJudgerIsActive.Checked = true;
             this.chkJudgerIsActive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkJudgerIsActive.ForeColor = System.Drawing.Color.LightGreen;
-            this.chkJudgerIsActive.Location = new System.Drawing.Point(864, 474);
+            this.chkJudgerIsActive.Location = new System.Drawing.Point(1152, 583);
+            this.chkJudgerIsActive.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkJudgerIsActive.Name = "chkJudgerIsActive";
-            this.chkJudgerIsActive.Size = new System.Drawing.Size(49, 17);
+            this.chkJudgerIsActive.Size = new System.Drawing.Size(53, 20);
             this.chkJudgerIsActive.TabIndex = 167;
             this.chkJudgerIsActive.Text = "فعال";
             this.chkJudgerIsActive.UseVisualStyleBackColor = true;
@@ -1034,19 +1082,20 @@
             this.lblJudgerID.AutoSize = true;
             this.lblJudgerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJudgerID.ForeColor = System.Drawing.Color.LightGreen;
-            this.lblJudgerID.Location = new System.Drawing.Point(878, 41);
-            this.lblJudgerID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblJudgerID.Location = new System.Drawing.Point(1171, 50);
+            this.lblJudgerID.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblJudgerID.Name = "lblJudgerID";
-            this.lblJudgerID.Size = new System.Drawing.Size(39, 20);
+            this.lblJudgerID.Size = new System.Drawing.Size(48, 25);
             this.lblJudgerID.TabIndex = 165;
             this.lblJudgerID.Text = "???";
             // 
             // pictureBox6
             // 
             this.pictureBox6.Image = global::AADL.Properties.Resources.List_32;
-            this.pictureBox6.Location = new System.Drawing.Point(997, 103);
+            this.pictureBox6.Location = new System.Drawing.Point(1329, 127);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox6.Size = new System.Drawing.Size(41, 32);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 164;
             this.pictureBox6.TabStop = false;
@@ -1055,10 +1104,10 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(1116, 37);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(1488, 46);
+            this.label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(99, 20);
+            this.label12.Size = new System.Drawing.Size(121, 25);
             this.label12.TabIndex = 162;
             this.label12.Text = "الرقم التعريفي:";
             // 
@@ -1066,19 +1115,20 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(1116, 103);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Location = new System.Drawing.Point(1488, 127);
+            this.label14.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(97, 20);
+            this.label14.Size = new System.Drawing.Size(114, 25);
             this.label14.TabIndex = 160;
             this.label14.Text = "انواع القضايا:";
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::AADL.Properties.Resources.PersonDetails_32;
-            this.pictureBox7.Location = new System.Drawing.Point(997, 41);
+            this.pictureBox7.Location = new System.Drawing.Point(1329, 50);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox7.Size = new System.Drawing.Size(41, 32);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 163;
             this.pictureBox7.TabStop = false;
@@ -1099,10 +1149,11 @@
             this.tpExpertInfo.Controls.Add(this.label15);
             this.tpExpertInfo.Controls.Add(this.label16);
             this.tpExpertInfo.Controls.Add(this.pictureBox10);
-            this.tpExpertInfo.Location = new System.Drawing.Point(4, 22);
+            this.tpExpertInfo.Location = new System.Drawing.Point(4, 25);
+            this.tpExpertInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpExpertInfo.Name = "tpExpertInfo";
-            this.tpExpertInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tpExpertInfo.Size = new System.Drawing.Size(1236, 744);
+            this.tpExpertInfo.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tpExpertInfo.Size = new System.Drawing.Size(1651, 919);
             this.tpExpertInfo.TabIndex = 4;
             this.tpExpertInfo.Text = "خبير";
             this.tpExpertInfo.UseVisualStyleBackColor = true;
@@ -1113,9 +1164,11 @@
             this.groupBox4.Controls.Add(this.rbtnExpertSpecial);
             this.groupBox4.Controls.Add(this.rbtnExpertMedium);
             this.groupBox4.Controls.Add(this.rbtnExpertFree);
-            this.groupBox4.Location = new System.Drawing.Point(68, 37);
+            this.groupBox4.Location = new System.Drawing.Point(91, 46);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 173);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Size = new System.Drawing.Size(267, 213);
             this.groupBox4.TabIndex = 189;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "نوع الاشتراك";
@@ -1124,9 +1177,11 @@
             // 
             this.groupBox5.Controls.Add(this.rbtnEScholarship);
             this.groupBox5.Controls.Add(this.rbtnESpecialSupport);
-            this.groupBox5.Location = new System.Drawing.Point(6, 104);
+            this.groupBox5.Location = new System.Drawing.Point(8, 128);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(188, 60);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Size = new System.Drawing.Size(251, 74);
             this.groupBox5.TabIndex = 135;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "طريقة الاشتراك";
@@ -1134,9 +1189,10 @@
             // rbtnEScholarship
             // 
             this.rbtnEScholarship.AutoSize = true;
-            this.rbtnEScholarship.Location = new System.Drawing.Point(6, 37);
+            this.rbtnEScholarship.Location = new System.Drawing.Point(8, 46);
+            this.rbtnEScholarship.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnEScholarship.Name = "rbtnEScholarship";
-            this.rbtnEScholarship.Size = new System.Drawing.Size(46, 17);
+            this.rbtnEScholarship.Size = new System.Drawing.Size(51, 20);
             this.rbtnEScholarship.TabIndex = 2;
             this.rbtnEScholarship.Tag = "2";
             this.rbtnEScholarship.Text = "منحة";
@@ -1146,9 +1202,10 @@
             // rbtnESpecialSupport
             // 
             this.rbtnESpecialSupport.AutoSize = true;
-            this.rbtnESpecialSupport.Location = new System.Drawing.Point(115, 37);
+            this.rbtnESpecialSupport.Location = new System.Drawing.Point(153, 46);
+            this.rbtnESpecialSupport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnESpecialSupport.Name = "rbtnESpecialSupport";
-            this.rbtnESpecialSupport.Size = new System.Drawing.Size(67, 17);
+            this.rbtnESpecialSupport.Size = new System.Drawing.Size(76, 20);
             this.rbtnESpecialSupport.TabIndex = 3;
             this.rbtnESpecialSupport.Tag = "1";
             this.rbtnESpecialSupport.Text = "دعم خاص";
@@ -1158,9 +1215,10 @@
             // rbtnExpertSpecial
             // 
             this.rbtnExpertSpecial.AutoSize = true;
-            this.rbtnExpertSpecial.Location = new System.Drawing.Point(6, 29);
+            this.rbtnExpertSpecial.Location = new System.Drawing.Point(8, 36);
+            this.rbtnExpertSpecial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnExpertSpecial.Name = "rbtnExpertSpecial";
-            this.rbtnExpertSpecial.Size = new System.Drawing.Size(44, 17);
+            this.rbtnExpertSpecial.Size = new System.Drawing.Size(50, 20);
             this.rbtnExpertSpecial.TabIndex = 2;
             this.rbtnExpertSpecial.Tag = "3";
             this.rbtnExpertSpecial.Text = "مميز";
@@ -1170,9 +1228,10 @@
             // rbtnExpertMedium
             // 
             this.rbtnExpertMedium.AutoSize = true;
-            this.rbtnExpertMedium.Location = new System.Drawing.Point(139, 77);
+            this.rbtnExpertMedium.Location = new System.Drawing.Point(185, 95);
+            this.rbtnExpertMedium.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnExpertMedium.Name = "rbtnExpertMedium";
-            this.rbtnExpertMedium.Size = new System.Drawing.Size(56, 17);
+            this.rbtnExpertMedium.Size = new System.Drawing.Size(60, 20);
             this.rbtnExpertMedium.TabIndex = 1;
             this.rbtnExpertMedium.Tag = "2";
             this.rbtnExpertMedium.Text = "متوسط";
@@ -1182,9 +1241,10 @@
             // rbtnExpertFree
             // 
             this.rbtnExpertFree.AutoSize = true;
-            this.rbtnExpertFree.Location = new System.Drawing.Point(139, 29);
+            this.rbtnExpertFree.Location = new System.Drawing.Point(185, 36);
+            this.rbtnExpertFree.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rbtnExpertFree.Name = "rbtnExpertFree";
-            this.rbtnExpertFree.Size = new System.Drawing.Size(55, 17);
+            this.rbtnExpertFree.Size = new System.Drawing.Size(61, 20);
             this.rbtnExpertFree.TabIndex = 0;
             this.rbtnExpertFree.Tag = "1";
             this.rbtnExpertFree.Text = "مجاني";
@@ -1196,9 +1256,10 @@
             this.btnExpertClosedList.BackColor = System.Drawing.Color.Transparent;
             this.btnExpertClosedList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExpertClosedList.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnExpertClosedList.Location = new System.Drawing.Point(400, 523);
+            this.btnExpertClosedList.Location = new System.Drawing.Point(533, 644);
+            this.btnExpertClosedList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExpertClosedList.Name = "btnExpertClosedList";
-            this.btnExpertClosedList.Size = new System.Drawing.Size(141, 47);
+            this.btnExpertClosedList.Size = new System.Drawing.Size(188, 58);
             this.btnExpertClosedList.TabIndex = 188;
             this.btnExpertClosedList.Text = "اضافة الى القائمة المغلقة";
             this.btnExpertClosedList.UseVisualStyleBackColor = false;
@@ -1209,9 +1270,10 @@
             this.btnExpertWhite.BackColor = System.Drawing.Color.Transparent;
             this.btnExpertWhite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExpertWhite.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnExpertWhite.Location = new System.Drawing.Point(590, 523);
+            this.btnExpertWhite.Location = new System.Drawing.Point(787, 644);
+            this.btnExpertWhite.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExpertWhite.Name = "btnExpertWhite";
-            this.btnExpertWhite.Size = new System.Drawing.Size(141, 47);
+            this.btnExpertWhite.Size = new System.Drawing.Size(188, 58);
             this.btnExpertWhite.TabIndex = 187;
             this.btnExpertWhite.Text = "اضافة الى القائمة البيضاء";
             this.btnExpertWhite.UseVisualStyleBackColor = false;
@@ -1222,9 +1284,10 @@
             this.btnBlackListExpert.BackColor = System.Drawing.Color.Transparent;
             this.btnBlackListExpert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBlackListExpert.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnBlackListExpert.Location = new System.Drawing.Point(772, 523);
+            this.btnBlackListExpert.Location = new System.Drawing.Point(1029, 644);
+            this.btnBlackListExpert.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBlackListExpert.Name = "btnBlackListExpert";
-            this.btnBlackListExpert.Size = new System.Drawing.Size(141, 47);
+            this.btnBlackListExpert.Size = new System.Drawing.Size(188, 58);
             this.btnBlackListExpert.TabIndex = 186;
             this.btnBlackListExpert.Text = "اضافة الى القائمة السوداء";
             this.btnBlackListExpert.UseVisualStyleBackColor = false;
@@ -1235,9 +1298,10 @@
             this.btnResetExpertCases.BackColor = System.Drawing.Color.Transparent;
             this.btnResetExpertCases.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResetExpertCases.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnResetExpertCases.Location = new System.Drawing.Point(978, 440);
+            this.btnResetExpertCases.Location = new System.Drawing.Point(1304, 542);
+            this.btnResetExpertCases.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnResetExpertCases.Name = "btnResetExpertCases";
-            this.btnResetExpertCases.Size = new System.Drawing.Size(64, 28);
+            this.btnResetExpertCases.Size = new System.Drawing.Size(85, 34);
             this.btnResetExpertCases.TabIndex = 185;
             this.btnResetExpertCases.Text = "اعادة";
             this.btnResetExpertCases.UseVisualStyleBackColor = false;
@@ -1246,10 +1310,10 @@
             // 
             this.lbExpertCasesRecord.AutoSize = true;
             this.lbExpertCasesRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbExpertCasesRecord.Location = new System.Drawing.Point(934, 490);
-            this.lbExpertCasesRecord.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbExpertCasesRecord.Location = new System.Drawing.Point(1245, 603);
+            this.lbExpertCasesRecord.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbExpertCasesRecord.Name = "lbExpertCasesRecord";
-            this.lbExpertCasesRecord.Size = new System.Drawing.Size(19, 20);
+            this.lbExpertCasesRecord.Size = new System.Drawing.Size(24, 25);
             this.lbExpertCasesRecord.TabIndex = 184;
             this.lbExpertCasesRecord.Text = "0";
             // 
@@ -1257,10 +1321,10 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(961, 490);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(1281, 603);
+            this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(85, 20);
+            this.label11.Size = new System.Drawing.Size(105, 25);
             this.label11.TabIndex = 183;
             this.label11.Text = "عدد القضايا:";
             // 
@@ -1272,9 +1336,10 @@
             this.clbExpertCasesTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clbExpertCasesTypes.ForeColor = System.Drawing.Color.DarkBlue;
             this.clbExpertCasesTypes.FormattingEnabled = true;
-            this.clbExpertCasesTypes.Location = new System.Drawing.Point(401, 103);
+            this.clbExpertCasesTypes.Location = new System.Drawing.Point(535, 127);
+            this.clbExpertCasesTypes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clbExpertCasesTypes.Name = "clbExpertCasesTypes";
-            this.clbExpertCasesTypes.Size = new System.Drawing.Size(513, 365);
+            this.clbExpertCasesTypes.Size = new System.Drawing.Size(683, 436);
             this.clbExpertCasesTypes.TabIndex = 181;
             this.clbExpertCasesTypes.SelectedIndexChanged += new System.EventHandler(this.clbExpertCasesTypes_SelectedIndexChanged);
             this.clbExpertCasesTypes.Validating += new System.ComponentModel.CancelEventHandler(this.clbExpertCasesTypes_Validating);
@@ -1285,9 +1350,10 @@
             this.chkExpertIsActive.Checked = true;
             this.chkExpertIsActive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkExpertIsActive.ForeColor = System.Drawing.Color.DarkBlue;
-            this.chkExpertIsActive.Location = new System.Drawing.Point(865, 474);
+            this.chkExpertIsActive.Location = new System.Drawing.Point(1153, 583);
+            this.chkExpertIsActive.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkExpertIsActive.Name = "chkExpertIsActive";
-            this.chkExpertIsActive.Size = new System.Drawing.Size(49, 17);
+            this.chkExpertIsActive.Size = new System.Drawing.Size(53, 20);
             this.chkExpertIsActive.TabIndex = 182;
             this.chkExpertIsActive.Text = "فعال";
             this.chkExpertIsActive.UseVisualStyleBackColor = true;
@@ -1297,19 +1363,20 @@
             this.lblExpertID.AutoSize = true;
             this.lblExpertID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblExpertID.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblExpertID.Location = new System.Drawing.Point(878, 41);
-            this.lblExpertID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblExpertID.Location = new System.Drawing.Point(1171, 50);
+            this.lblExpertID.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblExpertID.Name = "lblExpertID";
-            this.lblExpertID.Size = new System.Drawing.Size(39, 20);
+            this.lblExpertID.Size = new System.Drawing.Size(48, 25);
             this.lblExpertID.TabIndex = 180;
             this.lblExpertID.Text = "???";
             // 
             // pictureBox9
             // 
             this.pictureBox9.Image = global::AADL.Properties.Resources.List_32;
-            this.pictureBox9.Location = new System.Drawing.Point(997, 99);
+            this.pictureBox9.Location = new System.Drawing.Point(1329, 122);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox9.Size = new System.Drawing.Size(41, 32);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox9.TabIndex = 179;
             this.pictureBox9.TabStop = false;
@@ -1318,10 +1385,10 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(1116, 37);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Location = new System.Drawing.Point(1488, 46);
+            this.label15.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(99, 20);
+            this.label15.Size = new System.Drawing.Size(121, 25);
             this.label15.TabIndex = 177;
             this.label15.Text = "الرقم التعريفي:";
             // 
@@ -1329,19 +1396,20 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(1118, 99);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Location = new System.Drawing.Point(1491, 122);
+            this.label16.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(97, 20);
+            this.label16.Size = new System.Drawing.Size(114, 25);
             this.label16.TabIndex = 176;
             this.label16.Text = "انواع القضايا:";
             // 
             // pictureBox10
             // 
             this.pictureBox10.Image = global::AADL.Properties.Resources.PersonDetails_32;
-            this.pictureBox10.Location = new System.Drawing.Point(997, 41);
+            this.pictureBox10.Location = new System.Drawing.Point(1329, 50);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox10.Size = new System.Drawing.Size(41, 32);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox10.TabIndex = 178;
             this.pictureBox10.TabStop = false;
@@ -1350,9 +1418,10 @@
             // 
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTitle.Location = new System.Drawing.Point(-1, 9);
+            this.lblTitle.Location = new System.Drawing.Point(-1, 11);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(1385, 39);
+            this.lblTitle.Size = new System.Drawing.Size(1847, 48);
             this.lblTitle.TabIndex = 119;
             this.lblTitle.Text = "تعديل الطلب";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1363,9 +1432,10 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::AADL.Properties.Resources.Close_32;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClose.Location = new System.Drawing.Point(551, 967);
+            this.btnClose.Location = new System.Drawing.Point(735, 1190);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(135, 34);
+            this.btnClose.Size = new System.Drawing.Size(180, 42);
             this.btnClose.TabIndex = 120;
             this.btnClose.Text = "اغلاق";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1378,10 +1448,10 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSave.Image = global::AADL.Properties.Resources.Save_32;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSave.Location = new System.Drawing.Point(716, 967);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSave.Location = new System.Drawing.Point(955, 1190);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(135, 34);
+            this.btnSave.Size = new System.Drawing.Size(180, 42);
             this.btnSave.TabIndex = 121;
             this.btnSave.Text = "حفظ";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1398,9 +1468,11 @@
             this.gbAdditionType.Controls.Add(this.cbAddExpert);
             this.gbAdditionType.Controls.Add(this.cbAddJudger);
             this.gbAdditionType.Controls.Add(this.cbAddRegulator);
-            this.gbAdditionType.Location = new System.Drawing.Point(78, 78);
+            this.gbAdditionType.Location = new System.Drawing.Point(104, 96);
+            this.gbAdditionType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbAdditionType.Name = "gbAdditionType";
-            this.gbAdditionType.Size = new System.Drawing.Size(200, 100);
+            this.gbAdditionType.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbAdditionType.Size = new System.Drawing.Size(267, 123);
             this.gbAdditionType.TabIndex = 122;
             this.gbAdditionType.TabStop = false;
             this.gbAdditionType.Text = "نوع الاضافة او التعديل";
@@ -1408,9 +1480,10 @@
             // cbAddSharia
             // 
             this.cbAddSharia.AutoSize = true;
-            this.cbAddSharia.Location = new System.Drawing.Point(134, 72);
+            this.cbAddSharia.Location = new System.Drawing.Point(179, 89);
+            this.cbAddSharia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbAddSharia.Name = "cbAddSharia";
-            this.cbAddSharia.Size = new System.Drawing.Size(60, 17);
+            this.cbAddSharia.Size = new System.Drawing.Size(64, 20);
             this.cbAddSharia.TabIndex = 3;
             this.cbAddSharia.Tag = "2";
             this.cbAddSharia.Text = " شرعي";
@@ -1420,9 +1493,10 @@
             // cbAddExpert
             // 
             this.cbAddExpert.AutoSize = true;
-            this.cbAddExpert.Location = new System.Drawing.Point(16, 72);
+            this.cbAddExpert.Location = new System.Drawing.Point(21, 89);
+            this.cbAddExpert.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbAddExpert.Name = "cbAddExpert";
-            this.cbAddExpert.Size = new System.Drawing.Size(46, 17);
+            this.cbAddExpert.Size = new System.Drawing.Size(51, 20);
             this.cbAddExpert.TabIndex = 2;
             this.cbAddExpert.Tag = "4";
             this.cbAddExpert.Text = "خبير";
@@ -1432,9 +1506,10 @@
             // cbAddJudger
             // 
             this.cbAddJudger.AutoSize = true;
-            this.cbAddJudger.Location = new System.Drawing.Point(16, 27);
+            this.cbAddJudger.Location = new System.Drawing.Point(21, 33);
+            this.cbAddJudger.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbAddJudger.Name = "cbAddJudger";
-            this.cbAddJudger.Size = new System.Drawing.Size(50, 17);
+            this.cbAddJudger.Size = new System.Drawing.Size(56, 20);
             this.cbAddJudger.TabIndex = 1;
             this.cbAddJudger.Tag = "3";
             this.cbAddJudger.Text = "محكم";
@@ -1444,27 +1519,41 @@
             // cbAddRegulator
             // 
             this.cbAddRegulator.AutoSize = true;
-            this.cbAddRegulator.Location = new System.Drawing.Point(135, 27);
+            this.cbAddRegulator.Location = new System.Drawing.Point(180, 33);
+            this.cbAddRegulator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbAddRegulator.Name = "cbAddRegulator";
-            this.cbAddRegulator.Size = new System.Drawing.Size(59, 17);
+            this.cbAddRegulator.Size = new System.Drawing.Size(64, 20);
             this.cbAddRegulator.TabIndex = 0;
             this.cbAddRegulator.Tag = "1";
             this.cbAddRegulator.Text = " نظامي";
             this.cbAddRegulator.UseVisualStyleBackColor = true;
             this.cbAddRegulator.CheckedChanged += new System.EventHandler(this.cbAdd_CheckedChanged);
             // 
+            // ctrlPersonCardWithFilter1
+            // 
+            this.ctrlPersonCardWithFilter1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ctrlPersonCardWithFilter1.FilterEnabled = true;
+            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(217, 26);
+            this.ctrlPersonCardWithFilter1.Margin = new System.Windows.Forms.Padding(5);
+            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
+            this.ctrlPersonCardWithFilter1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ctrlPersonCardWithFilter1.ShowAddPerson = true;
+            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(1423, 892);
+            this.ctrlPersonCardWithFilter1.TabIndex = 120;
+            // 
             // frmAddUpdatePractitioner
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(1384, 1014);
+            this.ClientSize = new System.Drawing.Size(1845, 1055);
             this.Controls.Add(this.gbAdditionType);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.tcPractitionernfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmAddUpdatePractitioner";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ShowIcon = false;
